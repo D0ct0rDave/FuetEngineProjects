@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="FuetEngine" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../../lib/codeblocks_linux/Debug/libFuetEngine" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../../bin/codeblocks_linux/Debug/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-D_LINUX_" />
+					<Add option="-DLINUX" />
+					<Add directory="../../src" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="libFuetEngine" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="../../bin/Release/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="../../src/FEBasicTypes.h" />
+		<Unit filename="../../src/FEConsts.h" />
+		<Unit filename="../../src/FEEnums.h" />
+		<Unit filename="../../src/FuetEngine.h" />
+		<Unit filename="../../src/Graphics/Font/CFEFont.cpp" />
+		<Unit filename="../../src/Graphics/Font/CFEFont.h" />
+		<Unit filename="../../src/Graphics/Font/CFEFontLoader.cpp" />
+		<Unit filename="../../src/Graphics/Font/CFEFontLoader.h" />
+		<Unit filename="../../src/Graphics/Font/CFEFontMgr.cpp" />
+		<Unit filename="../../src/Graphics/Font/CFEFontMgr.h" />
+		<Unit filename="../../src/Graphics/Map/CFEMap.cpp" />
+		<Unit filename="../../src/Graphics/Map/CFEMap.h" />
+		<Unit filename="../../src/Graphics/ScreenUtils/CFEScreenFX.cpp" />
+		<Unit filename="../../src/Graphics/ScreenUtils/CFEScreenFX.h" />
+		<Unit filename="../../src/Graphics/ScreenUtils/CFEScreenUtils.cpp" />
+		<Unit filename="../../src/Graphics/ScreenUtils/CFEScreenUtils.h" />
+		<Unit filename="../../src/Graphics/Sprite/CFESprite.cpp" />
+		<Unit filename="../../src/Graphics/Sprite/CFESprite.h" />
+		<Unit filename="../../src/Graphics/Sprite/CFESpriteInstMgr.cpp" />
+		<Unit filename="../../src/Graphics/Sprite/CFESpriteInstMgr.h" />
+		<Unit filename="../../src/Graphics/Sprite/CFESpriteLoader.cpp" />
+		<Unit filename="../../src/Graphics/Sprite/CFESpriteLoader.h" />
+		<Unit filename="../../src/Graphics/Sprite/CFESpriteMgr.cpp" />
+		<Unit filename="../../src/Graphics/Sprite/CFESpriteMgr.h" />
+		<Unit filename="../../src/Graphics/Sprite/CFESpriteRenderer.cpp" />
+		<Unit filename="../../src/Graphics/Sprite/CFESpriteRenderer.h" />
+		<Unit filename="../../src/Support/Config/CFEConfigFile.cpp" />
+		<Unit filename="../../src/Support/Config/CFEConfigFile.h" />
+		<Unit filename="../../src/Support/File/CFEFile.cpp" />
+		<Unit filename="../../src/Support/File/CFEFile.h" />
+		<Unit filename="../../src/Support/Graphics/CFEMaterialMgr.cpp" />
+		<Unit filename="../../src/Support/Graphics/CFEMaterialMgr.h" />
+		<Unit filename="../../src/Support/Graphics/CFERenderer.cpp" />
+		<Unit filename="../../src/Support/Graphics/CFERenderer.h" />
+		<Unit filename="../../src/Support/Input/CFEInput.cpp" />
+		<Unit filename="../../src/Support/Input/CFEInput.h" />
+		<Unit filename="../../src/Support/Math/CFEMath.cpp" />
+		<Unit filename="../../src/Support/Math/CFEMath.h" />
+		<Unit filename="../../src/Support/Mem/CFEMem.cpp" />
+		<Unit filename="../../src/Support/Mem/CFEMem.h" />
+		<Unit filename="../../src/Support/Misc/CFELogger.cpp" />
+		<Unit filename="../../src/Support/Misc/CFELogger.h" />
+		<Unit filename="../../src/Support/Misc/CFEResourceMgr.h" />
+		<Unit filename="../../src/Support/Sound/CFESoundMgr.cpp" />
+		<Unit filename="../../src/Support/Sound/CFESoundMgr.h" />
+		<Unit filename="../../src/Support/Sound/CFESoundMixer.cpp" />
+		<Unit filename="../../src/Support/Sound/CFESoundMixer.h" />
+		<Unit filename="../../src/Support/Sound/CFESoundPlayer.cpp" />
+		<Unit filename="../../src/Support/Sound/CFESoundPlayer.h" />
+		<Unit filename="../../src/System/CFESystem.h" />
+		<Unit filename="../../src/System/CFESystemGlobals.h" />
+		<Unit filename="../../src/System/Common/CFESFreeImage.cpp" />
+		<Unit filename="../../src/System/Common/CFESImageLib.h" />
+		<Unit filename="../../src/System/Common/CFESLibConfig.cpp" />
+		<Unit filename="../../src/System/Common/CFESOpenAL.cpp" />
+		<Unit filename="../../src/System/Common/CFESOpenGL.cpp" />
+		<Unit filename="../../src/System/Common/CFESStdFileSys.cpp" />
+		<Unit filename="../../src/System/Common/CFESStdMath.cpp" />
+		<Unit filename="../../src/System/Common/CFESStdMem.cpp" />
+		<Unit filename="../../src/System/Common/CFESStdString.cpp" />
+		<Unit filename="../../src/System/FEConfig.h" />
+		<Unit filename="../../src/System/FEConfigOptions.h" />
+		<Unit filename="../../src/System/Linux/CFESGlobals.cpp" />
+		<Unit filename="../../src/System/Linux/CFESGlobals.h" />
+		<Unit filename="../../src/System/Linux/CFESLinux.cpp" />
+		<Unit filename="../../src/System/Linux/CFESLinuxInput.cpp" />
+		<Unit filename="../../src/System/Linux/CFESLinuxOpenGL.cpp" />
+		<Unit filename="../../src/System/Linux/FESConfig.h" />
+		<Unit filename="../../src/System/Linux/FESGlobals.h" />
+		<Unit filename="../../src/Types/CFEColor.h" />
+		<Unit filename="../../src/Types/CFEMatrix.h" />
+		<Unit filename="../../src/Types/CFERect.h" />
+		<Unit filename="../../src/Types/CFEString.cpp" />
+		<Unit filename="../../src/Types/CFEString.h" />
+		<Unit filename="../../src/Types/CFEVect2.h" />
+		<Unit filename="../../src/version.h" />
+		<Extensions>
+			<code_completion>
+				<search_path add="../../src" />
+			</code_completion>
+			<debugger />
+			<envvars />
+			<AutoVersioning>
+				<Scheme minor_max="10" build_max="0" rev_max="0" rev_rand_max="10" build_times_to_increment_minor="100" />
+				<Settings autoincrement="1" date_declarations="1" do_auto_increment="1" ask_to_increment="0" language="C++" svn="0" svn_directory="" header_path="../../src/version.h" />
+				<Changes_Log show_changes_editor="0" app_title="released version %M.%m.%b of %p" changeslog_path="ChangesLog.txt" />
+				<Code header_guard="VERSION_H" namespace="AutoVersion" prefix="" />
+			</AutoVersioning>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

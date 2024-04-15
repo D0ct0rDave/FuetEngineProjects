@@ -1,0 +1,870 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug_OpenGL|Win32">
+      <Configuration>Debug_OpenGL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DEV_Debug|Win32">
+      <Configuration>DEV_Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DEV_Release|Win32">
+      <Configuration>DEV_Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DS_PC_Debug|Win32">
+      <Configuration>DS_PC_Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PLAYTEST_Debug|Win32">
+      <Configuration>PLAYTEST_Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PLAYTEST_Release|Win32">
+      <Configuration>PLAYTEST_Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="WIN32_Debug|Win32">
+      <Configuration>WIN32_Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="WIN32_Release|Win32">
+      <Configuration>WIN32_Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7A8B217F-335A-4B11-8D17-F2F11E4A489E}</ProjectGuid>
+    <RootNamespace>FuetEngine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|Win32'">
+    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|Win32'">
+    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">
+    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">
+    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">
+    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|Win32'">
+    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">
+    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|Win32'">
+    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|Win32'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(CoderChildDev\)shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\include;$(FuetEngineProjectsDev)\shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\samples\Common;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\FreeAlut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEVELOPMENT;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|Win32'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(CoderChildDev\)shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\include;$(FuetEngineProjectsDev)\shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\samples\Common;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\FreeAlut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MASTER_RELEASE_VERSION;PLAYTEST;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/_analyze %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(CoderChildDev\)shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\include;$(FuetEngineProjectsDev)\shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\samples\Common;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\FreeAlut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEVELOPMENT;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <Xdcmake>
+      <OutputFile>$(OutDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command />
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/_analyze %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(CoderChildDev\)shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\include;$(FuetEngineProjectsDev)\shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\samples\Common;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\FreeAlut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PLAYTEST;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <Xdcmake>
+      <OutputFile>$(OutDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(CoderChildDev\)shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\include;$(FuetEngineProjectsDev)\shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\samples\Common;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\FreeAlut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEVELOPMENT;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;_MBCS;GRAPHICS=USE_OPENGL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <Xdcmake>
+      <OutputFile>$(OutDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|Win32'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(CoderChildDev\)shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\include;$(FuetEngineProjectsDev)\shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\samples\Common;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\FreeAlut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEVELOPMENT;DS_PC;REAL_CLASS;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;_MBCS;GRAPHICS=USE_OPENGL;CONFIG=USE_BINCONFIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <Xdcmake>
+      <OutputFile>$(OutDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/analyze %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(CoderChildDev\)shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\include;$(FuetEngineProjectsDev)\shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\samples\Common;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\FreeAlut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <Xdcmake>
+      <OutputFile>$(OutDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|Win32'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(CoderChildDev\)shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\include;$(FuetEngineProjectsDev)\shared\src\sdks\CTR_SDK\tools\PicaOnDesktop\samples\Common;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\FreeAlut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\core\Windows\CFECWindowsNativeAndDX.cpp" />
+    <ClCompile Include="..\..\src\CRealClass.cpp" />
+    <ClCompile Include="..\..\src\Core\Windows\CFECD3D.cpp" />
+    <ClCompile Include="..\..\src\Core\Windows\CFECGlobals.cpp" />
+    <ClCompile Include="..\..\src\Core\Windows\CFECWindows.cpp" />
+    <ClCompile Include="..\..\src\Core\Windows\CFECWindowsDX.cpp" />
+    <ClCompile Include="..\..\src\Core\Windows\CFECWindowsInput.cpp" />
+    <ClCompile Include="..\..\src\Core\Windows\CFECWindowsOpenGL.cpp" />
+    <ClCompile Include="..\..\src\core\Windows\CFECWindowsOpenGLStereo.cpp" />
+    <ClCompile Include="..\..\src\Core\Windows\OpenGLES2\CFECWindowsOpenGLES2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\Windows\OpenGLES2\esShader.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\Windows\OpenGLES2\esShapes.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\Windows\OpenGLES2\esTransform.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\Windows\OpenGLES2\esUtil.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\Windows\OpenGLES2\esUtil_TGA.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\Windows\OpenGLES2\esUtil_win32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\Common\CBinConfigFile.cpp" />
+    <ClCompile Include="..\..\src\Core\Common\CFECBinAndLibConfig.cpp" />
+    <ClCompile Include="..\..\src\Core\Common\CFECBinConfig.cpp" />
+    <ClCompile Include="..\..\src\Core\Common\CFECFreeImage.cpp" />
+    <ClCompile Include="..\..\src\Core\Common\CFECLibConfig.cpp" />
+    <ClCompile Include="..\..\src\Core\Common\CFECOpenAL.cpp" />
+    <ClCompile Include="..\..\src\Core\Common\CFECPhysixFSFileSys.cpp" />
+    <ClCompile Include="..\..\src\core\common\CFECPhysixFSProfile.cpp" />
+    <ClCompile Include="..\..\src\Core\Common\CFECStdFileSys.cpp" />
+    <ClCompile Include="..\..\src\Core\Common\CFECStdLocal.cpp" />
+    <ClCompile Include="..\..\src\Core\Common\CFECStdMath.cpp" />
+    <ClCompile Include="..\..\src\Core\Common\CFECStdMem.cpp" />
+    <ClCompile Include="..\..\src\Core\Common\CFECStdProfile.cpp" />
+    <ClCompile Include="..\..\src\Core\Common\CFECStdString.cpp" />
+    <ClCompile Include="..\..\src\core\common\FECStdMessages.cpp" />
+    <ClCompile Include="..\..\src\game\script\action\CFEActionFadeSoundLine.cpp" />
+    <ClCompile Include="..\..\src\game\script\action\CFESoundAction.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimEventFunc.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimEventMgr.cpp" />
+    <ClCompile Include="..\..\src\Support\Sound\CFESoundMgr.cpp" />
+    <ClCompile Include="..\..\src\Support\Sound\CFESoundMixer.cpp" />
+    <ClCompile Include="..\..\src\Support\Sound\CFESoundPlayer.cpp" />
+    <ClCompile Include="..\..\src\Support\Mem\CFEMem.cpp" />
+    <ClCompile Include="..\..\src\Support\Mem\CFEResourceContextMgr.cpp" />
+    <ClCompile Include="..\..\src\Support\File\CFEFile.cpp" />
+    <ClCompile Include="..\..\src\Support\File\CFEMemFile.cpp" />
+    <ClCompile Include="..\..\src\Support\Input\CFEInput.cpp" />
+    <ClCompile Include="..\..\src\Support\Graphics\CFEMaterialMgr.cpp" />
+    <ClCompile Include="..\..\src\support\graphics\CFERenderer.cpp" />
+    <ClCompile Include="..\..\src\Support\Config\CFEConfigFile.cpp" />
+    <ClCompile Include="..\..\src\Support\Misc\CFEChrono.cpp" />
+    <ClCompile Include="..\..\src\Support\Misc\CFELogger.cpp" />
+    <ClCompile Include="..\..\src\Support\Misc\CFEStringUtils.cpp" />
+    <ClCompile Include="..\..\src\Support\Math\CFEMath.cpp" />
+    <ClCompile Include="..\..\src\Support\Math\CFEMathIntersect.cpp" />
+    <ClCompile Include="..\..\src\support\math\CFERandomGen.cpp" />
+    <ClCompile Include="..\..\src\support\math\CFESmoother.cpp" />
+    <ClCompile Include="..\..\src\Support\Local\CFEDictionary.cpp" />
+    <ClCompile Include="..\..\src\Support\Local\CFELocal.cpp" />
+    <ClCompile Include="..\..\src\Support\Profile\CFEProfile.cpp" />
+    <ClCompile Include="..\..\src\Support\TRC\CFETRC.cpp" />
+    <ClCompile Include="..\..\src\support\system\CFESystem.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Font\CFEFont.cpp" />
+    <ClCompile Include="..\..\src\graphics\font\CFEFontANSI.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Font\CFEFontLoader.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Font\CFEFontMgr.cpp" />
+    <ClCompile Include="..\..\src\graphics\font\CFEFontUTF8.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Map\CFEMap.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Map\CFEMapLoader.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Map\CFEMapRenderer.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Sprite\CFESprite.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Sprite\CFESpriteInstMgr.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Sprite\CFESpriteLoader.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Sprite\CFESpriteMgr.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Sprite\CFESpriteRenderer.cpp" />
+    <ClCompile Include="..\..\src\graphics\particlesys\CFEParticleMgr.cpp" />
+    <ClCompile Include="..\..\src\graphics\particlesys\CFEParticleSysInstMgr.cpp" />
+    <ClCompile Include="..\..\src\graphics\particlesys\CFEParticleSysLoader.cpp" />
+    <ClCompile Include="..\..\src\graphics\particlesys\CFEParticleSysMgr.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Mesh\CFEMesh.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Mesh\CFEMeshInstMgr.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Mesh\CFEMeshLoader.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Mesh\CFEMeshMgr.cpp" />
+    <ClCompile Include="..\..\src\Graphics\Mesh\CFEMeshRenderer.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUD.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDAction.cpp" />
+    <ClCompile Include="..\..\src\Graphics\HUD\CFEHUDActionDefaultValues.cpp" />
+    <ClCompile Include="..\..\src\Graphics\HUD\CFEHUDActionTime.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDElement.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDElemLocator.cpp" />
+    <ClCompile Include="..\..\src\Graphics\HUD\CFEHUDEventFunc.cpp" />
+    <ClCompile Include="..\..\src\Graphics\HUD\CFEHUDEventMgr.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDGroup.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDIcon.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDInstancer.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDInstMgr.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDLabel.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDLoader.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDPSys.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDRect.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDRectGen.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDRenderer.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDShape.cpp" />
+    <ClCompile Include="..\..\src\Graphics\HUD\CFEHUDTranslator.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDUpdater.cpp" />
+    <ClCompile Include="..\..\src\graphics\HUD\CFEHUDVisitor.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnim.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimGroup.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimInstancer.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimInstMgr.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimLoader.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimMesh.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimMeshModel.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimMgr.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimNodeInstancer.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimNodeLocator.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimNodeTableBuilder.cpp" />
+    <ClCompile Include="..\..\src\Graphics\skelanim\CFESkelAnimNodeUpdater.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimNodeVisitor.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimRenderer.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimSprite.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimSpriteModel.cpp" />
+    <ClCompile Include="..\..\src\graphics\skelanim\CFESkelAnimUpdater.cpp" />
+    <ClCompile Include="..\..\src\Graphics\skelanim\CFESkelAnimUtils.cpp" />
+    <ClCompile Include="..\..\src\Graphics\ScreenUtils\CFEScreenFX.cpp" />
+    <ClCompile Include="..\..\src\Graphics\ScreenUtils\CFEScreenUtils.cpp" />
+    <ClCompile Include="..\..\src\Types\CFEArray.cpp" />
+    <ClCompile Include="..\..\src\Types\CFEColor.cpp" />
+    <ClCompile Include="..\..\src\types\CFEHashTable.cpp" />
+    <ClCompile Include="..\..\src\types\CFEKFBEventFunc.cpp" />
+    <ClCompile Include="..\..\src\types\CFEKFBFunc.cpp" />
+    <ClCompile Include="..\..\src\Types\CFEKFBFuncUtils.cpp" />
+    <ClCompile Include="..\..\src\types\CFEResourceQueue.cpp" />
+    <ClCompile Include="..\..\src\types\CFESingleton.cpp" />
+    <ClCompile Include="..\..\src\Types\CFEString.cpp" />
+    <ClCompile Include="..\..\src\Types\CFEVect2.cpp" />
+    <ClCompile Include="..\..\src\types\FEKFBFLerpFuncs.cpp" />
+    <ClCompile Include="..\..\src\game\cinematic\CFECinematic.cpp" />
+    <ClCompile Include="..\..\src\game\cinematic\CFECinematicLoader.cpp" />
+    <ClCompile Include="..\..\src\game\cinematic\CFECinematicMgr.cpp" />
+    <ClCompile Include="..\..\src\game\script\CFEScript.cpp" />
+    <ClCompile Include="..\..\src\game\script\CFEScriptLoader.cpp" />
+    <ClCompile Include="..\..\src\game\script\CFEScriptMgr.cpp" />
+    <ClCompile Include="..\..\src\game\script\action\CFEAction.cpp" />
+    <ClCompile Include="..\..\src\game\script\action\CFEActionLoader.cpp" />
+    <ClCompile Include="..\..\src\game\script\action\CFEActionPlaySound.cpp" />
+    <ClCompile Include="..\..\src\game\script\action\CFEActionSleep.cpp" />
+    <ClCompile Include="..\..\src\game\script\action\CFEActionStopSound.cpp" />
+    <ClCompile Include="..\..\src\game\script\action\CFEActionWaitInput.cpp" />
+    <ClCompile Include="..\..\src\game\classes\CFEStatedObject.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\core\Windows\FECConfig_PlayTest.h" />
+    <ClInclude Include="..\..\src\CRealClass_Generic.h" />
+    <ClInclude Include="..\..\src\FEBasicTypes.h" />
+    <ClInclude Include="..\..\src\FEConsts.h" />
+    <ClInclude Include="..\..\src\FEDefs.h" />
+    <ClInclude Include="..\..\src\FEEnums.h" />
+    <ClInclude Include="..\..\src\FuetEngine.h" />
+    <ClInclude Include="..\..\src\game\script\action\CFEActionFadeSoundLine.h" />
+    <ClInclude Include="..\..\src\game\script\action\CFESoundAction.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimEventFunc.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimEventMgr.h" />
+    <ClInclude Include="..\..\src\types\CFEKFBEventFunc.h" />
+    <ClInclude Include="..\..\src\version.h" />
+    <ClInclude Include="..\..\src\Core\CFECore.h" />
+    <ClInclude Include="..\..\src\Core\CFECoreGlobals.h" />
+    <ClInclude Include="..\..\src\Core\FEConfig.h" />
+    <ClInclude Include="..\..\src\Core\FEConfigOptions.h" />
+    <ClInclude Include="..\..\src\Core\Windows\CFECGlobals.h" />
+    <ClInclude Include="..\..\src\Core\Windows\FECConfig.h" />
+    <ClInclude Include="..\..\src\core\Windows\FECConfig_Dev.h" />
+    <ClInclude Include="..\..\src\core\Windows\FECTypes.h" />
+    <CustomBuild Include="..\..\src\Core\Windows\OpenGLES2\esUtil.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="..\..\src\Core\Windows\OpenGLES2\esUtil_win.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_OpenGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <ClInclude Include="..\..\src\Core\Common\CBinConfigFile.h" />
+    <ClInclude Include="..\..\src\Core\Common\CFECImageLib.h" />
+    <ClInclude Include="..\..\src\core\common\FECStdMessages.h" />
+    <ClInclude Include="..\..\src\Support\Sound\CFESoundMgr.h" />
+    <ClInclude Include="..\..\src\Support\Sound\CFESoundMixer.h" />
+    <ClInclude Include="..\..\src\Support\Sound\CFESoundPlayer.h" />
+    <ClInclude Include="..\..\src\Support\Mem\CFEMem.h" />
+    <ClInclude Include="..\..\src\Support\Mem\CFEResourceContextMgr.h" />
+    <ClInclude Include="..\..\src\Support\File\CFEFile.h" />
+    <ClInclude Include="..\..\src\Support\File\CFEMemFile.h" />
+    <ClInclude Include="..\..\src\Support\Input\CFEInput.h" />
+    <ClInclude Include="..\..\src\support\graphics\CFEMaterialMgr.h" />
+    <ClInclude Include="..\..\src\Support\Graphics\CFERenderer.h" />
+    <ClInclude Include="..\..\src\Support\Config\CFEConfigFile.h" />
+    <ClInclude Include="..\..\src\Support\Misc\CFEChrono.h" />
+    <ClInclude Include="..\..\src\Support\Misc\CFELogger.h" />
+    <ClInclude Include="..\..\src\Support\Misc\CFEStringUtils.h" />
+    <ClInclude Include="..\..\src\support\misc\crc32.h" />
+    <ClInclude Include="..\..\src\Support\Math\CFEMath.h" />
+    <ClInclude Include="..\..\src\Support\Math\CFEMathIntersect.h" />
+    <ClInclude Include="..\..\src\support\math\CFERandomGen.h" />
+    <ClInclude Include="..\..\src\support\math\CFESmoother.h" />
+    <ClInclude Include="..\..\src\Support\Local\CFEDictionary.h" />
+    <ClInclude Include="..\..\src\Support\Local\CFELocal.h" />
+    <ClInclude Include="..\..\src\Support\Profile\CFEProfile.h" />
+    <ClInclude Include="..\..\src\Support\TRC\CFETRC.h" />
+    <ClInclude Include="..\..\src\support\system\CFESystem.h" />
+    <ClInclude Include="..\..\src\Graphics\Font\CFEFont.h" />
+    <ClInclude Include="..\..\src\graphics\font\CFEFontANSI.h" />
+    <ClInclude Include="..\..\src\Graphics\Font\CFEFontLoader.h" />
+    <ClInclude Include="..\..\src\Graphics\Font\CFEFontMgr.h" />
+    <ClInclude Include="..\..\src\graphics\font\CFEFontUTF8.h" />
+    <ClInclude Include="..\..\src\Graphics\Map\CFEMap.h" />
+    <ClInclude Include="..\..\src\Graphics\Map\CFEMapLoader.h" />
+    <ClInclude Include="..\..\src\Graphics\Map\CFEMapRenderer.h" />
+    <ClInclude Include="..\..\src\Graphics\Sprite\CFESprite.h" />
+    <ClInclude Include="..\..\src\Graphics\Sprite\CFESpriteInstMgr.h" />
+    <ClInclude Include="..\..\src\Graphics\Sprite\CFESpriteLoader.h" />
+    <ClInclude Include="..\..\src\Graphics\Sprite\CFESpriteMgr.h" />
+    <ClInclude Include="..\..\src\Graphics\Sprite\CFESpriteRenderer.h" />
+    <ClInclude Include="..\..\src\graphics\particlesys\CFEParticleMgr.h" />
+    <ClInclude Include="..\..\src\graphics\particlesys\CFEParticleSys.h" />
+    <ClInclude Include="..\..\src\graphics\particlesys\CFEParticleSysInstMgr.h" />
+    <ClInclude Include="..\..\src\graphics\particlesys\CFEParticleSysLoader.h" />
+    <ClInclude Include="..\..\src\graphics\particlesys\CFEParticleSysMgr.h" />
+    <ClInclude Include="..\..\src\Graphics\Mesh\CFEMesh.h" />
+    <ClInclude Include="..\..\src\Graphics\Mesh\CFEMeshInstMgr.h" />
+    <ClInclude Include="..\..\src\Graphics\Mesh\CFEMeshLoader.h" />
+    <ClInclude Include="..\..\src\Graphics\Mesh\CFEMeshMgr.h" />
+    <ClInclude Include="..\..\src\Graphics\Mesh\CFEMeshRenderer.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUD.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDAction.h" />
+    <ClInclude Include="..\..\src\Graphics\HUD\CFEHUDActionDefaultValues.h" />
+    <ClInclude Include="..\..\src\Graphics\HUD\CFEHUDActionTime.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDElement.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDElemLocator.h" />
+    <ClInclude Include="..\..\src\Graphics\HUD\CFEHUDEventFunc.h" />
+    <ClInclude Include="..\..\src\Graphics\HUD\CFEHUDEventMgr.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDGroup.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDIcon.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDInstancer.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDInstMgr.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDLabel.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDLoader.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDObject.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDPSys.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDRect.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDRectGen.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDRenderer.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDShape.h" />
+    <ClInclude Include="..\..\src\Graphics\HUD\CFEHUDTranslator.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDUpdater.h" />
+    <ClInclude Include="..\..\src\graphics\HUD\CFEHUDVisitor.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnim.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimBone.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimGroup.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimInstancer.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimInstMgr.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimLoader.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimMesh.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimMeshModel.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimMgr.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimNode.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimNodeInstancer.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimNodeLocator.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimNodeTableBuilder.h" />
+    <ClInclude Include="..\..\src\Graphics\skelanim\CFESkelAnimNodeUpdater.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimNodeVisitor.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimRenderer.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimSprite.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimSpriteModel.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimUpdater.h" />
+    <ClInclude Include="..\..\src\Graphics\skelanim\CFESkelAnimUtils.h" />
+    <ClInclude Include="..\..\src\graphics\skelanim\CFESkelAnimVisitor.h" />
+    <ClInclude Include="..\..\src\Graphics\ScreenUtils\CFEScreenFX.h" />
+    <ClInclude Include="..\..\src\Graphics\ScreenUtils\CFEScreenUtils.h" />
+    <ClInclude Include="..\..\src\Types\CFEArray.h" />
+    <ClInclude Include="..\..\src\Types\CFEColor.h" />
+    <ClInclude Include="..\..\src\types\CFEHashTable.h" />
+    <ClInclude Include="..\..\src\Types\CFEInstanceMgr.h" />
+    <ClInclude Include="..\..\src\types\CFEKFBFunc.h" />
+    <ClInclude Include="..\..\src\Types\CFEKFBFuncUtils.h" />
+    <ClInclude Include="..\..\src\types\CFELookupDatabase.h" />
+    <ClInclude Include="..\..\src\Types\CFEMatrix.h" />
+    <ClInclude Include="..\..\src\types\CFENamedObject.h" />
+    <ClInclude Include="..\..\src\Types\CFERect.h" />
+    <ClInclude Include="..\..\src\types\CFEResourceMgr.h" />
+    <ClInclude Include="..\..\src\types\CFEResourceQueue.h" />
+    <ClInclude Include="..\..\src\types\CFESegment.h" />
+    <ClInclude Include="..\..\src\types\CFESingleton.h" />
+    <ClInclude Include="..\..\src\Types\CFEString.h" />
+    <ClInclude Include="..\..\src\Types\CFEVect2.h" />
+    <ClInclude Include="..\..\src\types\FEKFBFLerpFuncs.h" />
+    <ClInclude Include="..\..\src\game\cinematic\CFECinematic.h" />
+    <ClInclude Include="..\..\src\game\cinematic\CFECinematicLoader.h" />
+    <ClInclude Include="..\..\src\game\cinematic\CFECinematicMgr.h" />
+    <ClInclude Include="..\..\src\game\script\CFEScript.h" />
+    <ClInclude Include="..\..\src\game\script\CFEScriptLoader.h" />
+    <ClInclude Include="..\..\src\game\script\CFEScriptMgr.h" />
+    <ClInclude Include="..\..\src\game\script\CFEScriptVarRegistry.h" />
+    <ClInclude Include="..\..\src\game\script\action\CFEAction.h" />
+    <ClInclude Include="..\..\src\game\script\action\CFEActionLoader.h" />
+    <ClInclude Include="..\..\src\game\script\action\CFEActionPlaySound.h" />
+    <ClInclude Include="..\..\src\game\script\action\CFEActionSleep.h" />
+    <ClInclude Include="..\..\src\game\script\action\CFEActionStopSound.h" />
+    <ClInclude Include="..\..\src\game\script\action\CFEActionWaitInput.h" />
+    <ClInclude Include="..\..\src\game\classes\CFEStatedObject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\core\common\FECStdMessages_de.inc" />
+    <None Include="..\..\src\core\common\FECStdMessages_en.inc" />
+    <None Include="..\..\src\core\common\FECStdMessages_es.inc" />
+    <None Include="..\..\src\core\common\FECStdMessages_fr.inc" />
+    <None Include="..\..\src\core\common\FECStdMessages_it.inc" />
+    <None Include="..\..\src\core\common\FECStdMessages_jp.inc" />
+    <None Include="..\..\doc\build\files\todo.html" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
