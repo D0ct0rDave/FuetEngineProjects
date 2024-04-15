@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="../../helloworld/build/codeblocks_linux/HelloWorld.cbp" />
+		<Project filename="../../fontsample/build/codeblocks_linux/FontSample.cbp" />
+		<Project filename="../../sprites/build/codeblocks_linux/sprites.cbp" />
+		<Project filename="../../intro/build/codeblocks_linux/intro.cbp" />
+		<Project filename="../../../FuetEngine/build/codeblocks_linux/FuetEngine.cbp" active="1" />
+		<Project filename="../../SpriteWithInput/build/codeblocks_linux/SpritesWithInput.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>
