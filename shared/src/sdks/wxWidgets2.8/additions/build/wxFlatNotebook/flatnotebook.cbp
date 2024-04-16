@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="flatnotebook" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../../lib/gcc_lib/libwxmsw28umd_flatnotebook_gcc.a" prefix_auto="0" extension_auto="0" />
+				<Option object_output=".objsud" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-DWXUSINGDLL" />
+					<Add option="-DUNICODE" />
+					<Add option="-D_UNICODE" />
+					<Add option="-D__WX__" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-DWIN32" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-DDEBUG" />
+					<Add option="-D_DEBUG" />
+					<Add option="-O0" />
+					<Add directory="../../include" />
+					<Add directory="$(#WX.include)" />
+					<Add directory="$(#WX.lib)/gcc_dll/mswud" />
+				</Compiler>
+				<Linker>
+					<Add directory="$(#WX.lib)/gcc_dll" />
+					<Add library="wxmsw28ud" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="../../lib/gcc_lib/libwxmsw28um_flatnotebook_gcc.a" prefix_auto="0" extension_auto="0" />
+				<Option object_output=".objsu" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-O3" />
+					<Add option="-DWXUSINGDLL" />
+					<Add option="-DUNICODE" />
+					<Add option="-D_UNICODE" />
+					<Add option="-D__WX__" />
+					<Add option="-D__WXMSW__" />
+					<Add option="-DWIN32" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-DNDEBUG" />
+					<Add option="-fno-strict-aliasing" />
+					<Add directory="../../include" />
+					<Add directory="$(#WX.include)" />
+					<Add directory="$(#WX.lib)/gcc_dll/mswu" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add directory="$(#WX.lib)/gcc_dll" />
+					<Add library="wxmsw28u" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="../../src/wxFlatNotebook/fnb_customize_dlg.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../src/wxFlatNotebook/fnb_resources.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../src/wxFlatNotebook/popup_dlg.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../src/wxFlatNotebook/renderer.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../src/wxFlatNotebook/wxFlatNotebook.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../src/wxFlatNotebook/xh_fnb.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../include/wx/wxFlatNotebook/fnb_customize_dlg.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../include/wx/wxFlatNotebook/fnb_resources.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../include/wx/wxFlatNotebook/fnb_singleton.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../include/wx/wxFlatNotebook/fnb_smart_ptr.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../include/wx/wxFlatNotebook/popup_dlg.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../include/wx/wxFlatNotebook/renderer.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../include/wx/wxFlatNotebook/wxFlatNotebook.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../include/wx/wxFlatNotebook/wxFlatNotebookSDK.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../include/wx/wxFlatNotebook/wxFNBDropTarget.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="../../include/wx/wxFlatNotebook/xh_fnb.h">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
