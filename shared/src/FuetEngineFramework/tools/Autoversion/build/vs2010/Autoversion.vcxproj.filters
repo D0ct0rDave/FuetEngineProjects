@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Autoversioning">
+      <UniqueIdentifier>{c4a590af-cbf1-45b4-988c-af4c2b2bcb5e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\autoversioning\avConfig.h">
+      <Filter>Autoversioning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\autoversioning\avHeader.h">
+      <Filter>Autoversioning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\stdafx.h" />
+    <ClInclude Include="..\..\src\targetver.h" />
+    <ClInclude Include="..\..\src\version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\autoversioning\avHeader.cpp">
+      <Filter>Autoversioning</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\AutoVersion.cpp" />
+    <ClCompile Include="..\..\src\stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\autoversioning\changes.txt">
+      <Filter>Autoversioning</Filter>
+    </None>
+    <None Include="..\..\src\autoversioning\license.txt">
+      <Filter>Autoversioning</Filter>
+    </None>
+    <None Include="..\..\src\autoversioning\manifest.xml">
+      <Filter>Autoversioning</Filter>
+    </None>
+    <None Include="..\..\src\autoversioning\subversion.tigris.org.html">
+      <Filter>Autoversioning</Filter>
+    </None>
+    <None Include="..\..\src\autoversioning\todo.txt">
+      <Filter>Autoversioning</Filter>
+    </None>
+    <None Include="..\..\src\autoversioning\wxsmith.htm">
+      <Filter>Autoversioning</Filter>
+    </None>
+    <None Include="..\..\src\ReadMe.txt" />
+  </ItemGroup>
+</Project>
