@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="326.33594"
+   height="221.39909"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="rect_edition.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.0"
+   inkscape:export-filename="J:\Projects\Programming\Projects\DSi-PuzzleRPG\Framework\src\FuetEngineFramework\tools\HUDEditor\src\images\rect_edition.png"
+   inkscape:export-xdpi="46.880001"
+   inkscape:export-ydpi="46.880001">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart"
+       style="overflow:visible">
+      <path
+         id="path3226"
+         d="M 0,0 L 5,-5 L -12.5,0 L 5,5 L 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(0.8,0,0,0.8,10,0)" />
+    </marker>
+    <linearGradient
+       id="linearGradient3183">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3185" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1"
+         id="stop3187" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3183"
+       id="linearGradient3189"
+       x1="216.21213"
+       y1="110.41621"
+       x2="419.79654"
+       y2="314.00064"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0005537,0,0,0.5575096,-0.1760843,93.900187)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="122.57493"
+     inkscape:cy="207.97207"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1150"
+     inkscape:window-height="864"
+     inkscape:window-x="44"
+     inkscape:window-y="58"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       orientation="1,0"
+       position="1021,288"
+       id="guide6089" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-155.30583,-105.5921)">
+    <rect
+       style="fill:url(#linearGradient3189);fill-opacity:1;stroke:#000000;stroke-width:0.3318868;stroke-opacity:1"
+       id="rect2395"
+       width="203.25253"
+       height="113.25253"
+       x="216.37807"
+       y="155.58215"
+       inkscape:export-xdpi="46.880001"
+       inkscape:export-ydpi="46.880001" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#ffffff;fill-opacity:0.63316585;stroke:#000000;stroke-opacity:1"
+       id="path3195"
+       sodipodi:cx="420.22345"
+       sodipodi:cy="110.90001"
+       sodipodi:rx="14.142136"
+       sodipodi:ry="14.142136"
+       d="M 434.36559,110.90001 A 14.142136,14.142136 0 1 1 406.08131,110.90001 A 14.142136,14.142136 0 1 1 434.36559,110.90001 z"
+       transform="translate(-1,45)"
+       inkscape:export-filename="J:\Projects\Programming\Projects\DSi-PuzzleRPG\Framework\src\FuetEngineFramework\tools\HUDEditor\src\images\rect2395.png"
+       inkscape:export-xdpi="46.880001"
+       inkscape:export-ydpi="46.880001" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#ffffff;fill-opacity:0.63316585;stroke:#000000;stroke-opacity:1"
+       id="path3213"
+       sodipodi:cx="420.22345"
+       sodipodi:cy="110.90001"
+       sodipodi:rx="14.142136"
+       sodipodi:ry="14.142136"
+       d="M 434.36559,110.90001 A 14.142136,14.142136 0 1 1 406.08131,110.90001 A 14.142136,14.142136 0 1 1 434.36559,110.90001 z"
+       transform="translate(0.9797,155.84704)"
+       inkscape:export-filename="J:\Projects\Programming\Projects\DSi-PuzzleRPG\Framework\src\FuetEngineFramework\tools\HUDEditor\src\images\rect2395.png"
+       inkscape:export-xdpi="46.880001"
+       inkscape:export-ydpi="46.880001" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#ffffff;fill-opacity:0.63316585;stroke:#000000;stroke-opacity:1"
+       id="path3215"
+       sodipodi:cx="420.22345"
+       sodipodi:cy="110.90001"
+       sodipodi:rx="14.142136"
+       sodipodi:ry="14.142136"
+       d="M 434.36559,110.90001 A 14.142136,14.142136 0 1 1 406.08131,110.90001 A 14.142136,14.142136 0 1 1 434.36559,110.90001 z"
+       transform="translate(-203.0305,45.000006)"
+       inkscape:export-filename="J:\Projects\Programming\Projects\DSi-PuzzleRPG\Framework\src\FuetEngineFramework\tools\HUDEditor\src\images\rect2395.png"
+       inkscape:export-xdpi="46.880001"
+       inkscape:export-ydpi="46.880001" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#ffffff;fill-opacity:0.63316585;stroke:#000000;stroke-opacity:1"
+       id="path3217"
+       sodipodi:cx="420.22345"
+       sodipodi:cy="110.90001"
+       sodipodi:rx="14.142136"
+       sodipodi:ry="14.142136"
+       d="M 434.36559,110.90001 A 14.142136,14.142136 0 1 1 406.08131,110.90001 A 14.142136,14.142136 0 1 1 434.36559,110.90001 z"
+       transform="translate(-204.0508,155.84704)"
+       inkscape:export-filename="J:\Projects\Programming\Projects\DSi-PuzzleRPG\Framework\src\FuetEngineFramework\tools\HUDEditor\src\images\rect2395.png"
+       inkscape:export-xdpi="46.880001"
+       inkscape:export-ydpi="46.880001" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow1Lstart);marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 436.32426,143.43155 L 478.75067,107.06606"
+       id="path3221"
+       inkscape:export-filename="J:\Projects\Programming\Projects\DSi-PuzzleRPG\Framework\src\FuetEngineFramework\tools\HUDEditor\src\images\rect2395.png"
+       inkscape:export-xdpi="46.880001"
+       inkscape:export-ydpi="46.880001" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.15406299;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow1Lstart);marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 438.29239,281.90768 L 480.56474,324.24527"
+       id="path6063"
+       inkscape:export-filename="J:\Projects\Programming\Projects\DSi-PuzzleRPG\Framework\src\FuetEngineFramework\tools\HUDEditor\src\images\rect2395.png"
+       inkscape:export-xdpi="46.880001"
+       inkscape:export-ydpi="46.880001" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.04625416;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow1Lstart);marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 200.74761,142.97487 L 156.32896,106.61523"
+       id="path6065"
+       inkscape:export-filename="J:\Projects\Programming\Projects\DSi-PuzzleRPG\Framework\src\FuetEngineFramework\tools\HUDEditor\src\images\rect2395.png"
+       inkscape:export-xdpi="46.880001"
+       inkscape:export-ydpi="46.880001" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.20388031;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow1Lstart);marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 202.5904,283.55848 L 158.33305,325.88926"
+       id="path6067"
+       inkscape:export-filename="J:\Projects\Programming\Projects\DSi-PuzzleRPG\Framework\src\FuetEngineFramework\tools\HUDEditor\src\images\rect2395.png"
+       inkscape:export-xdpi="46.880001"
+       inkscape:export-ydpi="46.880001" />
+  </g>
+</svg>

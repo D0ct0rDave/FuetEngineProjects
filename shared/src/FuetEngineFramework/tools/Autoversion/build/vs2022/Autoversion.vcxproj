@@ -68,7 +68,7 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>copy /y $(TargetPath) $(ProjectDir)..\..\..\..\..\..\toolchain\FuetEngine</Command>
+      <Command>copy /y $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -85,20 +85,15 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>wxmsw28_things.lib;wxmsw28_treelistctrl.lib;wxmsw28_propgrid.lib;wxbase28.lib;wxbase28_net.lib;wxbase28_odbc.lib;wxbase28_xml.lib;wxexpat.lib;wxjpeg.lib;wxmsw28_adv.lib;wxmsw28_aui.lib;wxmsw28_core.lib;wxmsw28_dbgrid.lib;wxmsw28_gl.lib;wxmsw28_html.lib;wxmsw28_media.lib;wxmsw28_qa.lib;wxmsw28_richtext.lib;wxmsw28_xrc.lib;wxpng.lib;wxregex.lib;wxtiff.lib;wxzlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(CoderChildDev)\shared\src\sdks\wxWidgets2.8\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wxbase28.lib;wxbase28_net.lib;wxbase28_odbc.lib;wxbase28_xml.lib;wxmsw28_adv.lib;wxmsw28_aui.lib;wxmsw28_core.lib;wxmsw28_dbgrid.lib;wxmsw28_gl.lib;wxmsw28_html.lib;wxmsw28_media.lib;wxmsw28_qa.lib;wxmsw28_richtext.lib;wxmsw28_xrc.lib;wxpng.lib;wxregex.lib;wxtiff.lib;wxzlib.lib;wxexpat.lib;wxjpeg.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>echo Autoversioning Project
-cd $(ProjectDir)..\..\src
-$(CoderChildDev)\shared\toolchain\FuetEngine\Autoversion.exe $(ProjectName)Version.h $(ProjectName)Version
-echo Copying binary to destination directory
-if not exist $(CoderChildDev)\shared\toolchain\FuetEngine mkdir $(CoderChildDev)\shared\toolchain\FuetEngine
-rem copy /y $(TargetPath) $(CoderChildDev)\shared\toolchain\FuetEngine</Command>
+      <Command>copy /y $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
