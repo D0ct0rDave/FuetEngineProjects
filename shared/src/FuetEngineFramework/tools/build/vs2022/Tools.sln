@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FuetEngine", "..\..\..\Fuet
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Autoversion", "..\..\Autoversion\build\vs2022\Autoversion.vcxproj", "{2182D71D-BB90-418E-A3C9-B3C3BC3A2860}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SpriteEditor", "..\..\SpriteEditor\build\vs2022\SpriteEditor.vcxproj", "{966AFA7F-54A6-407F-B959-3872837EEB7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -60,6 +62,16 @@ Global
 		{2182D71D-BB90-418E-A3C9-B3C3BC3A2860}.DEV_WITH_SOUND_Debug|Win32.Build.0 = Debug|Win32
 		{2182D71D-BB90-418E-A3C9-B3C3BC3A2860}.Release|Win32.ActiveCfg = Release|Win32
 		{2182D71D-BB90-418E-A3C9-B3C3BC3A2860}.Release|Win32.Build.0 = Release|Win32
+		{966AFA7F-54A6-407F-B959-3872837EEB7F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{966AFA7F-54A6-407F-B959-3872837EEB7F}.Debug|Win32.Build.0 = Debug|Win32
+		{966AFA7F-54A6-407F-B959-3872837EEB7F}.DEV_Debug|Win32.ActiveCfg = Debug|Win32
+		{966AFA7F-54A6-407F-B959-3872837EEB7F}.DEV_Debug|Win32.Build.0 = Debug|Win32
+		{966AFA7F-54A6-407F-B959-3872837EEB7F}.DEV_Release|Win32.ActiveCfg = Release|Win32
+		{966AFA7F-54A6-407F-B959-3872837EEB7F}.DEV_Release|Win32.Build.0 = Release|Win32
+		{966AFA7F-54A6-407F-B959-3872837EEB7F}.DEV_WITH_SOUND_Debug|Win32.ActiveCfg = Debug|Win32
+		{966AFA7F-54A6-407F-B959-3872837EEB7F}.DEV_WITH_SOUND_Debug|Win32.Build.0 = Debug|Win32
+		{966AFA7F-54A6-407F-B959-3872837EEB7F}.Release|Win32.ActiveCfg = Release|Win32
+		{966AFA7F-54A6-407F-B959-3872837EEB7F}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
