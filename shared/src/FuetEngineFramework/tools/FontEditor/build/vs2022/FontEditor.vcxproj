@@ -91,10 +91,10 @@
       <Command>echo Autoversioning Project
 cd $(ProjectDir)..\..\src
 $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe Version.h AutoVersion
-echo Copying binary to destination directory
 if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine mkdir $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
 if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImage.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\dist\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
 if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImagePlus.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist\FreeImagePlus.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+echo Copying binary to destination directory
 copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -127,10 +127,10 @@ freeimage.lib;FreeImagePlus.lib;wxmsw28ud_gl.lib;wxmsw28ud_richtext.lib;wxmsw28u
       <Command>echo Autoversioning Project
 cd $(ProjectDir)..\..\src
 $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe Version.h AutoVersion
-echo Copying binary to destination directory
 if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine mkdir $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
 if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImage.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\dist\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
 if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImagePlus.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist\FreeImagePlus.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+echo Copying binary to destination directory
 copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -162,10 +162,10 @@ copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Comm
       <Command>echo Autoversioning Project
 cd $(ProjectDir)..\..\src
 $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe Version.h AutoVersion
-echo Copying binary to destination directory
 if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine mkdir $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
 if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImage.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\dist\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
 if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImagePlus.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist\FreeImagePlus.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+echo Copying binary to destination directory
 copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
