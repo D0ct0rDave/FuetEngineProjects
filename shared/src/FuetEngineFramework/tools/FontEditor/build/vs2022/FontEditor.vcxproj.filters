@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{b80dcba4-2cf5-438c-b96b-55f56a335dc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyXML">
+      <UniqueIdentifier>{970f3c6b-696c-4edd-a84a-62f9eb5e0f2c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\common\CBinConfigFileWriter.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\CBSPFrameOptimizer.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\CFastFrameOptimizer.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\CFrameOptimizer.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\CLibConfigFileWriter.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\edutils.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\sdks\tinyxml\tinystr.cpp">
+      <Filter>tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\sdks\tinyxml\tinyxml.cpp">
+      <Filter>tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\sdks\tinyxml\tinyxmlerror.cpp">
+      <Filter>tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\sdks\tinyxml\tinyxmlparser.cpp">
+      <Filter>tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\CAppGlobals.cpp" />
+    <ClCompile Include="..\..\src\CFontEditorGUI.cpp" />
+    <ClCompile Include="..\..\src\CFontEditorGUI_Funcs.cpp" />
+    <ClCompile Include="..\..\src\CFontEditorGUIBase.cpp" />
+    <ClCompile Include="..\..\src\CFontGenerator.cpp" />
+    <ClCompile Include="..\..\src\CSpecialCharGUI.cpp" />
+    <ClCompile Include="..\..\src\CSpecialCharGUIBase.cpp" />
+    <ClCompile Include="..\..\src\FontEditor.cpp" />
+    <ClCompile Include="..\..\src\stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\common\CBinConfigFileWriter.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\CBSPFrameOptimizer.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\CConfigFileWriter.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\CFastFrameOptimizer.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\CFrameOptimizer.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\CLibConfigFileWriter.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\edutils.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\sdks\tinyxml\tinystr.h">
+      <Filter>tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\sdks\tinyxml\tinyxml.h">
+      <Filter>tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\CAppGlobals.h" />
+    <ClInclude Include="..\..\src\CFontEditorGUI.h" />
+    <ClInclude Include="..\..\src\CFontEditorGUI_Funcs.h" />
+    <ClInclude Include="..\..\src\CFontEditorGUIBase.h" />
+    <ClInclude Include="..\..\src\CFontGenerator.h" />
+    <ClInclude Include="..\..\src\CSpecialCharGUI.h" />
+    <ClInclude Include="..\..\src\CSpecialCharGUIBase.h" />
+    <ClInclude Include="..\..\src\FontEditor.h" />
+    <ClInclude Include="..\..\src\stdafx.h" />
+    <ClInclude Include="..\..\src\version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\CFontEditorGUI.fbp" />
+    <None Include="..\..\src\CSpecialCharGUI.fbp" />
+  </ItemGroup>
+</Project>

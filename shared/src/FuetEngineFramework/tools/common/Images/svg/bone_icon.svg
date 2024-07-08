@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.1 "
+   sodipodi:docname="bone_icon.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3761">
+      <stop
+         style="stop-color:#eac7a2;stop-opacity:1;"
+         offset="0"
+         id="stop3763" />
+      <stop
+         id="stop3771"
+         offset="0.508596"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         style="stop-color:#fde9a1;stop-opacity:1;"
+         offset="1"
+         id="stop3765" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3761"
+       id="linearGradient3769"
+       x1="241.4816"
+       y1="604.78125"
+       x2="451.13623"
+       y2="404.80264"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0,-47.483503)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0951172"
+     inkscape:cx="335.31757"
+     inkscape:cy="520"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="998"
+     inkscape:window-x="1916"
+     inkscape:window-y="-4"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:url(#linearGradient3769);fill-opacity:1;stroke:#460000;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 306.08527,441.17579 c 19.60343,-19.7445 36.35765,-38.44823 55.52484,-55.78504 9.0046,-8.12913 24.5096,-12.03395 27.64079,-23.77716 3.55406,-13.32915 -15.12524,-25.29754 -13.77183,-39.02583 2.39263,-24.26949 14.95247,-53.26128 37.35001,-62.90923 18.41555,-7.93267 43.55002,0.064 58.68417,13.21755 13.31609,11.57346 18.54365,31.86829 18.71133,49.51015 0.13353,14.05009 -20.76182,27.30864 -14.14968,39.70632 8.82063,16.53856 42.16692,-0.27911 54.50325,13.83268 10.93661,12.51064 13.7308,34.97996 5.69492,49.52473 -9.05294,16.38562 -32.08191,21.8653 -50.64753,24.26579 -16.57834,2.14354 -32.9461,-13.14286 -49.25007,-9.45282 -34.93371,7.90648 -62.48894,37.16041 -86.52007,63.71941 -7.0809,7.82574 -13.06978,17.14105 -16.14036,27.23822 -4.93869,16.24011 4.24009,35.41061 -2.8249,50.84491 -9.25889,20.22713 -26.00289,43.13931 -48.01558,46.34952 -18.8199,2.74458 -41.13609,-9.78909 -50.65871,-26.25241 -9.13405,-15.79152 11.28861,-38.74443 2.401,-54.67595 -12.67522,-22.72102 -57.67809,-14.2315 -68.15049,-38.0482 -8.40879,-19.12354 -0.32284,-46.23192 14.47566,-60.97717 14.05733,-14.00674 39.71074,-21.30767 57.9724,-13.54176 14.71205,6.25641 8.79342,38.4501 24.541,41.20709 18.10416,3.16956 29.18698,-22.55806 42.62985,-34.9708 z"
+       id="path2989"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccaaaaaaaaaaaaaaaaaaaac"
+       inkscape:export-filename="D:\CoderChild\shared\src\FuetEngineFramework\tools\common\Images\svg\icon_bone.png"
+       inkscape:export-xdpi="4.5799999"
+       inkscape:export-ydpi="4.5799999" />
+  </g>
+</svg>

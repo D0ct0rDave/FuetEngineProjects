@@ -128,36 +128,36 @@
     <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|Win32'">
-    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)..\..\obj\vs_$(PlatformToolset)\$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|Win32'">
-    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">
-    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">
-    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">
-    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|Win32'">
-    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">
-    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|Win32'">
-    <OutDir>$(ProjectDir)../../lib\vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj\vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|Win32'">
     <PreBuildEvent>
@@ -194,7 +194,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <PostBuildEvent>
       <Command>echo Autoversioning Project
 cd $(ProjectDir)..\..\src
-$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -234,7 +234,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <PostBuildEvent>
       <Command>echo Autoversioning Project
 cd $(ProjectDir)..\..\src
-$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -280,7 +280,10 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command />
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">
@@ -326,8 +329,10 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">
@@ -373,8 +378,10 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|Win32'">
@@ -420,7 +427,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <PostBuildEvent>
       <Command>echo Autoversioning Project
 cd $(ProjectDir)..\..\src
-$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -467,7 +474,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <PostBuildEvent>
       <Command>echo Autoversioning Project
 cd $(ProjectDir)..\..\src
-$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -506,7 +513,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <PostBuildEvent>
       <Command>echo Autoversioning Project
 cd $(ProjectDir)..\..\src
-$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
