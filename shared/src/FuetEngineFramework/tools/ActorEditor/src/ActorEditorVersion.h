@@ -1,7 +1,7 @@
-#ifndef AutoVersionH
-#define AutoVersionH
+#ifndef ActorEditorVersionH
+#define ActorEditorVersionH
 
-namespace AutoVersion{
+namespace ActorEditorVersion{
 	
 	//Date Version Types
 	static const char DATE[] = "09";
@@ -14,20 +14,20 @@ namespace AutoVersion{
 	static const char STATUS_SHORT[] = "a";
 	
 	//Standard Version Type
-	static const long MAJOR = 0;
+	static const long MAJOR = 3;
 	static const long MINOR = 5;
-	static const long BUILD = 599;
-	static const long REVISION = 3330;
+	static const long BUILD = 3830;
+	static const long REVISION = 21093;
 	
 	//Miscellaneous Version Types
-	static const long BUILDS_COUNT = 599;
-	#define RC_FILEVERSION 0,5,599,3330
-	#define RC_FILEVERSION_STRING "0, 5, 599, 3330\0"
-	static const char FULLVERSION_STRING[] = "0.5.599.3330";
+	static const long BUILDS_COUNT = 3830;
+	#define RC_FILEVERSION 3,5,3830,21093
+	#define RC_FILEVERSION_STRING "3, 5, 3830, 21093\0"
+	static const char FULLVERSION_STRING[] = "3.5.3830.21093";
 	
 	//These values are to keep track of your versioning state, don't modify them.
-	static const long BUILD_HISTORY = 99;
+	static const long BUILD_HISTORY = 30;
 	
 
 }
-#endif //AutoVersionH
+#endif //ActorEditorVersionH

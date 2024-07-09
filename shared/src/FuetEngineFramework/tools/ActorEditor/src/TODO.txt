@@ -1,0 +1,3 @@
+- Eliminar el array de layers y quedarse únicamente con la estructura de árbol.
+- Manejar drag & drop para mover objetos en el árbol de objetos.
+- Permitir Groups dentro de groups
