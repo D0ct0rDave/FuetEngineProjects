@@ -1,0 +1,4 @@
+{
+    "extensions": ["spr", "cfg"],
+    "loader": "addons\FuetEngine\CFEConfigFileFormatLoader.gd"
+}
