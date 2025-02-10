@@ -10,3 +10,4 @@
 [submodule "shared/src/sdks/externals/wxWidgets2.8"]
 	path = shared/src/sdks/externals/wxWidgets2.8
 	url = https://github.com/D0ct0rDave/wxWidgets.git
+	branch = WX_2_8_BRANCH
