@@ -7,3 +7,6 @@
 [submodule "shared/src/sdks/externals/OpenGL"]
 	path = shared/src/sdks/externals/OpenGL
 	url = https://github.com/D0ct0rDave/OpenGL.git
+[submodule "shared/src/sdks/externals/wxWidgets2.8"]
+	path = shared/src/sdks/externals/wxWidgets2.8
+	url = https://github.com/D0ct0rDave/wxWidgets.git
