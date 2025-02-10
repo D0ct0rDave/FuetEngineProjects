@@ -1,0 +1,9 @@
+[submodule "shared/src/sdks/externals/libConfigPortable"]
+	path = shared/src/sdks/externals/libConfigPortable
+	url = https://github.com/D0ct0rDave/libconfigPortable.git
+[submodule "shared/src/sdks/externals/FreeImage"]
+	path = shared/src/sdks/externals/FreeImage
+	url = https://github.com/D0ct0rDave/FreeImage.git
+[submodule "shared/src/sdks/externals/OpenGL"]
+	path = shared/src/sdks/externals/OpenGL
+	url = https://github.com/D0ct0rDave/OpenGL.git
