@@ -15,3 +15,6 @@
 	path = shared/src/sdks/externals/physfs
 	url = https://github.com/D0ct0rDave/physfs
 	branch = stable-2.0
+[submodule "shared/src/sdks/externals/OpenAL-1.1-SDK"]
+	path = shared/src/sdks/externals/OpenAL-1.1-SDK
+	url = https://github.com/D0ct0rDave/OpenAL-1.1-SDK.git
