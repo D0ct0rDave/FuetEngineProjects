@@ -13,6 +13,7 @@
 #include "core/CFECore.h"
 #include "support/file/CFEMemFile.h"
 #include "support/misc/CFEStringUtils.h"
+#include <cassert>
 // ----------------------------------------------------------------------------
 #if 0
 const unsigned int IDENTIFIER_ALIGNMENT = 4;
@@ -145,11 +146,7 @@ void CBinConfigFile::Close()
 
 					CFECore::Log::Print("collide!!! \n");
 					CFECore::Log::Print("**************************************************\n");
- 					
- 					_asm
- 					{
- 						int 3;
- 					}
+					assert(false);
  				}
 			}
 
