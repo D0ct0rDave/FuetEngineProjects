@@ -21,7 +21,7 @@ typedef unsigned int        FNat;
 typedef FEReal              FReal;
 typedef unsigned char       FByte;
 typedef unsigned char       FChar;
-typedef FEBool                FFEBool;
+typedef bool                FEBool;
 
 typedef std::basic_string<char> CFString;
 */
@@ -100,13 +100,13 @@ typedef unsigned long long  FEQword;
 #if defined(BOOL_CLASS)
 
 #else
+	
+	#if defined(_MSC_VER) // || defined(BIG_ENDIAN) 
 
-	#if defined(_MSC_VER) // || defined(WIIU) 
-
-	// WiiU WARNING!!! 
+	// BIG_ENDIAN WARNING!!! 
 	// sizeof(bool) == 1 !!!!
 	// int a = 1; // a = 0x00000001
-	// (bool *)&a == 0 = FALSE !!!!!!! since WiiU is Big Endian
+	// (bool *)&a == 0 = FALSE !!!!!!! in BIG_ENDIAN
 	// this causes problems with 32 bit bools stored in binary files
 	typedef bool FEBool;
 	#else

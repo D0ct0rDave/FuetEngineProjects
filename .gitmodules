@@ -11,3 +11,7 @@
 	path = shared/src/sdks/externals/wxWidgets2.8
 	url = https://github.com/D0ct0rDave/wxWidgets.git
 	branch = WX_2_8_BRANCH
+[submodule "shared/src/sdks/externals/physfs"]
+	path = shared/src/sdks/externals/physfs
+	url = https://github.com/D0ct0rDave/physfs
+	branch = stable-2.0

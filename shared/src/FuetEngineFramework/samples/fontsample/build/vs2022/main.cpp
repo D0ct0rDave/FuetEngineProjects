@@ -77,7 +77,7 @@ InitApp(HINSTANCE hInstance, int nCmdShow, HWND *phWnd)
      * set up and register window class
      */
     wc.style = CS_HREDRAW | CS_VREDRAW;
-    wc.lpfnWndProc = WindowProc;
+    wc.lpfnWndProc = (WNDPROC)WindowProc;
     wc.cbClsExtra = 0;
     wc.cbWndExtra = 0;
     wc.hInstance = hInstance;

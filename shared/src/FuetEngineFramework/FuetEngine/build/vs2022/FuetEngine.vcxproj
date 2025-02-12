@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DEV_Debug|x64">
+      <Configuration>DEV_Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DEV_Release|x64">
+      <Configuration>DEV_Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="DEV_WITH_SOUND_Debug|Win32">
       <Configuration>DEV_WITH_SOUND_Debug</Configuration>
       <Platform>Win32</Platform>
@@ -13,25 +21,49 @@
       <Configuration>DEV_Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="DEV_WITH_SOUND_Debug|x64">
+      <Configuration>DEV_WITH_SOUND_Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="DS_PC_Debug|Win32">
       <Configuration>DS_PC_Debug</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DS_PC_Debug|x64">
+      <Configuration>DS_PC_Debug</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="PLAYTEST_Debug|Win32">
       <Configuration>PLAYTEST_Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="PLAYTEST_Debug|x64">
+      <Configuration>PLAYTEST_Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="PLAYTEST_Release|Win32">
       <Configuration>PLAYTEST_Release</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PLAYTEST_Release|x64">
+      <Configuration>PLAYTEST_Release</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="WIN32_Debug|Win32">
       <Configuration>WIN32_Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="WIN32_Debug|x64">
+      <Configuration>WIN32_Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="WIN32_Release|Win32">
       <Configuration>WIN32_Release</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="WIN32_Release|x64">
+      <Configuration>WIN32_Release</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -46,7 +78,19 @@
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>v143</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
@@ -58,7 +102,19 @@
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>NotSet</CharacterSet>
@@ -70,7 +126,19 @@
     <CharacterSet>NotSet</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>v143</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
@@ -82,7 +150,19 @@
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>v143</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
@@ -95,7 +175,15 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
   </ImportGroup>
@@ -103,7 +191,15 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
   </ImportGroup>
@@ -111,7 +207,15 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
   </ImportGroup>
@@ -119,7 +223,15 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
   </ImportGroup>
@@ -128,36 +240,68 @@
     <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|Win32'">
-    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|x64'">
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|Win32'">
-    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|x64'">
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">
-    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">
-    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">
-    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'">
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|Win32'">
-    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|x64'">
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">
-    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'">
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|Win32'">
-    <OutDir>$(ProjectDir)../../lib/vs_$(PlatformToolset)/$(Configuration)\</OutDir>
-    <IntDir>$(ProjectDir)../../obj/vs_$(PlatformToolset)/$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|x64'">
+    <OutDir>$(ProjectDir)../../lib/$(Platform)/$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)../../obj/$(Platform)/$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|Win32'">
     <PreBuildEvent>
@@ -169,12 +313,52 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\FreeAlut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEVELOPMENT;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|x64'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEVELOPMENT;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)</ObjectFileName>
@@ -208,7 +392,47 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\FreeAlut\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MASTER_RELEASE_VERSION;PLAYTEST;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|x64'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>MASTER_RELEASE_VERSION;PLAYTEST;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -248,7 +472,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <ClCompile>
       <AdditionalOptions>/_analyze %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEVELOPMENT;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -286,6 +510,55 @@ $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/_analyze %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEVELOPMENT;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <Xdcmake>
+      <OutputFile>$(OutDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">
     <PreBuildEvent>
       <Command>echo Autoversioning Project
@@ -296,7 +569,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <ClCompile>
       <AdditionalOptions>/_analyze %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_1.1_SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEVELOPMENT_WITH_SOUND;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -335,6 +608,55 @@ $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/_analyze %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEVELOPMENT_WITH_SOUND;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <Xdcmake>
+      <OutputFile>$(OutDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">
     <PreBuildEvent>
       <Command>echo Autoversioning Project
@@ -345,7 +667,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <ClCompile>
       <AdditionalOptions>/_analyze %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\FreeAlut\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>PLAYTEST;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -384,6 +706,55 @@ $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/_analyze %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PLAYTEST;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <Xdcmake>
+      <OutputFile>$(OutDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|Win32'">
     <PreBuildEvent>
       <Command>echo Autoversioning Project
@@ -393,7 +764,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     </PreBuildEvent>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\FreeAlut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEVELOPMENT;DS_PC;REAL_CLASS;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;_MBCS;GRAPHICS=USE_OPENGL;CONFIG=USE_BINCONFIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -431,6 +802,54 @@ $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|x64'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEVELOPMENT;DS_PC;REAL_CLASS;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;_MBCS;GRAPHICS=USE_OPENGL;CONFIG=USE_BINCONFIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <Xdcmake>
+      <OutputFile>$(OutDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">
     <PreBuildEvent>
       <Command>echo Autoversioning Project
@@ -440,7 +859,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     </PreBuildEvent>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\FreeAlut\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -478,6 +897,54 @@ $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <Xdcmake>
+      <OutputFile>$(OutDir)$(TargetName).xml</OutputFile>
+    </Xdcmake>
+    <Bscmake>
+      <OutputFile>$(IntDir)$(ProjectName).bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|Win32'">
     <PreBuildEvent>
       <Command>echo Autoversioning Project
@@ -488,12 +955,52 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\libs\libconfigPortable\src;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include;_$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\include\AL;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK\include;$(FuetEngineProjectsDev)\shared\src\libs\PhysixFS;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL\;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL_Soft\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\FreeAlut\include;$(FuetEngineProjectsDev)\shared\src\sdks\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c0a</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|x64'">
+    <PreBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
+</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)</ObjectFileName>
@@ -529,45 +1036,73 @@ $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
     <ClCompile Include="..\..\src\core\Windows\CFECWindowsOpenGLStereo.cpp" />
     <ClCompile Include="..\..\src\Core\Windows\OpenGLES2\CFECWindowsOpenGLES2.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\Core\Windows\OpenGLES2\esShader.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\Core\Windows\OpenGLES2\esShapes.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\Core\Windows\OpenGLES2\esTransform.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\Core\Windows\OpenGLES2\esUtil.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\Core\Windows\OpenGLES2\esUtil_TGA.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\Core\Windows\OpenGLES2\esUtil_win32.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\Core\Common\CBinConfigFile.cpp" />
     <ClCompile Include="..\..\src\Core\Common\CFECBinAndLibConfig.cpp" />
@@ -728,15 +1263,23 @@ $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe
     <ClInclude Include="..\..\src\core\Windows\FECTypes.h" />
     <CustomBuild Include="..\..\src\Core\Windows\OpenGLES2\esUtil.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'">true</ExcludedFromBuild>
     </CustomBuild>
     <CustomBuild Include="..\..\src\Core\Windows\OpenGLES2\esUtil_win.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'">true</ExcludedFromBuild>
     </CustomBuild>
     <ClInclude Include="..\..\src\Core\Common\CBinConfigFile.h" />
     <ClInclude Include="..\..\src\Core\Common\CFECImageLib.h" />

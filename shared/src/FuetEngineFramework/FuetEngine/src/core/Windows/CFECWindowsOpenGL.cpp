@@ -14,7 +14,6 @@
 #include <windows.h>
 #include <stdlib.h>
 #include <math.h>
-#include <GL/gl.h>
 
 #include "../CFECore.h"
 
@@ -22,8 +21,8 @@
 #include "Types/CFEKFBFunc.h"
 #include "CFECGlobals.h"
 
-#include <GL/gl.h>
-#include <GL/glext.h>
+#include <gl/gl.h>
+#include <gl/glext.h>
 #include <stdlib.h>
 #include <math.h>
 

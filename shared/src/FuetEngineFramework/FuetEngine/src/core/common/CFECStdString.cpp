@@ -28,31 +28,35 @@ static char* szCheckAndFixFmtString(const char* fmt,va_list* pArgptr)
 {
 	char* szDstFmt = gsszLocalFmt;	
     char* szArg = NULL;
-	bool bChange = false;
 
 	va_list argptr;
 
 	va_copy(argptr, *pArgptr);
-	va_start(argptr, fmt);
+	// va_start(argptr, fmt);
 
 		int i = 0;
 		for(;fmt[i] != '\0'; ++i )
 		{		
-			szDstFmt[i] = bChange?'d':fmt[i];
-			bChange = false;
+			szDstFmt[i] = fmt[i];
 
 			if (fmt[i] == '%')
 			{
-				if (fmt[i+1]!='%')
+				i++;
+				if (fmt[i] != '%')
 				{
 					szArg = va_arg(argptr,char*);
 
-					if ((fmt[i+1] == 's') && (szArg == NULL))
-						bChange = true;
+					if ((fmt[i] == 's') && (szArg == NULL))
+					{						
+						szDstFmt[i] = 'd';
+					}
+					else
+					{
+						szDstFmt[i] = fmt[i];
+					}
 				}
 				else
 				{
-					i++;
 					szDstFmt[i] = '%';
 				}
 			}
