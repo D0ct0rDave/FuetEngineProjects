@@ -21,3 +21,6 @@
 [submodule "shared/src/sdks/externals/OpenAL_1.1_SDK"]
 	path = shared/src/sdks/externals/OpenAL_1.1_SDK
 	url = https://github.com/D0ct0rDave/OpenAL_1.1_SDK.git
+[submodule "shared/src/sdks/externals/freealut"]
+	path = shared/src/sdks/externals/freealut
+	url = https://github.com/D0ct0rDave/freealut.git
