@@ -314,10 +314,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>DEVELOPMENT;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PreprocessorDefinitions>DEVELOPMENT;_WIN32;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader />
       <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
@@ -353,10 +350,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>DEVELOPMENT;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PreprocessorDefinitions>DEVELOPMENT;_WIN32;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
@@ -393,10 +387,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>MASTER_RELEASE_VERSION;PLAYTEST;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PreprocessorDefinitions>MASTER_RELEASE_VERSION;PLAYTEST;_WIN32;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
@@ -433,10 +424,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>MASTER_RELEASE_VERSION;PLAYTEST;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PreprocessorDefinitions>MASTER_RELEASE_VERSION;PLAYTEST;_WIN32;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
@@ -473,9 +461,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <AdditionalOptions>/_analyze %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>DEVELOPMENT;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>DEVELOPMENT;WIN32;_WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader />
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
@@ -521,9 +507,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <AdditionalOptions>/_analyze %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>DEVELOPMENT;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>DEVELOPMENT;WIN32;_WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
@@ -570,9 +554,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <AdditionalOptions>/_analyze %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>DEVELOPMENT_WITH_SOUND;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>DEVELOPMENT_WITH_SOUND;_WIN32;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
@@ -619,9 +601,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <AdditionalOptions>/_analyze %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>DEVELOPMENT_WITH_SOUND;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>DEVELOPMENT_WITH_SOUND;_WIN32;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
@@ -668,9 +648,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <AdditionalOptions>/_analyze %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>PLAYTEST;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>PLAYTEST;_WIN32;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
@@ -717,9 +695,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <AdditionalOptions>/_analyze %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>PLAYTEST;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>PLAYTEST;_WIN32;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
@@ -765,9 +741,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>DEVELOPMENT;DS_PC;REAL_CLASS;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;_MBCS;GRAPHICS=USE_OPENGL;CONFIG=USE_BINCONFIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PreprocessorDefinitions>DEVELOPMENT;DS_PC;REAL_CLASS;_WIN32;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;_MBCS;GRAPHICS=USE_OPENGL;CONFIG=USE_BINCONFIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader />
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
@@ -812,9 +786,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>DEVELOPMENT;DS_PC;REAL_CLASS;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;_MBCS;GRAPHICS=USE_OPENGL;CONFIG=USE_BINCONFIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PreprocessorDefinitions>DEVELOPMENT;DS_PC;REAL_CLASS;_WIN32;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;_MBCS;GRAPHICS=USE_OPENGL;CONFIG=USE_BINCONFIG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
@@ -860,9 +832,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>_WIN32;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader />
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
@@ -875,6 +845,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -907,9 +878,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>_WIN32;WIN32;_DEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
@@ -923,6 +892,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <DisableSpecificWarnings>4635;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -956,10 +926,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PreprocessorDefinitions>_WIN32;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader />
       <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
@@ -995,10 +962,7 @@ $(ProjectDir)..\..\..\..\..\toolchain\FuetEngine\Autoversion.exe
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/freeimage/Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals/libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenAL_1.1_SDK/include/al;$(FuetEngineProjectsDev)\shared\src\sdks\externals/physfs/;$(FuetEngineProjectsDev)\shared\src\sdks\externals/OpenGL</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PreprocessorDefinitions>_WIN32;WIN32;NDEBUG;_LIB;_WINDOWS;NULL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <PrecompiledHeaderOutputFile>.\Release/AI.pch</PrecompiledHeaderOutputFile>
