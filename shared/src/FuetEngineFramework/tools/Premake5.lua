@@ -51,9 +51,9 @@ frameworkRoot = scriptRoot .. "/../FuetEngine"
 
 ------------------------------------------------------------------------------
 
-local function addSampleProject(_projectName, _useWxWidgets, _useSound)
+local function addToolProject(_projectName, _useWxWidgets)
 
-	local ProjectRelativeFinalDataRoot = "$(ProjectDir)../data/PC"
+	local ProjectRelativeFinalDataRoot = "$(ProjectDir)../../../../toolchain/FuetEngine"
 	local ProjectRelativeSDKSRoot = "$(ProjectDir)../../../SDKS"
 	local ProjectRelativeFuetEngineRoot = "$(ProjectDir)../../FuetEngine"
 
@@ -73,7 +73,7 @@ local function addSampleProject(_projectName, _useWxWidgets, _useSound)
 
 		-- Recursively include all .cpp and .h files from the sourceRoot directory		
 		sourceRoot = scriptRoot .. "/" .. _projectName
-		
+
 		-- Recursively include all .cpp and .h files from the sourceRoot directory
 		files {
 			sourceRoot .. "/src/**.cpp",
@@ -101,6 +101,8 @@ local function addSampleProject(_projectName, _useWxWidgets, _useSound)
 			-- Add include directories (sourceRoot is included by default)
 			sourceRoot,
 			ProjectRelativeFuetEngineRoot .. "/src",
+			"$(ProjectDir)../../../common/components",
+			
 		}
 
 		if _useWxWidgets then
@@ -118,20 +120,9 @@ local function addSampleProject(_projectName, _useWxWidgets, _useSound)
 			ProjectRelativeSDKSRoot .. "/externals/physfs/build/%{cfg.buildcfg}",
 			ProjectRelativeSDKSRoot .. "/externals/libConfigPortable/lib/" .. currentPlatform .. "/%{cfg.buildcfg}",
 			ProjectRelativeSDKSRoot .. "/externals/OpenAL_1.1_SDK/libs/Win64/",
-			ProjectRelativeSDKSRoot .. "/externals/freealut/build/src/%{cfg.buildcfg}",			
+			ProjectRelativeSDKSRoot .. "/externals/freealut/build/src/%{cfg.buildcfg}",	
+			ProjectRelativeFuetEngineRoot .. "/lib/" .. currentPlatform .. "/DEV_%{cfg.buildcfg}"			
 		}
-
-		if _useSound then
-			libdirs
-			{
-				ProjectRelativeFuetEngineRoot .. "/lib/" .. currentPlatform .. "/DEV_WITH_SOUND_%{cfg.buildcfg}"
-			}
-		else
-			libdirs
-			{
-				ProjectRelativeFuetEngineRoot .. "/lib/" .. currentPlatform .. "/DEV_%{cfg.buildcfg}"
-			}
-		end
 
 		if _useWxWidgets then
 			libdirs
@@ -259,24 +250,19 @@ end
 ------------------------------------------------------------------------------
 -- Premake5.lua
 ------------------------------------------------------------------------------
-workspace "FuetEngine_Samples"
+workspace "FuetEngine_Tools"
     configurations { "Debug", "Release" }
     location "build" -- Where generated files (like Visual Studio solutions) will be stored
     architecture "x86_64"
 
 ------------------------------------------------------------------------------
-group("Samples")
-	addSampleProject("2DisplaysSample", true, false)
-	addSampleProject("fontsample", 		false, false)
-	addSampleProject("FPS", 			false, false)
-	addSampleProject("helloworld", 		false, false)
-	addSampleProject("intro", 			false, false)
-	addSampleProject("MeshSample", 		false, false)
-	addSampleProject("padinput", 		false, false)
-	addSampleProject("SoundSample", 	false, true)
-	addSampleProject("sprites", 		false, false)
-	addSampleProject("SpriteWithInput", false, false)
-
+group("Tools")
+	addToolProject("Autoversion", 	false)
+	addToolProject("SpriteEditor", 	true)
+	addToolProject("FontEditor", 		true)
+	addToolProject("ConfigBinarizer", false)
+	addToolProject("ActorEditor", 	true)
+	
 --[[
 group("FuetEngine")	
 	includeExternalProjects(frameworkRoot .. "/build/vs2022")
