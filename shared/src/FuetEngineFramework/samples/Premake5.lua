@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------------
 -- Define the mapping of platforms to project file extensions
-local platformProjectExtensions = 
+local systemProjectExtensions = 
 {
 	windows = "vcxproj",
 	linux = "makefile",
@@ -8,11 +8,11 @@ local platformProjectExtensions =
 }
 
 -- Determine the current platform's project file extension
-local currentPlatform = os.target():lower() -- e.g., "windows", "linux", "macosx"
-local projectExtension = platformProjectExtensions[currentPlatform]
+local currentSystem = os.target():lower() -- e.g., "windows", "linux", "macosx"
+local projectExtension = systemProjectExtensions[currentSystem]
 
 if not projectExtension then
-	error("Unsupported platform: " .. currentPlatform)
+	error("Unsupported system: " .. currentSystem)
 end
 
 ------------------------------------------------------------------------------
@@ -51,18 +51,23 @@ frameworkRoot = scriptRoot .. "/../FuetEngine"
 
 ------------------------------------------------------------------------------
 
-local function addSampleProject(_projectName, _useWxWidgets)
+local function addSampleProject(_projectName, _useWxWidgets, _useSound)
 
 	local ProjectRelativeFinalDataRoot = "$(ProjectDir)../data/PC"
 	local ProjectRelativeSDKSRoot = "$(ProjectDir)../../../SDKS"
 	local ProjectRelativeFuetEngineRoot = "$(ProjectDir)../../FuetEngine"
 
+	local currentPlatform = "Win32"
+	filter { "architecture:x86_64" }
+		currentPlatform = "x64"
+	filter {} -- Reset filter
+
 	project(_projectName)
 		kind "WindowedApp" -- Change to "SharedLib" for a shared library
 		language "C++"
 		cppdialect "C++17"
-		targetdir("$(ProjectDir)exe/" .. _projectName .. "$(Platform)/%{cfg.buildcfg}") -- Output directory for binaries
-		objdir("$(ProjectDir)obj/" .. _projectName .. "$(Platform)/%{cfg.buildcfg}") -- Output directory for intermediate files
+		targetdir("$(ProjectDir)exe/" .. _projectName .. "/" .. currentPlatform .. "/%{cfg.buildcfg}") -- Output directory for binaries
+		objdir("$(ProjectDir)obj/" .. _projectName .. "/" .. currentPlatform .. "/%{cfg.buildcfg}") -- Output directory for intermediate files
 		characterset("ASCII")
 		debugdir(ProjectRelativeFinalDataRoot)
 
@@ -79,11 +84,9 @@ local function addSampleProject(_projectName, _useWxWidgets)
 		-- specific defines for this project
 		defines {
 			"_MBCS",
-			"_OGL_",
-			"_OPENAL_",
-			"FREEIMAGE_LIB",
+			"NOPCH",
 		}
-		
+
 		filter { "system:windows" }
 			defines { "WIN32" }
 		filter {} -- Reset filter
@@ -111,20 +114,31 @@ local function addSampleProject(_projectName, _useWxWidgets)
 		-- Library directories common for all configurations
 		libdirs
 		{
-			ProjectRelativeSDKSRoot .. "/externals/FreeImage/Dist/$(Platform)/%{cfg.buildcfg}",
+			ProjectRelativeSDKSRoot .. "/externals/FreeImage/Dist/" .. currentPlatform .. "/%{cfg.buildcfg}",
 			ProjectRelativeSDKSRoot .. "/externals/physfs/build/%{cfg.buildcfg}",
-			ProjectRelativeSDKSRoot .. "/externals/libConfigPortable/lib/$(Platform)/%{cfg.buildcfg}",
+			ProjectRelativeSDKSRoot .. "/externals/libConfigPortable/lib/" .. currentPlatform .. "/%{cfg.buildcfg}",
 			ProjectRelativeSDKSRoot .. "/externals/OpenAL_1.1_SDK/libs/Win64/",
-			ProjectRelativeSDKSRoot .. "/externals/OpenAL_1.1_SDK/libs",			
-			ProjectRelativeFuetEngineRoot .. "/lib/" .. "x64" .. "/WIN32_%{cfg.buildcfg}",
+			ProjectRelativeSDKSRoot .. "/externals/freealut/build/src/%{cfg.buildcfg}",			
 		}
-		
+
+		if _useSound then
+			libdirs
+			{
+				ProjectRelativeFuetEngineRoot .. "/lib/" .. currentPlatform .. "/DEV_WITH_SOUND_%{cfg.buildcfg}"
+			}
+		else
+			libdirs
+			{
+				ProjectRelativeFuetEngineRoot .. "/lib/" .. currentPlatform .. "/DEV_%{cfg.buildcfg}"
+			}
+		end
+
 		if _useWxWidgets then
 			libdirs
 			{
-				ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/lib/vc_lib/$(Platform)",
+				ProjectRelativeSDKSRoot .. "/Externals/wxWidgets2.8/lib/vc_lib/" .. currentPlatform
 			}
-		end		
+		end
 
 		links 
 		{
@@ -137,6 +151,9 @@ local function addSampleProject(_projectName, _useWxWidgets)
 			"OpenAL32.lib",
 			"alut.lib",
 			"physfs.lib",
+			"comctl32.lib",
+			"rpcrt4.lib",
+			"odbc32.lib",
 		}
 
 		-- Configuration-specific settings
@@ -145,6 +162,12 @@ local function addSampleProject(_projectName, _useWxWidgets)
 			symbols "On" -- Generate debug symbols
 
 			if _useWxWidgets then
+
+				defines {
+					"__WXMSW__",
+					"__WXDEBUG__",
+				}
+
 				links 
 				{
 					"wxbase28d.lib",
@@ -170,12 +193,19 @@ local function addSampleProject(_projectName, _useWxWidgets)
 				}
 			end
 
+			staticruntime "off"
+			runtime "Debug"
+
 
 		filter "configurations:Release"
 			defines { "NDEBUG" }
 			optimize "On" -- Enable optimizations			
 
 			if _useWxWidgets then
+				defines {
+					"__WXMSW__",
+				}
+
 				links 
 				{
 					"wxmsw28_xrc.lib",
@@ -201,11 +231,13 @@ local function addSampleProject(_projectName, _useWxWidgets)
 				}
 			end
 
+			staticruntime "off"
+			runtime "Release"
+
 		filter {} -- Clear filter for general settings
 
 		-- Add the external project to the solution
 		includeLibraries(frameworkRoot .. "/build/vs2022")
-				
 	
 		links { "FuetEngine.lib" }
 		
@@ -234,16 +266,16 @@ workspace "FuetEngine_Samples"
 
 ------------------------------------------------------------------------------
 group("Samples")
-	addSampleProject("2DisplaysSample", true)
-	addSampleProject("fontsample", false)
-	addSampleProject("FPS", false)
-	addSampleProject("helloworld", false)
-	addSampleProject("intro", false)
-	addSampleProject("MeshSample", false)
-	addSampleProject("padinput", false)
-	addSampleProject("SoundSample", false)
-	addSampleProject("sprites", false)
-	addSampleProject("SpriteWithInput", false)
+	addSampleProject("2DisplaysSample", true, false)
+	addSampleProject("fontsample", 		false, false)
+	addSampleProject("FPS", 			false, false)
+	addSampleProject("helloworld", 		false, false)
+	addSampleProject("intro", 			false, false)
+	addSampleProject("MeshSample", 		false, false)
+	addSampleProject("padinput", 		false, false)
+	addSampleProject("SoundSample", 	false, true)
+	addSampleProject("sprites", 		false, false)
+	addSampleProject("SpriteWithInput", false, false)
 
 --[[
 group("FuetEngine")	

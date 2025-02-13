@@ -330,7 +330,7 @@ void CFESkelAnimInstMgr::SetActionAndSpeedMult(FEHandler _hInstance,uint _uiActi
 	// sanity checks
 	if (ANIMINST(_hInstance).m_poSkelAnim->poGetAnimActionSet() == NULL) return;
 	if (_uiAction >= ANIMINST(_hInstance).m_poSkelAnim->poGetAnimActionSet()->uiNumActions()) return;
-	CFECoreCheck( _uiAction< ANIMINST(_hInstance).m_poSkelAnim->poGetAnimActionSet()->uiNumActions(),CFEString("Bad action number ") + CFEString(_uiAction) );
+	CFECoreCheck( _uiAction< ANIMINST(_hInstance).m_poSkelAnim->poGetAnimActionSet()->uiNumActions(),CFEString("Bad action number ") + CFEString((int)_uiAction) );
 
     ANIMINST(_hInstance).m_uiAction		= _uiAction;
     ANIMINST(_hInstance).m_rActionTime	= _0r;

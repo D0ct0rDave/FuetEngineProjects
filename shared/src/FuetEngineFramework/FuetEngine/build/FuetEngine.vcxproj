@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DEV_Debug|x64">
+      <Configuration>DEV_Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DEV_Release|x64">
+      <Configuration>DEV_Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DEV_WITH_SOUND_Debug|x64">
+      <Configuration>DEV_WITH_SOUND_Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DS_PC_Debug|x64">
+      <Configuration>DS_PC_Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PLAYTEST_Debug|x64">
+      <Configuration>PLAYTEST_Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PLAYTEST_Release|x64">
+      <Configuration>PLAYTEST_Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="WIN32_Debug|x64">
+      <Configuration>WIN32_Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="WIN32_Release|x64">
+      <Configuration>WIN32_Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0F7BC24D-FB32-049B-643A-DDF650119F8B}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>FuetEngine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DEV_Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">
+    <OutDir>$(ProjectDir)..\lib\x64\DEV_Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\x64\DEV_Debug\</IntDir>
+    <TargetName>FuetEngine</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|x64'">
+    <OutDir>$(ProjectDir)..\lib\x64\DEV_Release\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\x64\DEV_Release\</IntDir>
+    <TargetName>FuetEngine</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">
+    <OutDir>$(ProjectDir)..\lib\x64\DEV_WITH_SOUND_Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\x64\DEV_WITH_SOUND_Debug\</IntDir>
+    <TargetName>FuetEngine</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|x64'">
+    <OutDir>$(ProjectDir)..\lib\x64\DS_PC_Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\x64\DS_PC_Debug\</IntDir>
+    <TargetName>FuetEngine</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'">
+    <OutDir>$(ProjectDir)..\lib\x64\PLAYTEST_Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\x64\PLAYTEST_Debug\</IntDir>
+    <TargetName>FuetEngine</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|x64'">
+    <OutDir>$(ProjectDir)..\lib\x64\PLAYTEST_Release\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\x64\PLAYTEST_Release\</IntDir>
+    <TargetName>FuetEngine</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'">
+    <OutDir>$(ProjectDir)..\lib\x64\WIN32_Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\x64\WIN32_Debug\</IntDir>
+    <TargetName>FuetEngine</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|x64'">
+    <OutDir>$(ProjectDir)..\lib\x64\WIN32_Release\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\x64\WIN32_Release\</IntDir>
+    <TargetName>FuetEngine</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;DEVELOPMENT_WITH_SOUND;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;PLAYTEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='PLAYTEST_Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;PLAYTEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WIN32_Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\CRealClass.h" />
+    <ClInclude Include="..\src\CRealClass_Generic.h" />
+    <ClInclude Include="..\src\FEBasicTypes.h" />
+    <ClInclude Include="..\src\FEConsts.h" />
+    <ClInclude Include="..\src\FEDefs.h" />
+    <ClInclude Include="..\src\FEEnums.h" />
+    <ClInclude Include="..\src\FuetEngine.h" />
+    <ClInclude Include="..\src\core\CFECore.h" />
+    <ClInclude Include="..\src\core\CFECoreGlobals.h" />
+    <ClInclude Include="..\src\core\CFECore_VBO.h" />
+    <ClInclude Include="..\src\core\FEConfig.h" />
+    <ClInclude Include="..\src\core\FEConfigOptions.h" />
+    <ClInclude Include="..\src\core\FECoreTypes.h" />
+    <ClInclude Include="..\src\core\Windows\CFECGlobals.h" />
+    <ClInclude Include="..\src\core\Windows\FECConfig.h" />
+    <ClInclude Include="..\src\core\Windows\FECConfig_Dev.h" />
+    <ClInclude Include="..\src\core\Windows\FECConfig_DevWithSound.h" />
+    <ClInclude Include="..\src\core\Windows\FECConfig_PlayTest.h" />
+    <ClInclude Include="..\src\core\Windows\FECTypes.h" />
+    <ClInclude Include="..\src\core\Windows\OpenGLES2\KHR_thread_storage.h" />
+    <ClInclude Include="..\src\core\Windows\OpenGLES2\esUtil.h" />
+    <ClInclude Include="..\src\core\Windows\OpenGLES2\esUtil_win.h" />
+    <ClInclude Include="..\src\core\Windows\OpenGLES2\kd.h" />
+    <ClInclude Include="..\src\core\Windows\OpenGLES2\kdplatform.h" />
+    <ClInclude Include="..\src\core\common\CBinConfigFile.h" />
+    <ClInclude Include="..\src\core\common\CFECImageLib.h" />
+    <ClInclude Include="..\src\core\common\CFERenderList.h" />
+    <ClInclude Include="..\src\core\common\FECStdMessages.h" />
+    <ClInclude Include="..\src\game\cinematic\CFECinematic.h" />
+    <ClInclude Include="..\src\game\cinematic\CFECinematicLoader.h" />
+    <ClInclude Include="..\src\game\cinematic\CFECinematicMgr.h" />
+    <ClInclude Include="..\src\game\classes\CFEStatedObject.h" />
+    <ClInclude Include="..\src\game\script\CFEScript.h" />
+    <ClInclude Include="..\src\game\script\CFEScriptLoader.h" />
+    <ClInclude Include="..\src\game\script\CFEScriptMgr.h" />
+    <ClInclude Include="..\src\game\script\CFEScriptVarRegistry.h" />
+    <ClInclude Include="..\src\game\script\action\CFEAction.h" />
+    <ClInclude Include="..\src\game\script\action\CFEActionFadeSoundLine.h" />
+    <ClInclude Include="..\src\game\script\action\CFEActionLoader.h" />
+    <ClInclude Include="..\src\game\script\action\CFEActionPlaySound.h" />
+    <ClInclude Include="..\src\game\script\action\CFEActionSleep.h" />
+    <ClInclude Include="..\src\game\script\action\CFEActionStopSound.h" />
+    <ClInclude Include="..\src\game\script\action\CFEActionWaitInput.h" />
+    <ClInclude Include="..\src\game\script\action\CFESoundAction.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUD.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDAction.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDActionDefaultValues.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDActionTime.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDElemLocator.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDElement.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDEventFunc.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDEventMgr.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDGroup.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDIcon.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDInstMgr.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDInstancer.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDLabel.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDLoader.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDMaxDepthGetter.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDObject.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDPSys.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDRect.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDRectGen.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDRenderer.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDShape.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDTranslator.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDUpdater.h" />
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDVisitor.h" />
+    <ClInclude Include="..\src\graphics\font\CFEFont.h" />
+    <ClInclude Include="..\src\graphics\font\CFEFontANSI.h" />
+    <ClInclude Include="..\src\graphics\font\CFEFontLoader.h" />
+    <ClInclude Include="..\src\graphics\font\CFEFontMgr.h" />
+    <ClInclude Include="..\src\graphics\font\CFEFontUTF8.h" />
+    <ClInclude Include="..\src\graphics\map\CFEMap.h" />
+    <ClInclude Include="..\src\graphics\map\CFEMapLoader.h" />
+    <ClInclude Include="..\src\graphics\map\CFEMapRenderer.h" />
+    <ClInclude Include="..\src\graphics\mesh\CFEMesh.h" />
+    <ClInclude Include="..\src\graphics\mesh\CFEMeshInstMgr.h" />
+    <ClInclude Include="..\src\graphics\mesh\CFEMeshLoader.h" />
+    <ClInclude Include="..\src\graphics\mesh\CFEMeshMgr.h" />
+    <ClInclude Include="..\src\graphics\mesh\CFEMeshRenderer.h" />
+    <ClInclude Include="..\src\graphics\particlesys\CFEParticleMgr.h" />
+    <ClInclude Include="..\src\graphics\particlesys\CFEParticleSys.h" />
+    <ClInclude Include="..\src\graphics\particlesys\CFEParticleSysInstMgr.h" />
+    <ClInclude Include="..\src\graphics\particlesys\CFEParticleSysLoader.h" />
+    <ClInclude Include="..\src\graphics\particlesys\CFEParticleSysMgr.h" />
+    <ClInclude Include="..\src\graphics\screenutils\CFEScreenFX.h" />
+    <ClInclude Include="..\src\graphics\screenutils\CFEScreenUtils.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnim.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimBone.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimEventFunc.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimEventMgr.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimGroup.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimInstMgr.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimInstancer.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimLoader.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimMesh.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimMeshModel.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimMgr.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimNode.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimNodeInstancer.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimNodeLocator.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimNodeTableBuilder.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimNodeUpdater.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimNodeVisitor.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimRenderer.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimSprite.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimSpriteModel.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimUpdater.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimUtils.h" />
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimVisitor.h" />
+    <ClInclude Include="..\src\graphics\sprite\CFESprite.h" />
+    <ClInclude Include="..\src\graphics\sprite\CFESpriteInstMgr.h" />
+    <ClInclude Include="..\src\graphics\sprite\CFESpriteLoader.h" />
+    <ClInclude Include="..\src\graphics\sprite\CFESpriteMgr.h" />
+    <ClInclude Include="..\src\graphics\sprite\CFESpriteRenderer.h" />
+    <ClInclude Include="..\src\support\TRC\CFETRC.h" />
+    <ClInclude Include="..\src\support\config\CFEConfigFile.h" />
+    <ClInclude Include="..\src\support\file\CFEFile.h" />
+    <ClInclude Include="..\src\support\file\CFEMemFile.h" />
+    <ClInclude Include="..\src\support\graphics\CFEMaterialMgr.h" />
+    <ClInclude Include="..\src\support\graphics\CFERenderer.h" />
+    <ClInclude Include="..\src\support\graphics\CFERenderer_VBO.h" />
+    <ClInclude Include="..\src\support\input\CFEInput.h" />
+    <ClInclude Include="..\src\support\local\CFEDictionary.h" />
+    <ClInclude Include="..\src\support\local\CFELocal.h" />
+    <ClInclude Include="..\src\support\math\CFEMath.h" />
+    <ClInclude Include="..\src\support\math\CFEMathIntersect.h" />
+    <ClInclude Include="..\src\support\math\CFERandomGen.h" />
+    <ClInclude Include="..\src\support\math\CFESmoother.h" />
+    <ClInclude Include="..\src\support\mem\CFEMem.h" />
+    <ClInclude Include="..\src\support\mem\CFEResourceContextMgr.h" />
+    <ClInclude Include="..\src\support\misc\CFEChrono.h" />
+    <ClInclude Include="..\src\support\misc\CFELogger.h" />
+    <ClInclude Include="..\src\support\misc\CFEStringUtils.h" />
+    <ClInclude Include="..\src\support\misc\crc32.h" />
+    <ClInclude Include="..\src\support\profile\CFEProfile.h" />
+    <ClInclude Include="..\src\support\sound\CFESound.h" />
+    <ClInclude Include="..\src\support\sound\CFESoundMgr.h" />
+    <ClInclude Include="..\src\support\sound\CFESoundMixer.h" />
+    <ClInclude Include="..\src\support\sound\CFESoundPlayer.h" />
+    <ClInclude Include="..\src\support\system\CFESystem.h" />
+    <ClInclude Include="..\src\types\CFEArray.h" />
+    <ClInclude Include="..\src\types\CFEColor.h" />
+    <ClInclude Include="..\src\types\CFEHashTable.h" />
+    <ClInclude Include="..\src\types\CFEInstanceMgr.h" />
+    <ClInclude Include="..\src\types\CFEKFBEventFunc.h" />
+    <ClInclude Include="..\src\types\CFEKFBFunc.h" />
+    <ClInclude Include="..\src\types\CFEKFBFuncUtils.h" />
+    <ClInclude Include="..\src\types\CFELookupDatabase.h" />
+    <ClInclude Include="..\src\types\CFEMatrix.h" />
+    <ClInclude Include="..\src\types\CFEMomentInTime.h" />
+    <ClInclude Include="..\src\types\CFENamedObject.h" />
+    <ClInclude Include="..\src\types\CFERect.h" />
+    <ClInclude Include="..\src\types\CFEResourceMgr.h" />
+    <ClInclude Include="..\src\types\CFEResourceQueue.h" />
+    <ClInclude Include="..\src\types\CFESegment.h" />
+    <ClInclude Include="..\src\types\CFESingleton.h" />
+    <ClInclude Include="..\src\types\CFEString.h" />
+    <ClInclude Include="..\src\types\CFEVect2.h" />
+    <ClInclude Include="..\src\types\FEKFBFLerpFuncs.h" />
+    <ClInclude Include="..\src\version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\CRealClass.cpp" />
+    <ClCompile Include="..\src\core\Windows\CFECD3D.cpp" />
+    <ClCompile Include="..\src\core\Windows\CFECGlobals.cpp" />
+    <ClCompile Include="..\src\core\Windows\CFECWindows.cpp" />
+    <ClCompile Include="..\src\core\Windows\CFECWindowsDX.cpp" />
+    <ClCompile Include="..\src\core\Windows\CFECWindowsInput.cpp" />
+    <ClCompile Include="..\src\core\Windows\CFECWindowsNativeAndDX.cpp" />
+    <ClCompile Include="..\src\core\Windows\CFECWindowsOpenGL.cpp" />
+    <ClCompile Include="..\src\core\Windows\CFECWindowsOpenGLStereo.cpp" />
+    <ClCompile Include="..\src\core\Windows\OpenGLES2\CFECWindowsOpenGLES2.cpp" />
+    <ClCompile Include="..\src\core\Windows\OpenGLES2\esShader.cpp" />
+    <ClCompile Include="..\src\core\Windows\OpenGLES2\esShapes.cpp" />
+    <ClCompile Include="..\src\core\Windows\OpenGLES2\esTransform.cpp" />
+    <ClCompile Include="..\src\core\Windows\OpenGLES2\esUtil.cpp" />
+    <ClCompile Include="..\src\core\Windows\OpenGLES2\esUtil_TGA.cpp" />
+    <ClCompile Include="..\src\core\Windows\OpenGLES2\esUtil_win32.cpp" />
+    <ClCompile Include="..\src\core\common\CBinConfigFile.cpp" />
+    <ClCompile Include="..\src\core\common\CFECBinAndLibConfig.cpp" />
+    <ClCompile Include="..\src\core\common\CFECBinConfig.cpp" />
+    <ClCompile Include="..\src\core\common\CFECBinConfig_old.cpp" />
+    <ClCompile Include="..\src\core\common\CFECDummyAudio.cpp" />
+    <ClCompile Include="..\src\core\common\CFECFreeImage.cpp" />
+    <ClCompile Include="..\src\core\common\CFECImageLib.cpp" />
+    <ClCompile Include="..\src\core\common\CFECLibConfig.cpp" />
+    <ClCompile Include="..\src\core\common\CFECOpenAL.cpp" />
+    <ClCompile Include="..\src\core\common\CFECPhysixFSFileSys.cpp" />
+    <ClCompile Include="..\src\core\common\CFECPhysixFSProfile.cpp" />
+    <ClCompile Include="..\src\core\common\CFECStdFileSys.cpp" />
+    <ClCompile Include="..\src\core\common\CFECStdLocal.cpp" />
+    <ClCompile Include="..\src\core\common\CFECStdMath.cpp" />
+    <ClCompile Include="..\src\core\common\CFECStdMem.cpp" />
+    <ClCompile Include="..\src\core\common\CFECStdProfile.cpp" />
+    <ClCompile Include="..\src\core\common\CFECStdString.cpp" />
+    <ClCompile Include="..\src\core\common\CFERenderList.cpp" />
+    <ClCompile Include="..\src\core\common\FECStdMessages.cpp" />
+    <ClCompile Include="..\src\game\cinematic\CFECinematic.cpp" />
+    <ClCompile Include="..\src\game\cinematic\CFECinematicLoader.cpp" />
+    <ClCompile Include="..\src\game\cinematic\CFECinematicMgr.cpp" />
+    <ClCompile Include="..\src\game\classes\CFEStatedObject.cpp" />
+    <ClCompile Include="..\src\game\script\CFEScript.cpp" />
+    <ClCompile Include="..\src\game\script\CFEScriptLoader.cpp" />
+    <ClCompile Include="..\src\game\script\CFEScriptMgr.cpp" />
+    <ClCompile Include="..\src\game\script\action\CFEAction.cpp" />
+    <ClCompile Include="..\src\game\script\action\CFEActionFadeSoundLine.cpp" />
+    <ClCompile Include="..\src\game\script\action\CFEActionLoader.cpp" />
+    <ClCompile Include="..\src\game\script\action\CFEActionPlaySound.cpp" />
+    <ClCompile Include="..\src\game\script\action\CFEActionSleep.cpp" />
+    <ClCompile Include="..\src\game\script\action\CFEActionStopSound.cpp" />
+    <ClCompile Include="..\src\game\script\action\CFEActionWaitInput.cpp" />
+    <ClCompile Include="..\src\game\script\action\CFESoundAction.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUD.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDAction.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDActionDefaultValues.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDActionTime.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDElemLocator.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDElement.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDEventFunc.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDEventMgr.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDGroup.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDIcon.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDInstMgr.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDInstancer.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDLabel.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDLoader.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDPSys.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDRect.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDRectGen.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDRenderer.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDShape.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDTranslator.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDUpdater.cpp" />
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDVisitor.cpp" />
+    <ClCompile Include="..\src\graphics\font\CFEFont.cpp" />
+    <ClCompile Include="..\src\graphics\font\CFEFontANSI.cpp" />
+    <ClCompile Include="..\src\graphics\font\CFEFontLoader.cpp" />
+    <ClCompile Include="..\src\graphics\font\CFEFontMgr.cpp" />
+    <ClCompile Include="..\src\graphics\font\CFEFontUTF8.cpp" />
+    <ClCompile Include="..\src\graphics\map\CFEMap.cpp" />
+    <ClCompile Include="..\src\graphics\map\CFEMapLoader.cpp" />
+    <ClCompile Include="..\src\graphics\map\CFEMapRenderer.cpp" />
+    <ClCompile Include="..\src\graphics\mesh\CFEMesh.cpp" />
+    <ClCompile Include="..\src\graphics\mesh\CFEMeshInstMgr.cpp" />
+    <ClCompile Include="..\src\graphics\mesh\CFEMeshLoader.cpp" />
+    <ClCompile Include="..\src\graphics\mesh\CFEMeshMgr.cpp" />
+    <ClCompile Include="..\src\graphics\mesh\CFEMeshRenderer.cpp" />
+    <ClCompile Include="..\src\graphics\particlesys\CFEParticleMgr.cpp" />
+    <ClCompile Include="..\src\graphics\particlesys\CFEParticleSysInstMgr.cpp" />
+    <ClCompile Include="..\src\graphics\particlesys\CFEParticleSysLoader.cpp" />
+    <ClCompile Include="..\src\graphics\particlesys\CFEParticleSysMgr.cpp" />
+    <ClCompile Include="..\src\graphics\screenutils\CFEScreenFX.cpp" />
+    <ClCompile Include="..\src\graphics\screenutils\CFEScreenUtils.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnim.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimEventFunc.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimEventMgr.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimGroup.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimInstMgr.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimInstancer.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimLoader.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimMesh.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimMeshModel.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimMgr.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimNodeInstancer.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimNodeLocator.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimNodeTableBuilder.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimNodeUpdater.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimNodeVisitor.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimRenderer.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimSprite.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimSpriteModel.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimUpdater.cpp" />
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimUtils.cpp" />
+    <ClCompile Include="..\src\graphics\sprite\CFESprite.cpp" />
+    <ClCompile Include="..\src\graphics\sprite\CFESpriteInstMgr.cpp" />
+    <ClCompile Include="..\src\graphics\sprite\CFESpriteLoader.cpp" />
+    <ClCompile Include="..\src\graphics\sprite\CFESpriteMgr.cpp" />
+    <ClCompile Include="..\src\graphics\sprite\CFESpriteRenderer.cpp" />
+    <ClCompile Include="..\src\support\TRC\CFETRC.cpp" />
+    <ClCompile Include="..\src\support\config\CFEConfigFile.cpp" />
+    <ClCompile Include="..\src\support\file\CFEFile.cpp" />
+    <ClCompile Include="..\src\support\file\CFEMemFile.cpp" />
+    <ClCompile Include="..\src\support\graphics\CFEMaterialMgr.cpp" />
+    <ClCompile Include="..\src\support\graphics\CFERenderer.cpp" />
+    <ClCompile Include="..\src\support\input\CFEInput.cpp" />
+    <ClCompile Include="..\src\support\local\CFEDictionary.cpp" />
+    <ClCompile Include="..\src\support\local\CFELocal.cpp" />
+    <ClCompile Include="..\src\support\math\CFEMath.cpp" />
+    <ClCompile Include="..\src\support\math\CFEMathIntersect.cpp" />
+    <ClCompile Include="..\src\support\math\CFERandomGen.cpp" />
+    <ClCompile Include="..\src\support\math\CFESmoother.cpp" />
+    <ClCompile Include="..\src\support\mem\CFEMem.cpp" />
+    <ClCompile Include="..\src\support\mem\CFEResourceContextMgr.cpp" />
+    <ClCompile Include="..\src\support\misc\CFEChrono.cpp" />
+    <ClCompile Include="..\src\support\misc\CFELogger.cpp" />
+    <ClCompile Include="..\src\support\misc\CFEStringUtils.cpp" />
+    <ClCompile Include="..\src\support\profile\CFEProfile.cpp" />
+    <ClCompile Include="..\src\support\sound\CFESound.cpp" />
+    <ClCompile Include="..\src\support\sound\CFESoundMgr.cpp" />
+    <ClCompile Include="..\src\support\sound\CFESoundMixer.cpp" />
+    <ClCompile Include="..\src\support\sound\CFESoundPlayer.cpp" />
+    <ClCompile Include="..\src\support\system\CFESystem.cpp" />
+    <ClCompile Include="..\src\types\CFEArray.cpp" />
+    <ClCompile Include="..\src\types\CFEColor.cpp" />
+    <ClCompile Include="..\src\types\CFEHashTable.cpp" />
+    <ClCompile Include="..\src\types\CFEKFBEventFunc.cpp" />
+    <ClCompile Include="..\src\types\CFEKFBFunc.cpp" />
+    <ClCompile Include="..\src\types\CFEKFBFuncUtils.cpp" />
+    <ClCompile Include="..\src\types\CFEResourceQueue.cpp" />
+    <ClCompile Include="..\src\types\CFESingleton.cpp" />
+    <ClCompile Include="..\src\types\CFEString.cpp" />
+    <ClCompile Include="..\src\types\CFEVect2.cpp" />
+    <ClCompile Include="..\src\types\FEKFBFLerpFuncs.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

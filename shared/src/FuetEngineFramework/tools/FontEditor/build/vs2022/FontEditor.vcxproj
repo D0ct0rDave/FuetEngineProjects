@@ -5,13 +5,25 @@
       <Configuration>Debug_Unicode</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_Unicode|x64">
+      <Configuration>Debug_Unicode</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release_Unicode|Win32">
       <Configuration>Release_Unicode</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_Unicode|x64">
+      <Configuration>Release_Unicode</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="__Release|Win32">
       <Configuration>__Release</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="__Release|x64">
+      <Configuration>__Release</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -27,12 +39,29 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Unicode|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Unicode|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Unicode|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='__Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='__Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -44,10 +73,19 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_Unicode|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_Unicode|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Unicode|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Unicode|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='__Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='__Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -56,12 +94,15 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='__Release|Win32'">$(ProjectDir)..\..\exe\vs_$(PlatformToolset)\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='__Release|Win32'">$(ProjectDir)..\..\obj\vs_$(PlatformToolset)\$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='__Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='__Release|x64'">false</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_Unicode|Win32'">$(ProjectDir)..\..\exe\vs_$(PlatformToolset)\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_Unicode|Win32'">$(ProjectDir)..\..\obj\vs_$(PlatformToolset)\$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_Unicode|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug_Unicode|x64'">true</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_Unicode|Win32'">$(ProjectDir)..\..\exe\vs_$(PlatformToolset)\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_Unicode|Win32'">$(ProjectDir)..\..\obj\vs_$(PlatformToolset)\$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_Unicode|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release_Unicode|x64'">false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='__Release|Win32'">
     <ClCompile>
@@ -86,6 +127,40 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe Version.h AutoVersion
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine mkdir $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImage.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\dist\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImagePlus.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist\FreeImagePlus.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+echo Copying binary to destination directory
+copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='__Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)../../../../../sdks\FreeImage\Dist;$(ProjectDir)../../../../../sdks\FreeImage\Wrapper\FreeImagePlus\Dist;$(ProjectDir)../../../../../sdks/wxMSW-2.8.10/include;$(ProjectDir)../../../../../sdks/wxMSW-2.8.10/include/msvc;$(ProjectDir)..\..\..\..\FuetEngine\src;$(ProjectDir)..\..\..\Common;$(ProjectDir)../../../../../sdks/tinyxml;$(ProjectDir)../../../../../sdks/libcairo/src;$(ProjectDir)../../../../../sdks/libcairo/include/cairo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_MBCS;_OGL_;__WXMSW__;_WINDOWS;NOPCH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>cairo.lib;opengl32.lib;glu32.lib;freeimage.lib;freeimageplus.lib;wxmsw28_core.lib;wxmsw28_gl.lib;wxbase28.lib;wxtiff.lib;wxjpeg.lib;wxpng.lib;wxzlib.lib;wxregex.lib;wxexpat.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\release;$(FuetEngineProjectsDev)\shared\src\sdks\libcairo\lib\vs_$(PlatformToolset)\Release;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
     </Link>
     <PostBuildEvent>
       <Command>echo Autoversioning Project
@@ -134,6 +209,40 @@ echo Copying binary to destination directory
 copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Unicode|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8/include;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8/include/msvc;$(ProjectDir)..\..\..\..\FuetEngine\src;$(ProjectDir)..\..\..\Common;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml;$(FuetEngineProjectsDev)\shared\src\sdks\libcairo/src;$(FuetEngineProjectsDev)\shared\src\sdks\libcairo/include/cairo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_MBCS;_OGL_;_WINDOWS;NOPCH;__WXMSW__;__WXDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libcairo.lib;
+freeimage.lib;FreeImagePlus.lib;wxmsw28ud_gl.lib;wxmsw28ud_richtext.lib;wxmsw28ud_aui.lib;wxmsw28ud_xrc.lib;wxmsw28ud_html.lib;wxmsw28ud_core.lib;wxtiffd.lib;wxbase28ud_xml.lib;wxmsw28ud_qa.lib;wxmsw28ud_dbgrid.lib;wxbase28ud_odbc.lib;wxbase28ud.lib;wxmsw28ud_media.lib;wxmsw28ud_adv.lib;wxbase28ud_net.lib;wxjpegd.lib;wxpngd.lib;wxexpatd.lib;wxregexud.lib;wxzlibd.lib;opengl32.lib;glu32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\release;$(FuetEngineProjectsDev)\shared\src\sdks\libcairo\lib\vs_$(PlatformToolset)\Release;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe Version.h AutoVersion
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine mkdir $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImage.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\dist\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImagePlus.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist\FreeImagePlus.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+echo Copying binary to destination directory
+copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Unicode|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8/include;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8/include/msvc;$(ProjectDir)..\..\..\..\FuetEngine\src;$(ProjectDir)..\..\..\Common;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml;$(FuetEngineProjectsDev)\shared\src\sdks\libcairo/src;$(FuetEngineProjectsDev)\shared\src\sdks\libcairo/include/cairo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -169,9 +278,44 @@ echo Copying binary to destination directory
 copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_Unicode|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8/include;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8/include/msvc;$(ProjectDir)..\..\..\..\FuetEngine\src;$(ProjectDir)..\..\..\Common;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml;$(FuetEngineProjectsDev)\shared\src\sdks\libcairo/src;$(FuetEngineProjectsDev)\shared\src\sdks\libcairo/include/cairo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_MBCS;_OGL_;_WINDOWS;NOPCH;__WXMSW__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>libcairo.lib;freeimage.lib;freeimageplus.lib;wxmsw28u_core.lib;wxzlib.lib;wxexpat.lib;wxjpeg.lib;wxregex.lib;wxtiff.lib;wxpng.lib;wxbase28u.lib;wxbase28u_net.lib;wxmsw28u_adv.lib;wxmsw28u_html.lib;wxmsw28u_media.lib;wxbase28u_odbc.lib;wxmsw28u_dbgrid.lib;wxmsw28u_xrc.lib;wxmsw28u_qa.lib;wxbase28u_xml.lib;wxmsw28u_richtext.lib;wxmsw28u_aui.lib;wxmsw28u_gl.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\release;$(FuetEngineProjectsDev)\shared\src\sdks\libcairo\lib\vs_$(PlatformToolset)\Release;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8\lib\vc_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo Autoversioning Project
+cd $(ProjectDir)..\..\src
+$(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe Version.h AutoVersion
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine mkdir $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImage.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\dist\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImagePlus.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist\FreeImagePlus.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+echo Copying binary to destination directory
+copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\common\CBinConfigFileWriter.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_Unicode|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_Unicode|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\common\CBSPFrameOptimizer.cpp" />
     <ClCompile Include="..\..\..\common\CFastFrameOptimizer.cpp" />
@@ -185,8 +329,11 @@ copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Comm
     <ClCompile Include="..\..\src\CAppGlobals.cpp" />
     <ClCompile Include="..\..\src\CFontEditorGUI.cpp">
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug_Unicode|Win32'">algorithm;wx/Filename.h;CFontGenerator.h;CFontEditorGUI_Funcs.h;CAppGlobals.h;CSpecialCharGUI.h;edutils.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug_Unicode|x64'">algorithm;wx/Filename.h;CFontGenerator.h;CFontEditorGUI_Funcs.h;CAppGlobals.h;CSpecialCharGUI.h;edutils.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release_Unicode|Win32'">algorithm;wx/Filename.h;CFontGenerator.h;CFontEditorGUI_Funcs.h;CAppGlobals.h;CSpecialCharGUI.h;edutils.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release_Unicode|x64'">algorithm;wx/Filename.h;CFontGenerator.h;CFontEditorGUI_Funcs.h;CAppGlobals.h;CSpecialCharGUI.h;edutils.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='__Release|Win32'">algorithm;wx/Filename.h;CFontGenerator.h;CFontEditorGUI_Funcs.h;CAppGlobals.h;CSpecialCharGUI.h;edutils.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='__Release|x64'">algorithm;wx/Filename.h;CFontGenerator.h;CFontEditorGUI_Funcs.h;CAppGlobals.h;CSpecialCharGUI.h;edutils.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <ClCompile Include="..\..\src\CFontEditorGUI_Funcs.cpp" />
     <ClCompile Include="..\..\src\CFontEditorGUIBase.cpp" />
@@ -220,14 +367,6 @@ copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Comm
   <ItemGroup>
     <None Include="..\..\src\CFontEditorGUI.fbp" />
     <None Include="..\..\src\CSpecialCharGUI.fbp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\libs\libConfigPortable\build\vs2022\libconfigPortable.vcxproj">
-      <Project>{b719fe56-1cdb-4380-89cc-9df4ba28fe71}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\FuetEngine\build\vs2022\FuetEngine.vcxproj">
-      <Project>{7a8b217f-335a-4b11-8d17-f2f11e4a489e}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

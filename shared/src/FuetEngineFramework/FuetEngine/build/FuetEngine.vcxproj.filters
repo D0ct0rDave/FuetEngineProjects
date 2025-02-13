@@ -1,0 +1,1026 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="core">
+      <UniqueIdentifier>{4E40957C-3A77-960D-E363-7C10CF79120F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\Windows">
+      <UniqueIdentifier>{8858CD61-74BB-5C06-1D41-95BC09832889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\Windows\OpenGLES2">
+      <UniqueIdentifier>{A65F41EF-9259-6A41-7BC6-0052675FD0AD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\common">
+      <UniqueIdentifier>{E63D3265-52F3-AA5A-DBE7-A431479CA15E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{9F35977C-8B6C-980D-3459-7E10206F140F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\cinematic">
+      <UniqueIdentifier>{9B6E8D23-873C-8129-70D0-F14F5C3D5D8E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\classes">
+      <UniqueIdentifier>{9C6B2B68-88CE-BA0C-3154-F3C21D96868F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\script">
+      <UniqueIdentifier>{23FF1E20-8FB4-9715-18A9-91EC845D8E19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\script\action">
+      <UniqueIdentifier>{70A9E0FD-5C8D-A153-C5ED-9BA6B1F08BD5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graphics">
+      <UniqueIdentifier>{36EF08BC-22BC-63C7-4BD5-516F37019955}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graphics\HUD">
+      <UniqueIdentifier>{869DD468-7200-640D-1B86-9CC307C82F90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graphics\font">
+      <UniqueIdentifier>{1C367983-88F6-F4B9-5131-3E37BDB03996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graphics\map">
+      <UniqueIdentifier>{A33CD568-8F9F-640D-3825-9DC324673090}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graphics\mesh">
+      <UniqueIdentifier>{D2E27C83-3EA3-F8B9-07DE-4137735D3D96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graphics\particlesys">
+      <UniqueIdentifier>{B8FADDCB-A489-6795-4DA8-7B903916783B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graphics\screenutils">
+      <UniqueIdentifier>{76799872-6208-223C-0B27-3637F79432E2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graphics\skelanim">
+      <UniqueIdentifier>{79A13521-E5B7-33B7-2E2F-BFD89A84043F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="graphics\sprite">
+      <UniqueIdentifier>{DC670665-48F3-7329-5104-F71DBD0ED029}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="support">
+      <UniqueIdentifier>{E2833EB1-4E63-BD4C-577B-4823C3D923AE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="support\TRC">
+      <UniqueIdentifier>{DADADC72-4690-5568-CF84-4F3F3B394C6C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="support\config">
+      <UniqueIdentifier>{C7A08172-B36E-7578-9C02-E69E886F51DD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="support\file">
+      <UniqueIdentifier>{717C82CE-5DDF-1173-0665-4A29F2A6DDF5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="support\graphics">
+      <UniqueIdentifier>{8266C493-6E5F-E3E5-9791-C86A83E9C2F1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="support\input">
+      <UniqueIdentifier>{81250B9F-EDE5-86D5-B620-D05222A0CBB1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="support\local">
+      <UniqueIdentifier>{7CC1419F-E881-BDD5-B1BC-06531D3C02B2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="support\math">
+      <UniqueIdentifier>{1B3286CE-0795-1573-B01A-4E299C5CE1F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="support\mem">
+      <UniqueIdentifier>{D047DD72-3CFD-5568-C5F1-4F3F31A64C6C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="support\misc">
+      <UniqueIdentifier>{FD5386CE-E9B6-1573-923C-4E297E7EE1F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="support\profile">
+      <UniqueIdentifier>{E2627CB2-4EEE-E976-57FF-6C6BC3094677}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="support\sound">
+      <UniqueIdentifier>{3ABBC09F-A67B-3CD6-6FB6-8553DB3581B2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="support\system">
+      <UniqueIdentifier>{D6188C98-C2E6-7F9E-AB7A-F0C497E75B03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="types">
+      <UniqueIdentifier>{5A5E7610-C672-9EC1-8FF4-4121FBC79AF2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\CRealClass.h" />
+    <ClInclude Include="..\src\CRealClass_Generic.h" />
+    <ClInclude Include="..\src\FEBasicTypes.h" />
+    <ClInclude Include="..\src\FEConsts.h" />
+    <ClInclude Include="..\src\FEDefs.h" />
+    <ClInclude Include="..\src\FEEnums.h" />
+    <ClInclude Include="..\src\FuetEngine.h" />
+    <ClInclude Include="..\src\core\CFECore.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\CFECoreGlobals.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\CFECore_VBO.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\FEConfig.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\FEConfigOptions.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\FECoreTypes.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\Windows\CFECGlobals.h">
+      <Filter>core\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\Windows\FECConfig.h">
+      <Filter>core\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\Windows\FECConfig_Dev.h">
+      <Filter>core\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\Windows\FECConfig_DevWithSound.h">
+      <Filter>core\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\Windows\FECConfig_PlayTest.h">
+      <Filter>core\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\Windows\FECTypes.h">
+      <Filter>core\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\Windows\OpenGLES2\KHR_thread_storage.h">
+      <Filter>core\Windows\OpenGLES2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\Windows\OpenGLES2\esUtil.h">
+      <Filter>core\Windows\OpenGLES2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\Windows\OpenGLES2\esUtil_win.h">
+      <Filter>core\Windows\OpenGLES2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\Windows\OpenGLES2\kd.h">
+      <Filter>core\Windows\OpenGLES2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\Windows\OpenGLES2\kdplatform.h">
+      <Filter>core\Windows\OpenGLES2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\common\CBinConfigFile.h">
+      <Filter>core\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\common\CFECImageLib.h">
+      <Filter>core\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\common\CFERenderList.h">
+      <Filter>core\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\core\common\FECStdMessages.h">
+      <Filter>core\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\cinematic\CFECinematic.h">
+      <Filter>game\cinematic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\cinematic\CFECinematicLoader.h">
+      <Filter>game\cinematic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\cinematic\CFECinematicMgr.h">
+      <Filter>game\cinematic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\classes\CFEStatedObject.h">
+      <Filter>game\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\script\CFEScript.h">
+      <Filter>game\script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\script\CFEScriptLoader.h">
+      <Filter>game\script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\script\CFEScriptMgr.h">
+      <Filter>game\script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\script\CFEScriptVarRegistry.h">
+      <Filter>game\script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\script\action\CFEAction.h">
+      <Filter>game\script\action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\script\action\CFEActionFadeSoundLine.h">
+      <Filter>game\script\action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\script\action\CFEActionLoader.h">
+      <Filter>game\script\action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\script\action\CFEActionPlaySound.h">
+      <Filter>game\script\action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\script\action\CFEActionSleep.h">
+      <Filter>game\script\action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\script\action\CFEActionStopSound.h">
+      <Filter>game\script\action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\script\action\CFEActionWaitInput.h">
+      <Filter>game\script\action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game\script\action\CFESoundAction.h">
+      <Filter>game\script\action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUD.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDAction.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDActionDefaultValues.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDActionTime.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDElemLocator.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDElement.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDEventFunc.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDEventMgr.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDGroup.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDIcon.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDInstMgr.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDInstancer.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDLabel.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDLoader.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDMaxDepthGetter.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDObject.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDPSys.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDRect.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDRectGen.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDRenderer.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDShape.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDTranslator.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDUpdater.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\HUD\CFEHUDVisitor.h">
+      <Filter>graphics\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\font\CFEFont.h">
+      <Filter>graphics\font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\font\CFEFontANSI.h">
+      <Filter>graphics\font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\font\CFEFontLoader.h">
+      <Filter>graphics\font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\font\CFEFontMgr.h">
+      <Filter>graphics\font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\font\CFEFontUTF8.h">
+      <Filter>graphics\font</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\map\CFEMap.h">
+      <Filter>graphics\map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\map\CFEMapLoader.h">
+      <Filter>graphics\map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\map\CFEMapRenderer.h">
+      <Filter>graphics\map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\mesh\CFEMesh.h">
+      <Filter>graphics\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\mesh\CFEMeshInstMgr.h">
+      <Filter>graphics\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\mesh\CFEMeshLoader.h">
+      <Filter>graphics\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\mesh\CFEMeshMgr.h">
+      <Filter>graphics\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\mesh\CFEMeshRenderer.h">
+      <Filter>graphics\mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\particlesys\CFEParticleMgr.h">
+      <Filter>graphics\particlesys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\particlesys\CFEParticleSys.h">
+      <Filter>graphics\particlesys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\particlesys\CFEParticleSysInstMgr.h">
+      <Filter>graphics\particlesys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\particlesys\CFEParticleSysLoader.h">
+      <Filter>graphics\particlesys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\particlesys\CFEParticleSysMgr.h">
+      <Filter>graphics\particlesys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\screenutils\CFEScreenFX.h">
+      <Filter>graphics\screenutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\screenutils\CFEScreenUtils.h">
+      <Filter>graphics\screenutils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnim.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimBone.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimEventFunc.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimEventMgr.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimGroup.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimInstMgr.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimInstancer.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimLoader.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimMesh.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimMeshModel.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimMgr.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimNode.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimNodeInstancer.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimNodeLocator.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimNodeTableBuilder.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimNodeUpdater.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimNodeVisitor.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimRenderer.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimSprite.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimSpriteModel.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimUpdater.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimUtils.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\skelanim\CFESkelAnimVisitor.h">
+      <Filter>graphics\skelanim</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\sprite\CFESprite.h">
+      <Filter>graphics\sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\sprite\CFESpriteInstMgr.h">
+      <Filter>graphics\sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\sprite\CFESpriteLoader.h">
+      <Filter>graphics\sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\sprite\CFESpriteMgr.h">
+      <Filter>graphics\sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\graphics\sprite\CFESpriteRenderer.h">
+      <Filter>graphics\sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\TRC\CFETRC.h">
+      <Filter>support\TRC</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\config\CFEConfigFile.h">
+      <Filter>support\config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\file\CFEFile.h">
+      <Filter>support\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\file\CFEMemFile.h">
+      <Filter>support\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\graphics\CFEMaterialMgr.h">
+      <Filter>support\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\graphics\CFERenderer.h">
+      <Filter>support\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\graphics\CFERenderer_VBO.h">
+      <Filter>support\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\input\CFEInput.h">
+      <Filter>support\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\local\CFEDictionary.h">
+      <Filter>support\local</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\local\CFELocal.h">
+      <Filter>support\local</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\math\CFEMath.h">
+      <Filter>support\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\math\CFEMathIntersect.h">
+      <Filter>support\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\math\CFERandomGen.h">
+      <Filter>support\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\math\CFESmoother.h">
+      <Filter>support\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\mem\CFEMem.h">
+      <Filter>support\mem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\mem\CFEResourceContextMgr.h">
+      <Filter>support\mem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\misc\CFEChrono.h">
+      <Filter>support\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\misc\CFELogger.h">
+      <Filter>support\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\misc\CFEStringUtils.h">
+      <Filter>support\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\misc\crc32.h">
+      <Filter>support\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\profile\CFEProfile.h">
+      <Filter>support\profile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\sound\CFESound.h">
+      <Filter>support\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\sound\CFESoundMgr.h">
+      <Filter>support\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\sound\CFESoundMixer.h">
+      <Filter>support\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\sound\CFESoundPlayer.h">
+      <Filter>support\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\support\system\CFESystem.h">
+      <Filter>support\system</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFEArray.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFEColor.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFEHashTable.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFEInstanceMgr.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFEKFBEventFunc.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFEKFBFunc.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFEKFBFuncUtils.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFELookupDatabase.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFEMatrix.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFEMomentInTime.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFENamedObject.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFERect.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFEResourceMgr.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFEResourceQueue.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFESegment.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFESingleton.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFEString.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\CFEVect2.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\types\FEKFBFLerpFuncs.h">
+      <Filter>types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\CRealClass.cpp" />
+    <ClCompile Include="..\src\core\Windows\CFECD3D.cpp">
+      <Filter>core\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Windows\CFECGlobals.cpp">
+      <Filter>core\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Windows\CFECWindows.cpp">
+      <Filter>core\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Windows\CFECWindowsDX.cpp">
+      <Filter>core\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Windows\CFECWindowsInput.cpp">
+      <Filter>core\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Windows\CFECWindowsNativeAndDX.cpp">
+      <Filter>core\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Windows\CFECWindowsOpenGL.cpp">
+      <Filter>core\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Windows\CFECWindowsOpenGLStereo.cpp">
+      <Filter>core\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Windows\OpenGLES2\CFECWindowsOpenGLES2.cpp">
+      <Filter>core\Windows\OpenGLES2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Windows\OpenGLES2\esShader.cpp">
+      <Filter>core\Windows\OpenGLES2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Windows\OpenGLES2\esShapes.cpp">
+      <Filter>core\Windows\OpenGLES2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Windows\OpenGLES2\esTransform.cpp">
+      <Filter>core\Windows\OpenGLES2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Windows\OpenGLES2\esUtil.cpp">
+      <Filter>core\Windows\OpenGLES2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Windows\OpenGLES2\esUtil_TGA.cpp">
+      <Filter>core\Windows\OpenGLES2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\Windows\OpenGLES2\esUtil_win32.cpp">
+      <Filter>core\Windows\OpenGLES2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CBinConfigFile.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECBinAndLibConfig.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECBinConfig.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECBinConfig_old.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECDummyAudio.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECFreeImage.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECImageLib.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECLibConfig.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECOpenAL.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECPhysixFSFileSys.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECPhysixFSProfile.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECStdFileSys.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECStdLocal.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECStdMath.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECStdMem.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECStdProfile.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFECStdString.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\CFERenderList.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\common\FECStdMessages.cpp">
+      <Filter>core\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\cinematic\CFECinematic.cpp">
+      <Filter>game\cinematic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\cinematic\CFECinematicLoader.cpp">
+      <Filter>game\cinematic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\cinematic\CFECinematicMgr.cpp">
+      <Filter>game\cinematic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\classes\CFEStatedObject.cpp">
+      <Filter>game\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\script\CFEScript.cpp">
+      <Filter>game\script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\script\CFEScriptLoader.cpp">
+      <Filter>game\script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\script\CFEScriptMgr.cpp">
+      <Filter>game\script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\script\action\CFEAction.cpp">
+      <Filter>game\script\action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\script\action\CFEActionFadeSoundLine.cpp">
+      <Filter>game\script\action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\script\action\CFEActionLoader.cpp">
+      <Filter>game\script\action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\script\action\CFEActionPlaySound.cpp">
+      <Filter>game\script\action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\script\action\CFEActionSleep.cpp">
+      <Filter>game\script\action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\script\action\CFEActionStopSound.cpp">
+      <Filter>game\script\action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\script\action\CFEActionWaitInput.cpp">
+      <Filter>game\script\action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game\script\action\CFESoundAction.cpp">
+      <Filter>game\script\action</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUD.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDAction.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDActionDefaultValues.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDActionTime.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDElemLocator.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDElement.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDEventFunc.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDEventMgr.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDGroup.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDIcon.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDInstMgr.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDInstancer.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDLabel.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDLoader.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDPSys.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDRect.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDRectGen.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDRenderer.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDShape.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDTranslator.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDUpdater.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\HUD\CFEHUDVisitor.cpp">
+      <Filter>graphics\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\font\CFEFont.cpp">
+      <Filter>graphics\font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\font\CFEFontANSI.cpp">
+      <Filter>graphics\font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\font\CFEFontLoader.cpp">
+      <Filter>graphics\font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\font\CFEFontMgr.cpp">
+      <Filter>graphics\font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\font\CFEFontUTF8.cpp">
+      <Filter>graphics\font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\map\CFEMap.cpp">
+      <Filter>graphics\map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\map\CFEMapLoader.cpp">
+      <Filter>graphics\map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\map\CFEMapRenderer.cpp">
+      <Filter>graphics\map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\mesh\CFEMesh.cpp">
+      <Filter>graphics\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\mesh\CFEMeshInstMgr.cpp">
+      <Filter>graphics\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\mesh\CFEMeshLoader.cpp">
+      <Filter>graphics\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\mesh\CFEMeshMgr.cpp">
+      <Filter>graphics\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\mesh\CFEMeshRenderer.cpp">
+      <Filter>graphics\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\particlesys\CFEParticleMgr.cpp">
+      <Filter>graphics\particlesys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\particlesys\CFEParticleSysInstMgr.cpp">
+      <Filter>graphics\particlesys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\particlesys\CFEParticleSysLoader.cpp">
+      <Filter>graphics\particlesys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\particlesys\CFEParticleSysMgr.cpp">
+      <Filter>graphics\particlesys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\screenutils\CFEScreenFX.cpp">
+      <Filter>graphics\screenutils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\screenutils\CFEScreenUtils.cpp">
+      <Filter>graphics\screenutils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnim.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimEventFunc.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimEventMgr.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimGroup.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimInstMgr.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimInstancer.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimLoader.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimMesh.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimMeshModel.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimMgr.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimNodeInstancer.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimNodeLocator.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimNodeTableBuilder.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimNodeUpdater.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimNodeVisitor.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimRenderer.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimSprite.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimSpriteModel.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimUpdater.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\skelanim\CFESkelAnimUtils.cpp">
+      <Filter>graphics\skelanim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\sprite\CFESprite.cpp">
+      <Filter>graphics\sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\sprite\CFESpriteInstMgr.cpp">
+      <Filter>graphics\sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\sprite\CFESpriteLoader.cpp">
+      <Filter>graphics\sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\sprite\CFESpriteMgr.cpp">
+      <Filter>graphics\sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\graphics\sprite\CFESpriteRenderer.cpp">
+      <Filter>graphics\sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\TRC\CFETRC.cpp">
+      <Filter>support\TRC</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\config\CFEConfigFile.cpp">
+      <Filter>support\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\file\CFEFile.cpp">
+      <Filter>support\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\file\CFEMemFile.cpp">
+      <Filter>support\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\graphics\CFEMaterialMgr.cpp">
+      <Filter>support\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\graphics\CFERenderer.cpp">
+      <Filter>support\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\input\CFEInput.cpp">
+      <Filter>support\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\local\CFEDictionary.cpp">
+      <Filter>support\local</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\local\CFELocal.cpp">
+      <Filter>support\local</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\math\CFEMath.cpp">
+      <Filter>support\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\math\CFEMathIntersect.cpp">
+      <Filter>support\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\math\CFERandomGen.cpp">
+      <Filter>support\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\math\CFESmoother.cpp">
+      <Filter>support\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\mem\CFEMem.cpp">
+      <Filter>support\mem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\mem\CFEResourceContextMgr.cpp">
+      <Filter>support\mem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\misc\CFEChrono.cpp">
+      <Filter>support\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\misc\CFELogger.cpp">
+      <Filter>support\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\misc\CFEStringUtils.cpp">
+      <Filter>support\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\profile\CFEProfile.cpp">
+      <Filter>support\profile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\sound\CFESound.cpp">
+      <Filter>support\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\sound\CFESoundMgr.cpp">
+      <Filter>support\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\sound\CFESoundMixer.cpp">
+      <Filter>support\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\sound\CFESoundPlayer.cpp">
+      <Filter>support\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\support\system\CFESystem.cpp">
+      <Filter>support\system</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\types\CFEArray.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\types\CFEColor.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\types\CFEHashTable.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\types\CFEKFBEventFunc.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\types\CFEKFBFunc.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\types\CFEKFBFuncUtils.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\types\CFEResourceQueue.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\types\CFESingleton.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\types\CFEString.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\types\CFEVect2.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\types\FEKFBFLerpFuncs.cpp">
+      <Filter>types</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
