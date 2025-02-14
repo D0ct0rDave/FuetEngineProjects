@@ -1,33 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DEV_Debug|Win32">
+      <Configuration>DEV_Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="DEV_Debug|x64">
       <Configuration>DEV_Debug</Configuration>
       <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DEV_Release|Win32">
+      <Configuration>DEV_Release</Configuration>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="DEV_Release|x64">
       <Configuration>DEV_Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="DEV_WITH_SOUND_Debug|Win32">
+      <Configuration>DEV_WITH_SOUND_Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="DEV_WITH_SOUND_Debug|x64">
       <Configuration>DEV_WITH_SOUND_Debug</Configuration>
       <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DS_PC_Debug|Win32">
+      <Configuration>DS_PC_Debug</Configuration>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="DS_PC_Debug|x64">
       <Configuration>DS_PC_Debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="PLAYTEST_Debug|Win32">
+      <Configuration>PLAYTEST_Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="PLAYTEST_Debug|x64">
       <Configuration>PLAYTEST_Debug</Configuration>
       <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="PLAYTEST_Release|Win32">
+      <Configuration>PLAYTEST_Release</Configuration>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="PLAYTEST_Release|x64">
       <Configuration>PLAYTEST_Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="WIN32_Debug|Win32">
+      <Configuration>WIN32_Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="WIN32_Debug|x64">
       <Configuration>WIN32_Debug</Configuration>
       <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="WIN32_Release|Win32">
+      <Configuration>WIN32_Release</Configuration>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="WIN32_Release|x64">
       <Configuration>WIN32_Release</Configuration>
@@ -41,19 +73,19 @@
     <RootNamespace>FuetEngine</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>NotSet</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>NotSet</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>NotSet</CharacterSet>
@@ -92,13 +124,13 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DEV_Release|x64'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DEV_Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DS_PC_Debug|x64'">
@@ -117,19 +149,19 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">
     <OutDir>$(ProjectDir)..\lib\x64\DEV_Debug\</OutDir>
     <IntDir>$(ProjectDir)..\obj\x64\DEV_Debug\</IntDir>
     <TargetName>FuetEngine</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|Win32'">
     <OutDir>$(ProjectDir)..\lib\x64\DEV_Release\</OutDir>
     <IntDir>$(ProjectDir)..\obj\x64\DEV_Release\</IntDir>
     <TargetName>FuetEngine</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">
     <OutDir>$(ProjectDir)..\lib\x64\DEV_WITH_SOUND_Debug\</OutDir>
     <IntDir>$(ProjectDir)..\obj\x64\DEV_WITH_SOUND_Debug\</IntDir>
     <TargetName>FuetEngine</TargetName>
@@ -165,12 +197,12 @@
     <TargetName>FuetEngine</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -182,12 +214,12 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_Release|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -203,12 +235,12 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV_WITH_SOUND_Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;DEVELOPMENT_WITH_SOUND;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -225,7 +257,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -242,7 +274,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;PLAYTEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -259,7 +291,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;PLAYTEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -280,7 +312,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -297,7 +329,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\..\SDKS\externals\freeimage\Dist;$(ProjectDir)..\..\..\SDKS\externals\libconfigPortable\src;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include;$(ProjectDir)..\..\..\SDKS\externals\OpenAL_1.1_SDK\include\al;$(ProjectDir)..\..\..\SDKS\externals\freealut\include;$(ProjectDir)..\..\..\SDKS\externals\physfs;$(ProjectDir)..\..\..\SDKS\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>

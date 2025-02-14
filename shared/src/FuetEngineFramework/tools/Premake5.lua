@@ -14,7 +14,6 @@ local projectExtension = systemProjectExtensions[currentSystem]
 if not projectExtension then
 	error("Unsupported system: " .. currentSystem)
 end
-
 ------------------------------------------------------------------------------
 local function includeLibraries(rootDir)
 	local projectFiles = os.matchfiles(rootDir .. "/*." .. projectExtension)
@@ -58,18 +57,22 @@ local function addToolProject(_projectName, _windowedApplication, _useWxWidgets,
 	local SDKSRoot = "$(FuetEngineProjectsDev)/shared/src/sdks"
 	local FuetEngineRoot = "$(FuetEngineProjectsDev)/shared/src/FuetEngineFramework/FuetEngine"
 
-	local currentPlatform = "Win32"
-	filter { "architecture:x86_64" }
-		currentPlatform = "x64"
-	filter {} -- Reset filter
-
 	project(_projectName)
-
+		
 		if _windowedApplication then
 			kind "WindowedApp"
 		else
 			kind "ConsoleApp"
 		end
+
+		--[[
+		filter {"platforms:Win32"}
+			currentPlatform = "Win32"
+		filter {"platforms:x64"}
+			currentPlatform = "x64"
+		filter {}
+		print ("CurrentPlatform: " .. currentPlatform)
+		]]--
 
 		language "C++"
 		cppdialect "C++17"
@@ -77,7 +80,7 @@ local function addToolProject(_projectName, _windowedApplication, _useWxWidgets,
 		objdir("$(ProjectDir)obj/" .. _projectName .. "/" .. currentPlatform .. "/%{cfg.buildcfg}") -- Output directory for intermediate files
 		characterset("ASCII")
 		debugdir(ProjectRelativeFinalDataRoot)
-
+		
 		-- Recursively include all .cpp and .h files from the sourceRoot directory		
 		sourceRoot = scriptRoot .. "/" .. _projectName
 
@@ -136,7 +139,7 @@ local function addToolProject(_projectName, _windowedApplication, _useWxWidgets,
 			SDKSRoot .. "/externals/FreeImage/Dist/" .. currentPlatform .. "/%{cfg.buildcfg}",
 			SDKSRoot .. "/externals/physfs/build/%{cfg.buildcfg}",
 			SDKSRoot .. "/externals/libConfigPortable/lib/" .. currentPlatform .. "/%{cfg.buildcfg}",
-			SDKSRoot .. "/externals/OpenAL_1.1_SDK/libs/Win64/",
+			-- SDKSRoot .. "/externals/OpenAL_1.1_SDK/libs/Win64/",
 			SDKSRoot .. "/externals/freealut/build/src/%{cfg.buildcfg}",	
 		}
 
@@ -158,8 +161,8 @@ local function addToolProject(_projectName, _windowedApplication, _useWxWidgets,
 			"glu32.lib",
 			"freeimage.lib",
 			"libconfigPortable.lib",
-			"OpenAL32.lib",
-			"alut.lib",
+			-- "OpenAL32.lib",
+			-- "alut.lib",
 			"physfs.lib",
 			"comctl32.lib",
 			"rpcrt4.lib",
@@ -167,7 +170,8 @@ local function addToolProject(_projectName, _windowedApplication, _useWxWidgets,
 		}
 
 		-- Configuration-specific settings
-		filter "configurations:Debug"
+		
+		filter { "configurations:Debug" }
 			defines { "DEBUG" }
 			symbols "On" -- Generate debug symbols
 
@@ -210,7 +214,7 @@ local function addToolProject(_projectName, _windowedApplication, _useWxWidgets,
 			runtime "Debug"
 
 
-		filter "configurations:Release"
+		filter { "configurations:Release" }
 			defines { "NDEBUG" }
 			optimize "On" -- Enable optimizations			
 
@@ -266,6 +270,7 @@ local function addToolProject(_projectName, _windowedApplication, _useWxWidgets,
 		postbuildcommands
 		{			
 			"{COPYFILE} " .. SDKSRoot .. "/externals/FreeImage/Dist/" .. currentPlatform .. "/Release/FreeImage.dll " .. ProjectRelativeFinalDataRoot,
+			"{COPYFILE} " .. SDKSRoot .. "/externals/FreeImage/Dist/" .. currentPlatform .. "/Release/FreeImagePlus.dll " .. ProjectRelativeFinalDataRoot,			
 			"{COPYFILE} " .. "$(TargetPath) $(FuetEngineProjectsDev)/shared/toolchain/FuetEngine"
 		}
 end
@@ -276,7 +281,14 @@ end
 workspace "FuetEngine_Tools"
     configurations { "Debug", "Release" }
     location "build" -- Where generated files (like Visual Studio solutions) will be stored
-    architecture "x86_64"
+    platforms { "Win32", "x64" }
+	currentPlatform = "Win32"
+	
+	if currentPlatform == "Win32" then
+	architecture "x86"
+	else
+	architecture "x86_64"
+	end
 
 ------------------------------------------------------------------------------
 group("Tools")

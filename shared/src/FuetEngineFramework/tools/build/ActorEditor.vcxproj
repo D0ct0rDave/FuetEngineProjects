@@ -1,13 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|x64">
+    <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
+    <ProjectConfiguration Include="Debug x64|Win32">
+      <Configuration>Debug x64</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release x64|Win32">
+      <Configuration>Release x64</Configuration>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -17,13 +25,25 @@
     <RootNamespace>ActorEditor</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>NotSet</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug x64|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release x64|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>NotSet</CharacterSet>
@@ -32,28 +52,48 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug x64|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release x64|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(ProjectDir)exe\ActorEditor\x64\Debug\</OutDir>
-    <IntDir>$(ProjectDir)obj\ActorEditor\x64\Debug\</IntDir>
+    <OutDir>$(ProjectDir)exe\ActorEditor\Win32\Debug\</OutDir>
+    <IntDir>$(ProjectDir)obj\ActorEditor\Win32\Debug\Win32\</IntDir>
     <TargetName>ActorEditor</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug x64|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)exe\ActorEditor\Win32\Debug\</OutDir>
+    <IntDir>$(ProjectDir)obj\ActorEditor\Win32\Debug\x64\</IntDir>
+    <TargetName>ActorEditor</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(ProjectDir)exe\ActorEditor\x64\Release\</OutDir>
-    <IntDir>$(ProjectDir)obj\ActorEditor\x64\Release\</IntDir>
+    <OutDir>$(ProjectDir)exe\ActorEditor\Win32\Release\</OutDir>
+    <IntDir>$(ProjectDir)obj\ActorEditor\Win32\Release\Win32\</IntDir>
     <TargetName>ActorEditor</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release x64|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)exe\ActorEditor\Win32\Release\</OutDir>
+    <IntDir>$(ProjectDir)obj\ActorEditor\Win32\Release\x64\</IntDir>
+    <TargetName>ActorEditor</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
@@ -68,15 +108,40 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;physfs.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxbase28d.lib;wxbase28d_net.lib;wxbase28d_odbc.lib;wxbase28d_xml.lib;wxmsw28d_adv.lib;wxmsw28d_aui.lib;wxmsw28d_core.lib;wxmsw28d_dbgrid.lib;wxmsw28d_gl.lib;wxmsw28d_html.lib;wxmsw28d_media.lib;wxmsw28d_qa.lib;wxmsw28d_richtext.lib;wxmsw28d_xrc.lib;wxexpatd.lib;wxjpegd.lib;wxpngd.lib;wxregexd.lib;wxtiffd.lib;wxzlibd.lib;wxmsw28d_treelistctrl.lib;wxmsw28d_things.lib;FuetEngine.lib;FuetEngine.lib;vfw32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win64;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\x64;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;physfs.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxbase28d.lib;wxbase28d_net.lib;wxbase28d_odbc.lib;wxbase28d_xml.lib;wxmsw28d_adv.lib;wxmsw28d_aui.lib;wxmsw28d_core.lib;wxmsw28d_dbgrid.lib;wxmsw28d_gl.lib;wxmsw28d_html.lib;wxmsw28d_media.lib;wxmsw28d_qa.lib;wxmsw28d_richtext.lib;wxmsw28d_xrc.lib;wxexpatd.lib;wxjpegd.lib;wxpngd.lib;wxregexd.lib;wxtiffd.lib;wxzlibd.lib;wxmsw28d_treelistctrl.lib;wxmsw28d_things.lib;FuetEngine.lib;FuetEngine.lib;vfw32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImagePlus.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
 copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug x64|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_MBCS;_WINDOWS;NOPCH;DEBUG;__WXMSW__;__WXDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\ActorEditor;$(ProjectDir)..\ActorEditor\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include\msvc;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\treelistctrl;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\grid;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;physfs.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxbase28d.lib;wxbase28d_net.lib;wxbase28d_odbc.lib;wxbase28d_xml.lib;wxmsw28d_adv.lib;wxmsw28d_aui.lib;wxmsw28d_core.lib;wxmsw28d_dbgrid.lib;wxmsw28d_gl.lib;wxmsw28d_html.lib;wxmsw28d_media.lib;wxmsw28d_qa.lib;wxmsw28d_richtext.lib;wxmsw28d_xrc.lib;wxexpatd.lib;wxjpegd.lib;wxpngd.lib;wxregexd.lib;wxtiffd.lib;wxzlibd.lib;wxmsw28d_treelistctrl.lib;wxmsw28d_things.lib;FuetEngine.lib;FuetEngine.lib;vfw32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImagePlus.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
@@ -95,11 +160,40 @@ copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</C
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;physfs.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxmsw28_xrc.lib;wxmsw28_dbgrid.lib;wxmsw28_core.lib;wxbase28.lib;wxbase28_net.lib;wxmsw28_adv.lib;wxmsw28_html.lib;wxbase28_odbc.lib;wxmsw28_richtext.lib;wxbase28_xml.lib;wxmsw28_aui.lib;wxmsw28_media.lib;wxmsw28_qa.lib;wxmsw28_gl.lib;wxtiff.lib;wxjpeg.lib;wxregex.lib;wxpng.lib;wxzlib.lib;wxexpat.lib;wxmsw28_treelistctrl.lib;wxmsw28_things.lib;FuetEngine.lib;FuetEngine.lib;vfw32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win64;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\x64;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;physfs.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxmsw28_xrc.lib;wxmsw28_dbgrid.lib;wxmsw28_core.lib;wxbase28.lib;wxbase28_net.lib;wxmsw28_adv.lib;wxmsw28_html.lib;wxbase28_odbc.lib;wxmsw28_richtext.lib;wxbase28_xml.lib;wxmsw28_aui.lib;wxmsw28_media.lib;wxmsw28_qa.lib;wxmsw28_gl.lib;wxtiff.lib;wxjpeg.lib;wxregex.lib;wxpng.lib;wxzlib.lib;wxexpat.lib;wxmsw28_treelistctrl.lib;wxmsw28_things.lib;FuetEngine.lib;FuetEngine.lib;vfw32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImagePlus.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release x64|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_MBCS;_WINDOWS;NOPCH;NDEBUG;__WXMSW__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\ActorEditor;$(ProjectDir)..\ActorEditor\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include\msvc;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\treelistctrl;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\grid;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;physfs.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxmsw28_xrc.lib;wxmsw28_dbgrid.lib;wxmsw28_core.lib;wxbase28.lib;wxbase28_net.lib;wxmsw28_adv.lib;wxmsw28_html.lib;wxbase28_odbc.lib;wxmsw28_richtext.lib;wxbase28_xml.lib;wxmsw28_aui.lib;wxmsw28_media.lib;wxmsw28_qa.lib;wxmsw28_gl.lib;wxtiff.lib;wxjpeg.lib;wxregex.lib;wxpng.lib;wxzlib.lib;wxexpat.lib;wxmsw28_treelistctrl.lib;wxmsw28_things.lib;FuetEngine.lib;FuetEngine.lib;vfw32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImagePlus.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
 copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
