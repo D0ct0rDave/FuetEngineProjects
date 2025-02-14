@@ -90,8 +90,8 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>freeimage.lib;FreeImagePlus.lib;opengl32.lib;glu32.lib;wxmsw28d_things.lib;wxbase28d.lib;wxbase28d_net.lib;wxbase28d_odbc.lib;wxbase28d_xml.lib;wxmsw28d_adv.lib;wxmsw28d_aui.lib;wxmsw28d_core.lib;wxmsw28d_dbgrid.lib;wxmsw28d_gl.lib;wxmsw28d_html.lib;wxmsw28d_media.lib;wxmsw28d_qa.lib;wxmsw28d_richtext.lib;wxmsw28d_xrc.lib;wxexpatd.lib;wxjpegd.lib;wxpngd.lib;wxregexd.lib;wxtiffd.lib;wxzlibd.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\debug;$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8\additions\lib\vc_lib;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8\lib\vc_lib;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\libs\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK/Lib/x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freeimage.lib;FreeImagePlus.lib;opengl32.lib;glu32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\$(Platform)\$(Configuration);$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
@@ -114,8 +114,8 @@ copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Comm
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>freeimage.lib;FreeImagePlus.lib;opengl32.lib;glu32.lib;wxmsw28d_things.lib;wxbase28d.lib;wxbase28d_net.lib;wxbase28d_odbc.lib;wxbase28d_xml.lib;wxmsw28d_adv.lib;wxmsw28d_aui.lib;wxmsw28d_core.lib;wxmsw28d_dbgrid.lib;wxmsw28d_gl.lib;wxmsw28d_html.lib;wxmsw28d_media.lib;wxmsw28d_qa.lib;wxmsw28d_richtext.lib;wxmsw28d_xrc.lib;wxexpatd.lib;wxjpegd.lib;wxpngd.lib;wxregexd.lib;wxtiffd.lib;wxzlibd.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\debug;$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8\additions\lib\vc_lib;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8\lib\vc_lib;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\libs\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK/Lib/x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freeimage.lib;FreeImagePlus.lib;opengl32.lib;glu32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\$(Platform)\$(Configuration);$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -142,7 +142,8 @@ copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Comm
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8\lib\vs_v120\Release;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK/Lib/x86;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\libs\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8\additions\lib\vc_lib;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\$(Platform)\$(Configuration);$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freeimage.lib;FreeImagePlus.lib;opengl32.lib;glu32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
@@ -165,7 +166,8 @@ copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Comm
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8\lib\vs_v120\Release;$(FuetEngineProjectsDev)\shared\src\sdks\DirectX9SDK/Lib/x86;$(FuetEngineProjectsDev)\shared\src\sdks\OpenAL 1.1 SDK\libs\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\wxWidgets2.8\additions\lib\vc_lib;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\$(Platform)\$(Configuration);$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freeimage.lib;FreeImagePlus.lib;opengl32.lib;glu32.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
@@ -181,6 +183,11 @@ copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Comm
     <ClInclude Include="..\..\..\common\CBinConfigFileWriter.h" />
     <ClInclude Include="..\..\..\common\CConfigFileWriter.h" />
     <ClInclude Include="..\..\..\common\CLibConfigFileWriter.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\FuetEngine\build\FuetEngine.vcxproj">
+      <Project>{0f7bc24d-fb32-049b-643a-ddf650119f8b}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

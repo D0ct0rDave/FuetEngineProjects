@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E592A880-5148-2176-DA3C-1B4D46F1177A}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ActorEditor</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)exe\ActorEditor\x64\Debug\</OutDir>
+    <IntDir>$(ProjectDir)obj\ActorEditor\x64\Debug\</IntDir>
+    <TargetName>ActorEditor</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)exe\ActorEditor\x64\Release\</OutDir>
+    <IntDir>$(ProjectDir)obj\ActorEditor\x64\Release\</IntDir>
+    <TargetName>ActorEditor</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_MBCS;_WINDOWS;NOPCH;DEBUG;__WXMSW__;__WXDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\ActorEditor;$(ProjectDir)..\ActorEditor\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include\msvc;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\treelistctrl;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\grid;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;physfs.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxbase28d.lib;wxbase28d_net.lib;wxbase28d_odbc.lib;wxbase28d_xml.lib;wxmsw28d_adv.lib;wxmsw28d_aui.lib;wxmsw28d_core.lib;wxmsw28d_dbgrid.lib;wxmsw28d_gl.lib;wxmsw28d_html.lib;wxmsw28d_media.lib;wxmsw28d_qa.lib;wxmsw28d_richtext.lib;wxmsw28d_xrc.lib;wxexpatd.lib;wxjpegd.lib;wxpngd.lib;wxregexd.lib;wxtiffd.lib;wxzlibd.lib;wxmsw28d_treelistctrl.lib;wxmsw28d_things.lib;FuetEngine.lib;FuetEngine.lib;vfw32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win64;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\x64;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_MBCS;_WINDOWS;NOPCH;NDEBUG;__WXMSW__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\ActorEditor;$(ProjectDir)..\ActorEditor\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include\msvc;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\treelistctrl;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\grid;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;physfs.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxmsw28_xrc.lib;wxmsw28_dbgrid.lib;wxmsw28_core.lib;wxbase28.lib;wxbase28_net.lib;wxmsw28_adv.lib;wxmsw28_html.lib;wxbase28_odbc.lib;wxmsw28_richtext.lib;wxbase28_xml.lib;wxmsw28_aui.lib;wxmsw28_media.lib;wxmsw28_qa.lib;wxmsw28_gl.lib;wxtiff.lib;wxjpeg.lib;wxregex.lib;wxpng.lib;wxzlib.lib;wxexpat.lib;wxmsw28_treelistctrl.lib;wxmsw28_things.lib;FuetEngine.lib;FuetEngine.lib;vfw32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win64;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\x64;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ActorEditor\src\ActorEditor.h" />
+    <ClInclude Include="..\ActorEditor\src\ActorEditorVersion.h" />
+    <ClInclude Include="..\ActorEditor\src\CAVIFile.h" />
+    <ClInclude Include="..\ActorEditor\src\CActorEditorGUI.h" />
+    <ClInclude Include="..\ActorEditor\src\CActorEditorGUIBase.h" />
+    <ClInclude Include="..\ActorEditor\src\CActorEditorGUIFileOps.h" />
+    <ClInclude Include="..\ActorEditor\src\CActorEditorGUIFuncs.h" />
+    <ClInclude Include="..\ActorEditor\src\CActorEditorGUI_GridRenderers.h" />
+    <ClInclude Include="..\ActorEditor\src\CActorEditorGUI_TreeBuilder.h" />
+    <ClInclude Include="..\ActorEditor\src\CAppGlobals.h" />
+    <ClInclude Include="..\ActorEditor\src\CSkeleton.h" />
+    <ClInclude Include="..\ActorEditor\src\CSkeletonUtils.h" />
+    <ClInclude Include="..\ActorEditor\src\FileOps\CAEAFileOps.h" />
+    <ClInclude Include="..\ActorEditor\src\FileOps\CFileOpsCommon.h" />
+    <ClInclude Include="..\ActorEditor\src\FileOps\CPoseFileOps.h" />
+    <ClInclude Include="..\ActorEditor\src\FileOps\CSKAFileOps.h" />
+    <ClInclude Include="..\ActorEditor\src\FileOps\CSKEFileOps.h" />
+    <ClInclude Include="..\ActorEditor\src\Render.h" />
+    <ClInclude Include="..\ActorEditor\src\dialogs\CEditorAboutBox.h" />
+    <ClInclude Include="..\ActorEditor\src\stdafx.h" />
+    <ClInclude Include="..\common\CBinConfigFileWriter.h" />
+    <ClInclude Include="..\common\CConfigFileWriter.h" />
+    <ClInclude Include="..\common\CLibConfigFileWriter.h" />
+    <ClInclude Include="..\common\ed_rend_utils.h" />
+    <ClInclude Include="..\common\edutils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\ActorEditor\src\ActorEditor.cpp" />
+    <ClCompile Include="..\ActorEditor\src\CAVIFile.cpp" />
+    <ClCompile Include="..\ActorEditor\src\CActorEditorGUI.cpp" />
+    <ClCompile Include="..\ActorEditor\src\CActorEditorGUIBase.cpp" />
+    <ClCompile Include="..\ActorEditor\src\CActorEditorGUIFileOps.cpp" />
+    <ClCompile Include="..\ActorEditor\src\CActorEditorGUIFuncs.cpp" />
+    <ClCompile Include="..\ActorEditor\src\CActorEditorGUI_GridRenderers.cpp" />
+    <ClCompile Include="..\ActorEditor\src\CActorEditorGUI_TreeBuilder.cpp" />
+    <ClCompile Include="..\ActorEditor\src\CAppGlobals.cpp" />
+    <ClCompile Include="..\ActorEditor\src\CSkeleton.cpp" />
+    <ClCompile Include="..\ActorEditor\src\CSkeletonUtils.cpp" />
+    <ClCompile Include="..\ActorEditor\src\FileOps\CAEAFileOps.cpp" />
+    <ClCompile Include="..\ActorEditor\src\FileOps\CFileOpsCommon.cpp" />
+    <ClCompile Include="..\ActorEditor\src\FileOps\CPoseFileOps.cpp" />
+    <ClCompile Include="..\ActorEditor\src\FileOps\CSKAFileOps.cpp" />
+    <ClCompile Include="..\ActorEditor\src\FileOps\CSKEFileOps.cpp" />
+    <ClCompile Include="..\ActorEditor\src\Render.cpp" />
+    <ClCompile Include="..\ActorEditor\src\dialogs\CEditorAboutBox.cpp" />
+    <ClCompile Include="..\ActorEditor\src\stdafx.cpp" />
+    <ClCompile Include="..\common\CBinConfigFileWriter.cpp" />
+    <ClCompile Include="..\common\CLibConfigFileWriter.cpp" />
+    <ClCompile Include="..\common\ed_rend_utils.cpp" />
+    <ClCompile Include="..\common\edutils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ActorEditor\src\TODO.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

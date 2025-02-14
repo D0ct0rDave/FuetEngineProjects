@@ -91,8 +91,8 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;vfw32.lib;gdiplus.lib;wxmsw28d_treelistctrl.lib;wxmsw28d_propgrid.lib;wxbase28d.lib;wxbase28d_net.lib;wxbase28d_odbc.lib;wxbase28d_xml.lib;wxexpatd.lib;wxjpegd.lib;wxmsw28d_adv.lib;wxmsw28d_aui.lib;wxmsw28d_core.lib;wxmsw28d_dbgrid.lib;wxmsw28d_gl.lib;wxmsw28d_html.lib;wxmsw28d_media.lib;wxmsw28d_qa.lib;wxmsw28d_richtext.lib;wxmsw28d_xrc.lib;wxpngd.lib;wxregexd.lib;wxtiffd.lib;wxzlibd.lib;wxmsw28d_things.lib;freeimage.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\$(Platform)\$(Configuration);$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;vfw32.lib;gdiplus.lib;wxmsw28d_treelistctrl.lib;wxmsw28d_propgrid.lib;libconfigportable.lib;wxbase28d.lib;wxbase28d_net.lib;wxbase28d_odbc.lib;wxbase28d_xml.lib;wxexpatd.lib;wxjpegd.lib;wxmsw28d_adv.lib;wxmsw28d_aui.lib;wxmsw28d_core.lib;wxmsw28d_dbgrid.lib;wxmsw28d_gl.lib;wxmsw28d_html.lib;wxmsw28d_media.lib;wxmsw28d_qa.lib;wxmsw28d_richtext.lib;wxmsw28d_xrc.lib;wxpngd.lib;wxregexd.lib;wxtiffd.lib;wxzlibd.lib;wxmsw28d_things.lib;freeimage.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\$(Platform)\$(Configuration);$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -106,8 +106,8 @@
 cd $(ProjectDir)..\..\src
 $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe ActorEditorVersion.h ActorEditorVersion
 if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine mkdir $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
-if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImage.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\dist\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
-if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImagePlus.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist\FreeImagePlus.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImage.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\dist\$(Platform)\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImagePlus.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Wrapper\FreeImagePlus\dist\$(Platform)\FreeImagePlus.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
 echo Copying binary to destination directory
 copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
@@ -126,8 +126,8 @@ copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Comm
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;vfw32.lib;gdiplus.lib;wxmsw28d_treelistctrl.lib;wxmsw28d_propgrid.lib;wxmsw28d_things.lib;wxbase28d.lib;wxbase28d_net.lib;wxbase28d_odbc.lib;wxbase28d_xml.lib;wxexpatd.lib;wxjpegd.lib;wxmsw28d_adv.lib;wxmsw28d_aui.lib;wxmsw28d_core.lib;wxmsw28d_dbgrid.lib;wxmsw28d_gl.lib;wxmsw28d_html.lib;wxmsw28d_media.lib;wxmsw28d_qa.lib;wxmsw28d_richtext.lib;wxmsw28d_xrc.lib;wxpngd.lib;wxregexd.lib;wxtiffd.lib;wxzlibd.lib;freeimage.lib;libconfigportable.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\$(Platform)\$(Configuration);$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\$(Platform)\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;vfw32.lib;gdiplus.lib;wxmsw28d_treelistctrl.lib;wxmsw28d_propgrid.lib;libconfigportable.lib;wxmsw28d_things.lib;wxbase28d.lib;wxbase28d_net.lib;wxbase28d_odbc.lib;wxbase28d_xml.lib;wxexpatd.lib;wxjpegd.lib;wxmsw28d_adv.lib;wxmsw28d_aui.lib;wxmsw28d_core.lib;wxmsw28d_dbgrid.lib;wxmsw28d_gl.lib;wxmsw28d_html.lib;wxmsw28d_media.lib;wxmsw28d_qa.lib;wxmsw28d_richtext.lib;wxmsw28d_xrc.lib;wxpngd.lib;wxregexd.lib;wxtiffd.lib;wxzlibd.lib;freeimage.lib;libconfigportable.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\$(Platform)\$(Configuration);$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -140,8 +140,8 @@ copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Comm
 cd $(ProjectDir)..\..\src
 $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe ActorEditorVersion.h ActorEditorVersion
 if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine mkdir $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
-if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImage.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\dist\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
-if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImagePlus.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist\FreeImagePlus.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImage.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\dist\$(Platform)\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImagePlus.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Wrapper\FreeImagePlus\dist\$(Platform)\FreeImagePlus.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
 echo Copying binary to destination directory
 copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
@@ -160,8 +160,8 @@ copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Comm
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>gdiplus.lib;vfw32.lib;opengl32.lib;glu32.lib;wxmsw28_treelistctrl.lib;wxmsw28_things.lib;wxmsw28_scintilla.lib;wxmsw28_propgrid.lib;wxmsw28_plotctrl.lib;wxmsw28_plot.lib;wxmsw28_ledbargraph.lib;wxmsw28_flatnotebook.lib;wxmsw28_awx.lib;wxmsw28_xrc.lib;wxmsw28_gl.lib;wxmsw28_html.lib;wxmsw28_aui.lib;wxmsw28_core.lib;wxbase28_xml.lib;wxmsw28_qa.lib;wxmsw28_dbgrid.lib;wxmsw28_media.lib;wxbase28_odbc.lib;wxmsw28_adv.lib;wxtiff.lib;wxbase28.lib;wxbase28_net.lib;wxexpat.lib;wxjpeg.lib;wxzlib.lib;wxpng.lib;wxregex.lib;freeimage.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\$(Platform)\$(Configuration);$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gdiplus.lib;vfw32.lib;opengl32.lib;glu32.lib;libconfigportable.lib;wxmsw28_treelistctrl.lib;wxmsw28_things.lib;wxmsw28_propgrid.lib;wxmsw28_plotctrl.lib;wxmsw28_plot.lib;wxmsw28_ledbargraph.lib;wxmsw28_flatnotebook.lib;wxmsw28_awx.lib;wxmsw28_xrc.lib;wxmsw28_gl.lib;wxmsw28_html.lib;wxmsw28_aui.lib;wxmsw28_core.lib;wxbase28_xml.lib;wxmsw28_qa.lib;wxmsw28_dbgrid.lib;wxmsw28_media.lib;wxbase28_odbc.lib;wxmsw28_adv.lib;wxtiff.lib;wxbase28.lib;wxbase28_net.lib;wxexpat.lib;wxjpeg.lib;wxzlib.lib;wxpng.lib;wxregex.lib;freeimage.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\$(Platform)\$(Configuration);$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -175,8 +175,8 @@ copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Comm
 cd $(ProjectDir)..\..\src
 $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe ActorEditorVersion.h ActorEditorVersion
 if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine mkdir $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
-if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImage.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\dist\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
-if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImagePlus.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist\FreeImagePlus.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImage.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\dist\$(Platform)\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImagePlus.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Wrapper\FreeImagePlus\dist\$(Platform)\FreeImagePlus.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
 echo Copying binary to destination directory
 copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
@@ -195,8 +195,8 @@ copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Comm
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>gdiplus.lib;vfw32.lib;opengl32.lib;glu32.lib;wxmsw28_treelistctrl.lib;wxmsw28_things.lib;wxmsw28_scintilla.lib;wxmsw28_propgrid.lib;wxmsw28_plotctrl.lib;wxmsw28_plot.lib;wxmsw28_ledbargraph.lib;wxmsw28_flatnotebook.lib;wxmsw28_awx.lib;wxmsw28_xrc.lib;wxmsw28_gl.lib;wxmsw28_html.lib;wxmsw28_aui.lib;wxmsw28_core.lib;wxbase28_xml.lib;wxmsw28_qa.lib;wxmsw28_dbgrid.lib;wxmsw28_media.lib;wxbase28_odbc.lib;wxmsw28_adv.lib;wxtiff.lib;wxbase28.lib;wxbase28_net.lib;wxexpat.lib;wxjpeg.lib;wxzlib.lib;wxpng.lib;wxregex.lib;freeimage.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\$(Platform)\$(Configuration);$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gdiplus.lib;vfw32.lib;opengl32.lib;glu32.lib;libconfigportable.lib;wxmsw28_treelistctrl.lib;wxmsw28_things.lib;wxmsw28_propgrid.lib;wxmsw28_plotctrl.lib;wxmsw28_plot.lib;wxmsw28_ledbargraph.lib;wxmsw28_flatnotebook.lib;wxmsw28_awx.lib;wxmsw28_xrc.lib;wxmsw28_gl.lib;wxmsw28_html.lib;wxmsw28_aui.lib;wxmsw28_core.lib;wxbase28_xml.lib;wxmsw28_qa.lib;wxmsw28_dbgrid.lib;wxmsw28_media.lib;wxbase28_odbc.lib;wxmsw28_adv.lib;wxtiff.lib;wxbase28.lib;wxbase28_net.lib;wxexpat.lib;wxjpeg.lib;wxzlib.lib;wxpng.lib;wxregex.lib;freeimage.lib;winmm.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\$(Platform);$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\$(Platform)\$(Configuration);$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -209,8 +209,8 @@ copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Comm
 cd $(ProjectDir)..\..\src
 $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\Autoversion.exe ActorEditorVersion.h ActorEditorVersion
 if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine mkdir $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
-if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImage.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\dist\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
-if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImagePlus.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\FreeImage\Wrapper\FreeImagePlus\dist\FreeImagePlus.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImage.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\dist\$(Platform)\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+if not exist $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine\FreeImagePlus.dll copy /y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Wrapper\FreeImagePlus\dist\$(Platform)\FreeImagePlus.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
 echo Copying binary to destination directory
 copy /y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>

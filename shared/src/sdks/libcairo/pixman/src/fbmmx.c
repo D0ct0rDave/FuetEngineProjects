@@ -36,9 +36,11 @@
 #include "pixman-xserver-compat.h"
 #include "fbmmx.h"
 
-#if defined(__amd64__) || defined(__x86_64__)
-#define USE_SSE
+#if defined(__amd64__) || defined(__x86_64__) || (defined(_M_AMD64) && (_M_AMD64 == 100) && !defined(_M_ARM64EC))
+// #define USE_SSE
+#define _M_IX86
 #endif
+
 
 #include <mmintrin.h>
 #ifdef USE_SSE
