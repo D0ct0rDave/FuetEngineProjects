@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ActorEditor">
+      <UniqueIdentifier>{E592A880-5148-2176-DA3C-1B4D46F1177A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ActorEditor\src">
+      <UniqueIdentifier>{7C3BEDF6-E8C6-5ABB-F1D7-DDAF5DE2B6BB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ActorEditor\src\FileOps">
+      <UniqueIdentifier>{3D6B8A17-A9A2-D2AE-B2AC-36D21E63F9A7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ActorEditor\src\dialogs">
+      <UniqueIdentifier>{EED91A1C-5A11-63B3-631B-C7D6CFD189AC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{AEFEE3F6-9AA0-0ECD-835B-22216F9C951D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ActorEditor\src\ActorEditor.h">
+      <Filter>ActorEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\ActorEditorVersion.h">
+      <Filter>ActorEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\CAVIFile.h">
+      <Filter>ActorEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\CActorEditorGUI.h">
+      <Filter>ActorEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\CActorEditorGUIBase.h">
+      <Filter>ActorEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\CActorEditorGUIFileOps.h">
+      <Filter>ActorEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\CActorEditorGUIFuncs.h">
+      <Filter>ActorEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\CActorEditorGUI_GridRenderers.h">
+      <Filter>ActorEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\CActorEditorGUI_TreeBuilder.h">
+      <Filter>ActorEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\CAppGlobals.h">
+      <Filter>ActorEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\CSkeleton.h">
+      <Filter>ActorEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\CSkeletonUtils.h">
+      <Filter>ActorEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\FileOps\CAEAFileOps.h">
+      <Filter>ActorEditor\src\FileOps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\FileOps\CFileOpsCommon.h">
+      <Filter>ActorEditor\src\FileOps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\FileOps\CPoseFileOps.h">
+      <Filter>ActorEditor\src\FileOps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\FileOps\CSKAFileOps.h">
+      <Filter>ActorEditor\src\FileOps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\FileOps\CSKEFileOps.h">
+      <Filter>ActorEditor\src\FileOps</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\Render.h">
+      <Filter>ActorEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\dialogs\CEditorAboutBox.h">
+      <Filter>ActorEditor\src\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ActorEditor\src\stdafx.h">
+      <Filter>ActorEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\CBinConfigFileWriter.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\CConfigFileWriter.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\CLibConfigFileWriter.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\ed_rend_utils.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\edutils.h">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\ActorEditor\src\ActorEditor.cpp">
+      <Filter>ActorEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\CAVIFile.cpp">
+      <Filter>ActorEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\CActorEditorGUI.cpp">
+      <Filter>ActorEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\CActorEditorGUIBase.cpp">
+      <Filter>ActorEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\CActorEditorGUIFileOps.cpp">
+      <Filter>ActorEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\CActorEditorGUIFuncs.cpp">
+      <Filter>ActorEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\CActorEditorGUI_GridRenderers.cpp">
+      <Filter>ActorEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\CActorEditorGUI_TreeBuilder.cpp">
+      <Filter>ActorEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\CAppGlobals.cpp">
+      <Filter>ActorEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\CSkeleton.cpp">
+      <Filter>ActorEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\CSkeletonUtils.cpp">
+      <Filter>ActorEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\FileOps\CAEAFileOps.cpp">
+      <Filter>ActorEditor\src\FileOps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\FileOps\CFileOpsCommon.cpp">
+      <Filter>ActorEditor\src\FileOps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\FileOps\CPoseFileOps.cpp">
+      <Filter>ActorEditor\src\FileOps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\FileOps\CSKAFileOps.cpp">
+      <Filter>ActorEditor\src\FileOps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\FileOps\CSKEFileOps.cpp">
+      <Filter>ActorEditor\src\FileOps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\Render.cpp">
+      <Filter>ActorEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\dialogs\CEditorAboutBox.cpp">
+      <Filter>ActorEditor\src\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ActorEditor\src\stdafx.cpp">
+      <Filter>ActorEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\CBinConfigFileWriter.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\CLibConfigFileWriter.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\ed_rend_utils.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\edutils.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ActorEditor\src\TODO.txt">
+      <Filter>ActorEditor\src</Filter>
+    </None>
+  </ItemGroup>
+</Project>

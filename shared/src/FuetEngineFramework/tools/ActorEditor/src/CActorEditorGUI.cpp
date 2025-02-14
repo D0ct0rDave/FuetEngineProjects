@@ -1,5 +1,27 @@
 #include "CActorEditorGUI.h"
+/*
+#include "wx/treeListCtrl.h"
+#include "wx/things/spinctld.h"
+#include "wx/msw/colordlg.h"
 
+#include "CAppGlobals.h"
+#include "CActorEditorGUIFuncs.h"
+#include "CActorEditorGUI_GridRenderers.h"
+#include "CActorEditorGUI_TreeBuilder.h"
+#include "CActorEditorGUIFileOps.h"
+
+#include "dialogs/CEditorAboutBox.h"
+
+#include "EdUtils.h"
+
+#include "FileOps/CAEAFileOps.h"
+#include "FileOps/CSKAFileOps.h"
+#include "FileOps/CSKEFileOps.h"
+#include "FileOps/CPoseFileOps.h"
+
+#include "Render.h"
+#include <process.h>
+*/
 CActorEditorGUI::CActorEditorGUI( wxWindow* parent )
 	:
 	CActorEditorGUIBase( parent )

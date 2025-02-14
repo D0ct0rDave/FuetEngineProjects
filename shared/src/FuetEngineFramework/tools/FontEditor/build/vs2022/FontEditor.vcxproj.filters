@@ -27,6 +27,15 @@
     <ClCompile Include="..\..\..\common\edutils.cpp">
       <Filter>common</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\CAppGlobals.cpp" />
+    <ClCompile Include="..\..\src\CFontEditorGUI.cpp" />
+    <ClCompile Include="..\..\src\CFontEditorGUI_Funcs.cpp" />
+    <ClCompile Include="..\..\src\CFontEditorGUIBase.cpp" />
+    <ClCompile Include="..\..\src\CFontGenerator.cpp" />
+    <ClCompile Include="..\..\src\CSpecialCharGUI.cpp" />
+    <ClCompile Include="..\..\src\CSpecialCharGUIBase.cpp" />
+    <ClCompile Include="..\..\src\FontEditor.cpp" />
+    <ClCompile Include="..\..\src\stdafx.cpp" />
     <ClCompile Include="..\..\..\..\..\sdks\tinyxml\tinystr.cpp">
       <Filter>tinyXML</Filter>
     </ClCompile>
@@ -39,15 +48,9 @@
     <ClCompile Include="..\..\..\..\..\sdks\tinyxml\tinyxmlparser.cpp">
       <Filter>tinyXML</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\CAppGlobals.cpp" />
-    <ClCompile Include="..\..\src\CFontEditorGUI.cpp" />
-    <ClCompile Include="..\..\src\CFontEditorGUI_Funcs.cpp" />
-    <ClCompile Include="..\..\src\CFontEditorGUIBase.cpp" />
-    <ClCompile Include="..\..\src\CFontGenerator.cpp" />
-    <ClCompile Include="..\..\src\CSpecialCharGUI.cpp" />
-    <ClCompile Include="..\..\src\CSpecialCharGUIBase.cpp" />
-    <ClCompile Include="..\..\src\FontEditor.cpp" />
-    <ClCompile Include="..\..\src\stdafx.cpp" />
+    <ClCompile Include="..\..\..\..\..\sdks\tinyxml\xmltest.cpp">
+      <Filter>tinyXML</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\common\CBinConfigFileWriter.h">
@@ -71,12 +74,6 @@
     <ClInclude Include="..\..\..\common\edutils.h">
       <Filter>common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\sdks\tinyxml\tinystr.h">
-      <Filter>tinyXML</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\sdks\tinyxml\tinyxml.h">
-      <Filter>tinyXML</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\CAppGlobals.h" />
     <ClInclude Include="..\..\src\CFontEditorGUI.h" />
     <ClInclude Include="..\..\src\CFontEditorGUI_Funcs.h" />
@@ -87,6 +84,12 @@
     <ClInclude Include="..\..\src\FontEditor.h" />
     <ClInclude Include="..\..\src\stdafx.h" />
     <ClInclude Include="..\..\src\version.h" />
+    <ClInclude Include="..\..\..\..\..\sdks\tinyxml\tinystr.h">
+      <Filter>tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\sdks\tinyxml\tinyxml.h">
+      <Filter>tinyXML</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\CFontEditorGUI.fbp" />

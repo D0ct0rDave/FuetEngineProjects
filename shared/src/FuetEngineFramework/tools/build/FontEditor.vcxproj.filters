@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="FontEditor">
+      <UniqueIdentifier>{A3A374E0-8F5B-B62D-F862-8F89E439511E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FontEditor\src">
+      <UniqueIdentifier>{3A7BAF8B-2649-A391-0FDD-13B8FB497FF6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{AEFEE3F6-9AA0-0ECD-835B-22216F9C951D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\FontEditor\src\CAppGlobals.h">
+      <Filter>FontEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FontEditor\src\CFontEditorGUI.h">
+      <Filter>FontEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FontEditor\src\CFontEditorGUIBase.h">
+      <Filter>FontEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FontEditor\src\CFontEditorGUI_Funcs.h">
+      <Filter>FontEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FontEditor\src\CFontGenerator.h">
+      <Filter>FontEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FontEditor\src\CSpecialCharGUI.h">
+      <Filter>FontEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FontEditor\src\CSpecialCharGUIBase.h">
+      <Filter>FontEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FontEditor\src\FontEditor.h">
+      <Filter>FontEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FontEditor\src\stdafx.h">
+      <Filter>FontEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FontEditor\src\version.h">
+      <Filter>FontEditor\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\CBinConfigFileWriter.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\CConfigFileWriter.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\CLibConfigFileWriter.h">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\FontEditor\src\CAppGlobals.cpp">
+      <Filter>FontEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FontEditor\src\CFontEditorGUI.cpp">
+      <Filter>FontEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FontEditor\src\CFontEditorGUIBase.cpp">
+      <Filter>FontEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FontEditor\src\CFontEditorGUI_Funcs.cpp">
+      <Filter>FontEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FontEditor\src\CFontGenerator.cpp">
+      <Filter>FontEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FontEditor\src\CSpecialCharGUI.cpp">
+      <Filter>FontEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FontEditor\src\CSpecialCharGUIBase.cpp">
+      <Filter>FontEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FontEditor\src\FontEditor.cpp">
+      <Filter>FontEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FontEditor\src\stdafx.cpp">
+      <Filter>FontEditor\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\CBinConfigFileWriter.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\CLibConfigFileWriter.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
