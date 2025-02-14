@@ -1,11 +1,17 @@
 local ProjectRelativeSDKSRoot = "$(ProjectDir)../../../SDKS"
 local ProjectRelativeFuetEngineRoot = "$(ProjectDir)../../FuetEngine"
+local SDKSRoot = "$(FuetEngineProjectsDev)/shared/src/sdks"
+local FuetEngineRoot = "$(FuetEngineProjectsDev)/shared/src/FuetEngineFramework/FuetEngine"
 	
 workspace "FuetEngine"
     configurations { "DEV_Debug", "DEV_Release", "DEV_WITH_SOUND_Debug", "DS_PC_Debug", "PLAYTEST_Debug", "PLAYTEST_Release", "WIN32_Debug", "WIN32_Release"}
     location "build" -- Where generated files (like Visual Studio solutions) will be stored
     architecture "x86_64"
-	
+
+	filter "configurations:DEV_*"
+        architecture "x86"
+	filter {}
+
 	currentPlatform = "Win32"
 	filter { "architecture:x86_64" }
 		currentPlatform = "x64"
@@ -65,13 +71,13 @@ project "FuetEngine"
     -- Add include directories (sourceRoot is included by default)
     includedirs {
 		"$(ProjectDir)../src",
-		ProjectRelativeSDKSRoot .. "/externals/freeimage/Dist",
-		ProjectRelativeSDKSRoot .. "/externals/libconfigPortable/src",
-		ProjectRelativeSDKSRoot .. "/externals/OpenAL_1.1_SDK/include",
-		ProjectRelativeSDKSRoot .. "/externals/OpenAL_1.1_SDK/include/al",
-		ProjectRelativeSDKSRoot .. "/externals/freealut/include",
-		ProjectRelativeSDKSRoot .. "/externals/physfs/",
-		ProjectRelativeSDKSRoot .. "/externals/OpenGL",
+		SDKSRoot .. "/externals/freeimage/Dist",
+		SDKSRoot .. "/externals/libconfigPortable/src",
+		SDKSRoot .. "/externals/OpenAL_1.1_SDK/include",
+		SDKSRoot .. "/externals/OpenAL_1.1_SDK/include/al",
+		SDKSRoot .. "/externals/freealut/include",
+		SDKSRoot .. "/externals/physfs/",
+		SDKSRoot .. "/externals/OpenGL",
     }
 
     -- Configuration-specific settings
