@@ -378,7 +378,7 @@ shared/doc
 shared/data
 doc
 /shared/data
-/shared/toolchain/*
+/shared/toolchain/FuetEngine*
 
 # white listed files
 !/shared/src/sdks/OpenAL_1.1_SDK/libs/Win32/*.lib
