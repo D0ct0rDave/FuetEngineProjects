@@ -8,11 +8,22 @@ template <typename T>
 class CFELookUpDatabase
 {
     public:
-
         /// Adds an element to the look up array (if it doens't exist) if it exists, modifies it.
         uint uiAdd(const CFEString& _sVariable,T* _poValue)
         {
-			return(uiAdd_INT(_sVariable,_poValue) );
+            for (uint i=0;i<m_oData.size();i++)
+                if (m_oData[i].m_sVariable == _sVariable)
+                {
+                    m_oData[i].m_poValue = _poValue;
+                    return(i);
+                }
+
+            TResourceEntry oEntry;
+            oEntry.m_poValue   = _poValue;
+            oEntry.m_sVariable = _sVariable;
+
+            m_oData.push_back(oEntry);
+            return( m_oData.size()-1 );
         }
 
         /// Clears the full contents of the database
@@ -22,17 +33,17 @@ class CFELookUpDatabase
         }
 
         /// Returns an element from the look up array (if it exists)
-        T* poGet(const CFEString& _sVariable) const
+        T* poGet(const CFEString& _sVariable)
         {
-			for (uint i = 0; i<m_oData.size(); i++)
-				if (m_oData[i].m_sVariable == _sVariable)
-					return(m_oData[i].m_poValue);
+            for (uint i=0;i<m_oData.size();i++)
+                if (m_oData[i].m_sVariable == _sVariable)
+                    return(m_oData[i].m_poValue);
 
-			return( NULL );
+            return( NULL );
         }
 
         /// Returns the resource associated to the given index in the lookup array (if it exists).
-        T* poGetAt(uint _uiIdx) const
+        T* poGet(uint _uiIdx)
         {
             if (_uiIdx >= m_oData.size())
                 return( NULL );
@@ -59,26 +70,6 @@ class CFELookUpDatabase
             return( CFEString::sNULL() );
         }
 
-        /// Returns the index associated to the given variable in the lookup array (if it exists).
-        int iGetIdx(const CFEString& _sVariable)
-        {
-			for (uint i = 0; i<m_oData.size(); i++)
-				if (m_oData[i].m_sVariable == _sVariable)
-					return(i);
-
-			return(-1);
-        }
-
-        /// Returns the index associated to the given value in the lookup array (if it exists).
-        int iGetIdx(T* _poValue)
-        {
-	        for (uint i=0;i<m_oData.size();i++)
-                if (m_oData[i].m_poValue == _poValue)
-					return(i);
-
-			return(-1);
-        }
-
         /// Retrieves the number of elements in the look up array
         uint uiNumElems()
         {
@@ -93,28 +84,11 @@ class CFELookUpDatabase
 
     protected:
 
-		uint uiAdd_INT(const CFEString& _sVariable,T* _poValue)
-		{
-            for (uint i=0;i<m_oData.size();i++)
-                if (m_oData[i].m_sVariable == _sVariable)
-                {
-                    m_oData[i].m_poValue = _poValue;
-                    return(i);
-                }
-
-            TResourceEntry oEntry;
-            oEntry.m_poValue   = _poValue;
-            oEntry.m_sVariable = _sVariable;
-
-            m_oData.push_back(oEntry);
-            return( m_oData.size()-1 );
-		}
-
         ///
         typedef struct
         {
-            CFEString		m_sVariable;
-            T*				m_poValue;
+            CFEString     m_sVariable;
+            T*            m_poValue;
 
         }TResourceEntry;
 

@@ -1,10 +1,10 @@
 // -----------------------------------------------------------------------------
 /*! \class CFEScriptMgr
  *  \brief A class to manage scripts.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 1999-2009
- *  \par Copyright (c) 1999 David Márquez de la Cruz
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // -----------------------------------------------------------------------------
@@ -21,13 +21,10 @@ class CFEScriptMgr
 		void Exec(CFEScript* _poScript);
 
 		/// Updates the execution of the current script. Returns false if the current script has finished.
-		FEBool bUpdate(FEReal _rDeltaT);
+		bool bUpdate(FEReal _rDeltaT);
 
 		/// Returns true if the execution of the script has finished.
-		FEBool bFinished();
-		
-		/// Finishes the current action being played.
-		void FinishAction();
+		bool bFinished();
 
 	protected:
 		

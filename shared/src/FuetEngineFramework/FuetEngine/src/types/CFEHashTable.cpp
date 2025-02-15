@@ -1,6 +1,5 @@
 #include "types/CFEHashTable.h"
 
-#ifdef _DEBUG
 static void Test()
 {
     int i = 10;
@@ -12,4 +11,3 @@ static void Test()
 
     int *pi = oHash.poGetVar("lolo");
 }
-#endif

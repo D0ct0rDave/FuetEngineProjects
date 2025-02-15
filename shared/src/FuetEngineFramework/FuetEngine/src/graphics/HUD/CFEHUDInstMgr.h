@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEHUDInstMgr
  *  \brief A class to manage all the HUD instances and functionalities over the HUD elements of an instance.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -27,17 +27,8 @@ class CFEHUDInstMgr
         /// Retrieves a HUD instance of a given HUD resource.
         static FEHandler hGetInstance(const CFEString& _sHUDModel);
 
-        /// Retrieves a HUD instance from a given HUD resource.
-        static FEHandler hGetInstance(CFEHUD* _poHUD);
-
-        /// Releases a previously generated HUD instance
-        static void ReleaseInstance(FEHandler _hHUDInstance);
-
         // Updates all the HUD instances in the system.
         static void Update(FEReal _rDeltaT);
-        
-        /// Updates the HUD instance.
-        static void Update(FEHandler _hHUDInstance,FEReal _rDeltaT);
 
         // Updates all the HUD instances in the system.
         static void SetActionTime(FEReal _rDeltaT);

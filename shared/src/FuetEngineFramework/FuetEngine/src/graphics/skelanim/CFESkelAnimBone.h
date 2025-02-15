@@ -1,59 +1,69 @@
 // ----------------------------------------------------------------------------
 /*! \class CFESkelAnimBone
  *  \brief A class to store bone information in a skeletal hierachy.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
 #ifndef CFESkelAnimBoneH
 #define CFESkelAnimBoneH
 // ----------------------------------------------------------------------------
-#include "CFESkelAnimGroup.h"
+#include "CFESkelAnimNode.h"
 // ----------------------------------------------------------------------------
-class CFESkelAnimBone : public CFESkelAnimGroup
+class CFESkelAnimBone : public CFESkelAnimNode
 {
     public:
 
-        CFESkelAnimBone(const CFEString& _sName) : CFESkelAnimGroup(_sName), m_oBonePos(CFEVect2::ZERO())
+        CFESkelAnimBone(const CFEString& _sName) : CFESkelAnimNode(_sName), m_poAttachedNode(NULL)
         {
         };
 
 	    /// Destructor of the class
-		/*
 		virtual ~CFESkelAnimBone()
 		{
 			delete m_poAttachedNode;
 		}
-		*/
 
-        /// Sets the position of this bone in the skeleton.
-        void SetBonePos(const CFEVect2& _oBonePos)
-        {
-            m_oBonePos = _oBonePos;
-        }
-
-        /// Retrieves the position of this bone in the skeleton.
-        const CFEVect2& oGetBonePos()
-        {
-            return(m_oBonePos);
-        }
-
-		/// Perform processing over the object.
+        /// Perform processing over the object.
 		virtual void Accept(CFESkelAnimNodeVisitor* _poVisitor)
 		{
 		    _poVisitor->Visit(this);
 		}
-    
-	public:
+
+        /// Sets the absolute position of this bone.
+        void SetAbsPos(const CFEVect2& _oAbsPos)
+        {
+            m_oAbsPos = _oAbsPos;
+        }
+
+        /// Retrieves the absolute position of this bone.
+        const CFEVect2& oGetAbsPos()
+        {
+            return(m_oAbsPos);
+        }
+
+        /// Sets the attached node of this bone.
+        void SetAttachedNode(CFESkelAnimNode* _poAttachedNode)
+        {
+            m_poAttachedNode = _poAttachedNode;
+        }
+
+        /// Retrieves the attached to this bone.
+        CFESkelAnimNode* poGetAttachedNode()
+        {
+            return(m_poAttachedNode);
+        }
+
+    public:
         
         ///        
-        CFEVect2    m_oBonePos;
+        CFEVect2    m_oAbsPos;
         
         /// 
-        /// CFESkelAnimNode* m_poAttachedNode;
+        CFESkelAnimNode* m_poAttachedNode;
 };
 // ----------------------------------------------------------------------------
 #endif

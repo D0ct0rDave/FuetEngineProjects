@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEHUD
  *  \brief A class to store all the HUD elements of the game.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -47,12 +47,6 @@ class CFEHUD
 		uint uiNumElements()
 		{
 			return(m_oElements.size());
-		}
-
-		/// Takes out an element from the HUD.
-		void DeleteElement(uint _uiElement)
-		{
-			m_oElements.Delete(_uiElement);
 		}
 
         /// Perform processing over the object

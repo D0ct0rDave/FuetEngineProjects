@@ -1,6 +1,6 @@
 /*! \mainpage FuetEngine Documentation.
  * \section intro_sec FuetEngine
- * Copyright (c) 2009 David Márquez de la Cruz
+ * Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *
  * 2009-2011
  *
@@ -12,16 +12,17 @@
  *
  *! \class FuetEngine
  *  \brief Main include file for FuetEngine
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
 #ifndef FuetEngineH
 #define FuetEngineH
 // ----------------------------------------------------------------------------
+
 /// Basic types exposed by the engine.
 #include "FEBasicTypes.h"
 
@@ -30,9 +31,6 @@
 
 /// Constants exposed by the engine.
 #include "FEConsts.h"
-
-/// Macros and definitions for the engine and applications.
-#include "FEDefs.h"
 
 /// Other types.
 #include "types/CFEArray.h"
@@ -51,16 +49,12 @@
 #include "types/CFESingleton.h"
 #include "types/CFEKFBFunc.h"
 #include "types/CFEKFBFuncUtils.h"
-#include "types/FEKFBFLerpFuncs.h"
-#include "types/CFEKFBEventFunc.h"
-#include "types/CFEMomentInTime.h"
 
 /// Configuration
 #include "support/config/CFEConfigFile.h"
 
 /// File Management
 #include "support/file/CFEFile.h"
-#include "support/file/CFEMemFile.h"
 
 /// Graphic Rendering support
 #include "support/graphics/CFERenderer.h"
@@ -73,7 +67,6 @@
 #include "support/math/CFEMath.h"
 #include "support/math/CFEMathIntersect.h"
 #include "support/math/CFESmoother.h"
-#include "support/math/CFERandomGen.h"
 
 /// Simple Memory Management support
 #include "support/mem/CFEMem.h"
@@ -93,9 +86,6 @@
 /// Profiles
 #include "support/profile/CFEProfile.h"
 
-/// System
-#include "support/system/CFESystem.h"
-
 // High Level Graphic support
 #include "graphics/font/CFEFont.h"
 #include "graphics/font/CFEFontMgr.h"
@@ -105,13 +95,6 @@
 #include "graphics/sprite/CFESpriteMgr.h"
 #include "graphics/sprite/CFESpriteInstMgr.h"
 #include "graphics/sprite/CFESpriteRenderer.h"
-#include "graphics/sprite/CFESpriteLoader.h"
-
-// Mesh functionality.
-#include "graphics/mesh/CFEMesh.h"
-#include "graphics/mesh/CFEMeshMgr.h"
-#include "graphics/mesh/CFEMeshInstMgr.h"
-#include "graphics/mesh/CFEMeshRenderer.h"
 
 // Map functionality.
 #include "graphics/map/CFEMap.h"
@@ -131,7 +114,6 @@
 #include "graphics/HUD/CFEHUDLabel.h"
 #include "graphics/HUD/CFEHUDRect.h"
 #include "graphics/HUD/CFEHUDShape.h"
-#include "graphics/HUD/CFEHUDPSys.h"
 
 #include "graphics/HUD/CFEHUDInstancer.h"
 #include "graphics/HUD/CFEHUDInstMgr.h"
@@ -143,10 +125,6 @@
 #include "graphics/HUD/CFEHUDVisitor.h"
 #include "graphics/HUD/CFEHUDElemLocator.h"
 #include "graphics/HUD/CFEHUDRectGen.h"
-#include "graphics/HUD/CFEHUDEventFunc.h"
-#include "graphics/HUD/CFEHUDEventMgr.h"
-#include "graphics/HUD/CFEHUDActionTime.h"
-#include "graphics/HUD/CFEHUDActionDefaultValues.h"
 
 // Skeleton Animations.
 #include "graphics/skelanim/CFESkelAnim.h"
@@ -170,10 +148,6 @@
 #include "graphics/skelanim/CFESkelAnimNodeLocator.h"
 #include "graphics/skelanim/CFESkelAnimInstancer.h"
 #include "graphics/skelanim/CFESkelAnimNodeInstancer.h"
-
-#include "graphics/skelanim/CFESkelAnimUtils.h"
-#include "graphics/skelanim/CFESkelAnimEventFunc.h"
-#include "graphics/skelanim/CFESkelAnimEventMgr.h"
 
 // Particle Systems.
 #include "graphics/particlesys/CFEParticleSys.h"

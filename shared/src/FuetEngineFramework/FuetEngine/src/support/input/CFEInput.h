@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEInput
  *  \brief High Level Input Management Class
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -40,16 +40,16 @@ class CFEInput
 		void Update(FEReal _rDeltaT);
 
 		/// Retrieve down state for the given button.
-		FEBool bDown(EFEInputButton _eIB);
+		bool bDown(EFEInputButton _eIB);
 
 		/// Retrieve up state for the given button.
-		FEBool bUp(EFEInputButton _eIB);
+		bool bUp(EFEInputButton _eIB);
 
 		/// Retrieve pressed state for the given button.
-		FEBool bPressed(EFEInputButton _eIB);
+		bool bPressed(EFEInputButton _eIB);
 
 		/// Retrieve release state for the given button.
-		FEBool bReleased(EFEInputButton _eIB);
+		bool bReleased(EFEInputButton _eIB);
 
 		/// Retrieve value for the given axis.
 		FEReal rValue(EFEInputAxis _eIA);
@@ -67,16 +67,16 @@ class CFEInput
 		FEReal rCursorPressure(EFEInputPressureButton _eIPB);
 
 		/// Retrieve down state for the given button.
-		FEBool bDown(EFEInputPressureButton _eIPB);
+		bool bDown(EFEInputPressureButton _eIPB);
 
 		/// Retrieve up state for the given button.
-		FEBool bUp(EFEInputPressureButton _eIPB);
+		bool bUp(EFEInputPressureButton _eIPB);
 
 		/// Retrieve pressed state for the given button.
-		FEBool bPressed(EFEInputPressureButton _eIPB);
+		bool bPressed(EFEInputPressureButton _eIPB);
 
 		/// Retrieve release state for the given button.
-		FEBool bReleased(EFEInputPressureButton _eIPB);
+		bool bReleased(EFEInputPressureButton _eIPB);
 
     private:
 

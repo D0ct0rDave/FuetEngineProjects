@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 /*! \class CFEStatedObject
  *  \brief A class to derive from for objects with states
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 2010
- *  \par Copyright (c) 1999 David Márquez de la Cruz
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
  *  \par PenguinWars License
  */
 //-----------------------------------------------------------------------------

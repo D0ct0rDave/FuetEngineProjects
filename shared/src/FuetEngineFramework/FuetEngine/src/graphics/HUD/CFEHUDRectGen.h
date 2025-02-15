@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEHUDRectGen
  *  \brief A class to save a HUD layout.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -19,18 +19,9 @@
 class CFEHUDRectGen : public CFEHUDVisitor
 {
     public:
-		CFEHUDRectGen(FEPointer _poTarget);
+		CFEHUDRectGen(CFEHUDObject* _poTarget);
 
         static CFERect oGetRect(CFEHUDGroup* _poParent,CFEHUDObject* _poObj);
-        
-        static CFERect oGetRect(CFEHUD* _poObj);
-        
-        // Retrieves the result rectangle in case we need to use
-        // the generator explicitly.
-        CFERect oGetRect()
-        {
-			return(m_oRect);
-        }
 
         virtual void Visit(CFEHUDObject* _poObj);
         /// 
@@ -43,8 +34,6 @@ class CFEHUDRectGen : public CFEHUDVisitor
         virtual void Visit(CFEHUDRect* _poObj);
         /// 
         virtual void Visit(CFEHUDShape* _poObj);
-        /// 
-        virtual void Visit(CFEHUDPSys* _poObj);
 
 
         virtual void Visit(CFEHUD* _poObj);
@@ -60,18 +49,14 @@ class CFEHUDRectGen : public CFEHUDVisitor
 		virtual const CFEString sGetType() { return("CFEHUDRectGen"); };
 
     protected:
-    
-		void GenericRectGen(CFEHUDObject* _poObj);
 
-        FEBool m_bTargetFound;
+        bool m_bTargetFound;
         
-        FEPointer	m_poTarget;
+        CFEHUDObject* m_poTarget;
         //
-        CFERect		m_oRect;
+        CFERect m_oRect;
         
-        CFEMatrix	m_oTransf;
-
-		FEReal		m_rDepth;
+        CFEMatrix m_oTransf;
 };
 //-----------------------------------------------------------------------------
 #endif

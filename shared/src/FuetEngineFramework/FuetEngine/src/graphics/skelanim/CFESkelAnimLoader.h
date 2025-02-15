@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFESkelAnimLoader
  *  \brief A class to load FuetEngine HUD layouts.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -26,21 +26,20 @@ class CFESkelAnimLoader
 
         /// Loads a skeleton animation from a given file    
         static CFESkelAnim* poLoad(const CFEString& _sFilename);
-        static CFESkelAnimNode* poLoadNode(const CFEString& _sFilename);        
+        static CFESkelAnimNode* poLoadNode(const CFEString& _sFilename);
         static CFESkelAnimAction* poLoadAction(const CFEString& _sFilename, CFESkelAnim* _poAnim);
-        
-        /// Loads a skeleton node from a given config file
-        static CFESkelAnimNode* poLoadNode(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile);
 
-        /// This function should be called after linking a new anim node to a skel anim object.
+        /// This function should be called after linking a new anim node to a skel anim object.        
         static void BuildActionNodeTable(CFESkelAnim* _poAnim);
 
     protected:
 
 		static int iFindNode(CFESkelAnim* _poAnim,const CFEString& _sName);
 
-		static CFESkelAnimActionSet* poLoadActionSet(const CFEString& _sPrefix,const CFEConfigFile& _oConfigFile, CFESkelAnim* _poAnim);
+        static CFESkelAnimNode* poLoadNode(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile);
 
+		static CFESkelAnimActionSet* poLoadActionSet(const CFEString& _sPrefix,const CFEConfigFile& _oConfigFile, CFESkelAnim* _poAnim);
+		
 		static CFESkelAnimAction* poLoadAction(const CFEString& _sPrefix,const CFEConfigFile& _oConfigFile, CFESkelAnim* _poAnim);
 
         static CFESkelAnimNodeAction* poLoadNodeAction(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile, CFESkelAnim* _poAnim);

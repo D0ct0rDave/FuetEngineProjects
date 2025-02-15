@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFESoundPlayer
  *  \brief A basic class to play sound.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -12,7 +12,6 @@
 #define CFESoundPlayerH
 // ----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "types\CFEString.h"
 #include "FEEnums.h"
 // ----------------------------------------------------------------------------
 class CFESoundPlayer
@@ -29,7 +28,7 @@ class CFESoundPlayer
         static void Init(FEHandler _hParam);
 
         /// Plays a sound in the given mix line with the supplied parameters.
-        static FEHandler hPlay(FEHandler _hSoundResource,EFESoundMixerLine _eSoundLine,FEReal _rVol = _1r,FEReal _rPan = _05r);
+        static void Play(FEHandler _hSound,EFESoundMixerLine _eSoundLine,FEReal _rVol = _1r,FEReal _rPan = _05r);
 
         /// Stops a sound currently being played.
         static void Stop(FEHandler _hSound);
@@ -45,12 +44,6 @@ class CFESoundPlayer
 
         /// Updates the player.
         static void Update(FEReal _rDeltaT);
-
-        /// Retrieves a sound system property if it exists.
-        static FEBool bGetProperty(const CFEString& _sProperty,FEPointer _pParam);
-
-        /// Sets a sound system property if it exists.
-        static FEBool bSetProperty(const CFEString& _sProperty,FEPointer _pParam);
 };
 // ----------------------------------------------------------------------------
 #endif

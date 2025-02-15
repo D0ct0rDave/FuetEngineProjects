@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFESkelAnimRenderer
  *  \brief This class represents a mesh object inside a skeletal hierarchy.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -14,7 +14,7 @@
 #include "types/CFEArray.h"
 #include "CFESkelAnimBone.h"
 // ----------------------------------------------------------------------------
-class CFESpriteFrame;
+const FEReal JOINT_MARGIN = _1r / _32r;
 // ----------------------------------------------------------------------------
 class CFESkelAnimMesh : public CFESkelAnimNode
 {
@@ -41,12 +41,6 @@ class CFESkelAnimMesh : public CFESkelAnimNode
             return(m_poBones.size());
         }
 
-        /// Retrieves the address of the index array.
-        unsigned short* pusGetIdxs()
-        {
-            return( &m_usIdx[0] );
-        }
-
         /// Retrieves the address of the vertex array.
         CFEVect2* poGetVX()
         {
@@ -57,6 +51,12 @@ class CFESkelAnimMesh : public CFESkelAnimNode
         CFEVect2* poGetUV()
         {
             return( &m_oUV[0] );
+        }
+
+        /// Retrieves the address of the color array.
+        CFEColor* poGetVC()
+        {
+            return( &m_oVC[0] );
         }
 
         /// Retrieve the number of vertices
@@ -90,50 +90,22 @@ class CFESkelAnimMesh : public CFESkelAnimNode
 		    _poVisitor->Visit(this);
 		}
 
-		/// Ultra convenient function to retrieve the last cached sprite frame (for rendering purposes)
-		CFESpriteFrame* poGetLastSpriteFrame()
-		{
-			return(m_poLastSpriteFrame);
-		}
-
-		/// Ultra convenient function to cache the last sprite frame (for rendering purposes)
-		void SetLastSpriteFrame(CFESpriteFrame* _poLastSpriteFrame)
-		{
-			m_poLastSpriteFrame = _poLastSpriteFrame;
-		}
-
-        /// Retrieves the address of the vertex array.
-        CFEVect2* poGetLastSFVX()
-        {
-            return( &m_oSFVX[0] );
-        }
-
-		CFEArray<CFEVect2> m_oIniBonePos;
-		CFEArray<FEReal> m_rIniBoneAngle;
-
-
-	protected:
+    public:
 
         /// The array of bones that influence this mesh.
         CFEArray<CFESkelAnimBone*> m_poBones;
 
         /// The array of vertices of this mesh.
-        CFEArray<unsigned short>	m_usIdx;
-
-        /// The array of vertices of this mesh.
-        CFEArray<CFEVect2>	m_oVX;
+        CFEArray<CFEVect2> m_oVX;
 
         /// The array of texture coordinates.
-        CFEArray<CFEVect2>	m_oUV;
+        CFEArray<CFEVect2> m_oUV;
+
+        /// The array of vertex colors.
+        CFEArray<CFEColor> m_oVC;
 
         /// The sprite instance attached to this mesh.
         FEHandler m_hSpriteInst;
-
-        /// The array of vertices of this mesh.
-        CFEArray<CFEVect2>	m_oSFVX;
-
-		/// Ultra convenient field to cache last sprite frame used on rendering...
-		CFESpriteFrame*		m_poLastSpriteFrame;
 };
 // ----------------------------------------------------------------------------
 #endif

@@ -1,16 +1,15 @@
 // ----------------------------------------------------------------------------
 /*! \class FEEnums
  *  \brief Enums shared among the FuetEngine and the application
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
 #include "CFESprite.h"
-#include "core/CFECore.h"
-#include "FEConsts.h"
+#include "system/CFESystem.h"
 // ----------------------------------------------------------------------------
 
 // ----------------------------------------------------------------------------
@@ -51,7 +50,7 @@ uint uiSafeGetFrame(CFESpriteAction* _poAction,FEReal _rTime,uint _uiSeekFrame)
 uint CFESpriteAction::uiGetFrame(FEReal _rTime,uint _uiSeekFrame)
 {
     uint uiMaxFrames = m_oSeq.size();
-    CFECoreCheck(_uiSeekFrame<uiMaxFrames,"Seek frame > max action frames");
+    CFESystemCheck(_uiSeekFrame<uiMaxFrames,"Seek frame > max action frames");
 
     switch (m_ePlayMode)
     {
@@ -68,23 +67,22 @@ uint CFESpriteAction::uiGetFrame(FEReal _rTime,uint _uiSeekFrame)
 				return ( uiSafeGetFrame(this,_rTime,_uiSeekFrame) );
             }
         }
-        // break; // avoid statement unreachable warning
+        break;
 
         // ------------------------------------------------
         case SFSPM_LOOP:
-        {	
-			if (m_rActionTime == _0r) return(0);
+        {
 			uint uiLoops = _rTime / m_rActionTime;
 			FEReal rTime = _rTime - ((FEReal)uiLoops*m_rActionTime);
 
 			return (uiSafeGetFrame(this,rTime,_uiSeekFrame));
         }
-        // break; // avoid statement unreachable warning
+        break;
 
         // ------------------------------------------------
         case SFSPM_PINGPONGSTOP:
 
-			/// #pragma message(__FUNCTION__"/"__FILE__)
+			#pragma message(__FUNCTION__"/"__FILE__)
 			#pragma message("#################")
 			#pragma message("TO BE IMPLEMENTED")
 			#pragma message("#################")
@@ -100,7 +98,7 @@ uint CFESpriteAction::uiGetFrame(FEReal _rTime,uint _uiSeekFrame)
 
         case SFSPM_PINGPONG:
         {
-        	/// #pragma message(__FUNCTION__"/"__FILE__)
+			#pragma message(__FUNCTION__"/"__FILE__)
 			#pragma message("#################")
 			#pragma message("TO BE IMPLEMENTED")
 			#pragma message("#################")
@@ -164,18 +162,18 @@ uint CFESpriteAction::uiNextFrame(uint _uiFrame)
 			else
 				return(uiMaxFrames-1);
 		}			
-        // break; // avoid statement unreachable warning
+        break;
 
         // ------------------------------------------------
         case SFSPM_LOOP:
         {
 			return ( (_uiFrame+1) % uiMaxFrames );
         }
-        // break; // avoid statement unreachable warning
+        break;
 
         // ------------------------------------------------
         case SFSPM_PINGPONGSTOP:
-        	/// #pragma message(__FUNCTION__"/"__FILE__)
+			#pragma message(__FUNCTION__"/"__FILE__)
 			#pragma message("#################")
 			#pragma message("TO BE IMPLEMENTED")
 			#pragma message("#################")        
@@ -189,7 +187,7 @@ uint CFESpriteAction::uiNextFrame(uint _uiFrame)
         */
         case SFSPM_PINGPONG:
         {
-        	/// #pragma message(__FUNCTION__"/"__FILE__)
+			#pragma message(__FUNCTION__"/"__FILE__)
 			#pragma message("#################")
 			#pragma message("TO BE IMPLEMENTED")
 			#pragma message("#################")        

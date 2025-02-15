@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class
  *  \brief
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 1999-2009
- *  \par Copyright (c) 1999 David Márquez de la Cruz
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
  *  \par GammaE License
  */
 // ----------------------------------------------------------------------------
@@ -43,12 +43,12 @@
    };
 
 
-   class MyNewClass  : public ExtResourceManager<FEBool, MyNewClass>
+   class MyNewClass  : public ExtResourceManager<bool, MyNewClass>
    {
 
    };
 
-   class MyNewClass2  : public ResourceManager<FEBool, MyNewClass2>
+   class MyNewClass2  : public ResourceManager<bool, MyNewClass2>
    {
 
    };

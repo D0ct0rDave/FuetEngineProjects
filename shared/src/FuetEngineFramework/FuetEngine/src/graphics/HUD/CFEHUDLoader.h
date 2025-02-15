@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEHUDLoader
  *  \brief A class to load FuetEngine HUD layouts.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -50,8 +50,7 @@ class CFEHUDLoader
 
         static void LoadCommonObjectProperties(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile,CFEHUDObject* _poObj);
         
-        static CFEString	m_sWorkingDir;
-        static uint			m_uiFileVersion;
+        static CFEString m_sWorkingDir;
 };
 //-----------------------------------------------------------------------------
 #endif

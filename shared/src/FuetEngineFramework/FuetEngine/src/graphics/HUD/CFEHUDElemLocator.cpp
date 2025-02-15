@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEHUDLoader
  *  \brief A class to load FuetEngine HUD layouts.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -12,14 +12,13 @@
 
 #include "CFEHUDAction.h"
 #include "CFEHUD.h"
-#include "CFEHUDElement.h"
+#include "CFEHUDelement.h"
 #include "CFEHUDObject.h"
 #include "CFEHUDGroup.h"
 #include "CFEHUDLabel.h"
 #include "CFEHUDIcon.h"
 #include "CFEHUDRect.h"
 #include "CFEHUDShape.h"
-#include "CFEHUDPSys.h"
 //-----------------------------------------------------------------------------
 const uint ST_ELEMACTION = 0;
 const uint ST_OBJACTION  = 1;
@@ -61,18 +60,6 @@ CFEHUDObject* CFEHUDElemLocator::poLocateHUDObject(CFEHUD* _poHUDModel,const CFE
 	return((CFEHUDObject*)m_poHUDElem);
 }
 //-----------------------------------------------------------------------------
-CFEHUDObject* CFEHUDElemLocator::poLocateHUDObject(CFEHUDObject* _poObj,const CFEString& _sName)
-{
-	if ((_poObj == NULL) ||(_sName == "")) return(NULL);
-
-	m_sName = _sName;
-	m_poHUDElem = NULL;
-	m_uiSearchType = ST_HUDOBJ;
-
-	_poObj->Accept(this);
-	return((CFEHUDObject*)m_poHUDElem);
-}
-//-----------------------------------------------------------------------------
 CFEHUDElement* CFEHUDElemLocator::poLocateHUDElement(CFEHUD* _poHUDModel,const CFEString& _sName)
 {
     if ((_poHUDModel == NULL) ||(_sName == "")) return(NULL);
@@ -109,7 +96,7 @@ CFEHUDObjectAction* CFEHUDElemLocator::poLocateObjAction(CFEHUDElement* _poElem,
     return((CFEHUDObjectAction*)m_poHUDElem);
 }
 //-----------------------------------------------------------------------------
-CFEHUDObjectAction* CFEHUDElemLocator::poLocateObjAction(CFEHUDElementAction* _poElemAction,const CFEString& _sName)
+CFEHUDObjectAction* CFEHUDElemLocator::poLocateObjAction(CFEHUDElementAction* _poElemAction, CFEString& _sName)
 {
 	if ((_poElemAction == NULL) ||(_sName == "")) return(NULL);
 
@@ -216,12 +203,6 @@ void CFEHUDElemLocator::Visit(CFEHUDRect* _poObj)
 } 
 //-----------------------------------------------------------------------------
 void CFEHUDElemLocator::Visit(CFEHUDShape* _poObj)
-{
-	if ((_poObj->sGetName() == m_sName) && (m_uiSearchType == ST_HUDOBJ))
-		m_poHUDElem = (void*)_poObj;
-}
-//-----------------------------------------------------------------------------
-void CFEHUDElemLocator::Visit(CFEHUDPSys* _poObj)
 {
 	if ((_poObj->sGetName() == m_sName) && (m_uiSearchType == ST_HUDOBJ))
 		m_poHUDElem = (void*)_poObj;

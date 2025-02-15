@@ -1,16 +1,16 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEStringUtils
  *  \brief String Utilities
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 //-----------------------------------------------------------------------------
 #include "CFEStringUtils.h"
 #include "crc32.h"
-#include "types/CFEArray.h"
+
 //-----------------------------------------------------------------------------
 namespace CFEStringUtils {
 //-----------------------------------------------------------------------------
@@ -77,96 +77,20 @@ CFEString sNormalizePath(const CFEString& _sFilename)
 	for (uint i=0;i<sFilename.uiLen();i++)
 		if (szFilename[i] == '\\')
 			szFilename[i] = '/';
-
-	return(sFilename);
-}
-// ----------------------------------------------------------------------------
-CFEString sGetCanonicalPath(const CFEString& _sPath)
-{
-	if (_sPath == "") return(_sPath);
-
-	// ----------------------------------------------
-	// Are there really any relative directories?
-	// ----------------------------------------------
-	// if (_sPath.iRPos("./")==-1) return(_sPath);  // the code below is an optimization for this line
-	const char* szOrigin	= _sPath.szString();
-	const char* szStr		= szOrigin + _sPath.uiLen();
-	bool	bCanonicalize   = false;
-	do{
-		szStr--;
-
-		bCanonicalize = (szStr[0] == '.') && (szStr[1]=='/');
-
-	}while ((! bCanonicalize) && (szStr != szOrigin));
-
-	if (bCanonicalize == false) return(_sPath);
-	// ----------------------------------------------
-	const char* szPath = szOrigin;
-	CFEArray<CFEString> m_sDirs;
-	CFEString sDir = "";
-
-	while (*szPath)
-	{
-		if (*szPath == '/')
-		{
-			m_sDirs.push_back(sDir);
-			sDir = "";
-		}
-		else
-		{
-			sDir += *szPath;
-		}
-
-		szPath++;
-	}
-
-	uint i;
-	for (i=0;i<m_sDirs.size();)
-	{
-		if (m_sDirs[i] == "..")
-		{
-			if ((i>0) && (m_sDirs[i-1] != ".."))
-			{
-				m_sDirs.Delete(i);
-				m_sDirs.Delete(i-1);
-				i--;
-			}
-			else
-			{
-				// can't do anything
-				i++;
-			}
-		}
-   else if (m_sDirs[i] == ".")
-		{
-			m_sDirs.Delete(i);
-		}
-	else
-		{
-			i++;
-		}
-	}
-
-	CFEString sRes = "";
-	for (i=0;i<m_sDirs.size();i++)
-	{
-		sRes += m_sDirs[i] + '/';
-	}
 	
-	sRes += sDir;
-	return(sRes);
+	return(sFilename);
 }
 //-----------------------------------------------------------------------------
 /// Retrieves a CRC value from the given string.
-uint uiGetCRC32(const char* _szBuffer, uint _uiSize)
+uint CFEStringUtils::uiGetCRC32(const char* _szBuffer, uint _uiSize)
 {
     // This function uses the crc32_table lookup table
     // to generate a CRC for csData
-
+	
 	// Be sure to use unsigned variables,
 	// because negative values introduce high bits
 	// where zero bits are required.
-	unsigned int crc		= 0xffffffff;
+	unsigned int crc		= 0xffffffff;	
 	unsigned char* buffer	= (unsigned char*)_szBuffer;
 	unsigned int len		= _uiSize;
 
@@ -180,11 +104,11 @@ uint uiGetCRC32(const char* _szBuffer, uint _uiSize)
 }
 //-----------------------------------------------------------------------------
 /*
-uint uiGetHash(const CFEString& _sString)
+uint CFEStringUtils::uiGetHash(const CFEString& _sString)
 {
 	// This function uses the crc32_table lookup table
     // to generate a CRC for csData
-
+	
 	// Be sure to use unsigned variables,
 	// because negative values introduce high bits
 	// where zero bits are required.
@@ -201,12 +125,11 @@ uint uiGetHash(const CFEString& _sString)
 }
 */
 // uses SAX hashing
-uint uiGetHash(const char* _szString)
+uint CFEStringUtils::uiGetHash(const CFEString& _sString)
 {
-	unsigned char* p = (unsigned char*)_szString;
-    if (p == NULL) return(0);
-
+    unsigned char* p = (unsigned char*)_sString.szString();
     uint h = 0;
+
     while (*p != 0)
     {
         h ^= (h << 5) + (h >> 2) + *p;
@@ -214,11 +137,6 @@ uint uiGetHash(const char* _szString)
     }
 
     return(h);
-}
-
-uint uiGetHash(const CFEString& _sString)
-{
-	return( _sString.uiGetHash() );
 }
 
 /*
@@ -245,7 +163,7 @@ static const unsigned char sTable[256] =
 
 // http://amsoftware.narod.ru/algo.html
 // unsigned int maPrime2cHash (unsigned char *str, unsigned int len)
-uint uiGetHash(const CFEString& _sString)
+uint CFEStringUtils::uiGetHash(const CFEString& _sString)
 {
 	uint len = _sString.uiLen();
 	unsigned int hash = len, i;
@@ -261,5 +179,5 @@ uint uiGetHash(const CFEString& _sString)
 }
 */
 //-----------------------------------------------------------------------------
-}// CFEStringUtilsH
+};// CFEStringUtilsH
 //-----------------------------------------------------------------------------

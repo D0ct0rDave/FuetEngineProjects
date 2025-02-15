@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEHUDElemLocator
  *  \brief A generic class to perfrm a process over all the elemnts of a HUD hierarchy.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -39,13 +39,11 @@ class CFEHUDElemLocator : public CFEHUDVisitor
         CFEHUDObjectAction* poLocateObjAction(CFEHUDElement* _poElem,const CFEString& _sName);
 
 		/// Retrieves the object action that matches with the specified name in the ElemAction
-		CFEHUDObjectAction* poLocateObjAction(CFEHUDElementAction* _poElemAction, const CFEString& _sName);
+		CFEHUDObjectAction* poLocateObjAction(CFEHUDElementAction* _poElemAction, CFEString& _sName);
 
         /// Retrieves the object that matches with the specified name.
         CFEHUDObject* poLocateHUDObject(CFEHUDElement* _poElem,const CFEString& _sName);
 
-        /// Retrieves the object that matches with the specified name.
-        CFEHUDObject* poLocateHUDObject(CFEHUDObject* _poElem,const CFEString& _sName);
 
         /// 
         virtual void Visit(CFEHUD* _poObj);
@@ -63,8 +61,6 @@ class CFEHUDElemLocator : public CFEHUDVisitor
         virtual void Visit(CFEHUDRect* _poObj);
         /// 
         virtual void Visit(CFEHUDShape* _poObj);
-        /// 
-        virtual void Visit(CFEHUDPSys* _poObj);
         /// 
         virtual void Visit(CFEHUDElementAction* _poObj);
         /// 

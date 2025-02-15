@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEInstanceMgr
  *  \brief A generic template definition to manage instances to resources.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -15,189 +15,132 @@
 #include "CFEString.h"
 #include "CFESingleton.h"
 #include "CFEResourceQueue.h"
-#include "support/system/CFESystem.h"
+
 #include "Support/Mem/CFEResourceContextMgr.h"
 //-----------------------------------------------------------------------------
-// http://stackoverflow.com/questions/1055452/c-get-name-of-type-in-template
-#pragma once
-template<typename T> inline const char* szGetTypeID();
-
-#define DECLARE_INSTANCE_MANAGER(CLASSNAME,INSTANCETYPE)\
-class CLASSNAME;\
-class INSTANCETYPE;\
-template<> inline const char* szGetTypeID<CLASSNAME>() {return #CLASSNAME;}\
-template<> inline const char* szGetTypeID<INSTANCETYPE>() { return #INSTANCETYPE; }\
-class CLASSNAME : public CFEInstanceMgr<CLASSNAME,INSTANCETYPE>
-
-/*
-#pragma once
-template<typename T>
-class CFETypeID;
-
-#define DECLARE_INSTANCE_MANAGER(CLASSNAME,INSTANCETYPE)\
-class CLASSNAME;\
-class INSTANCETYPE;\
-template <> class CFETypeID<CLASSNAME> { public: static const char* name; } ; const char* CFETypeID<CLASSNAME>::name = #CLASSNAME;\
-template <> class CFETypeID<INSTANCETYPE> { public: static const char* name; } ; const char* CFETypeID<INSTANCETYPE>::name = #INSTANCETYPE;\
-class CLASSNAME : public CFEInstanceMgr<CLASSNAME,INSTANCETYPE>
-*/
+#define DECLARE_INSTANCE_MANAGER(ClassName,InstanceType)\
+class ClassName : public CFEInstanceMgr<ClassName, InstanceType>
 //-----------------------------------------------------------------------------
-template <class B, class T>
+template <typename B, typename T>
 class CFEInstanceMgr
 {
-	// -------------------
-	// BEGIN: singleton code
-    // -------------------
-	public:
-
-        static B* I()
-        {
-            if (m_spoInstance == NULL)
-                m_spoInstance = new B;
-
-            return(m_spoInstance);
-        }
-
-        static void Finish()
-        {			
-            if (m_spoInstance != NULL)
-            {
-				B::m_spoInstance->FinishManager();
-                delete m_spoInstance;
-                m_spoInstance = NULL;
-            }
-        }
-
-    protected:
-
-		CFEInstanceMgr() : m_bInitialized(false)
-		{
-		}
-		
-		~CFEInstanceMgr()
-		{
-			
-		}
-
-        static B* m_spoInstance;
+	friend class CFEInstanceMgr<B,T>;
 	
-    // -------------------
-	// END: singleton code
-	// -------------------
-	public:
-	
+    public:
+
         /// Main initialiation procedure.
-        virtual void Init(uint _uiMaxInstances = 256)
+        static void Init(uint _uiMaxInstances = 256)
 		{
 			for (uint i=0;i<_uiMaxInstances;i++)
 			{
 				CFEResourceObj<T>* poRes = new CFEResourceObj<T>;
 
-				poRes->m_poRes   = this->poCreateInstance();
+				poRes->m_poRes   = B::poCreateInstance();
 				poRes->m_uiCtxID = CFEResourceContextMgr::uiGetContextID();
 
-		        m_oInstDB.iAdd( poRes );
+		        CFEInstDB::I()->m_oInstDB.iAdd( poRes );
 			}
 
 			m_bInitialized = true;
 		}
 
         /// Main finalization procedure.
-        virtual void FinishManager()
+        static void Finish()
         {
 			if (! m_bInitialized) return;
 
-			Reset();
+			B::Reset();
 			
 			// Destroy all the allocated data during intialization
 			for (uint i=0;i<uiGetMaxInstances();i++)
 			{
-				this->DestroyInstance(m_oInstDB.poGetAt(i)->m_poRes);
-				m_oInstDB.poGetAt(i)->m_poRes = NULL;
-				delete m_oInstDB.poGetAt(i);
+				B::DestroyInstance(CFEInstDB::I()->m_oInstDB.poGet(i)->m_poRes);
+				CFEInstDB::I()->m_oInstDB.poGet(i)->m_poRes = NULL;
+				delete CFEInstDB::I()->m_oInstDB.poGet(i);
 			}
 
-			m_oInstDB.Reset();
+			CFEInstDB::I()->m_oInstDB.Reset();
+			CFEInstDB::I()->Finish();
 			m_bInitialized = false;
         }
         
         /// Resets to the initial state manager.
-        void Reset()
+        static void Reset()
         {
 			if (! m_bInitialized) return;
 
 			for (uint i=0;i<uiGetMaxInstances();i++)
 				if (! bIsInstanceFree(i))
-					ReleaseInstance( m_oInstDB.poGetAt(i)->m_poRes );
+					B::ReleaseInstance( CFEInstDB::I()->m_oInstDB.poGet(i)->m_poRes );
 
-			m_oInstDB.ReleaseAll();
+			CFEInstDB::I()->m_oInstDB.ReleaseAll();
         }
 
         /// Preloads the given resource before instancing it.
-        void Preload(const CFEString& _sResource)
+        static void Preload(const CFEString& _sResource)
         {
-			this->hGetResource(_sResource);
+			B::hGetResource(_sResource);
         }
 
 		/// Retrieves a instance of a specific resource.
-		FEHandler hGetInstance(FEHandler _hResource)
+		static FEHandler hGetInstance(FEHandler _hResource)
 		{
 			if (! m_bInitialized) return(NULL);
 			if (_hResource == NULL) return(NULL);
 
 			// Retrieves a free instance
-			T* poInstance = poGetFreeInstance();
+			T* poInstance = B::poGetFreeInstance();
 
 			// Sets up the instance data.
 			if (poInstance!=NULL)
-				this->SetupInstance(poInstance,_hResource);
+				B::SetupInstance(poInstance,_hResource);
 
 			return((FEHandler)poInstance);
 		};
 
         /// Retrieves a instance of a specific resource given its resource name.
-        FEHandler hGetInstance(const char* _szResource)
+        static FEHandler hGetInstance(const char* _szResource)
         {
-			return( hGetInstance( CFEString(_szResource)) );
+			return( B::hGetInstance( CFEString(_szResource)) );
         }
 
         /// Retrieves a instance of a specific resource given its resource name.
-        FEHandler hGetInstance(const CFEString& _sResource)
+        static FEHandler hGetInstance(const CFEString& _sResource)
         {
-			return( hGetInstance(this->hGetResource(_sResource)) );
+			return( B::hGetInstance(B::hGetResource(_sResource)) );
         }
 
         /// Releases a given instance.
-        void ReleaseInstance(FEHandler _hInstance)
+        static void ReleaseInstance(FEHandler _hInstance)
         {
 			if (! m_bInitialized) return;
 
 			for (uint i=0;i<uiGetMaxInstances();i++)
 		    {
-				if ((! bIsInstanceFree(i)) && ((FEHandler)m_oInstDB.poGetAt(i)->m_poRes == _hInstance))
+				if ((! bIsInstanceFree(i)) && ((FEHandler)CFEInstDB::I()->m_oInstDB.poGet(i)->m_poRes == _hInstance))
 				{
-					InvalidateInstance( m_oInstDB.poGetAt(i)->m_poRes );
-					m_oInstDB.Release(i);
+					B::InvalidateInstance( CFEInstDB::I()->m_oInstDB.poGet(i)->m_poRes );
+					CFEInstDB::I()->m_oInstDB.Release(i);
 					return;
 				}
 			}	
         }
 
         /// Releases the instances allocated at the given or greater context.
-        void ReleaseContextInstances(uint _uiContextID)
+        static void ReleaseContextInstances(uint _uiContextID)
         {
 			if (! m_bInitialized) return;
 
 			for (uint i=0;i<uiGetMaxInstances();i++)
 		    {	
-				CFEResourceObj<T>* poInst = m_oInstDB.poGetAt(i);
+				CFEResourceObj<T>* poInst = CFEInstDB::I()->m_oInstDB.poGet(i);
 
 				if ((! bIsInstanceFree(i)) && (poInst->m_uiCtxID>=_uiContextID))
 				{
 					// Prefer calling this instead of directly copy the code contained withing the
 					// ReleaseInstance function. In case the function is overrided it will also work.
-					ReleaseInstance(poInst->m_poRes);
-					m_oInstDB.Release(i);
+					B::ReleaseInstance(poInst->m_poRes);
+					CFEInstDB::I()->m_oInstDB.Release(i);
 				}
 			}
 		}
@@ -206,90 +149,79 @@ class CFEInstanceMgr
 
 		// Function to override for every type of instance.
 		/// Retrieves the resource associated to a given name and returns it as a handler.
-		/// virtual FEHandler hGetResource(const CFEString& _sResource)
-		virtual FEHandler hGetResource(const CFEString&) {return(NULL);};	// <- avoid unused parameter warning
-	
+		static FEHandler hGetResource(const CFEString& _sResource){ return(NULL); };
+
 		// Function to override for every type of instance.
 		/// Sets up a recently aquired instance
-		/// virtual void SetupInstance(T* _poInstance,FEHandler _hResource){};
-		virtual void SetupInstance(T*,FEHandler){};							// <- avoid unused parameter warning
+		static void SetupInstance(T* _poInstance,FEHandler _hResource){};
 
 		// Function to override for every type of instance.
 		/// Creates an instance object of the specific type.
-        virtual T* poCreateInstance() { return(NULL); };
+        static T* poCreateInstance() { return(NULL); };
 
 		// Function to override for every type of instance.
 		/// Destroys an instance object of the specific type.
-        /// virtual void DestroyInstance(T* _poInstance)
-        virtual void DestroyInstance(T*) {};								// <- avoid unused parameter warning
+        static void DestroyInstance(T* _poInstance) {  };
 
 	protected:
 
         // Function to override for every type Resource
         /// Here the programmer can free the possible allocated data when the instance is retrieved through hGetInstance methods.
-        /// virtual void InvalidateInstance(T* _poInstance)
-        virtual void InvalidateInstance(T*) {};								// <- avoid unused parameter warning
+        static void InvalidateInstance(T* _poInstance){};
 
 	protected:
 
 		/// Retrieves the instance object associated to a given index in the resource queue.
-		T* poGetResourceInstance(uint _uiIdx)
+		static T* poGetResourceInstance(uint _uiIdx)
 		{
 			if (! m_bInitialized) return(NULL);
 
 			if (_uiIdx >= uiGetMaxInstances()) return(NULL);
-			return(m_oInstDB.poGetAt(_uiIdx)->m_poRes);
+			return(CFEInstDB::I()->m_oInstDB.poGet(_uiIdx)->m_poRes);
 		}
 
 		/// Retrieves the maximun number of allocatables instances by the instace manager.
-		uint uiGetMaxInstances()
+		static uint uiGetMaxInstances()
 		{
 			if (! m_bInitialized) return(0);
-			return(m_oInstDB.uiGetNumElems());
+			return(CFEInstDB::I()->m_oInstDB.uiGetNumElems());
 		}
 
-		/// Retrieves the maximum number of allocatables instances by the instace manager.
-		FEBool bIsInstanceFree(uint _uiIdx)
+		/// Retrieves the maximun number of allocatables instances by the instace manager.
+		static bool bIsInstanceFree(uint _uiIdx)
 		{
 			if (! m_bInitialized) return(false);
-			return( m_oInstDB.bIsFree(_uiIdx) );
+			return( CFEInstDB::I()->m_oInstDB.bIsFree(_uiIdx) );
 		}
 	
 	private:
 
         /// Retrieves a free instance from the resource queue.
-        T* poGetFreeInstance()
+        static T* poGetFreeInstance()
         {
-			CFEResourceObj<T>* poRes = m_oInstDB.poGetResource();
-			if (poRes == NULL)
-			{
-				// CFESystem::Warning("%s - No free %s instances available!", CFETypeID<B>::name, CFETypeID<T>::name);
-				CFESystem::Warning("%s - No free %s instances available!", szGetTypeID<B>(), szGetTypeID<T>());
-				return(NULL);
-			}
- 			poRes->m_uiCtxID = CFEResourceContextMgr::uiGetContextID();
+			CFEResourceObj<T>* poRes = CFEInstDB::I()->m_oInstDB.poGetResource();
+			poRes->m_uiCtxID = CFEResourceContextMgr::uiGetContextID();
 			return(poRes->m_poRes);
 		};
 
 	protected:
 
-		typedef CFEResourceObj<T> CResourceEntry;
-		CFEResourceQueue<CResourceEntry> m_oInstDB;
-
+		DECLARE_SINGLETON(CFEInstDB)
+		{
+			public:
+				typedef CFEResourceObj<T> CResourceEntry;
+				CFEResourceQueue<CResourceEntry> m_oInstDB;
+				~CFEInstDB()
+				{
+				}
+		};
+		
 		/// 		
-		FEBool	m_bInitialized;
+		static bool	m_bInitialized;
 };
-
-
-template <class B, class T>
-B* CFEInstanceMgr<B,T>::m_spoInstance = NULL;
-
+//-----------------------------------------------------------------------------
+template <typename B, typename T>
+bool CFEInstanceMgr<B,T> ::m_bInitialized = false;
 //-----------------------------------------------------------------------------
 #endif // CFEInstanceMgrH
 //-----------------------------------------------------------------------------
-
-template<typename T>
-inline const char * szGetTypeID()
-{
-	return NULL;
-}

@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFESkelAnimNode
  *  \brief A class for generic configuration settings reading
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -26,13 +26,9 @@ class CFESkelAnimNode : public CFENamedObject
         CFESkelAnimNode(const CFEString& _sName) :
             CFENamedObject(_sName),
             m_oPos( CFEVect2::ZERO() ),
-			m_rAngle(_0r),
-
-			#ifdef USE_SKELANIM_SCALE_COLOR
             m_oScale( CFEVect2::ONE() ),
+            m_rAngle(_0r),
             m_oColor( CFEColor::WHITE()),
-			#endif
-
             m_rDepth(_0r),
             m_bVisible(true)
         {
@@ -52,20 +48,7 @@ class CFESkelAnimNode : public CFENamedObject
 		{
 			return (m_oPos);
 		}
-		
-		/// Sets the angle for the object.
-		void SetAngle(FEReal _rAngle)
-		{
-			m_rAngle = _rAngle;
-		}
 
-		/// Retrieves the angle of the object.
-		FEReal rGetAngle()
-		{
-			return(m_rAngle);
-		}
-
-		#ifdef USE_SKELANIM_SCALE_COLOR
 		/// Sets the size for the object.
 		void SetScale(const CFEVect2& _oScale)
 		{
@@ -76,6 +59,18 @@ class CFESkelAnimNode : public CFENamedObject
 		const CFEVect2& oGetScale()
 		{
 			return (m_oScale);
+		}
+
+		/// Sets the angle for the object.
+		void SetAngle(FEReal _rAngle)
+		{
+			m_rAngle = _rAngle;
+		}
+
+		/// Retrieves the angle of the object.
+		FEReal rGetAngle()
+		{
+			return(m_rAngle);
 		}
 
 		/// Sets the color for the object.
@@ -89,7 +84,6 @@ class CFESkelAnimNode : public CFENamedObject
 		{
 			return(m_oColor);
 		}
-		#endif
 
 		/// Sets the depth for the object.
 		void SetDepth(FEReal _rDepth)
@@ -104,7 +98,7 @@ class CFESkelAnimNode : public CFENamedObject
 		}
 
 		/// Makes this object visible.
-		void Show(FEBool _bShow = true)
+		void Show(bool _bShow = true)
 		{
 			m_bVisible = _bShow;
 		}
@@ -116,7 +110,7 @@ class CFESkelAnimNode : public CFENamedObject
 		}
 
 		/// Retrieves whether this object is visible or not.
-		FEBool bIsVisible()
+		bool bIsVisible()
 		{
 			return(m_bVisible);
 		}
@@ -130,15 +124,11 @@ class CFESkelAnimNode : public CFENamedObject
 	protected:
 
 		CFEVect2	m_oPos;
-		FEReal		m_rAngle;
-
-		#ifdef USE_SKELANIM_SCALE_COLOR
 		CFEVect2	m_oScale;
+		FEReal		m_rAngle;
 		CFEColor	m_oColor;
-		#endif
-
 		FEReal		m_rDepth;
-		FEBool		m_bVisible;
+		bool		m_bVisible;
 };
 //-----------------------------------------------------------------------------
 #endif

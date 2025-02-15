@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEFile
  *  \brief SFile class implementation
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -15,7 +15,7 @@
 // ----------------------------------------------------------------------------
 // CFEFile
 #include "CFEFile.h"
-#include "core/CFECore.h"
+#include "System/CFESystem.h"
 // ----------------------------------------------------------------------------
 CFEFile::CFEFile() : m_hFD(NULL)
 {
@@ -25,9 +25,9 @@ CFEFile::~CFEFile()
 {
 }
 // ----------------------------------------------------------------------------
-FEBool CFEFile::bOpen(const CFEString& _sFilename, EFEFileOpenMode _eMode)
+bool CFEFile::bOpen(const CFEString& _sFilename, EFEFileOpenMode _eMode)
 {
-    m_hFD = CFECore::File::hOpen(_sFilename,_eMode);
+    m_hFD = CFESystem::File::hOpen(_sFilename,_eMode);
     if (m_hFD != NULL)
     {
         m_sFilename = _sFilename;
@@ -41,36 +41,42 @@ void CFEFile::Close ()
 {    
     if (m_hFD != NULL)
     {
-        CFECore::File::Close(m_hFD);
+        CFESystem::File::Close(m_hFD);
         m_hFD = NULL;
     }
 }
 // ----------------------------------------------------------------------------
 uint CFEFile::uiRead(FEPointer _pData, uint _uiSize)
 {
-    CFECoreCheck(_pData != NULL,"NULL Data buffer");
-    return ( CFECore::File::uiRead(m_hFD,_pData,_uiSize) );
+    CFESystemCheck(_pData != NULL,"NULL Data buffer");
+    return ( CFESystem::File::uiRead(m_hFD,_pData,_uiSize) );
 }
 // ----------------------------------------------------------------------------
 uint CFEFile::uiWrite (FEPointer _pData, uint _uiSize)
 {
-    CFECoreCheck(_pData != NULL,"NULL Data buffer");
-    return ( CFECore::File::uiWrite(m_hFD,_pData,_uiSize) );
+    CFESystemCheck(_pData != NULL,"NULL Data buffer");
+    return ( CFESystem::File::uiWrite(m_hFD,_pData,_uiSize) );
 }
 // ----------------------------------------------------------------------------
 int CFEFile::iSeek (int _iOffset, EFEFileSeekMode _eMode)
 {    
-    return ( CFECore::File::iSeek(m_hFD,_iOffset,_eMode) );
+    return ( CFESystem::File::iSeek(m_hFD,_iOffset,_eMode) );
 }
 // ----------------------------------------------------------------------------
 uint CFEFile::uiLength ()
 {
-	return ( CFECore::File::uiLen(m_hFD) );
+    uint uiCurPos = CFESystem::File::uiPos(m_hFD);
+    CFESystem::File::iSeek(m_hFD, 0, FSM_END);
+
+    uint uiLength = CFESystem::File::uiPos(m_hFD);
+    CFESystem::File::iSeek(m_hFD, uiCurPos, FSM_SET);
+
+    return (uiLength);
 }
 // ----------------------------------------------------------------------------
 uint CFEFile::uiPos ()
 {
-    return( CFECore::File::uiPos(m_hFD) );
+    return( CFESystem::File::uiPos(m_hFD) );
 }
 // -----------------------------------------------------------------------------
 inline void Swap32(FEPointer _pData)
@@ -112,11 +118,6 @@ uint CFEFile::uiReadArray16(FEPointer _pData, uint _uiSize)
     #endif
 
 	return(uiRes);	
-}
-// ----------------------------------------------------------------------------
-FEPointer CFEFile::pReadFile(const CFEString& _sFilename, uint* _puiSize)
-{
-	return( CFECore::File::pReadFile(_sFilename,_puiSize) );
 }
 // ----------------------------------------------------------------------------
 

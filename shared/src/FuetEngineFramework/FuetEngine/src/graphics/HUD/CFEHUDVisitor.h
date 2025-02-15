@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CHUDVisitor
  *  \brief A generic class to perform a process over all the elemnts of a HUD hierarchy.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -19,73 +19,34 @@ class CFEHUDLabel;
 class CFEHUDIcon;
 class CFEHUDRect;
 class CFEHUDShape;
-class CFEHUDPSys;
-class CFEHUDElementAction;
 class CFEHUDObjectAction;
+class CFEHUDElementAction;
 class CFEString;
 //-----------------------------------------------------------------------------
 class CFEHUDVisitor
 {
     public:
-
         /// 
-        virtual void Visit(CFEHUD* _poObj);
-
+        virtual void Visit(CFEHUD* _poObj) = 0;
         /// 
-        virtual void Visit(CFEHUDElement* _poObj);
-
+        virtual void Visit(CFEHUDElement* _poObj) = 0;
         /// 
-        virtual void Visit(CFEHUDElementAction* _poObj);
-
+        virtual void Visit(CFEHUDObject* _poObj) = 0;
         /// 
-        virtual void Visit(CFEHUDGroup* _poObj);
-
+        virtual void Visit(CFEHUDGroup* _poObj) = 0;
         /// 
-        virtual void Visit(CFEHUDLabel* _poObj)
-        {
-			Visit((CFEHUDObject*)_poObj);
-        };
+        virtual void Visit(CFEHUDLabel* _poObj) = 0;
+        /// 
+        virtual void Visit(CFEHUDIcon* _poObj) = 0;
+        /// 
+        virtual void Visit(CFEHUDRect* _poObj) = 0;
+        /// 
+        virtual void Visit(CFEHUDShape* _poObj) = 0;
+        /// 
+        virtual void Visit(CFEHUDElementAction* _poObj) = 0;
+        /// 
+        virtual void Visit(CFEHUDObjectAction* _poObj) = 0;
         
-        /// 
-        virtual void Visit(CFEHUDIcon* _poObj)
-        {
-			Visit((CFEHUDObject*)_poObj);
-        };
-        
-        /// 
-        virtual void Visit(CFEHUDRect* _poObj)
-        {
-			Visit((CFEHUDObject*)_poObj);
-        };
-        
-        /// 
-        virtual void Visit(CFEHUDShape* _poObj)
-        {
-			Visit((CFEHUDObject*)_poObj);
-        };
-        
-        /// 
-        virtual void Visit(CFEHUDPSys* _poObj)
-        {
-			Visit((CFEHUDObject*)_poObj);
-        };
-
-        ///
-        // virtual void Visit(CFEHUDObjectAction* _poObj)
-		virtual void Visit(CFEHUDObjectAction*)
-        {
-			// default behavior
-			// DO NOTHING        
-        }
-
-        /// 
-        // virtual void Visit(CFEHUDObject* _poObj)
-		virtual void Visit(CFEHUDObject*)
-        {
-			// default behavior
-			// DO NOTHING
-        }
-
         /// Retrieves the type of visitor (useful when needed to extend the basic class hierarchy).
         virtual const CFEString sGetType() = 0;
 };

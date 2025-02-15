@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class FEEnums
  *  \brief Enums shared among the FuetEngine and the application
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -14,21 +14,37 @@
 #include "Support/File/CFEFile.h"
 #include "Support/Mem/CFEMem.h"
 #include "Support/Config/CFEConfigFile.h"
-#include "core/CFECore.h"
+#include "System/CFESystem.h"
+// ----------------------------------------------------------------------------
+TCharInfo* CFEFontLoader::poCreateCharTable(uint _uiDefCharWidth,uint _uiDefCharHeight)
+{
+	TCharInfo* poCharTable = (TCharInfo*)CFEMem::pAlloc(sizeof(TCharInfo) * MAX_CHAR);
 
-#include "CFEFont.h"
-#include "CFEFontANSI.h"
-#include "CFEFontUTF8.h"
+    // Setup default values for all the characters.
+    for (uint i=0;i<MAX_CHAR;i++)
+    {
+		poCharTable[i].m_oUV.m_oIni.x = 0;
+		poCharTable[i].m_oUV.m_oIni.y = 0;
+		poCharTable[i].m_oUV.m_oEnd.x = 0;
+		poCharTable[i].m_oUV.m_oEnd.y = 0;
+		
+        poCharTable[i].m_usCW  = _uiDefCharWidth;
+        poCharTable[i].m_usCH  = _uiDefCharHeight;
+        poCharTable[i].m_sYOfs = _uiDefCharWidth / 6;
+        poCharTable[i].m_cLC   = 0;
+        poCharTable[i].m_cRC   = 0;
+    }
+
+	return(	poCharTable);
+}
 // ----------------------------------------------------------------------------
 /// Build a basic font around a given material.
 CFEFont* CFEFontLoader::poBuildBasicFont(FEHandler _hMat)
 {
     uint uiWidth,uiHeight;
-    CFEMaterialMgr::I()->bGetMaterialProperty(_hMat,"DiffuseMap.Width",(FEPointer)&uiWidth);
-    CFEMaterialMgr::I()->bGetMaterialProperty(_hMat,"DiffuseMap.Height",(FEPointer)&uiHeight);
-
-	CFEFontANSI* poFont = new CFEFontANSI;
-	poFont->Init(_hMat);
+    CFEMaterialMgr::bGetMaterialProperty(_hMat,"DiffuseMap.Width",(FEPointer)&uiWidth);
+    CFEMaterialMgr::bGetMaterialProperty(_hMat,"DiffuseMap.Height",(FEPointer)&uiHeight);
+	TCharInfo* poCharTable = poCreateCharTable(uiWidth /16,uiHeight/16);
 
 	const FEReal rStep = _1r / _16r;
     for (uint i=0;i<MAX_CHAR;i++)
@@ -36,19 +52,17 @@ CFEFont* CFEFontLoader::poBuildBasicFont(FEHandler _hMat)
 		int iX = (i % 16);
 		int iY = (i / 16);
 
-		CCharInfo oCI;
-		oCI.m_oUV.m_oIni.x = (FEReal)(iX  ) * rStep;
-		oCI.m_oUV.m_oIni.y = (FEReal)(iY  ) * rStep;
-		oCI.m_oUV.m_oEnd.x = (FEReal)(iX+1) * rStep;
-		oCI.m_oUV.m_oEnd.y = (FEReal)(iY+1) * rStep;
-		oCI.m_usCW = uiWidth  / 16;
-		oCI.m_usCH = uiHeight / 16;
-	    oCI.m_sYOfs= 0;
-		oCI.m_cLC = 0;
-		oCI.m_cRC = 0;
-		
-		poFont->AddChar(i,oCI);
+		poCharTable[i].m_oUV.m_oIni.x = (FEReal)(iX  ) * rStep;
+		poCharTable[i].m_oUV.m_oIni.y = (FEReal)(iY  ) * rStep;
+		poCharTable[i].m_oUV.m_oEnd.x = (FEReal)(iX+1) * rStep;
+		poCharTable[i].m_oUV.m_oEnd.y = (FEReal)(iY+1) * rStep;
+		poCharTable[i].m_usCW = uiWidth  / 16;
+		poCharTable[i].m_usCH = uiHeight / 16;
+	    poCharTable[i].m_sYOfs= 0;
 	}
+
+	CFEFont* poFont = new CFEFont;
+	poFont->Init(_hMat,poCharTable);
 
 	return(poFont);
 }
@@ -60,15 +74,15 @@ CFEFont* CFEFontLoader::poLoadFNTFile(const CFEString& _sFilename, FEHandler _hM
 	if (oFile.bOpen(_sFilename,FOM_READ))
 	{
 	    uint uiMatWidth,uiMatHeight;
-        CFEMaterialMgr::I()->bGetMaterialProperty(_hMat,"DiffuseMap.Width",(FEPointer)&uiMatWidth);
-        CFEMaterialMgr::I()->bGetMaterialProperty(_hMat,"DiffuseMap.Height",(FEPointer)&uiMatHeight);
+        CFEMaterialMgr::bGetMaterialProperty(_hMat,"DiffuseMap.Width",(FEPointer)&uiMatWidth);
+        CFEMaterialMgr::bGetMaterialProperty(_hMat,"DiffuseMap.Height",(FEPointer)&uiMatHeight);
 
 		// Read base dimensions
 	    unsigned short usBaseTexWidth;
 	    unsigned short usBaseTexHeight;
         oFile.uiReadArray16((FEPointer)&usBaseTexWidth,1);
 	  	oFile.uiReadArray16((FEPointer)&usBaseTexHeight,1);
-
+        
         // Read default char dimensions
 	    unsigned short usDefCharWidth;
 	    unsigned short usDefCharHeight;
@@ -79,8 +93,7 @@ CFEFont* CFEFontLoader::poLoadFNTFile(const CFEString& _sFilename, FEHandler _hM
         uint uiNumChars;
         oFile.uiReadArray32((FEPointer)&uiNumChars,1);
 
-		CFEFontANSI* poFont = new CFEFontANSI;
-		poFont->Init(_hMat);
+		TCharInfo* poCharTable = poCreateCharTable(usDefCharWidth,usDefCharHeight);
 
         // Read character info from file.
 		for (uint i=0;i<uiNumChars;i++)
@@ -89,30 +102,26 @@ CFEFont* CFEFontLoader::poLoadFNTFile(const CFEString& _sFilename, FEHandler _hM
 			unsigned short usCharInfo[6];
             oFile.uiReadArray16((FEPointer)usCharInfo,6);
 
-			CCharInfo oCI;
-			unsigned short usChar = usCharInfo[0];			
-			oCI.m_oUV.m_oIni.x = (FEReal)(usCharInfo[1]) / (FEReal)(usBaseTexWidth);
-			oCI.m_oUV.m_oIni.y = (FEReal)(usCharInfo[2]) / (FEReal)(usBaseTexHeight);
-			oCI.m_oUV.m_oEnd.x = (FEReal)(usCharInfo[1]+usCharInfo[3]) / (FEReal)(usBaseTexWidth);
-			oCI.m_oUV.m_oEnd.y = (FEReal)(usCharInfo[2]+usCharInfo[4]) / (FEReal)(usBaseTexHeight);
+			unsigned short usChar = usCharInfo[0];
+			poCharTable[usChar].m_oUV.m_oIni.x = (FEReal)(usCharInfo[1]) / (FEReal)(usBaseTexWidth);
+			poCharTable[usChar].m_oUV.m_oIni.y = (FEReal)(usCharInfo[2]) / (FEReal)(usBaseTexHeight);
+			poCharTable[usChar].m_oUV.m_oEnd.x = (FEReal)(usCharInfo[1]+usCharInfo[3]) / (FEReal)(usBaseTexWidth);
+			poCharTable[usChar].m_oUV.m_oEnd.y = (FEReal)(usCharInfo[2]+usCharInfo[4]) / (FEReal)(usBaseTexHeight);
 
-            oCI.m_usCW  = usCharInfo[3];
-            oCI.m_usCH  = usCharInfo[4];
-            oCI.m_sYOfs = usCharInfo[5];
-
-            oCI.m_cLC = 0;
-            oCI.m_cRC = 0;
-            
-            poFont->AddChar(usChar,oCI);
+            poCharTable[usChar].m_usCW  = usCharInfo[3];
+            poCharTable[usChar].m_usCH  = usCharInfo[4];
+            poCharTable[usChar].m_sYOfs = usCharInfo[5];
 		}
 
 		// finally close the file
 		oFile.Close();
 
+		CFEFont* poFont = new CFEFont;
+		poFont->Init(_hMat,poCharTable);
 		return(poFont);
 	}
 
-    return(NULL);
+    return(NULL);	
 }
 // ----------------------------------------------------------------------------
 CFEFont* CFEFontLoader::poLoadFONFile(const CFEString& _sFilename, FEHandler _hMat)
@@ -123,160 +132,86 @@ CFEFont* CFEFontLoader::poLoadFONFile(const CFEString& _sFilename, FEHandler _hM
 		CFEString sType = oFile.sGetString("Font.Type","Regular");
 		if (sType |= "Regular")
 		{
-			FEBool bFilter = oFile.bGetBool("Font.Regular.Filter",true);
-			CFEMaterialMgr::I()->bSetMaterialProperty(_hMat,"DiffuseMap.Filter",(FEPointer)bFilter);
-
-			CFEFontANSI* poFont = new CFEFontANSI;
-			poFont->Init(_hMat);
-
 			// Read number of rows.
-			uint uiRows = oFile.iGetInteger("Font.Regular.NumRows",16);
+			uint uiRows = oFile.iGetInteger("Font.NumRows",16);
 
 			// Read number of cols.
-			uint uiCols = oFile.iGetInteger("Font.Regular.NumCols",16);
+			uint uiCols = oFile.iGetInteger("Font.NumCols",16);
 
-			// Read character set.
-			CFEString sCharSet = oFile.sGetString("Font.Regular.CharSet","");
+			// Read first char.
+			uint uiFirstChar = oFile.iGetInteger("Font.FirstChar",0);
 
-			// Read the base texture width
-			uint uiTexWidth = oFile.iGetInteger("Font.Regular.TexWidth",16);
-
-			// Read the base texture height 
-			uint uiTexHeight = oFile.iGetInteger("Font.Regular.TexHeight",16);
+			// Read last char.
+			uint uiLastChar = oFile.iGetInteger("Font.LastChar",255);
 
 			// Read char width.
-			uint uiCellWidth = oFile.iGetInteger("Font.Regular.CellWidth",16);
-
-			// Read cell height.
-			uint uiCellHeight = oFile.iGetInteger("Font.Regular.CellHeight",16);
-
-			// Read char width.
-			uint uiCharWidth = oFile.iGetInteger("Font.Regular.CharWidth",16);
+			uint uiCharWidth = oFile.iGetInteger("Font.CharWidth",16);
 
 			// Read char height.
-			uint uiCharHeight = oFile.iGetInteger("Font.Regular.CharHeight",16);
+			uint uiCharHeight = oFile.iGetInteger("Font.CharHeight",16);
 
-			// Create the char table.
-	
-			// Read the forced tracking
-			int iForcedTracking = oFile.iGetInteger("Font.Regular.ForcedTracking",0);
-			CCharInfo      oCI  = *poFont->poGetCharInfo(0);
-			oCI.m_usCW  = uiCharWidth;
-			oCI.m_usCH 	= uiCharHeight;
-			oCI.m_sYOfs	= iForcedTracking;
-			poFont->AddChar(0,oCI);
+			TCharInfo* poCharTable = poCreateCharTable(uiCharWidth,uiCharHeight);
 
-			uint uiWidth,uiHeight;
-		    CFEMaterialMgr::I()->bGetMaterialProperty(_hMat,"DiffuseMap.Width",(FEPointer)&uiWidth);
-			CFEMaterialMgr::I()->bGetMaterialProperty(_hMat,"DiffuseMap.Height",(FEPointer)&uiHeight);
+			FEReal rUStep = _1r / uiCols;
+			FEReal rVStep = _1r / uiRows;
 
-			FEReal rHalfHPix = _0r; // _05r / (FEReal)uiWidth;
-			FEReal rHalfVPix = _0r; // _05r / (FEReal)uiHeight;
-
-			FEReal rURange = (FEReal)(uiCellWidth*uiCols)  / (FEReal)uiTexWidth;
-			FEReal rVRange = (FEReal)(uiCellHeight*uiRows) / (FEReal)uiTexHeight;
-
-			FEReal rUStep = (FEReal)uiCellWidth  / (FEReal)uiTexWidth;
-			FEReal rVStep = (FEReal)uiCellHeight / (FEReal)uiTexHeight;
-
-			FEReal rUWidth  = (FEReal)uiCharWidth  / (FEReal)uiTexWidth;
-			FEReal rVHeight = (FEReal)uiCharHeight / (FEReal)uiTexHeight;
-
-				const unsigned char* szChar = (unsigned char*)sCharSet.szString();
-				uint uiElem  = 0;
-				while (*szChar)
+			for (uint i=0;i<MAX_CHAR;i++)
+			{
+				if ((i>=uiFirstChar) && (i<=uiLastChar))
 				{
-					uint i = *szChar;
-						
-						CCharInfo oCI;
-						oCI.m_usCH = uiCharHeight;
-						oCI.m_usCW = uiCharWidth;
-						oCI.m_sYOfs= 0;
+					poCharTable[i].m_usCH = uiCharHeight;
+					poCharTable[i].m_usCW = uiCharWidth;
+					poCharTable[i].m_sYOfs= 0;
 
-						uint iX = uiElem % uiCols;
-						uint iY = uiElem / uiCols;
+					uint uiElem = (i - uiFirstChar);
+					uint iX = uiElem % uiCols;
+					uint iY = uiElem / uiCols;
 
-						oCI.m_oUV.m_oIni.x = (FEReal)(iX*rUStep) + rHalfHPix;
-						oCI.m_oUV.m_oIni.y = (FEReal)(iY*rVStep) + rHalfVPix;
-						oCI.m_oUV.m_oEnd.x = (FEReal)(iX*rUStep) + rUWidth  + rHalfHPix;
-						oCI.m_oUV.m_oEnd.y = (FEReal)(iY*rVStep) + rVHeight + rHalfVPix;
-
-						poFont->AddChar(i,oCI);
-
-					uiElem++;
-					szChar++;
+					poCharTable[i].m_oUV.m_oIni.x = (FEReal)(iX  ) * rUStep;
+					poCharTable[i].m_oUV.m_oIni.y = (FEReal)(iY  ) * rVStep;
+					poCharTable[i].m_oUV.m_oEnd.x = (FEReal)(iX+1) * rUStep;
+					poCharTable[i].m_oUV.m_oEnd.y = (FEReal)(iY+1) * rVStep;
 				}
+				else
+				{
+					poCharTable[i].m_usCH = uiCharHeight;
+					poCharTable[i].m_usCW = uiCharWidth;
+					poCharTable[i].m_sYOfs= 0;
 
-			// Read space width
-			uint uiSpaceCharWidth = oFile.iGetInteger("Font.Regular.SpaceCharWidth",uiCharWidth);
-			oCI  = *poFont->poGetCharInfo(' ');
-			oCI.m_usCW	= uiSpaceCharWidth;
-			poFont->AddChar(' ',oCI);
+					poCharTable[i].m_oUV.m_oIni.x = 0;
+					poCharTable[i].m_oUV.m_oIni.y = 0;
+					poCharTable[i].m_oUV.m_oEnd.x = 0;
+					poCharTable[i].m_oUV.m_oEnd.y = 0;                
+				} 
+			}
+
+			CFEFont* poFont = new CFEFont;
+			poFont->Init(_hMat,poCharTable);
 
 			return (poFont);
 		}
 	else if (sType |= "OpenType")
 		{
-			FEBool bFilter = oFile.bGetBool("Font.OpenType.Filter",true);
-			CFEMaterialMgr::I()->bSetMaterialProperty(_hMat,"DiffuseMap.Filter",(FEPointer)bFilter);
-
-			FEBool bUTF8 = oFile.bGetBool("Font.OpenType.UTF8",false);
-			FEBool bANSI = !bUTF8;
-			CFEFont* poFont			= NULL;
-			
-			if (bANSI)
-				poFont = new CFEFontANSI;
-			else
-				poFont = new CFEFontUTF8;
-
 			uint uiMatWidth,uiMatHeight;
-			CFEMaterialMgr::I()->bGetMaterialProperty(_hMat,"DiffuseMap.Width",(FEPointer)&uiMatWidth);
-			CFEMaterialMgr::I()->bGetMaterialProperty(_hMat,"DiffuseMap.Height",(FEPointer)&uiMatHeight);
-
+			CFEMaterialMgr::bGetMaterialProperty(_hMat,"DiffuseMap.Width",(FEPointer)&uiMatWidth);
+			CFEMaterialMgr::bGetMaterialProperty(_hMat,"DiffuseMap.Height",(FEPointer)&uiMatHeight);
+			
 			uint uiBaseTexWidth,uiBaseTexHeight;
 			uint uiDefCharWidth,uiDefCharHeight;
-			uint uiSpaceCharWidth;
-
 
 			uiBaseTexWidth  = oFile.iGetInteger("Font.OpenType.BaseWidth",0);
 			uiBaseTexHeight = oFile.iGetInteger("Font.OpenType.BaseHeight",0);
 			uiDefCharWidth  = oFile.iGetInteger("Font.OpenType.DefCharWidth",0);
 			uiDefCharHeight = oFile.iGetInteger("Font.OpenType.DefCharHeight",0);
-			uiSpaceCharWidth = oFile.iGetInteger("Font.OpenType.SpaceCharWidth",uiDefCharWidth);
 
-			// Read the forced tracking
-			CCharInfo      oCI  = *poFont->poGetCharInfo(0);
-			oCI.m_usCW  = uiDefCharWidth;
-			oCI.m_usCH 	= uiDefCharHeight;
-			oCI.m_sYOfs	= uiDefCharWidth/6;
-			poFont->AddChar(0,oCI);
-
-			// Read the kern table
-			uint iLCs = oFile.iGetInteger("Font.OpenType.KerningTable.NumLClasses",0);
-			uint iRCs = oFile.iGetInteger("Font.OpenType.KerningTable.NumRClasses",0);
-
-			CFEKernTable* poKT = NULL;
-			if ((iLCs*iRCs)>0)
-			{
-				poKT = new CFEKernTable(iLCs,iRCs);
-
-				for (uint r=0;r<iRCs;r++)
-					for (uint l=0;l<iLCs;l++)
-					{
-						CFEString sSection = CFEString("Font.OpenType.KerningTable.m");
-						poKT->SetKern(l, r,	oFile.iGetInteger(sSection + CFEString((int)l) + CFEString("_") + CFEString((int)r),0));
-					}
-			}
-
-			// Initialize the font with the given information
-			poFont->Init(_hMat,poKT);
-
-			// Read character info from file
+			TCharInfo* poCharTable = poCreateCharTable(uiDefCharWidth,uiDefCharHeight);
+			
 			unsigned int uiNumChars = oFile.iGetInteger("Font.OpenType.NumChars",0);
-
+			
+			// Read character info from file.
 			for (uint i=0;i<uiNumChars;i++)
-			{
-				CFEString sSection = CFEString("Font.OpenType.C")+CFEString((int)i);
+			{			
+				CFEString sSection = CFEString("Font.OpenType.C")+CFEString(i);
 
 				// Read char information.
 				uint uiID	 = oFile.iGetInteger(sSection+".ID",0);
@@ -285,32 +220,40 @@ CFEFont* CFEFontLoader::poLoadFONFile(const CFEString& _sFilename, FEHandler _hM
 				uint uiCharW = oFile.iGetInteger(sSection+".W",0);
 				uint uiCharH = oFile.iGetInteger(sSection+".H",0);
 
-				CCharInfo oCI;
-				oCI.m_oUV.m_oIni.x = (FEReal)(uiCharX) / (FEReal)(uiBaseTexWidth);
-				oCI.m_oUV.m_oIni.y = (FEReal)(uiCharY) / (FEReal)(uiBaseTexHeight);
-				oCI.m_oUV.m_oEnd.x = (FEReal)(uiCharX+uiCharW) / (FEReal)(uiBaseTexWidth);
-				oCI.m_oUV.m_oEnd.y = (FEReal)(uiCharY+uiCharH) / (FEReal)(uiBaseTexHeight);
+				if (uiID>255) continue;
 
-				oCI.m_usCW  = uiCharW;
-				oCI.m_usCH  = uiCharH;
-				oCI.m_sYOfs = oFile.iGetInteger(sSection+".YOfs",0);
+				poCharTable[uiID].m_oUV.m_oIni.x = (FEReal)(uiCharX) / (FEReal)(uiBaseTexWidth);
+				poCharTable[uiID].m_oUV.m_oIni.y = (FEReal)(uiCharY) / (FEReal)(uiBaseTexHeight);
+				poCharTable[uiID].m_oUV.m_oEnd.x = (FEReal)(uiCharX+uiCharW) / (FEReal)(uiBaseTexWidth);
+				poCharTable[uiID].m_oUV.m_oEnd.y = (FEReal)(uiCharY+uiCharH) / (FEReal)(uiBaseTexHeight);
 
-				oCI.m_cLC   = oFile.iGetInteger(sSection+".LClass",0);
-				oCI.m_cRC   = oFile.iGetInteger(sSection+".RClass",0);
+				poCharTable[uiID].m_usCW  = uiCharW;
+				poCharTable[uiID].m_usCH  = uiCharH;
+				poCharTable[uiID].m_sYOfs = oFile.iGetInteger(sSection+".YOfs",0);
 
-				if (uiID != 0)	// character 0 is special and should not be read
-					poFont->AddChar(uiID,oCI);
+				poCharTable[uiID].m_cLC   = oFile.iGetInteger(sSection+".LClass",0);
+				poCharTable[uiID].m_cRC   = oFile.iGetInteger(sSection+".RClass",0);
 			}
-			
-			const CCharInfo* poCI = poFont->poGetCharInfo(' ');
-			if (poCI != NULL)
+	
+			// Read the kern table
+			int iLCs = oFile.iGetInteger("Font.OpenType.KerningTable.NumLClasses",0);
+			int iRCs = oFile.iGetInteger("Font.OpenType.KerningTable.NumRClasses",0);
+			CFEKernTable* poKT = NULL;
+
+			if ((iLCs*iRCs)>0)
 			{
-				// modify space character
-				CCharInfo oCI = *poCI;
-				oCI.m_usCW	= uiSpaceCharWidth;
-				poFont->AddChar(' ',oCI);
+				poKT = new CFEKernTable(iLCs,iRCs);
+
+				for (uint r=0;r<iRCs;r++)
+					for (uint l=0;l<iLCs;l++)
+					{
+						CFEString sSection = CFEString("Font.OpenType.KerningTable.m");
+						poKT->SetKern(l, r,	oFile.iGetInteger(sSection + CFEString(l) + CFEString("_") + CFEString(r),0));
+					}
 			}
 
+			CFEFont* poFont = new CFEFont;
+			poFont->Init(_hMat,poCharTable,poKT);
 			return (poFont);
 		}
     }
@@ -320,10 +263,10 @@ CFEFont* CFEFontLoader::poLoadFONFile(const CFEString& _sFilename, FEHandler _hM
 // ----------------------------------------------------------------------------
 CFEFont* CFEFontLoader::poLoad(const CFEString& _sFilename)
 {
-    FEHandler hFontTex = CFEMaterialMgr::I()->hLoad(_sFilename);
+    FEHandler hFontTex = CFEMaterialMgr::hLoad(_sFilename);
     if (hFontTex == NULL)
     {
-        CFECore::Log::Print("WARNING: Unable to open font material %s\n",_sFilename.szString());
+        CFESystem::Log::Print("WARNING: Unable to open font material %s\n",_sFilename.szString());
         return(NULL);
     }
 

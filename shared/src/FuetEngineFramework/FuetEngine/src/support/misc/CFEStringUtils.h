@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFELogger
  *  \brief Logging racilities
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 //-----------------------------------------------------------------------------
@@ -24,9 +24,6 @@ namespace CFEStringUtils
 
 	/// Retrieves the path portion of a full qualified filename.
 	CFEString sGetPath(const CFEString& _sFilename);
-	
-	/// Retrieves an absolute unique string equivalent to the given path.
-	CFEString sGetCanonicalPath(const CFEString& _sPath);
 
 	/// Retrieves the full path without the extension portion of a full qualified filename.
 	CFEString sRemoveExtension(const CFEString& _sFilename);	
@@ -39,9 +36,6 @@ namespace CFEStringUtils
 
 	/// Retrieves a hashed value from the given string.
 	uint uiGetHash(const CFEString& _sString);
-
-	/// Retrieves a hashed value from the given string.
-	uint uiGetHash(const char* _szString);
 }
 //-----------------------------------------------------------------------------
 #endif // CFEStringUtilsH

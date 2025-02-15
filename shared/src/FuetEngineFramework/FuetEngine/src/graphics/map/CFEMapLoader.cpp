@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEMapLoader
  *  \brief A class to load a FE map.
- *  \author David Márquez de la Cruz
- *  \version 1.0
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version _1r
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -34,12 +34,12 @@ CFEMapElement CFEMapLoader::oLoadElement(const CFEConfigFile& _oCfg,const CFEStr
 	oElem.m_rAngle   = _oCfg.rGetReal(_sElement + ".Angle",_0r);
 	oElem.m_bVisible = _oCfg.bGetBool(_sElement + ".Visible",true);
 
-	oElem.m_hSprInst = CFESpriteInstMgr::I()->hGetInstance(_oSpriteList[uiSpriteID]);
-	CFESpriteInstMgr::I()->ManageRender(oElem.m_hSprInst,false);
-	CFESpriteInstMgr::I()->Enable(oElem.m_hSprInst);
-	CFESpriteInstMgr::I()->SetPos(oElem.m_hSprInst,oElem.m_oPos);
-	CFESpriteInstMgr::I()->SetScale(oElem.m_hSprInst,oElem.m_oScale);
-	CFESpriteInstMgr::I()->SetAngle(oElem.m_hSprInst,oElem.m_rAngle);
+	oElem.m_hSprInst = CFESpriteInstMgr::hGetInstance(_oSpriteList[uiSpriteID]);
+	CFESpriteInstMgr::ManageRender(oElem.m_hSprInst,false);
+	CFESpriteInstMgr::Enable(oElem.m_hSprInst);
+	CFESpriteInstMgr::SetPos(oElem.m_hSprInst,oElem.m_oPos);
+	CFESpriteInstMgr::SetScale(oElem.m_hSprInst,oElem.m_oScale);
+	CFESpriteInstMgr::SetAngle(oElem.m_hSprInst,oElem.m_rAngle);
 
 	return(oElem);
 }
@@ -59,7 +59,7 @@ CFEMapSector* CFEMapLoader::poLoadSector(const CFEConfigFile& _oCfg,const CFEStr
 	uint uiNumElements = _oCfg.iGetInteger(_sSector+".Elements.NumElements",0);
 
 	for (uint i=0;i<uiNumElements;i++)
-		poSector->m_oElements.push_back( oLoadElement(_oCfg,_sSector + CFEString(".Elements.Element") + CFEString((int)i),_oSpriteList ) );
+		poSector->m_oElements.push_back( oLoadElement(_oCfg,_sSector + CFEString(".Elements.Element") + CFEString(i),_oSpriteList ) );
 
 	return(poSector);
 }
@@ -70,6 +70,7 @@ CFEMapLayer* CFEMapLoader::poLoadLayer(const CFEConfigFile& _oCfg,const CFEStrin
 
     poLayer->SetName( _oCfg.sGetString(_sLayer+".Name","") );
     poLayer->m_bVisible = _oCfg.bGetBool(_sLayer+".Visible",true);
+    poLayer->m_bVisible = _oCfg.bGetBool(_sLayer+".Visible",true);
     
     poLayer->m_oParallaxFact.x = _oCfg.rGetReal(_sLayer+".Parallax.x",_0r);
     poLayer->m_oParallaxFact.y = _oCfg.rGetReal(_sLayer+".Parallax.y",_0r);
@@ -77,19 +78,12 @@ CFEMapLayer* CFEMapLoader::poLoadLayer(const CFEConfigFile& _oCfg,const CFEStrin
     poLayer->m_oSpeed.x = _0r;
     poLayer->m_oSpeed.y = _0r;
 
-	// loop properties
-	poLayer->m_uiLoopFlags	= _oCfg.iGetInteger(_sLayer+".LoopFlags",0);
-	poLayer->m_rLoopStartX	= _oCfg.rGetReal(_sLayer+".LoopStartX",_0r);
-	poLayer->m_rLoopEndX	= _oCfg.rGetReal(_sLayer+".LoopEndX",_0r);
-	poLayer->m_rLoopStartY	= _oCfg.rGetReal(_sLayer+".LoopStartY",_0r);
-	poLayer->m_rLoopEndY	= _oCfg.rGetReal(_sLayer+".LoopEndY",_0r);
-
     // Number of sectors.
     uint uiNumSectors = _oCfg.iGetInteger(_sLayer+".Sectors.NumSectors",0);
 
     for (uint j=0;j<uiNumSectors;j++)
     {	
-		CFEMapSector* poSector = poLoadSector(_oCfg,_sLayer + ".Sectors.Sector" + CFEString((int)j),_oSpriteList);
+		CFEMapSector* poSector = poLoadSector(_oCfg,_sLayer + ".Sectors.Sector" + CFEString(j),_oSpriteList);
 		poLayer->m_poSectors.push_back(poSector);
 	}
 
@@ -105,13 +99,13 @@ CFEArray<CFEString>* CFEMapLoader::poLoadSpriteSet(const CFEConfigFile& _oCfg,co
     uint uiNumSprites = _oCfg.iGetInteger("Map.SpriteSet.NumSprites",0);
 	for (uint i=0;i<uiNumSprites;i++)
 	{
-		CFEString sVar		= CFEString("Map.SpriteSet.Sprite") + CFEString((int)i);
+		CFEString sVar		= CFEString("Map.SpriteSet.Sprite") + CFEString(i);
 		CFEString sSprite	= _sWorkingDir + CFEString("/") + _oCfg.sGetString(sVar,"");
 
 		poSpriteList->push_back(sSprite);
 
 		// preload sprite
-		CFESpriteInstMgr::I()->Preload(sSprite);
+		CFESpriteInstMgr::Preload(sSprite);
 	}
 	
 	return(poSpriteList);
@@ -144,7 +138,7 @@ CFEMap* CFEMapLoader::poLoad(const CFEString& _sFilename)
 
     for (uint j=0;j<uiNumLayers;j++)
     {
-		CFEMapLayer* poLayer = poLoadLayer(oConfig,CFEString("Map.Layers.Layer") + CFEString((int)j),*poSpriteSet);
+		CFEMapLayer* poLayer = poLoadLayer(oConfig,CFEString("Map.Layers.Layer") + CFEString(j),*poSpriteSet);
 		poMap->m_poLayers.push_back(poLayer);
 	}
 	
@@ -174,8 +168,8 @@ CFEMap* CFEMapLoader::poLoad(const CFEString& _sFilename)
             CFEMapLayer* poLayer = poSector->m_poLayers[uiLayer];
             if (poLayer == NULL) continue;
 
-		    FEBool bXIsValid = (poLayer->m_oSpeed.x == _1r);
-		    FEBool bYIsValid = (poLayer->m_oSpeed.y == _1r);
+		    bool bXIsValid = (poLayer->m_oSpeed.x == _1r);
+		    bool bYIsValid = (poLayer->m_oSpeed.y == _1r);
     		
 		    if ( bXIsValid || bYIsValid)
 		    {

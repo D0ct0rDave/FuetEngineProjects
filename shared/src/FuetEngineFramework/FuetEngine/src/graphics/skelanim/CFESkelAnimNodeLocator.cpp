@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEHUDLoader
  *  \brief A class to load FuetEngine HUD layouts.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -42,11 +42,8 @@ void CFESkelAnimNodeLocator::Visit(CFESkelAnimBone* _poObj)
 		return;
 	}
 
-	for (uint i=0;i<_poObj->uiNumChildren();i++)
-    {
-        _poObj->poGetChild(i)->Accept(this);
-        if (m_poNode != NULL) return;
-	}
+    if (_poObj->poGetAttachedNode() != NULL)
+        _poObj->poGetAttachedNode()->Accept(this);
 }
 //-----------------------------------------------------------------------------
 void CFESkelAnimNodeLocator::Visit(CFESkelAnimGroup* _poObj)
@@ -57,9 +54,9 @@ void CFESkelAnimNodeLocator::Visit(CFESkelAnimGroup* _poObj)
 		return;
 	}
 
-	for (uint i=0;i<_poObj->uiNumChildren();i++)
+	for (uint i=0;i<_poObj->uiNumObjs();i++)
     {
-        _poObj->poGetChild(i)->Accept(this);
+        _poObj->poGetNode(i)->Accept(this);
         if (m_poNode != NULL) return;
 	}
 }

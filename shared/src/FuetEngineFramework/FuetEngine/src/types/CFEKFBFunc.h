@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEKFBFunc
  *  \brief Key Frame Based Function
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 1999-2009
- *  \par Copyright (c) 1999 David Márquez de la Cruz
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -31,28 +31,12 @@ typedef enum EFEKFLerpFunc
 	KFLF_EXPLOG,	/// To perform logarithmic interpolation between this frame and the next.
     KFLF_ISIN,      /// To perform inverse sinusoidal interpolation between this frame and the next.
 
-	KFLF_NUM,
-	KFLF_MAX = 0xffffffff // to force 32 bit enum
+	KFLF_NUM
 
 }EFEKFLerpFunc;
+
 // ----------------------------------------------------------------------------
-// Generic function
-// ----------------------------------------------------------------------------
-FEReal FEKFBFLerpFuncs_rRand(const FEReal& _rFact);
-template<class T> T random_lerp(const T& _oA,const T& _oB,const FEReal& _rFact)
-{
-    FEReal rFact = FEKFBFLerpFuncs_rRand(_rFact);
-    return ( _oA*(_1r - rFact) + _oB*rFact );
-}
-// ----------------------------------------------------------------------------
-// Generic function
-// ----------------------------------------------------------------------------
-template<class T> T default_value(const T& v)
-{
-	return(v);
-}
-// ----------------------------------------------------------------------------
-#include "FEKFBFLerpFuncs.h"
+template<class T> T random_lerp(const T& _oA,const T& _oB,const FEReal& _rFact);
 // ----------------------------------------------------------------------------
 class CFEKeyFrame
 {
@@ -64,12 +48,14 @@ class CFEKeyFrame
 		{
 		}
 
-		CFEKeyFrame(const FEReal& _rKeyTime,EFEKFLerpFunc _eLF) : m_rKeyTime(_rKeyTime), m_eLerpFunc(_eLF)
+		CFEKeyFrame(const FEReal& _rKeyTime,EFEKFLerpFunc _eLF)
 		{
-		}
+			m_rKeyTime  = _rKeyTime;
+			m_eLerpFunc = _eLF;
+		}    
 
 		/// Comparaison operator for sorting purposes.
-		FEBool operator < (const CFEKeyFrame& b)
+		bool operator < (const CFEKeyFrame& b)
 		{
 			return ( m_rKeyTime < b.m_rKeyTime );
 		}
@@ -100,8 +86,8 @@ class CFEKeyFrame
 
 	protected:
 
+		EFEKFLerpFunc		m_eLerpFunc;
 		FEReal			m_rKeyTime;
-		EFEKFLerpFunc	m_eLerpFunc;
 };
 // ----------------------------------------------------------------------------
 /// Struct to hold the keyframes
@@ -115,14 +101,9 @@ class CFETypedKeyFrame : public CFEKeyFrame
 		{
 		}
 
-		CFETypedKeyFrame(const T& _oKey,const FEReal& _rKeyTime,EFEKFLerpFunc _eLF) : CFEKeyFrame(_rKeyTime,_eLF), m_oKey(_oKey)
+		CFETypedKeyFrame(const T& _oKey,const FEReal& _rKeyTime,EFEKFLerpFunc _eLF) : CFEKeyFrame(_rKeyTime,_eLF)
 		{
-		}
-
-		/// Comparaison operator for sorting purposes.
-		FEBool operator < (const CFETypedKeyFrame& b)
-		{
-			return ( m_rKeyTime < b.m_rKeyTime );
+			m_oKey   = _oKey;
 		}
 
 	public:
@@ -139,8 +120,7 @@ typedef enum EFEKFBFuncWrapMode
 	KFBFWM_FINALVALUE,		/// To repeat the last value.
 	KFBFWM_INITIALVALUE,	/// To repeat the initial value.
 
-	KFBFWM_NUM,
-	KFBFWM_MAX = 0xffffffff
+	KFBFWM_NUM
 
 }EFEKFBFuncWrapMode;
 // ----------------------------------------------------------------------------
@@ -153,17 +133,14 @@ class CFEKFBFunc
 		/// Default constructor for the class.
 		CFEKFBFunc()
 		{
-			Reset();
+			// m_oKeyFrames.SetReallocFactor(1);
+			m_eWrapMode = KFBFWM_FINALVALUE;
+			m_rMaxLimit = _0r;
+			m_rLastT	= -_1r;
 		}
-
-		/// Retrieves the value corresponding to the given keyframe.
-		const T& oGetKeyValue(uint _uiKeyFrame);
 
 		/// Retrieves the function value corresponding to the given factor.
 		T oGetValue(const FEReal& _rT);
-
-		/// Retrieves the value corresponding to the given factor between the given keys.
-		T oLerp(uint _uiCurKey,uint _uiNextKey,const FEReal& _rFact,EFEKFLerpFunc _eLerpFunc);
 
 		/// Deletes the keyframe with the given index in the keyframe array.
 		void DeleteKeyFrame(uint _uiKeyFrameIdx)
@@ -175,18 +152,17 @@ class CFEKFBFunc
 			}
 
 			m_oKeyFrames.erase(this->m_oKeyFrames.begin() + _uiKeyFrameIdx);
-
+			
 			// in case we delete the last key frame ...
 			if (m_oKeyFrames.size()==0)
 			{
-			    m_rMaxLimit = _0r;
+			    m_rMaxLimit = 0;
+			    m_rLastT	= -_1r;
 			}
 			else
 			{
 			    m_rMaxLimit = m_oKeyFrames[m_oKeyFrames.size()-1].rGetKeyTime();
             }
-
-            Invalidate();
 		}
 
 		/// Deletes (if exists) the keyframe at the given time.
@@ -205,13 +181,10 @@ class CFEKFBFunc
 		{
 			m_oKeyFrames.erase(this->m_oKeyFrames.begin(),this->m_oKeyFrames.end() );
 
-			m_rMaxLimit = _0r;
-			m_eWrapMode = KFBFWM_FINALVALUE;
-
-			// for random lerp func. Useful also for ptimization purposes.
-			Invalidate();
+			m_rMaxLimit = 0;
+			m_rLastT	= -_1r;
 		}
-
+		
 		/// Retrieves the number of keyframes in the function
 		uint uiGetNumKeyFrames() const
 		{
@@ -238,7 +211,7 @@ class CFEKFBFunc
 
 	        while ( (i<m_oKeyFrames.size()) && (_rTime >= (rKeyTime-EPSILON)) )
 	        {
-	            if ( CFEMath::bBetween(rKeyTime-EPSILON,rKeyTime+EPSILON,_rTime) )
+	            if ( CFEMath::bBetween(rKeyTime-EPSILON,rKeyTime+EPSILON,_rTime) )	            
 	                return(&m_oKeyFrames[i]);
 
                 i++;
@@ -258,7 +231,7 @@ class CFEKFBFunc
 
 		/// Retrieves the information related to a given keyframe at a given time (if exists)
 		CFETypedKeyFrame<T>* poGetKeyFrameDataAtTime(const FEReal& _rTime)
-		{
+		{   
 		    return( (CFETypedKeyFrame<T>*)poGetKeyFrameAtTime(_rTime) );
 		}
 
@@ -295,6 +268,7 @@ class CFEKFBFunc
 		/// Invalidates the cached contents of the function.
 		void Invalidate()
 		{
+			m_rLastT = -_1r;
 		}
 
 	protected:
@@ -303,155 +277,32 @@ class CFEKFBFunc
 		EFEKFBFuncWrapMode		            m_eWrapMode;
 
 		FEReal					            m_rMaxLimit;
+
+	    // for random lerp func. Useful also for ptimization purposes.
+		FEReal					            m_rLastT;
+		T                                   m_oLastValue;
 };
-// ----------------------------------------------------------------------------
-template <class T>
-inline T CFEKFBFunc<T>::oLerp(uint _uiCurKey,uint _uiNextKey,const FEReal& _rFact,EFEKFLerpFunc _eLerpFunc)
-{
-	switch (_eLerpFunc)
-	{
-		case KFLF_LERP:
-		{
-			return(m_oKeyFrames[_uiCurKey].m_oKey*(_1r-_rFact) + m_oKeyFrames[_uiNextKey].m_oKey*(_rFact));
-		}
-		// break; // to avoid unreachable code "warning"
-
-		case KFLF_CONSTANT:
-		{
-			if (_rFact == _1r)
-				return(m_oKeyFrames[_uiNextKey].m_oKey);
-			else
-				return(m_oKeyFrames[_uiCurKey].m_oKey);
-		}
-		// break; // to avoid unreachable code "warning"
-
-		case KFLF_SIN:
-		{
-			FEReal rFact = CFEMath::rSin(_rFact*_PI2r);
-			return(m_oKeyFrames[_uiCurKey].m_oKey*(_1r-rFact) + m_oKeyFrames[_uiNextKey].m_oKey*(rFact));
-		}
-		// break; // to avoid unreachable code "warning"
-
-		case KFLF_ISIN:
-        {
-			FEReal rFact = _1r + CFEMath::rSin( (_rFact - _1r)*_PI2r );
-			return(m_oKeyFrames[_uiCurKey].m_oKey*(_1r-rFact) + m_oKeyFrames[_uiNextKey].m_oKey*(rFact));
-		}
-		// break; // to avoid unreachable code "warning"
-
-		case KFLF_EXP:
-		{
-			FEReal rFact = _rFact*_rFact;
-			return(m_oKeyFrames[_uiCurKey].m_oKey*(_1r-rFact) + m_oKeyFrames[_uiNextKey].m_oKey*(rFact));
-		}
-		// break; // to avoid unreachable code "warning"
-
-		case KFLF_RAND:
-		#ifndef N3DS
-		{
-	        return(random_lerp(m_oKeyFrames[_uiCurKey].m_oKey,m_oKeyFrames[_uiNextKey].m_oKey,_rFact));
-	    }
-		// break; // to avoid unreachable code "warning"
-	    #endif
-
-        case KFLF_SINSIN:
-        {
-			FEReal rFact1 = CFEMath::rSin((_rFact+_1r)*_PI2r);
-			FEReal rFact2 = CFEMath::rSin(_rFact*_PI2r);
-			return(m_oKeyFrames[_uiCurKey].m_oKey*(rFact1) + m_oKeyFrames[_uiNextKey].m_oKey*(rFact2));
-        }
-		// break; // to avoid unreachable code "warning"
-
-        case KFLF_EXPLOG:
-        {
-			FEReal rFact = (CFEMath::rSin(_rFact*_PIr - _PI2r) + _1r) * _05r;
-			return(m_oKeyFrames[_uiCurKey].m_oKey*(_1r-rFact) + m_oKeyFrames[_uiNextKey].m_oKey*(rFact));
-
-			// FEReal rFact1 = _rFact*_rFact;
-			// FEReal rFact2 = CFEMath::rSin(rFact*_PI2r);
-			// return(m_oKeyFrames[_uiCurKey].m_oKey*(rFact1) + m_oKeyFrames[uiNextKF].m_oKey*(rFact2));
-        }
-        // break; // to avoid unreachable code "warning"
-
-		default:
-		{
-			return(m_oKeyFrames[_uiCurKey].m_oKey*(_1r-_rFact) + m_oKeyFrames[_uiNextKey].m_oKey*(_rFact));
-		}
-		// break; // to avoid unreachable code "warning"
-    }
-}
-// ----------------------------------------------------------------------------
-// explicit specialization for FEBool type
-template <>
-inline FEBool CFEKFBFunc<FEBool>::oLerp(uint _uiCurKey,uint _uiNextKey,const FEReal& _rFact,EFEKFLerpFunc _eLerpFunc)
-{
-	switch (_eLerpFunc)
-	{
-		case KFLF_CONSTANT:
-		{
-			if (_rFact == _1r)
-				return(m_oKeyFrames[_uiNextKey].m_oKey);
-			else
-				return(m_oKeyFrames[_uiCurKey].m_oKey);
-		}
-
-		case KFLF_RAND:
-		#ifndef N3DS
-		{
-			if (CFEMath::uiRand(2) == 0)
-				return(m_oKeyFrames[_uiCurKey].m_oKey);
-			else
-				return(m_oKeyFrames[_uiNextKey].m_oKey);
-
-			// da error de compilación
-	        // return(random_lerp(m_oKeyFrames[_uiCurKey].m_oKey,m_oKeyFrames[_uiNextKey].m_oKey,_rFact));
-	    }
-		// break; // to avoid unreachable code "warning"
-	    #endif
-        case KFLF_SIN:
-		case KFLF_ISIN:
-        case KFLF_EXP:
-		case KFLF_SINSIN:
-        case KFLF_LERP:
-        case KFLF_EXPLOG:
-		default:
-		{
-			if (_rFact < _05r)
-				return(m_oKeyFrames[_uiCurKey].m_oKey);
-			else
-				return(m_oKeyFrames[_uiNextKey].m_oKey);
-		}
-		// break; // to avoid unreachable code "warning"
-    }
-}
-// ----------------------------------------------------------------------------
-template <class T>
-inline const T& CFEKFBFunc<T>::oGetKeyValue(uint _uiKeyFrame)
-{
-	return(m_oKeyFrames[_uiKeyFrame].m_oKey);
-}
-// ----------------------------------------------------------------------------
-#ifdef _MSC_VER
-#pragma warning( push )
-#pragma warning( disable : 4700)		// warning C4700: uninitialized local variable 'oT' used
-#pragma warning( disable : 6001)		// warning C4700: uninitialized local variable 'oT' used
-#endif
 // ----------------------------------------------------------------------------
 template <class T>
 inline T CFEKFBFunc<T>::oGetValue(const FEReal& _rT)
 {
 	// If the keyframe array is empty return an undefined value.
+	if (_rT == m_rLastT)
+	    return(m_oLastValue);
+	else
+	    m_rLastT = _rT;
+
 	if (m_oKeyFrames.size() == 0)
 	{
 		// return undefined value
-		static T oT;
-		return(oT);
+		return(m_oLastValue);
 	}
 
 	// If the array has only one value, return it as if the func is constant.
 else if ((m_oKeyFrames.size() == 1) || (_rT==_0r))
     {
-		return(oGetKeyValue(0));
+        m_oLastValue = m_oKeyFrames[0].m_oKey;
+		return(m_oLastValue);
 	}
 
 	/// Retrieve the proper interval and factor
@@ -470,7 +321,8 @@ else if ((m_oKeyFrames.size() == 1) || (_rT==_0r))
 			    //
                 if (rFact == _0r)
                 {
-                    return(oGetKeyValue(0));
+                    m_oLastValue = m_oKeyFrames[0].m_oKey;
+		            return(m_oLastValue);
 	            }
 			}
 		}
@@ -480,7 +332,8 @@ else if ((m_oKeyFrames.size() == 1) || (_rT==_0r))
 		{
 			if (rFact>=m_rMaxLimit)
 			{
-			    return(oGetKeyValue(0));
+			    m_oLastValue = m_oKeyFrames[0].m_oKey;
+				return( m_oLastValue );
 			}
 		}
 		break;
@@ -490,11 +343,12 @@ else if ((m_oKeyFrames.size() == 1) || (_rT==_0r))
 		{
 			if (rFact >= _2r*m_rMaxLimit)
 			rFact = CFEMath::rMod(_rT,_2r*m_rMaxLimit);
-
+			
 			// WARNING:!!!! si pongo este condicional debajo del siguiente, CW peta!!!!!
             if (rFact == _0r)
             {
-				return(oGetKeyValue(0));
+                m_oLastValue = m_oKeyFrames[0].m_oKey;
+	            return(m_oLastValue);
             }
 
             // 0 <= rFact < 2*m_rMaxLimit
@@ -509,12 +363,13 @@ else if ((m_oKeyFrames.size() == 1) || (_rT==_0r))
 		{
 			if (rFact>=m_rMaxLimit)
 			{
-				return(oGetKeyValue(m_oKeyFrames.size()-1));
+			    m_oLastValue = m_oKeyFrames[m_oKeyFrames.size()-1].m_oKey;
+				return( m_oLastValue );
 			}
 		}
 		break;
 	}
-
+	
 	//	PRECONDITION:
 	//	    fFact >	_0rf
 	//	    fFact <= m_fMaxLimit
@@ -524,19 +379,84 @@ else if ((m_oKeyFrames.size() == 1) || (_rT==_0r))
 	uint uiNextKF = 1;
 	while (rFact>((CFEKeyFrame)m_oKeyFrames[uiNextKF]).rGetKeyTime())
 		uiNextKF++;
-
+	
 	uint uiCurKF = uiNextKF-1;
-
+	
 	/// Process factor depending upon the interpolation function for this interval
 	FEReal rMin = ((CFEKeyFrame)m_oKeyFrames[uiCurKF]).rGetKeyTime();
 	rFact = (rFact - rMin) / ( ((CFEKeyFrame)m_oKeyFrames[uiNextKF]).rGetKeyTime() - rMin);
 
-	return( oLerp(uiCurKF,uiNextKF,rFact,((CFEKeyFrame)m_oKeyFrames[uiCurKF]).eGetLerpFunc()) );
+	switch (((CFEKeyFrame)m_oKeyFrames[uiCurKF]).eGetLerpFunc())
+	{
+		case KFLF_LERP:
+		{
+			m_oLastValue = (m_oKeyFrames[uiCurKF].m_oKey*(_1r-rFact) + m_oKeyFrames[uiNextKF].m_oKey*(rFact));
+		}
+		break;
+
+		case KFLF_CONSTANT:
+		{
+			if (rFact == _1r)
+				m_oLastValue = m_oKeyFrames[uiNextKF].m_oKey;
+			else
+				m_oLastValue = m_oKeyFrames[uiCurKF].m_oKey;
+		}
+		break;
+
+		case KFLF_SIN:
+		{
+			rFact = CFEMath::rSin(rFact*_PI2r);
+			m_oLastValue = (m_oKeyFrames[uiCurKF].m_oKey*(_1r-rFact) + m_oKeyFrames[uiNextKF].m_oKey*(rFact));
+		}
+		break;
+		
+		case KFLF_ISIN:
+        {
+			rFact = CFEMath::rSin( (rFact - _1r)*_PI2r );
+			m_oLastValue = (m_oKeyFrames[uiCurKF].m_oKey*(_1r-rFact) + m_oKeyFrames[uiNextKF].m_oKey*(rFact));
+		}
+		break;
+		
+		case KFLF_EXP:
+		{
+			rFact = rFact*rFact;
+			m_oLastValue = (m_oKeyFrames[uiCurKF].m_oKey*(_1r-rFact) + m_oKeyFrames[uiNextKF].m_oKey*(rFact));
+		}
+        break;
+
+		case KFLF_RAND:
+		{
+	        m_oLastValue = random_lerp((const T&)m_oKeyFrames[uiCurKF].m_oKey,(const T&)m_oKeyFrames[uiNextKF].m_oKey,rFact);
+	    }
+        break;
+
+        case KFLF_SINSIN:
+        {
+			FEReal rFact1 = CFEMath::rSin((rFact+_1r)*_PI2r);
+			FEReal rFact2 = CFEMath::rSin(rFact*_PI2r);
+			m_oLastValue = (m_oKeyFrames[uiCurKF].m_oKey*(rFact1) + m_oKeyFrames[uiNextKF].m_oKey*(rFact2));			
+        }
+        break;
+
+        case KFLF_EXPLOG:
+        #if 0
+        {
+			// FEReal rFact1 = rFact*rFact;
+			// FEReal rFact2 = CFEMath::rSin(rFact*_PI2r);
+			// m_oLastValue = (m_oKeyFrames[uiCurKF].m_oKey*(rFact1) + m_oKeyFrames[uiNextKF].m_oKey*(rFact2));			
+        }
+        break;
+        #endif
+
+		default:
+		{
+			m_oLastValue = (m_oKeyFrames[uiCurKF].m_oKey*(_1r-rFact) + m_oKeyFrames[uiNextKF].m_oKey*(rFact));
+		}
+		break;
+    }
+
+	return( m_oLastValue );
 }
-// ----------------------------------------------------------------------------
-#ifdef _MSC_VER
-#pragma warning( pop )
-#endif
 // ----------------------------------------------------------------------------
 template <class T>
 inline void CFEKFBFunc<T>::InsertKeyFrame(const T& _oKey,const FEReal& _rKeyTime,EFEKFLerpFunc _eLF)
@@ -544,15 +464,9 @@ inline void CFEKFBFunc<T>::InsertKeyFrame(const T& _oKey,const FEReal& _rKeyTime
     /// "Invalidate" the optimization.
     Invalidate();
 
-    // we need always a keyframe at instant 0
-	if (m_oKeyFrames.size()==0)
-	{
-		CFETypedKeyFrame<T> oKF( default_value(_oKey), _0r, _eLF);
-		m_oKeyFrames.push_back(oKF);
-	}
-
-	CFETypedKeyFrame<T> oKF(_oKey,_rKeyTime,_eLF);
-
+    ///
+	CFETypedKeyFrame<T> oKF(_oKey,(m_oKeyFrames.size()==0)?FEReal(_0r):_rKeyTime,_eLF);
+	
 	// look if the key already exists
 	for (uint i=0;( (i<m_oKeyFrames.size()) && (_rKeyTime >= m_oKeyFrames[i].rGetKeyTime()) );i++)
 	{
@@ -565,17 +479,12 @@ inline void CFEKFBFunc<T>::InsertKeyFrame(const T& _oKey,const FEReal& _rKeyTime
 	        return;
 	    }
 	}
-
+	
 	m_oKeyFrames.push_back(oKF);
 
 	// reorder array
-	#if defined(WIN32) && (! defined(__GNUC__))
-	// DMC
 	if (m_oKeyFrames.size() > 1)
-
-		//std::sort(&m_oKeyFrames[0],&m_oKeyFrames[0] + m_oKeyFrames.size());
-        std::sort(m_oKeyFrames.begin(),m_oKeyFrames.end());
-    #endif
+		std::sort(&m_oKeyFrames[0],&m_oKeyFrames[0] + m_oKeyFrames.size());
 
 	RecalcMaxLimit();
 }

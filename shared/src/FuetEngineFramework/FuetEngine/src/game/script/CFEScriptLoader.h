@@ -1,10 +1,10 @@
 // -----------------------------------------------------------------------------
 /*! \class CFEScriptLoader
  *  \brief A class to load scripts.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 1999-2009
- *  \par Copyright (c) 1999 David Márquez de la Cruz
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // -----------------------------------------------------------------------------
@@ -25,12 +25,6 @@ class CFEScriptLoader
 		static void SetActionLoader(CFEActionLoader* _poActionLoader)
 		{
 			m_poActionLoader = _poActionLoader;
-		}
-		
-		/// Retrieves the current action loader used by the script loader.
-		static CFEActionLoader* poGetActionLoader()
-		{
-			return(m_poActionLoader);
 		}
 
 	protected:

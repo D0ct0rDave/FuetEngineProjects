@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEHUDLoader
  *  \brief A class to load FuetEngine HUD layouts.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -34,7 +34,7 @@ class CFEHUDElement : public CFENamedObject
 		/// Inserts an action at the given position
 		void InsertAction(uint _uiIdx,CFEHUDElementAction* _poAction)
 		{
-			m_oActions.insert(this->m_oActions.begin() + (long)_uiIdx,_poAction);
+			m_oActions.insert(this->m_oActions.begin() + _uiIdx,_poAction);
 		}
 
 		/// Adds a new action into the HUD Element.
@@ -53,18 +53,7 @@ class CFEHUDElement : public CFENamedObject
 		/// Deletes a action in the HUD element.
 		void DeleteAction(uint _uiAction)
 		{
-			m_oActions.erase(m_oActions.begin() + (long)_uiAction);
-		}
-
-		/// Swap the contents of layer A and B.
-		void SwapActions(uint _uiActionA,uint _uiActionB)
-		{
-			std::swap(m_oActions[_uiActionA],m_oActions[_uiActionB]);
-			/*
-		    CFEHUDElementAction* poAuxAction = m_oActions[_uiActionA];
-		    m_oActions[_uiActionA] = m_oActions[__uiActionB];
-		    m_oActions[_uiActionB] = poAuxAction;
-		    */
+			m_oActions.erase(m_oActions.begin() + _uiAction);
 		}
 
 		/// Retrieves the number of actions in the current HUD element.
@@ -89,19 +78,15 @@ class CFEHUDElement : public CFENamedObject
 		/// Deletes a layer in the HUD element.
 		void DeleteLayer(uint _uiLayer)
 		{
-			m_oLayers.erase(m_oLayers.begin() + (long)_uiLayer);
+			m_oLayers.erase(m_oLayers.begin() + _uiLayer);
 		}
 
 		/// Swap the contents of layer A and B.
 		void SwapLayers(uint _uiLayerA,uint _uiLayerB)
 		{
-			std::swap(m_oLayers[_uiLayerA],m_oLayers[_uiLayerB]);
-
-		    /*
 		    CFEHUDObject* poAuxLayer = m_oLayers[_uiLayerA];
-   		    m_oLayers[_uiLayerA] = m_oLayers[_uiLayerB];
-   		    m_oLayers[_uiLayerB] = poAuxLayer;
-   		    */
+		    m_oLayers[_uiLayerA] = m_oLayers[_uiLayerB];
+		    m_oLayers[_uiLayerB] = poAuxLayer;
 		}
 
 		/// Retrieves the number of layers in the HUD element.

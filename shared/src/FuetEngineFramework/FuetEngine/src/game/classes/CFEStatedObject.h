@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------
 /*! \class CFEStatedObject
  *  \brief A class to derive from for objects with states
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 //-----------------------------------------------------------------------------
@@ -22,7 +22,7 @@ class CFEStatedObject
 
 		/// Specific code to perform when the object enters to a given state.
 		virtual void OnEnterState(uint _uiState);
-
+		
 		/// Specific code to perform when the object exits from a given state.
 		virtual void OnExitState(uint _uiState, uint _uiNewState);
 
@@ -40,7 +40,7 @@ class CFEStatedObject
 
 		/// Force the object to a given state: Should not be called directly unless strictly necessary.
 		void SetState(uint _uiState)
-		{
+		{			
 			m_uiPrevState	= m_uiState;
 			m_uiState		= _uiState;
 		}
@@ -58,13 +58,13 @@ class CFEStatedObject
 		}
 
 		/// Enables or disables whether the object allows reentering to the current state.
-		void AllowReentrance(FEBool _bAllowReentrance = true)
+		void AllowReentrance(bool _bAllowReentrance = true)
 		{
 			m_bAllowReentrance = _bAllowReentrance;
 		}
 
 		/// Retrieves if the object allows reentering to the current state.
-		FEBool bAllowReentrance()
+		bool bAllowReentrance()
 		{
 			return(m_bAllowReentrance);
 		}
@@ -82,7 +82,7 @@ class CFEStatedObject
 		}
 
 		/// Updates the time of the current state. Returns true if the state time has not yet reached 0.
-		FEBool bUpdateStateTime(FEReal _rDeltaT)
+		bool bUpdateStateTime(FEReal _rDeltaT)
 		{
 			m_rStateTime -= _rDeltaT;
 			return(m_rStateTime>_0r);
@@ -97,7 +97,7 @@ class CFEStatedObject
 		uint		m_uiPrevState;
 
 		// Allow state reentrance?
-		FEBool		m_bAllowReentrance;
+		bool		m_bAllowReentrance;
 
         /// The time of the current state.
 		FEReal	    m_rStateTime;

@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEKFBFuncUtils
  *  \brief Key Frame Based Function
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 1999-2009
- *  \par Copyright (c) 1999 David Márquez de la Cruz
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -65,31 +65,31 @@ CFEString CFEKFBFuncUtils::sGetLerpFuncName(EFEKFLerpFunc _eLerpFunc)
     {
 	    case KFLF_CONSTANT:
 	    return("const");
-	    // break;	// avoid "statement is un reachable" warning
+	    break;
 
 	    case KFLF_SIN:
 	    return("sin");
-	    // break;	// avoid "statement is un reachable" warning
+	    break;	    
 
 	    case KFLF_ISIN:
 	    return("invsin");
-	    // break;	// avoid "statement is un reachable" warning
-
+	    break;	    
+	    
 	    case KFLF_EXP:
 	    return("exp");
-	    // break;	// avoid "statement is un reachable" warning
-
+	    break;	    
+	    
 	    case KFLF_RAND:
 	    return("random");
-        // break;	// avoid "statement is un reachable" warning
+        break;
 
 	    case KFLF_SINSIN:
 	    return("sinsin");
-	    // break;	// avoid "statement is un reachable" warning
+	    break;
 
 	    case KFLF_EXPLOG:
 	    return("explog");
-	    // break;	// avoid "statement is un reachable" warning
+	    break;
 
         case KFLF_LERP:
         default:
@@ -100,33 +100,31 @@ CFEString CFEKFBFuncUtils::sGetLerpFuncName(EFEKFLerpFunc _eLerpFunc)
 CFEString CFEKFBFuncUtils::sGetWrapMode(EFEKFBFuncWrapMode _eWrapMode)
 {
     switch (_eWrapMode)
-    {
+    {    
         case KFBFWM_LOOP:
             return("Loop");
-        // break;	// avoid "statement is un reachable" warning
-
+        break;
+	    
 	    case KFBFWM_PINGPONG:
 	        return("PingPong");
-	    // break;	// avoid "statement is un reachable" warning
-
+	    break;
+	    
 	    case KFBFWM_INITIALVALUE:
 	        return("InitialValue");
-	    // break;	// avoid "statement is un reachable" warning
-
+	    break;
+	    
 	    default:
 	    case KFBFWM_FINALVALUE:
 	        return("FinalValue");
-	    // break;	// avoid "statement is un reachable" warning
+	    break;
     }
 }
 // ----------------------------------------------------------------------------
-#ifdef _DEBUG
 static void Test()
 {
 	CFEKFBFunc<FEReal> oR;
 	CFEKFBFunc<FEReal> oC;
-
+	
 	CFEKFBFuncUtils::CopyKeyframedFunc(oR,oC);
 }
-#endif
 // ----------------------------------------------------------------------------
