@@ -16,8 +16,37 @@ All game projects share some functionality and tools. Inside the share directory
 
 Im the following weeks I'll be adding all the tools built using FuetEngine and for FuetEngine and eventually a sample complex project.
 
-# build instructions
-Build FreeImage
-Build freealut
-Build libConfigPortable
-Build wxWidgets2.8
+### build instructions
+In most cases you will need to use premake (included in $(FuetEngineProjectDev)/shared/toolchain/general) to create the project files so you can build the binaries.
+
+- Build FreeImage:
+  - Premake5 vs2022 (or any other)
+  - Generate the Debug or Release libraries for x64 or Win32
+  - Premake5 install. 
+    
+- Build freealut.
+  - Premake5 vs2022
+  - Generate the Debug or Release libraries for x64 or Win32
+
+- Build libConfigPortable
+  - Premake5 vs2022
+  - Generate the Debug or Release libraries for x64 or Win32
+
+- Build wxWidgets2.8
+  - Generate the Debug, Release, Unicode Debug, or Unicode Releaes libraries for x64 or Win32
+
+Now you can build FuetEngine things:
+
+- Build FuetEngine
+  - Premake5 vs2022
+  - Generate the Debug or Release libraries for x64 or Win32
+
+- Build Samples
+  - Premake5 vs2022
+  - Generate the Debug or Release libraries for x64 or Win32
+
+- Build Tools
+  - Premake5 vs2022
+  - Generate the Debug or Release libraries for x64 or Win32
+
+Or you can switch to a specific branch and build one of the projects.
