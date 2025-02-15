@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
-MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FuetEngine", "FuetEngine.vcxproj", "{0F7BC24D-FB32-049B-643A-DDF650119F8B}"
 EndProject
 Global
@@ -25,8 +23,8 @@ Global
 		WIN32_Release|x64 = WIN32_Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0F7BC24D-FB32-049B-643A-DDF650119F8B}.DEV_Debug|Win32.ActiveCfg = DEV_WITH_SOUND_Debug|Win32
-		{0F7BC24D-FB32-049B-643A-DDF650119F8B}.DEV_Debug|Win32.Build.0 = DEV_WITH_SOUND_Debug|Win32
+		{0F7BC24D-FB32-049B-643A-DDF650119F8B}.DEV_Debug|Win32.ActiveCfg = DEV_Debug|Win32
+		{0F7BC24D-FB32-049B-643A-DDF650119F8B}.DEV_Debug|Win32.Build.0 = DEV_Debug|Win32
 		{0F7BC24D-FB32-049B-643A-DDF650119F8B}.DEV_Debug|x64.ActiveCfg = DEV_Debug|x64
 		{0F7BC24D-FB32-049B-643A-DDF650119F8B}.DEV_Debug|x64.Build.0 = DEV_Debug|x64
 		{0F7BC24D-FB32-049B-643A-DDF650119F8B}.DEV_Release|Win32.ActiveCfg = DEV_Release|Win32

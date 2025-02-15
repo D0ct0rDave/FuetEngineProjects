@@ -1,5 +1,5 @@
 #include "CActorEditorGUI.h"
-/*
+
 #include "wx/treeListCtrl.h"
 #include "wx/things/spinctld.h"
 #include "wx/msw/colordlg.h"
@@ -21,7 +21,7 @@
 
 #include "Render.h"
 #include <process.h>
-*/
+
 CActorEditorGUI::CActorEditorGUI( wxWindow* parent )
 	:
 	CActorEditorGUIBase( parent )

@@ -1,4 +1,15 @@
 ------------------------------------------------------------------------------
+
+local ProjectRelativeFinalDataRoot = "$(ProjectDir)../../../../toolchain/FuetEngine"
+local ProjectRelativeSDKSRoot = "$(ProjectDir)../../../SDKS"
+local ProjectRelativeFuetEngineRoot = "$(ProjectDir)../../FuetEngine"
+local SDKSRoot = "$(FuetEngineProjectsDev)/shared/src/sdks"
+local FuetEngineRoot = "$(FuetEngineProjectsDev)/shared/src/FuetEngineFramework/FuetEngine"
+
+scriptRoot = os.getcwd()	
+frameworkRoot = scriptRoot .. "/../FuetEngine"
+
+------------------------------------------------------------------------------
 -- Define the mapping of platforms to project file extensions
 local systemProjectExtensions = 
 {
@@ -24,7 +35,6 @@ local function includeLibraries(rootDir)
 		links { projectName }
 	end
 end
-
 ------------------------------------------------------------------------------
 -- Step 2: Include external projects based on generated project files
 local libraries= {} -- Collect all library names
@@ -44,18 +54,7 @@ end
 
 ------------------------------------------------------------------------------
 
-scriptRoot = os.getcwd()	
-frameworkRoot = scriptRoot .. "/../FuetEngine"
-
-------------------------------------------------------------------------------
-
 local function addToolProject(_projectName, _windowedApplication, _useWxWidgets, _useConfigFiles)
-
-	local ProjectRelativeFinalDataRoot = "$(ProjectDir)../../../../toolchain/FuetEngine"
-	local ProjectRelativeSDKSRoot = "$(ProjectDir)../../../SDKS"
-	local ProjectRelativeFuetEngineRoot = "$(ProjectDir)../../FuetEngine"
-	local SDKSRoot = "$(FuetEngineProjectsDev)/shared/src/sdks"
-	local FuetEngineRoot = "$(FuetEngineProjectsDev)/shared/src/FuetEngineFramework/FuetEngine"
 
 	project(_projectName)
 		
@@ -65,19 +64,10 @@ local function addToolProject(_projectName, _windowedApplication, _useWxWidgets,
 			kind "ConsoleApp"
 		end
 
-		--[[
-		filter {"platforms:Win32"}
-			currentPlatform = "Win32"
-		filter {"platforms:x64"}
-			currentPlatform = "x64"
-		filter {}
-		print ("CurrentPlatform: " .. currentPlatform)
-		]]--
-
 		language "C++"
 		cppdialect "C++17"
-		targetdir("$(ProjectDir)exe/" .. _projectName .. "/" .. currentPlatform .. "/%{cfg.buildcfg}") -- Output directory for binaries
-		objdir("$(ProjectDir)obj/" .. _projectName .. "/" .. currentPlatform .. "/%{cfg.buildcfg}") -- Output directory for intermediate files
+		targetdir("$(ProjectDir)exe/" .. _projectName .. "/%{cfg.platform}/%{cfg.buildcfg}") -- Output directory for binaries
+		objdir("$(ProjectDir)obj/" .. _projectName .. "/%{cfg.platform}/%{cfg.buildcfg}") -- Output directory for intermediate files
 		characterset("ASCII")
 		debugdir(ProjectRelativeFinalDataRoot)
 		
@@ -117,8 +107,8 @@ local function addToolProject(_projectName, _windowedApplication, _useWxWidgets,
 			"$(ProjectDir)../" .. _projectName .. "/src",
 			"$(ProjectDir)../common/components",
 			"$(ProjectDir)../common/",
-			ProjectRelativeFuetEngineRoot .. "/src",
-			ProjectRelativeSDKSRoot .. "/externals/FreeImage/Dist/",
+			FuetEngineRoot .. "/src",
+			SDKSRoot .. "/externals/FreeImage/Dist/",
 		}
 
 		if _useWxWidgets then
@@ -135,10 +125,10 @@ local function addToolProject(_projectName, _windowedApplication, _useWxWidgets,
 		-- Library directories common for all configurations
 		libdirs
 		{
-			FuetEngineRoot .. "/lib/" .. currentPlatform .. "/DEV_%{cfg.buildcfg}",
-			SDKSRoot .. "/externals/FreeImage/Dist/" .. currentPlatform .. "/%{cfg.buildcfg}",
+			FuetEngineRoot .. "/lib/%{cfg.platform}/DEV_%{cfg.buildcfg}",
+			SDKSRoot .. "/externals/FreeImage/Dist/%{cfg.platform}/%{cfg.buildcfg}",
 			SDKSRoot .. "/externals/physfs/build/%{cfg.buildcfg}",
-			SDKSRoot .. "/externals/libConfigPortable/lib/" .. currentPlatform .. "/%{cfg.buildcfg}",
+			SDKSRoot .. "/externals/libConfigPortable/lib/%{cfg.platform}/%{cfg.buildcfg}",
 			-- SDKSRoot .. "/externals/OpenAL_1.1_SDK/libs/Win64/",
 			SDKSRoot .. "/externals/freealut/build/src/%{cfg.buildcfg}",	
 		}
@@ -146,8 +136,8 @@ local function addToolProject(_projectName, _windowedApplication, _useWxWidgets,
 		if _useWxWidgets then
 			libdirs
 			{
-				SDKSRoot .. "/externals/wxWidgets2.8/lib/vc_lib/" .. currentPlatform,
-				SDKSRoot .. "/externals/wxWidgets2.8/additions/lib/vc_lib/" .. currentPlatform
+				SDKSRoot .. "/externals/wxWidgets2.8/lib/vc_lib/%{cfg.platform}",
+				SDKSRoot .. "/externals/wxWidgets2.8/additions/lib/vc_lib/%{cfg.platform}"
 			}
 		end
 
@@ -269,8 +259,9 @@ local function addToolProject(_projectName, _windowedApplication, _useWxWidgets,
 	project(_projectName) -- for some reason this is reset, so we need to setup it again
 		postbuildcommands
 		{			
-			"{COPYFILE} " .. SDKSRoot .. "/externals/FreeImage/Dist/" .. currentPlatform .. "/Release/FreeImage.dll " .. ProjectRelativeFinalDataRoot,
-			"{COPYFILE} " .. SDKSRoot .. "/externals/FreeImage/Dist/" .. currentPlatform .. "/Release/FreeImagePlus.dll " .. ProjectRelativeFinalDataRoot,			
+			"{MKDIR} $(FuetEngineProjectsDev)/shared/toolchain/FuetEngine",
+			"{COPYFILE} " .. SDKSRoot .. "/externals/FreeImage/Dist/%{cfg.platform}/Release/FreeImage.dll " .. ProjectRelativeFinalDataRoot,
+			"{COPYFILE} " .. SDKSRoot .. "/externals/FreeImage/Dist/%{cfg.platform}/Release/FreeImagePlus.dll " .. ProjectRelativeFinalDataRoot,			
 			"{COPYFILE} " .. "$(TargetPath) $(FuetEngineProjectsDev)/shared/toolchain/FuetEngine"
 		}
 end
@@ -280,19 +271,152 @@ end
 ------------------------------------------------------------------------------
 workspace "FuetEngine_Tools"
     configurations { "Debug", "Release" }
-    location "build" -- Where generated files (like Visual Studio solutions) will be stored
     platforms { "Win32", "x64" }
-	currentPlatform = "Win32"
-	
-	if currentPlatform == "Win32" then
+    location "build" -- Where generated files (like Visual Studio solutions) will be stored
+
+	filter {"platforms:Win32"}
 	architecture "x86"
-	else
+	filter {"platforms:x64"}
 	architecture "x86_64"
-	end
+	filter {}
+
+group("Tools")
+------------------------------------------------------------------------------
+project("Autoversion")
+	kind "ConsoleApp"
+	
+	language "C++"
+	targetdir("$(ProjectDir)exe/Autoversion/%{cfg.platform}/%{cfg.buildcfg}") -- Output directory for binaries
+	objdir("$(ProjectDir)obj/Autoversion/%{cfg.platform}/%{cfg.buildcfg}") -- Output directory for intermediate files
+	characterset("ASCII")
+	debugdir(ProjectRelativeFinalDataRoot)
+		
+	-- Recursively include all .cpp and .h files from the sourceRoot directory		
+	sourceRoot = scriptRoot .. "/Autoversion"
+
+	-- Recursively include all .cpp and .h files from the sourceRoot directory
+	files {
+		sourceRoot .. "/src/**.cpp",
+		sourceRoot .. "/src/**.h",
+		sourceRoot .. "/src/**.txt",
+	}
+
+	-- specific defines for this project
+	filter { "system:windows" }
+		defines {
+			"WIN32",
+			"_MBCS",
+			"NOPCH",
+			"_WINDOWS",
+		}
+	filter {} -- Reset filter
+
+	includedirs 
+	{
+		-- Add include directories (sourceRoot is included by default)
+		sourceRoot,
+		"$(ProjectDir)../Autoversion/src",
+		SDKSRoot .. "/externals/wxWidgets2.8/include",
+		SDKSRoot .. "/externals/wxWidgets2.8/include/msvc",
+		-- SDKSRoot .. "/externals/wxWidgets2.8/additions/include/wx/treelistctrl",
+		-- SDKSRoot .. "/externals/wxWidgets2.8/additions/include/wx/grid",
+		-- SDKSRoot .. "/externals/wxWidgets2.8/additions/include",
+	}
+
+	-- Library directories common for all configurations
+	libdirs
+	{
+		SDKSRoot .. "/externals/wxWidgets2.8/lib/vc_lib/%{cfg.platform}",
+	}
+
+	links
+	{
+		"comctl32.lib",
+		"rpcrt4.lib",
+		"odbc32.lib",
+	}
+
+	-- Configuration-specific settings
+	filter { "configurations:Debug" }
+		defines { 
+			"DEBUG",
+			"__WXMSW__",
+			"__WXDEBUG__",
+		}
+
+		symbols "On" -- Generate debug symbols
+
+		links 
+		{
+			"wxbase28d.lib",
+			"wxbase28d_net.lib",
+			"wxbase28d_odbc.lib",
+			"wxbase28d_xml.lib",
+			"wxmsw28d_adv.lib",
+			"wxmsw28d_aui.lib",
+			"wxmsw28d_core.lib",
+			"wxmsw28d_dbgrid.lib",
+			"wxmsw28d_gl.lib",
+			"wxmsw28d_html.lib",
+			"wxmsw28d_media.lib",
+			"wxmsw28d_qa.lib",
+			"wxmsw28d_richtext.lib",
+			"wxmsw28d_xrc.lib",
+			"wxexpatd.lib",
+			"wxjpegd.lib",
+			"wxpngd.lib",
+			"wxregexd.lib",
+			"wxtiffd.lib",
+			"wxzlibd.lib",
+		}		
+
+		staticruntime "off"
+		runtime "Debug"
+
+	filter { "configurations:Release" }
+		defines { 
+			"NDEBUG",
+			"__WXMSW__",
+		}
+		optimize "On" -- Enable optimizations			
+
+		links 
+		{
+			"wxmsw28_xrc.lib",
+			"wxmsw28_dbgrid.lib",
+			"wxmsw28_core.lib",
+			"wxbase28.lib",
+			"wxbase28_net.lib",
+			"wxmsw28_adv.lib",
+			"wxmsw28_html.lib",
+			"wxbase28_odbc.lib",
+			"wxmsw28_richtext.lib",
+			"wxbase28_xml.lib",
+			"wxmsw28_aui.lib",
+			"wxmsw28_media.lib",
+			"wxmsw28_qa.lib",
+			"wxmsw28_gl.lib",
+			"wxtiff.lib",
+			"wxjpeg.lib",
+			"wxregex.lib",
+			"wxpng.lib",
+			"wxzlib.lib",
+			"wxexpat.lib",
+		}
+
+		staticruntime "off"
+		runtime "Release"
+
+	filter {} -- Clear filter for general settings
+
+	-- Install rules (using a post-build step for example purposes)
+	project("Autoversion") -- for some reason this is reset, so we need to setup it again
+		postbuildcommands
+		{			
+			"{COPYFILE} " .. "$(TargetPath) $(FuetEngineProjectsDev)/shared/toolchain/FuetEngine"
+		}
 
 ------------------------------------------------------------------------------
-group("Tools")
-addToolProject("Autoversion", 	false, true, false)
 addToolProject("ConfigBinarizer",false, false, true)
 addToolProject("ActorEditor", 	true, true, true)
 	files {
@@ -307,14 +431,17 @@ addToolProject("ActorEditor", 	true, true, true)
 		"vfw32.lib",
 		"gdiplus.lib"
 	}
--- 	externalproject("FuetEngine.vcxproj")
---		kind "StaticLib" -- Modify as needed		
+--[[
+ 	externalproject("FuetEngine.vcxproj")
+		kind "StaticLib" -- Modify as needed		
 
-addToolProject("SpriteEditor", 	true, true, true)
-addToolProject("FontEditor", 	true, true, true)
+ addToolProject("SpriteEditor", 	true, true, true)
+ addToolProject("FontEditor", 	true, true, true)
 
+]]--
 	
 --[[
 group("FuetEngine")	
 	includeExternalProjects(frameworkRoot .. "/build/vs2022")
 ]]--
+

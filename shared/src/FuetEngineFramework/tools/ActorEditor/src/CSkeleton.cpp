@@ -767,9 +767,14 @@ void CSkeleton::RescaleSkeleton(float _fHScale,float _fVScale)
 //---------------------------------------------------------------------------
 CFEVect2 CSkeleton::oGetAbsBonePos(uint _uiBoneIdx,float _fTime,uint _uiEditMode)
 {
+	if (m_oBone.size() == 0)
+	{
+		return(CFEVect2::ZERO());
+	}
+	
 	// update instance just in case.
 	CFESkelAnimInstMgr::I()->Update(m_hInst,_0r);
-
+	
 	switch (_uiEditMode)
 	{
 		// skeleton
