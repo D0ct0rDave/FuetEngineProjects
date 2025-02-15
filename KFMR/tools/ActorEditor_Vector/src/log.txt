@@ -1,0 +1,4 @@
+15:46:17: Failed to create a temporary file name (error 267: el nombre del directorio no es válido.)
+15:46:17: can't open user configuration file.
+19:14:51: Failed to create a temporary file name (error 267: el nombre del directorio no es válido.)
+19:14:51: can't open user configuration file.
