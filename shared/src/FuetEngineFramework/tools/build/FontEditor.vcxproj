@@ -67,29 +67,29 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(ProjectDir)exe\FontEditor\Win32\Debug\</OutDir>
-    <IntDir>$(ProjectDir)obj\FontEditor\Win32\Debug\Win32\</IntDir>
+    <OutDir>$(ProjectDir)exe\Autoversion\Win32\Debug\</OutDir>
+    <IntDir>$(ProjectDir)obj\Autoversion\Win32\Debug\Win32\</IntDir>
     <TargetName>FontEditor</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug x64|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(ProjectDir)exe\FontEditor\Win32\Debug\</OutDir>
-    <IntDir>$(ProjectDir)obj\FontEditor\Win32\Debug\x64\</IntDir>
+    <OutDir>$(ProjectDir)exe\Autoversion\Win32\Debug\</OutDir>
+    <IntDir>$(ProjectDir)obj\Autoversion\Win32\Debug\x64\</IntDir>
     <TargetName>FontEditor</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(ProjectDir)exe\FontEditor\Win32\Release\</OutDir>
-    <IntDir>$(ProjectDir)obj\FontEditor\Win32\Release\Win32\</IntDir>
+    <OutDir>$(ProjectDir)exe\Autoversion\Win32\Release\</OutDir>
+    <IntDir>$(ProjectDir)obj\Autoversion\Win32\Release\Win32\</IntDir>
     <TargetName>FontEditor</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release x64|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(ProjectDir)exe\FontEditor\Win32\Release\</OutDir>
-    <IntDir>$(ProjectDir)obj\FontEditor\Win32\Release\x64\</IntDir>
+    <OutDir>$(ProjectDir)exe\Autoversion\Win32\Release\</OutDir>
+    <IntDir>$(ProjectDir)obj\Autoversion\Win32\Release\x64\</IntDir>
     <TargetName>FontEditor</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
@@ -97,8 +97,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_MBCS;_WINDOWS;NOPCH;DEBUG;__WXMSW__;__WXDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\FontEditor;$(ProjectDir)..\FontEditor\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include\msvc;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\treelistctrl;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\grid;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_MBCS;NOPCH;_WINDOWS;DEBUG;__WXMSW__;__WXDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\FontEditor;$(ProjectDir)..\FontEditor\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\treelistctrl;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\grid;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include;..\Autoversion;$(ProjectDir)..\Autoversion\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -106,14 +106,15 @@
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;physfs.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxbase28d.lib;wxbase28d_net.lib;wxbase28d_odbc.lib;wxbase28d_xml.lib;wxmsw28d_adv.lib;wxmsw28d_aui.lib;wxmsw28d_core.lib;wxmsw28d_dbgrid.lib;wxmsw28d_gl.lib;wxmsw28d_html.lib;wxmsw28d_media.lib;wxmsw28d_qa.lib;wxmsw28d_richtext.lib;wxmsw28d_xrc.lib;wxexpatd.lib;wxjpegd.lib;wxpngd.lib;wxregexd.lib;wxtiffd.lib;wxzlibd.lib;wxmsw28d_treelistctrl.lib;wxmsw28d_things.lib;FuetEngine.lib;FuetEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;physfs.lib;wxmsw28d_treelistctrl.lib;wxmsw28d_things.lib;FuetEngine.lib;FuetEngine.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxbase28d.lib;wxbase28d_net.lib;wxbase28d_odbc.lib;wxbase28d_xml.lib;wxmsw28d_adv.lib;wxmsw28d_aui.lib;wxmsw28d_core.lib;wxmsw28d_dbgrid.lib;wxmsw28d_gl.lib;wxmsw28d_html.lib;wxmsw28d_media.lib;wxmsw28d_qa.lib;wxmsw28d_richtext.lib;wxmsw28d_xrc.lib;wxexpatd.lib;wxjpegd.lib;wxpngd.lib;wxregexd.lib;wxtiffd.lib;wxzlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
 copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImagePlus.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
 copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -121,8 +122,8 @@ copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</C
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_MBCS;_WINDOWS;NOPCH;DEBUG;__WXMSW__;__WXDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\FontEditor;$(ProjectDir)..\FontEditor\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include\msvc;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\treelistctrl;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\grid;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_MBCS;NOPCH;_WINDOWS;DEBUG;__WXMSW__;__WXDEBUG__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\FontEditor;$(ProjectDir)..\FontEditor\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\treelistctrl;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\grid;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include;..\Autoversion;$(ProjectDir)..\Autoversion\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -130,14 +131,15 @@ copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</C
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;physfs.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxbase28d.lib;wxbase28d_net.lib;wxbase28d_odbc.lib;wxbase28d_xml.lib;wxmsw28d_adv.lib;wxmsw28d_aui.lib;wxmsw28d_core.lib;wxmsw28d_dbgrid.lib;wxmsw28d_gl.lib;wxmsw28d_html.lib;wxmsw28d_media.lib;wxmsw28d_qa.lib;wxmsw28d_richtext.lib;wxmsw28d_xrc.lib;wxexpatd.lib;wxjpegd.lib;wxpngd.lib;wxregexd.lib;wxtiffd.lib;wxzlibd.lib;wxmsw28d_treelistctrl.lib;wxmsw28d_things.lib;FuetEngine.lib;FuetEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;physfs.lib;wxmsw28d_treelistctrl.lib;wxmsw28d_things.lib;FuetEngine.lib;FuetEngine.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxbase28d.lib;wxbase28d_net.lib;wxbase28d_odbc.lib;wxbase28d_xml.lib;wxmsw28d_adv.lib;wxmsw28d_aui.lib;wxmsw28d_core.lib;wxmsw28d_dbgrid.lib;wxmsw28d_gl.lib;wxmsw28d_html.lib;wxmsw28d_media.lib;wxmsw28d_qa.lib;wxmsw28d_richtext.lib;wxmsw28d_xrc.lib;wxexpatd.lib;wxjpegd.lib;wxpngd.lib;wxregexd.lib;wxtiffd.lib;wxzlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
 copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImagePlus.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
 copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -145,8 +147,8 @@ copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</C
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_MBCS;_WINDOWS;NOPCH;NDEBUG;__WXMSW__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\FontEditor;$(ProjectDir)..\FontEditor\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include\msvc;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\treelistctrl;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\grid;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_MBCS;NOPCH;_WINDOWS;NDEBUG;__WXMSW__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\FontEditor;$(ProjectDir)..\FontEditor\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\treelistctrl;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\grid;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include;..\Autoversion;$(ProjectDir)..\Autoversion\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -157,15 +159,16 @@ copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</C
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;physfs.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxmsw28_xrc.lib;wxmsw28_dbgrid.lib;wxmsw28_core.lib;wxbase28.lib;wxbase28_net.lib;wxmsw28_adv.lib;wxmsw28_html.lib;wxbase28_odbc.lib;wxmsw28_richtext.lib;wxbase28_xml.lib;wxmsw28_aui.lib;wxmsw28_media.lib;wxmsw28_qa.lib;wxmsw28_gl.lib;wxtiff.lib;wxjpeg.lib;wxregex.lib;wxpng.lib;wxzlib.lib;wxexpat.lib;wxmsw28_treelistctrl.lib;wxmsw28_things.lib;FuetEngine.lib;FuetEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;physfs.lib;FuetEngine.lib;FuetEngine.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxmsw28_xrc.lib;wxmsw28_dbgrid.lib;wxmsw28_core.lib;wxbase28.lib;wxbase28_net.lib;wxmsw28_adv.lib;wxmsw28_html.lib;wxbase28_odbc.lib;wxmsw28_richtext.lib;wxbase28_xml.lib;wxmsw28_aui.lib;wxmsw28_media.lib;wxmsw28_qa.lib;wxmsw28_gl.lib;wxtiff.lib;wxjpeg.lib;wxregex.lib;wxpng.lib;wxzlib.lib;wxexpat.lib;wxmsw28_treelistctrl.lib;wxmsw28_things.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
 copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImagePlus.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
 copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -173,8 +176,8 @@ copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</C
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_MBCS;_WINDOWS;NOPCH;NDEBUG;__WXMSW__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\FontEditor;$(ProjectDir)..\FontEditor\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include\msvc;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\treelistctrl;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\grid;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_MBCS;NOPCH;_WINDOWS;NDEBUG;__WXMSW__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\FontEditor;$(ProjectDir)..\FontEditor\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\treelistctrl;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include\wx\grid;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\include;..\Autoversion;$(ProjectDir)..\Autoversion\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\include\msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -185,19 +188,26 @@ copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</C
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;physfs.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxmsw28_xrc.lib;wxmsw28_dbgrid.lib;wxmsw28_core.lib;wxbase28.lib;wxbase28_net.lib;wxmsw28_adv.lib;wxmsw28_html.lib;wxbase28_odbc.lib;wxmsw28_richtext.lib;wxbase28_xml.lib;wxmsw28_aui.lib;wxmsw28_media.lib;wxmsw28_qa.lib;wxmsw28_gl.lib;wxtiff.lib;wxjpeg.lib;wxregex.lib;wxpng.lib;wxzlib.lib;wxexpat.lib;wxmsw28_treelistctrl.lib;wxmsw28_things.lib;FuetEngine.lib;FuetEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;physfs.lib;FuetEngine.lib;FuetEngine.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;wxmsw28_xrc.lib;wxmsw28_dbgrid.lib;wxmsw28_core.lib;wxbase28.lib;wxbase28_net.lib;wxmsw28_adv.lib;wxmsw28_html.lib;wxbase28_odbc.lib;wxmsw28_richtext.lib;wxbase28_xml.lib;wxmsw28_aui.lib;wxmsw28_media.lib;wxmsw28_qa.lib;wxmsw28_gl.lib;wxtiff.lib;wxjpeg.lib;wxregex.lib;wxpng.lib;wxzlib.lib;wxexpat.lib;wxmsw28_treelistctrl.lib;wxmsw28_things.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\additions\lib\vc_lib\Win32;$(FuetEngineProjectsDev)\shared\src\sdks\externals\wxWidgets2.8\lib\vc_lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
 copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImagePlus.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
 copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\Autoversion\src\autoversioning\avConfig.h" />
+    <ClInclude Include="..\Autoversion\src\autoversioning\avHeader.h" />
+    <ClInclude Include="..\Autoversion\src\stdafx.h" />
+    <ClInclude Include="..\Autoversion\src\targetver.h" />
+    <ClInclude Include="..\Autoversion\src\template\version.h" />
+    <ClInclude Include="..\Autoversion\src\version.h" />
     <ClInclude Include="..\FontEditor\src\CAppGlobals.h" />
     <ClInclude Include="..\FontEditor\src\CFontEditorGUI.h" />
     <ClInclude Include="..\FontEditor\src\CFontEditorGUIBase.h" />
@@ -213,6 +223,9 @@ copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</C
     <ClInclude Include="..\common\CLibConfigFileWriter.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Autoversion\src\AutoVersion.cpp" />
+    <ClCompile Include="..\Autoversion\src\autoversioning\avHeader.cpp" />
+    <ClCompile Include="..\Autoversion\src\stdafx.cpp" />
     <ClCompile Include="..\FontEditor\src\CAppGlobals.cpp" />
     <ClCompile Include="..\FontEditor\src\CFontEditorGUI.cpp" />
     <ClCompile Include="..\FontEditor\src\CFontEditorGUIBase.cpp" />
@@ -221,9 +234,14 @@ copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</C
     <ClCompile Include="..\FontEditor\src\CSpecialCharGUI.cpp" />
     <ClCompile Include="..\FontEditor\src\CSpecialCharGUIBase.cpp" />
     <ClCompile Include="..\FontEditor\src\FontEditor.cpp" />
-    <ClCompile Include="..\FontEditor\src\stdafx.cpp" />
+    <ClCompile Include="..\FontEditor\src\stdafx.cpp">
+      <ObjectFileName>$(IntDir)\stdafx1.obj</ObjectFileName>
+    </ClCompile>
     <ClCompile Include="..\common\CBinConfigFileWriter.cpp" />
     <ClCompile Include="..\common\CLibConfigFileWriter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Autoversion\src\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,24 +5,21 @@ local FuetEngineRoot = "$(FuetEngineProjectsDev)/shared/src/FuetEngineFramework/
 	
 workspace "FuetEngine"
     configurations { "DEV_Debug", "DEV_Release", "DEV_WITH_SOUND_Debug", "DS_PC_Debug", "PLAYTEST_Debug", "PLAYTEST_Release", "WIN32_Debug", "WIN32_Release"}
-    location "build" -- Where generated files (like Visual Studio solutions) will be stored
-    architecture "x86_64"
-
-	filter "configurations:DEV_*"
-        architecture "x86"
+    platforms { "Win32", "x64" }
+	location "build" -- Where generated files (like Visual Studio solutions) will be stored
+    
+	filter {"platforms:Win32"}
+	architecture "x86"
+	filter {"platforms:x64"}
+	architecture "x86_64"
 	filter {}
-
-	currentPlatform = "Win32"
-	filter { "architecture:x86_64" }
-		currentPlatform = "x64"
-	filter {} -- Reset filter
 
 project "FuetEngine"
     kind "StaticLib" -- Change to "SharedLib" for a shared library
     language "C++"
     cppdialect "C++17"
-    targetdir("$(ProjectDir)../lib/" .. currentPlatform .. "/%{cfg.buildcfg}") -- Output directory for binaries
-    objdir("$(ProjectDir)../obj/" .. currentPlatform .. "/%{cfg.buildcfg}") -- Output directory for intermediate files
+    targetdir("$(ProjectDir)../lib/%{cfg.platform}/%{cfg.buildcfg}") -- Output directory for binaries
+    objdir("$(ProjectDir)../obj/%{cfg.platform}/%{cfg.buildcfg}") -- Output directory for intermediate files
 	characterset("ASCII")
 	sourceDir = "$(ProjectDir)../src"
 

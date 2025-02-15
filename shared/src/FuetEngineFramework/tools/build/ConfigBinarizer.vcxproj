@@ -5,17 +5,17 @@
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug x64|Win32">
-      <Configuration>Debug x64</Configuration>
-      <Platform>Win32</Platform>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release x64|Win32">
-      <Configuration>Release x64</Configuration>
-      <Platform>Win32</Platform>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -31,7 +31,7 @@
     <CharacterSet>NotSet</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug x64|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>NotSet</CharacterSet>
@@ -43,7 +43,7 @@
     <CharacterSet>NotSet</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release x64|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>NotSet</CharacterSet>
@@ -55,41 +55,41 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug x64|Win32'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release x64|Win32'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)exe\ConfigBinarizer\Win32\Debug\</OutDir>
-    <IntDir>$(ProjectDir)obj\ConfigBinarizer\Win32\Debug\Win32\</IntDir>
+    <IntDir>$(ProjectDir)obj\ConfigBinarizer\Win32\Debug\</IntDir>
     <TargetName>ConfigBinarizer</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug x64|Win32'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(ProjectDir)exe\ConfigBinarizer\Win32\Debug\</OutDir>
-    <IntDir>$(ProjectDir)obj\ConfigBinarizer\Win32\Debug\x64\</IntDir>
+    <OutDir>$(ProjectDir)exe\ConfigBinarizer\x64\Debug\</OutDir>
+    <IntDir>$(ProjectDir)obj\ConfigBinarizer\x64\Debug\</IntDir>
     <TargetName>ConfigBinarizer</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)exe\ConfigBinarizer\Win32\Release\</OutDir>
-    <IntDir>$(ProjectDir)obj\ConfigBinarizer\Win32\Release\Win32\</IntDir>
+    <IntDir>$(ProjectDir)obj\ConfigBinarizer\Win32\Release\</IntDir>
     <TargetName>ConfigBinarizer</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release x64|Win32'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(ProjectDir)exe\ConfigBinarizer\Win32\Release\</OutDir>
-    <IntDir>$(ProjectDir)obj\ConfigBinarizer\Win32\Release\x64\</IntDir>
+    <OutDir>$(ProjectDir)exe\ConfigBinarizer\x64\Release\</OutDir>
+    <IntDir>$(ProjectDir)obj\ConfigBinarizer\x64\Release\</IntDir>
     <TargetName>ConfigBinarizer</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
@@ -98,7 +98,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_MBCS;_WINDOWS;NOPCH;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ConfigBinarizer;$(ProjectDir)..\ConfigBinarizer\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ConfigBinarizer;$(ProjectDir)..\ConfigBinarizer\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -117,12 +117,12 @@ copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win
 copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug x64|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_MBCS;_WINDOWS;NOPCH;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ConfigBinarizer;$(ProjectDir)..\ConfigBinarizer\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ConfigBinarizer;$(ProjectDir)..\ConfigBinarizer\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -133,11 +133,11 @@ copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</C
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;physfs.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;FuetEngine.lib;FuetEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
-copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImagePlus.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Release\FreeImagePlus.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
 copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -146,7 +146,7 @@ copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</C
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_MBCS;_WINDOWS;NOPCH;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ConfigBinarizer;$(ProjectDir)..\ConfigBinarizer\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ConfigBinarizer;$(ProjectDir)..\ConfigBinarizer\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -169,12 +169,12 @@ copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win
 copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release x64|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_MBCS;_WINDOWS;NOPCH;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ConfigBinarizer;$(ProjectDir)..\ConfigBinarizer\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(ProjectDir)..\..\FuetEngine\src;$(ProjectDir)..\..\..\SDKS\externals\FreeImage\Dist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ConfigBinarizer;$(ProjectDir)..\ConfigBinarizer\src;$(ProjectDir)..\common\components;$(ProjectDir)..\common;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -189,11 +189,11 @@ copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</C
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;physfs.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;FuetEngine.lib;FuetEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs\build\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\build\src\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
-copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release\FreeImagePlus.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Release\FreeImage.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
+copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Release\FreeImagePlus.dll $(ProjectDir)..\..\..\..\toolchain\FuetEngine
 copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

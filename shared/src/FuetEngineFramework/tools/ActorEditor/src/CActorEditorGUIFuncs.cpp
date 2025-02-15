@@ -75,8 +75,16 @@ void UpdateInfoLabels(const CFEVect2& _oCursorPos)
 	sStr.Format("Coords: (%.1f,%.1f)",_oCursorPos.x,_oCursorPos.y);
     globals.GUI->lb_Frame->SetLabel(sStr.szString());	
     
-	CFEVect2 oOffset = globals.m_poSkeleton->m_oBone[globals.m_iSelEditBone].m_poBJointAction->m_oPosFunc.oGetValue(globals.m_fTime);
-	sStr.Format("Offset: (%.2f,%.2f)",oOffset.x,oOffset.y);
+	if ((globals.m_iSelEditBone >-1) && (globals.m_iSelEditBone < globals.m_poSkeleton->m_oBone.size()))
+	{
+		CFEVect2 oOffset = globals.m_poSkeleton->m_oBone[globals.m_iSelEditBone].m_poBJointAction->m_oPosFunc.oGetValue(globals.m_fTime);
+		sStr.Format("Offset: (%.2f,%.2f)",oOffset.x,oOffset.y);
+	}
+	else
+	{
+		sStr = "Offset: (-,-)";
+	}
+
 	globals.GUI->m_lbBoneOffset->SetLabel( wxString(sStr.szString()) );    
 }
 //---------------------------------------------------------------------------
@@ -95,6 +103,11 @@ void DoZoom(float _fNewZoom)
 //----------------------------------------------------------------------------
 void CheckNewBoneSelection(const CFEVect2& _oInputCoord)
 {
+	if (globals.m_poSkeleton->m_oBone.size() == 0)
+	{
+		return;
+	}
+
 	int j = (globals.m_iSelEditBone>-1)?((globals.m_iSelEditBone+1) % globals.m_poSkeleton->m_oBone.size()):-1;
 
     for (uint i=0;i<globals.m_poSkeleton->m_oBone.size();i++)
@@ -739,7 +752,7 @@ void RefreshBoneControls()
 
 void SetupBoneControls()
 {
-	if (globals.m_iSelEditBone != -1) 
+	if ((globals.m_iSelEditBone != -1) && (globals.m_poSkeleton->m_oBone.size() > 0))
 	{
 		CBone* poBone = &globals.m_poSkeleton->m_oBone[globals.m_iSelEditBone];
 		
