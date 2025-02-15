@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F563877C-E19A-880D-8A87-6E10769D040F}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>KFMR</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\exe\Win32\Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\Win32\Debug\</IntDir>
+    <TargetName>KFMR</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\exe\x64\Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\x64\Debug\</IntDir>
+    <TargetName>KFMR</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\exe\Win32\Release\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\Win32\Release\</IntDir>
+    <TargetName>KFMR</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\exe\x64\Release\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\x64\Release\</IntDir>
+    <TargetName>KFMR</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\src;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\extensions;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>FuetEngine.lib;ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win32;$(ProjectDir)..\..\..\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\src;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\extensions;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>FuetEngine.lib;ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\lib\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win64;$(ProjectDir)..\..\..\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\src;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\extensions;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>FuetEngine.lib;ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\lib\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win32;$(ProjectDir)..\..\..\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\src;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\extensions;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>FuetEngine.lib;ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\lib\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win64;$(ProjectDir)..\..\..\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Extensions\CMusicTrack.h" />
+    <ClInclude Include="..\src\Extensions\CMusicTrackLoader.h" />
+    <ClInclude Include="..\src\Extensions\CMusicTracker.h" />
+    <ClInclude Include="..\src\Game\CGame.h" />
+    <ClInclude Include="..\src\Game\CGameGlobals.h" />
+    <ClInclude Include="..\src\Game\CGameLoop.h" />
+    <ClInclude Include="..\src\Game\CGameMsgMgr.h" />
+    <ClInclude Include="..\src\Game\CGameVisitor.h" />
+    <ClInclude Include="..\src\Game\CStatedObject.h" />
+    <ClInclude Include="..\src\Game\CinematicActions\CActionMoveEntity.h" />
+    <ClInclude Include="..\src\Game\CinematicActions\CActionMoveEntityRelTo.h" />
+    <ClInclude Include="..\src\Game\CinematicActions\CActionMoveEntityTo.h" />
+    <ClInclude Include="..\src\Game\CinematicActions\CActionPerturbCamera.h" />
+    <ClInclude Include="..\src\Game\CinematicActions\CActionPlayBGM.h" />
+    <ClInclude Include="..\src\Game\CinematicActions\CActionPlayEntityAnim.h" />
+    <ClInclude Include="..\src\Game\CinematicActions\CActionPlayHUDAnim.h" />
+    <ClInclude Include="..\src\Game\CinematicActions\CActionSpawnEntity.h" />
+    <ClInclude Include="..\src\Game\CinematicActions\CActionStopBGM.h" />
+    <ClInclude Include="..\src\Game\CinematicActions\CActionTest.h" />
+    <ClInclude Include="..\src\Game\CinematicActions\CKFRMActionLoader.h" />
+    <ClInclude Include="..\src\Game\Entity\CActor.h" />
+    <ClInclude Include="..\src\Game\Entity\CEntity.h" />
+    <ClInclude Include="..\src\Game\Entity\CEntityFactory.h" />
+    <ClInclude Include="..\src\Game\Entity\CEntityMgr.h" />
+    <ClInclude Include="..\src\Game\Entity\CEntityRegistry.h" />
+    <ClInclude Include="..\src\Game\Entity\CKFRMActor.h" />
+    <ClInclude Include="..\src\Game\Entity\CLivingEntity.h" />
+    <ClInclude Include="..\src\Game\Entity\Camera\CCamera.h" />
+    <ClInclude Include="..\src\Game\Entity\Enemy\CChinoCudeiro.h" />
+    <ClInclude Include="..\src\Game\Entity\Enemy\CDiscChinoCudeiro.h" />
+    <ClInclude Include="..\src\Game\Entity\Enemy\CDopeFish.h" />
+    <ClInclude Include="..\src\Game\Entity\Enemy\CEnanoSaltarin.h" />
+    <ClInclude Include="..\src\Game\Entity\Enemy\CEnemy.h" />
+    <ClInclude Include="..\src\Game\Entity\Enemy\CSimpleEnemy.h" />
+    <ClInclude Include="..\src\Game\Entity\Enemy\CSmallDopefish.h" />
+    <ClInclude Include="..\src\Game\Entity\Enemy\CThrowerEnemy.h" />
+    <ClInclude Include="..\src\Game\Entity\Enemy\CThrownObject.h" />
+    <ClInclude Include="..\src\Game\Entity\EntityAttacks.h" />
+    <ClInclude Include="..\src\Game\Entity\GameEntities.h" />
+    <ClInclude Include="..\src\Game\Entity\Level\CEyeFollower.h" />
+    <ClInclude Include="..\src\Game\Entity\Player\CActorTest.h" />
+    <ClInclude Include="..\src\Game\Entity\Player\CPlayer.h" />
+    <ClInclude Include="..\src\Game\Entity\Player\CPlayerBonus.h" />
+    <ClInclude Include="..\src\Game\Entity\Player\CSleepingBeauty.h" />
+    <ClInclude Include="..\src\Game\GameFlow\CEnemySpawner.h" />
+    <ClInclude Include="..\src\Game\GameFlow\CGameFlow.h" />
+    <ClInclude Include="..\src\Game\GameFlow\CGameFlowFactory.h" />
+    <ClInclude Include="..\src\Game\GameFlow\EnemyTest\CEnemyTestEnemySpawner.h" />
+    <ClInclude Include="..\src\Game\GameFlow\EnemyTest\CEnemyTestGameFlow.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level1A\CLevel1AEnemySpawner.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level1A\CLevel1AGameFlow.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level1A\Level1AGlobals.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level1B\CLevel1BEnemySpawner.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level1B\CLevel1BGameFlow.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level1B\Level1BGlobals.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level1Bonus\CLevel1BonusEnemySpawner.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level1Bonus\CLevel1BonusGameFlow.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level1Bonus\CLevel1BonusThrownObject.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level1Bonus\Level1BonusGlobals.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level2A\CLevel2AEnemySpawner.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level2A\CLevel2AGameFlow.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level2A\Level2AGlobals.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level2B\CLevel2BEnemySpawner.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level2B\CLevel2BGameFlow.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level2B\Level2BGlobals.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level2Bonus\CLevel2BonusEnemySpawner.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level2Bonus\CLevel2BonusGameFlow.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level2Bonus\CLevel2BonusThrownObject.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Level2Bonus\Level2BonusGlobals.h" />
+    <ClInclude Include="..\src\Game\GameFlow\Test\CTestGameFlow.h" />
+    <ClInclude Include="..\src\Game\GameMessages.h" />
+    <ClInclude Include="..\src\Game\Helpers\CAnimHelper.h" />
+    <ClInclude Include="..\src\Game\Helpers\CAttackChecker.h" />
+    <ClInclude Include="..\src\Game\Helpers\CCameraMgr.h" />
+    <ClInclude Include="..\src\Game\Helpers\CEnemyExiter.h" />
+    <ClInclude Include="..\src\Game\Helpers\CEnemyHelper.h" />
+    <ClInclude Include="..\src\Game\Helpers\CFERandomResourceQueue.h" />
+    <ClInclude Include="..\src\Game\Helpers\CGameHelper.h" />
+    <ClInclude Include="..\src\Game\Helpers\CGroundMgr.h" />
+    <ClInclude Include="..\src\Game\Helpers\CHUDActorNode.h" />
+    <ClInclude Include="..\src\Game\Helpers\CHUDMgr.h" />
+    <ClInclude Include="..\src\Game\Helpers\CInteractionMgr.h" />
+    <ClInclude Include="..\src\Game\Helpers\CSFXHelper.h" />
+    <ClInclude Include="..\src\Game\Helpers\CSoundHelper.h" />
+    <ClInclude Include="..\src\Game\Helpers\CharacterActions.h" />
+    <ClInclude Include="..\src\Game\Helpers\GameSFX.h" />
+    <ClInclude Include="..\src\Game\Helpers\GameSounds.h" />
+    <ClInclude Include="..\src\Game\Helpers\HUDActions.h" />
+    <ClInclude Include="..\src\Game\Map\CMapMgr.h" />
+    <ClInclude Include="..\src\Profile\CLibConfigFileWriter.h" />
+    <ClInclude Include="..\src\Profile\CProfile.h" />
+    <ClInclude Include="..\src\Profile\CProfileMgr.h" />
+    <ClInclude Include="..\src\app.h" />
+    <ClInclude Include="..\src\version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Extensions\CMusicTrackLoader.cpp" />
+    <ClCompile Include="..\src\Extensions\CMusicTracker.cpp" />
+    <ClCompile Include="..\src\Game\CGame.cpp" />
+    <ClCompile Include="..\src\Game\CGameGlobals.cpp" />
+    <ClCompile Include="..\src\Game\CGameLoop.cpp" />
+    <ClCompile Include="..\src\Game\CGameMsgMgr.cpp" />
+    <ClCompile Include="..\src\Game\CStatedObject.cpp" />
+    <ClCompile Include="..\src\Game\CinematicActions\CActionMoveEntity.cpp" />
+    <ClCompile Include="..\src\Game\CinematicActions\CActionMoveEntityRelTo.cpp" />
+    <ClCompile Include="..\src\Game\CinematicActions\CActionMoveEntityTo.cpp" />
+    <ClCompile Include="..\src\Game\CinematicActions\CActionPerturbCamera.cpp" />
+    <ClCompile Include="..\src\Game\CinematicActions\CActionPlayBGM.cpp" />
+    <ClCompile Include="..\src\Game\CinematicActions\CActionPlayEntityAnim.cpp" />
+    <ClCompile Include="..\src\Game\CinematicActions\CActionPlayHUDAnim.cpp" />
+    <ClCompile Include="..\src\Game\CinematicActions\CActionSpawnEntity.cpp" />
+    <ClCompile Include="..\src\Game\CinematicActions\CActionStopBGM.cpp" />
+    <ClCompile Include="..\src\Game\CinematicActions\CActionTest.cpp" />
+    <ClCompile Include="..\src\Game\CinematicActions\CKFRMActionLoader.cpp" />
+    <ClCompile Include="..\src\Game\Entity\CActor.cpp" />
+    <ClCompile Include="..\src\Game\Entity\CEntity.cpp" />
+    <ClCompile Include="..\src\Game\Entity\CEntityFactory.cpp" />
+    <ClCompile Include="..\src\Game\Entity\CEntityMgr.cpp" />
+    <ClCompile Include="..\src\Game\Entity\CEntityRegistry.cpp" />
+    <ClCompile Include="..\src\Game\Entity\CKFRMActor.cpp" />
+    <ClCompile Include="..\src\Game\Entity\CLivingEntity.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Camera\CCamera.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Enemy\CChinoCudeiro.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Enemy\CDiscChinoCudeiro.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Enemy\CDopeFish.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Enemy\CEnanoSaltarin.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Enemy\CEnemy.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Enemy\CSimpleEnemy.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Enemy\CSmallDopefish.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Enemy\CThrowerEnemy.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Enemy\CThrownObject.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Level\CEyeFollower.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Player\CActorTest.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Player\CPlayer.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Player\CPlayerBonus.cpp" />
+    <ClCompile Include="..\src\Game\Entity\Player\CSleepingBeauty.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\CEnemySpawner.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\CGameFlow.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\CGameFlowFactory.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\EnemyTest\CEnemyTestEnemySpawner.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\EnemyTest\CEnemyTestGameFlow.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Level1A\CLevel1AEnemySpawner.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Level1A\CLevel1AGameFlow.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Level1B\CLevel1BEnemySpawner.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Level1B\CLevel1BGameFlow.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Level1Bonus\CLevel1BonusEnemySpawner.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Level1Bonus\CLevel1BonusGameFlow.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Level1Bonus\CLevel1BonusThrownObject.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Level2A\CLevel2AEnemySpawner.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Level2A\CLevel2AGameFlow.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Level2B\CLevel2BEnemySpawner.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Level2B\CLevel2BGameFlow.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Level2Bonus\CLevel2BonusEnemySpawner.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Level2Bonus\CLevel2BonusGameFlow.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Level2Bonus\CLevel2BonusThrownObject.cpp" />
+    <ClCompile Include="..\src\Game\GameFlow\Test\CTestGameFlow.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\CAnimHelper.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\CAttackChecker.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\CCameraMgr.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\CEnemyExiter.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\CEnemyHelper.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\CFERandomResourceQueue.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\CGameHelper.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\CGroundMgr.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\CHUDActorNode.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\CHUDMgr.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\CInteractionMgr.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\CSFXHelper.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\CSoundHelper.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\CharacterActions.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\GameSFX.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\GameSounds.cpp" />
+    <ClCompile Include="..\src\Game\Helpers\HUDActions.cpp" />
+    <ClCompile Include="..\src\Game\Map\CMapMgr.cpp" />
+    <ClCompile Include="..\src\Profile\CLibConfigFileWriter.cpp" />
+    <ClCompile Include="..\src\Profile\CProfile.cpp" />
+    <ClCompile Include="..\src\Profile\CProfileMgr.cpp" />
+    <ClCompile Include="..\src\app.cpp" />
+    <ClCompile Include="..\src\main.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

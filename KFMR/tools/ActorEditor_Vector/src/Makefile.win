@@ -1,0 +1,39 @@
+# Project: FontEditor
+# Compiler: Default VC2005 compiler
+# Compiler Type: Visual C++ 2005
+# Makefile created by wxDev-C++ 7.3 on 10/03/10 14:08
+
+WXLIBNAME = wxmsw28
+CPP       = "cl.exe" /nologo
+CC        = "cl.exe" /nologo
+WINDRES   = "rc.exe"
+OBJ       = Objects/Visual\ C++\ 2005/FontEditorApp.obj Objects/Visual\ C++\ 2005/CFontEditorGUI.obj
+LINKOBJ   = "Objects/Visual C++ 2005/FontEditorApp.obj" "Objects/Visual C++ 2005/CFontEditorGUI.obj"
+LIBS      = /libpath:"C:/Archivos de programa/Microsoft Visual Studio 8/VC/lib" /libpath:"C:/Archivos de programa/Microsoft Visual Studio 8/VC/atlmfc/lib" /libpath:"C:/Archivos de programa/Microsoft Visual Studio 8/VC/PlatformSDK/lib" wxmsw28.lib wxmsw28_gl.lib wxtiff.lib wxjpeg.lib wxpng.lib wxzlib.lib wxregex.lib wxexpat.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib winspool.lib winmm.lib shell32.lib comctl32.lib ole32.lib oleaut32.lib uuid.lib rpcrt4.lib advapi32.lib wsock32.lib odbc32.lib opengl32.lib  
+INCS      = /I"C:/Archivos de programa/Microsoft Visual Studio 8/VC/include" /I"C:/Archivos de programa/Microsoft Visual Studio 8/VC/atlmfc/include" /I"C:/Archivos de programa/Microsoft Visual Studio 8/VC/PlatformSDK/include" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/Include/common"
+CXXINCS   = /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common" /I"C:/Archivos de programa/Microsoft Visual Studio 8/VC/include" /I"C:/Archivos de programa/Microsoft Visual Studio 8/VC/atlmfc/include" /I"C:/Archivos de programa/Microsoft Visual Studio 8/VC/PlatformSDK/include" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/3rdparty/wx/plotctrl" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/3rdparty/wx/sheet" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/3rdparty/wx/treemultictrl" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/3rdparty/wx/things" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/3rdparty/wx" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/3rdparty" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx/msw" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx/generic" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx/fl" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx/gizmos" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx/html" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx/mmedia" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx/net" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx/ogl" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx/plot" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx/protocol" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx/stc" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx/svg" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx/xml" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx/xrc" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common/wx" /I"F:/Utils/wxDev7.3.1/Dev-Cpp/include/common"
+RCINCS    = /I"F:/Utils/WXDEV7~1.1/Dev-Cpp/include/common" /I"C:/ARCHIV~1/MID05A~1/VC/include" /I"C:/ARCHIV~1/MID05A~1/VC/atlmfc/include" /I"C:/ARCHIV~1/MID05A~1/VC/PLATFO~1/include" /I"F:/Utils/WXDEV7~1.1/Dev-Cpp/"
+BIN       = Output/Visual C++ 2005/FontEditor.exe
+DEFINES   = 
+CXXFLAGS  = $(CXXINCS) $(DEFINES)   /EHs
+CFLAGS    = $(INCS) $(DEFINES)  
+GPROF     = mt.exe
+RM        = rm -f
+LINK      = "link.exe" /nologo /manifest
+
+.PHONY: all all-before all-after clean clean-custom
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	$(RM) $(LINKOBJ) "$(BIN)"
+
+$(BIN): $(OBJ)
+	$(LINK) $(LINKOBJ) /out:"$(BIN)" $(LIBS) 
+	$(GPROF) /nologo /manifest "Output\Visual C++ 2005\FontEditor.exe.manifest" /outputresource:"Output\Visual C++ 2005\FontEditor.exe"
+	@$(RM) "Output\Visual C++ 2005\FontEditor.exe.manifest"
+
+Objects/Visual\ C++\ 2005/FontEditorApp.obj: $(GLOBALDEPS) FontEditorApp.cpp FontEditorApp.h CFontEditorGUI.h
+	$(CPP) /c FontEditorApp.cpp /Fo"Objects/Visual C++ 2005/FontEditorApp.obj" $(CXXFLAGS)
+
+Objects/Visual\ C++\ 2005/CFontEditorGUI.obj: $(GLOBALDEPS) CFontEditorGUI.cpp CFontEditorGUI.h
+	$(CPP) /c CFontEditorGUI.cpp /Fo"Objects/Visual C++ 2005/CFontEditorGUI.obj" $(CXXFLAGS)

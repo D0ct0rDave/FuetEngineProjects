@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Extensions">
+      <UniqueIdentifier>{75555E5C-610D-A0A9-CA14-7905B6EB3A9A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{7FA9857C-6BE0-860D-14CD-6C1000E3020F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\CinematicActions">
+      <UniqueIdentifier>{4C3EE42A-B8AA-9F25-819E-3783EDC9C18D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Entity">
+      <UniqueIdentifier>{EB30030A-57E6-7BFF-E0DA-75D64C8F7203}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Entity\Camera">
+      <UniqueIdentifier>{032F4F46-EF12-109C-5873-0AEF4476FA1D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Entity\Enemy">
+      <UniqueIdentifier>{58131E48-C429-1CDE-0DA1-A7FF79F6EC65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Entity\Level">
+      <UniqueIdentifier>{B2169848-1E2D-96DE-67A4-2100D3F96666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Entity\Player">
+      <UniqueIdentifier>{A70B6365-93EF-23BB-FC4F-1E0EE8520E3D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameFlow">
+      <UniqueIdentifier>{40CBAB76-AC8B-27AD-75C6-702AE1456C89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameFlow\EnemyTest">
+      <UniqueIdentifier>{AD14D1F0-194C-1988-2256-7DAB8E0C4081}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameFlow\Level1A">
+      <UniqueIdentifier>{19B1ECEC-851D-A8E7-4E11-4045BA3CCA4F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameFlow\Level1B">
+      <UniqueIdentifier>{1AB1ECEC-861D-A8E7-4F11-4045BB3CCA4F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameFlow\Level1Bonus">
+      <UniqueIdentifier>{9F6FF207-0B32-2692-54E2-B41EC0E3FE6F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameFlow\Level2A">
+      <UniqueIdentifier>{3AB1ECEC-A61D-A8E7-6F11-4045DB3CCA4F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameFlow\Level2B">
+      <UniqueIdentifier>{3BB1ECEC-A71D-A8E7-7011-4045DC3CCA4F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameFlow\Level2Bonus">
+      <UniqueIdentifier>{4098470A-AC5A-7B94-F50A-0A21610C5472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameFlow\Test">
+      <UniqueIdentifier>{AF1F8F79-9B03-50CF-0464-4A22F0663A51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Helpers">
+      <UniqueIdentifier>{4169CC1B-2DCC-5BC0-D651-9476C2932743}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Map">
+      <UniqueIdentifier>{4C6B4732-3838-A23D-6151-90E54D7DD7CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Profile">
+      <UniqueIdentifier>{F60CF123-62EC-6FBF-6B04-FB95D762D620}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Extensions\CMusicTrack.h">
+      <Filter>Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Extensions\CMusicTrackLoader.h">
+      <Filter>Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Extensions\CMusicTracker.h">
+      <Filter>Extensions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CGame.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CGameGlobals.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CGameLoop.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CGameMsgMgr.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CGameVisitor.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CStatedObject.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CinematicActions\CActionMoveEntity.h">
+      <Filter>Game\CinematicActions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CinematicActions\CActionMoveEntityRelTo.h">
+      <Filter>Game\CinematicActions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CinematicActions\CActionMoveEntityTo.h">
+      <Filter>Game\CinematicActions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CinematicActions\CActionPerturbCamera.h">
+      <Filter>Game\CinematicActions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CinematicActions\CActionPlayBGM.h">
+      <Filter>Game\CinematicActions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CinematicActions\CActionPlayEntityAnim.h">
+      <Filter>Game\CinematicActions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CinematicActions\CActionPlayHUDAnim.h">
+      <Filter>Game\CinematicActions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CinematicActions\CActionSpawnEntity.h">
+      <Filter>Game\CinematicActions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CinematicActions\CActionStopBGM.h">
+      <Filter>Game\CinematicActions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CinematicActions\CActionTest.h">
+      <Filter>Game\CinematicActions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\CinematicActions\CKFRMActionLoader.h">
+      <Filter>Game\CinematicActions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\CActor.h">
+      <Filter>Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\CEntity.h">
+      <Filter>Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\CEntityFactory.h">
+      <Filter>Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\CEntityMgr.h">
+      <Filter>Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\CEntityRegistry.h">
+      <Filter>Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\CKFRMActor.h">
+      <Filter>Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\CLivingEntity.h">
+      <Filter>Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Camera\CCamera.h">
+      <Filter>Game\Entity\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Enemy\CChinoCudeiro.h">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Enemy\CDiscChinoCudeiro.h">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Enemy\CDopeFish.h">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Enemy\CEnanoSaltarin.h">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Enemy\CEnemy.h">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Enemy\CSimpleEnemy.h">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Enemy\CSmallDopefish.h">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Enemy\CThrowerEnemy.h">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Enemy\CThrownObject.h">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\EntityAttacks.h">
+      <Filter>Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\GameEntities.h">
+      <Filter>Game\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Level\CEyeFollower.h">
+      <Filter>Game\Entity\Level</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Player\CActorTest.h">
+      <Filter>Game\Entity\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Player\CPlayer.h">
+      <Filter>Game\Entity\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Player\CPlayerBonus.h">
+      <Filter>Game\Entity\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Entity\Player\CSleepingBeauty.h">
+      <Filter>Game\Entity\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\CEnemySpawner.h">
+      <Filter>Game\GameFlow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\CGameFlow.h">
+      <Filter>Game\GameFlow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\CGameFlowFactory.h">
+      <Filter>Game\GameFlow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\EnemyTest\CEnemyTestEnemySpawner.h">
+      <Filter>Game\GameFlow\EnemyTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\EnemyTest\CEnemyTestGameFlow.h">
+      <Filter>Game\GameFlow\EnemyTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level1A\CLevel1AEnemySpawner.h">
+      <Filter>Game\GameFlow\Level1A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level1A\CLevel1AGameFlow.h">
+      <Filter>Game\GameFlow\Level1A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level1A\Level1AGlobals.h">
+      <Filter>Game\GameFlow\Level1A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level1B\CLevel1BEnemySpawner.h">
+      <Filter>Game\GameFlow\Level1B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level1B\CLevel1BGameFlow.h">
+      <Filter>Game\GameFlow\Level1B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level1B\Level1BGlobals.h">
+      <Filter>Game\GameFlow\Level1B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level1Bonus\CLevel1BonusEnemySpawner.h">
+      <Filter>Game\GameFlow\Level1Bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level1Bonus\CLevel1BonusGameFlow.h">
+      <Filter>Game\GameFlow\Level1Bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level1Bonus\CLevel1BonusThrownObject.h">
+      <Filter>Game\GameFlow\Level1Bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level1Bonus\Level1BonusGlobals.h">
+      <Filter>Game\GameFlow\Level1Bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level2A\CLevel2AEnemySpawner.h">
+      <Filter>Game\GameFlow\Level2A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level2A\CLevel2AGameFlow.h">
+      <Filter>Game\GameFlow\Level2A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level2A\Level2AGlobals.h">
+      <Filter>Game\GameFlow\Level2A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level2B\CLevel2BEnemySpawner.h">
+      <Filter>Game\GameFlow\Level2B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level2B\CLevel2BGameFlow.h">
+      <Filter>Game\GameFlow\Level2B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level2B\Level2BGlobals.h">
+      <Filter>Game\GameFlow\Level2B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level2Bonus\CLevel2BonusEnemySpawner.h">
+      <Filter>Game\GameFlow\Level2Bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level2Bonus\CLevel2BonusGameFlow.h">
+      <Filter>Game\GameFlow\Level2Bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level2Bonus\CLevel2BonusThrownObject.h">
+      <Filter>Game\GameFlow\Level2Bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Level2Bonus\Level2BonusGlobals.h">
+      <Filter>Game\GameFlow\Level2Bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameFlow\Test\CTestGameFlow.h">
+      <Filter>Game\GameFlow\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\GameMessages.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\CAnimHelper.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\CAttackChecker.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\CCameraMgr.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\CEnemyExiter.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\CEnemyHelper.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\CFERandomResourceQueue.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\CGameHelper.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\CGroundMgr.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\CHUDActorNode.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\CHUDMgr.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\CInteractionMgr.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\CSFXHelper.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\CSoundHelper.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\CharacterActions.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\GameSFX.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\GameSounds.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Helpers\HUDActions.h">
+      <Filter>Game\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Game\Map\CMapMgr.h">
+      <Filter>Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Profile\CLibConfigFileWriter.h">
+      <Filter>Profile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Profile\CProfile.h">
+      <Filter>Profile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Profile\CProfileMgr.h">
+      <Filter>Profile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\app.h" />
+    <ClInclude Include="..\src\version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Extensions\CMusicTrackLoader.cpp">
+      <Filter>Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Extensions\CMusicTracker.cpp">
+      <Filter>Extensions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CGame.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CGameGlobals.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CGameLoop.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CGameMsgMgr.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CStatedObject.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CinematicActions\CActionMoveEntity.cpp">
+      <Filter>Game\CinematicActions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CinematicActions\CActionMoveEntityRelTo.cpp">
+      <Filter>Game\CinematicActions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CinematicActions\CActionMoveEntityTo.cpp">
+      <Filter>Game\CinematicActions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CinematicActions\CActionPerturbCamera.cpp">
+      <Filter>Game\CinematicActions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CinematicActions\CActionPlayBGM.cpp">
+      <Filter>Game\CinematicActions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CinematicActions\CActionPlayEntityAnim.cpp">
+      <Filter>Game\CinematicActions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CinematicActions\CActionPlayHUDAnim.cpp">
+      <Filter>Game\CinematicActions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CinematicActions\CActionSpawnEntity.cpp">
+      <Filter>Game\CinematicActions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CinematicActions\CActionStopBGM.cpp">
+      <Filter>Game\CinematicActions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CinematicActions\CActionTest.cpp">
+      <Filter>Game\CinematicActions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\CinematicActions\CKFRMActionLoader.cpp">
+      <Filter>Game\CinematicActions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\CActor.cpp">
+      <Filter>Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\CEntity.cpp">
+      <Filter>Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\CEntityFactory.cpp">
+      <Filter>Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\CEntityMgr.cpp">
+      <Filter>Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\CEntityRegistry.cpp">
+      <Filter>Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\CKFRMActor.cpp">
+      <Filter>Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\CLivingEntity.cpp">
+      <Filter>Game\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Camera\CCamera.cpp">
+      <Filter>Game\Entity\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Enemy\CChinoCudeiro.cpp">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Enemy\CDiscChinoCudeiro.cpp">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Enemy\CDopeFish.cpp">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Enemy\CEnanoSaltarin.cpp">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Enemy\CEnemy.cpp">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Enemy\CSimpleEnemy.cpp">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Enemy\CSmallDopefish.cpp">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Enemy\CThrowerEnemy.cpp">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Enemy\CThrownObject.cpp">
+      <Filter>Game\Entity\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Level\CEyeFollower.cpp">
+      <Filter>Game\Entity\Level</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Player\CActorTest.cpp">
+      <Filter>Game\Entity\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Player\CPlayer.cpp">
+      <Filter>Game\Entity\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Player\CPlayerBonus.cpp">
+      <Filter>Game\Entity\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Entity\Player\CSleepingBeauty.cpp">
+      <Filter>Game\Entity\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\CEnemySpawner.cpp">
+      <Filter>Game\GameFlow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\CGameFlow.cpp">
+      <Filter>Game\GameFlow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\CGameFlowFactory.cpp">
+      <Filter>Game\GameFlow</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\EnemyTest\CEnemyTestEnemySpawner.cpp">
+      <Filter>Game\GameFlow\EnemyTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\EnemyTest\CEnemyTestGameFlow.cpp">
+      <Filter>Game\GameFlow\EnemyTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Level1A\CLevel1AEnemySpawner.cpp">
+      <Filter>Game\GameFlow\Level1A</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Level1A\CLevel1AGameFlow.cpp">
+      <Filter>Game\GameFlow\Level1A</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Level1B\CLevel1BEnemySpawner.cpp">
+      <Filter>Game\GameFlow\Level1B</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Level1B\CLevel1BGameFlow.cpp">
+      <Filter>Game\GameFlow\Level1B</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Level1Bonus\CLevel1BonusEnemySpawner.cpp">
+      <Filter>Game\GameFlow\Level1Bonus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Level1Bonus\CLevel1BonusGameFlow.cpp">
+      <Filter>Game\GameFlow\Level1Bonus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Level1Bonus\CLevel1BonusThrownObject.cpp">
+      <Filter>Game\GameFlow\Level1Bonus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Level2A\CLevel2AEnemySpawner.cpp">
+      <Filter>Game\GameFlow\Level2A</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Level2A\CLevel2AGameFlow.cpp">
+      <Filter>Game\GameFlow\Level2A</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Level2B\CLevel2BEnemySpawner.cpp">
+      <Filter>Game\GameFlow\Level2B</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Level2B\CLevel2BGameFlow.cpp">
+      <Filter>Game\GameFlow\Level2B</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Level2Bonus\CLevel2BonusEnemySpawner.cpp">
+      <Filter>Game\GameFlow\Level2Bonus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Level2Bonus\CLevel2BonusGameFlow.cpp">
+      <Filter>Game\GameFlow\Level2Bonus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Level2Bonus\CLevel2BonusThrownObject.cpp">
+      <Filter>Game\GameFlow\Level2Bonus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\GameFlow\Test\CTestGameFlow.cpp">
+      <Filter>Game\GameFlow\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\CAnimHelper.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\CAttackChecker.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\CCameraMgr.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\CEnemyExiter.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\CEnemyHelper.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\CFERandomResourceQueue.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\CGameHelper.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\CGroundMgr.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\CHUDActorNode.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\CHUDMgr.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\CInteractionMgr.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\CSFXHelper.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\CSoundHelper.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\CharacterActions.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\GameSFX.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\GameSounds.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Helpers\HUDActions.cpp">
+      <Filter>Game\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Game\Map\CMapMgr.cpp">
+      <Filter>Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Profile\CLibConfigFileWriter.cpp">
+      <Filter>Profile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Profile\CProfile.cpp">
+      <Filter>Profile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Profile\CProfileMgr.cpp">
+      <Filter>Profile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\app.cpp" />
+    <ClCompile Include="..\src\main.cpp" />
+  </ItemGroup>
+</Project>
