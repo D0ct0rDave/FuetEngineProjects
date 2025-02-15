@@ -1,10 +1,10 @@
 // -----------------------------------------------------------------------------
 /*! \class CFEScript
  *  \brief A class to store a list of actions, the script.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 1999-2009
- *  \par Copyright (c) 1999 David Márquez de la Cruz
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // -----------------------------------------------------------------------------
@@ -23,17 +23,13 @@ class CFEScript
 		CFEScript()
 		{
 		}
-		
-		/// Destructor of the class
-		~CFEScript();
 
 		/// Adds a action to the script.
 		void AddAction(CFEAction* _poAction)
 		{
-			if (_poAction != NULL)
-				m_poActionList.push_back(_poAction);
+			m_poActionList.push_back(_poAction);
 		}
-
+		
 		/// Retrieves the total number of actions in the script.
 		uint uiNumActions()
 		{

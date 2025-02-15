@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFESkelAnim
  *  \brief A class for generic configuration settings reading
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -17,7 +17,6 @@
 #include "types/CFENamedObject.h"
 #include "CFESkelAnimNode.h"
 #include "CFESkelAnimVisitor.h"
-#include "CFESkelAnimEventFunc.h"
 //-----------------------------------------------------------------------------
 class CFESkelAnimNodeAction
 {
@@ -28,23 +27,17 @@ class CFESkelAnimNodeAction
 		};
 
 		/// Sets up the configuration of a given node according to the given time.
-		void SetupNode(FEReal _rTime,CFESkelAnimNode* _poNode)
+		void SetupNode(FEReal _fTime,CFESkelAnimNode* _poNode)
 		{
 			// Computes all the values for all the properties of the node.
 			if (bIsVisible())
 			{
 				_poNode->Show();
 
-				if (m_rAngleFunc.uiGetNumKeyFrames()>0) _poNode->SetAngle( m_rAngleFunc.oGetValue(_rTime) ); else _poNode->SetAngle(_0r);
-				if (m_oPosFunc.uiGetNumKeyFrames()>0)   _poNode->SetPos( m_oPosFunc.oGetValue(_rTime) );	 else _poNode->SetPos( CFEVect2::ZERO() );
-				
-				#ifdef USE_SKELANIM_SCALE_COLOR
-				if (m_oScaleFunc.uiGetNumKeyFrames()>0) _poNode->SetScale( m_oScaleFunc.oGetValue(_rTime) ); else _poNode->SetScale( CFEVect2::ONE() );
-				if (m_oColorFunc.uiGetNumKeyFrames()>0) _poNode->SetColor( m_oColorFunc.oGetValue(_rTime) ); else _poNode->SetColor ( CFEColor::WHITE() );
-				#endif
-
-				// if the object is not visible it shouldn't trigger an event.
-				m_oEventFunc.Check(_rTime);
+				if (m_rAngleFunc.uiGetNumKeyFrames()>0) _poNode->SetAngle( m_rAngleFunc.oGetValue(_fTime) ); else _poNode->SetAngle(_0r);
+				if (m_oPosFunc.uiGetNumKeyFrames()>0)   _poNode->SetPos( m_oPosFunc.oGetValue(_fTime) );	 else _poNode->SetPos( CFEVect2::ZERO() );
+				if (m_oScaleFunc.uiGetNumKeyFrames()>0) _poNode->SetScale( m_oScaleFunc.oGetValue(_fTime) ); else _poNode->SetScale( CFEVect2::ONE() );
+				if (m_oColorFunc.uiGetNumKeyFrames()>0) _poNode->SetColor( m_oColorFunc.oGetValue(_fTime) ); else _poNode->SetColor ( CFEColor::WHITE() );
 			}
 			else
 				_poNode->Hide();
@@ -75,7 +68,7 @@ class CFESkelAnimNodeAction
 		}
 
 		/// Makes the object associated to the action visible.
-		void Show(FEBool _bShow = true)
+		void Show(bool _bShow = true)
 		{
 			m_bVisible = _bShow;
 		}
@@ -87,7 +80,7 @@ class CFESkelAnimNodeAction
 		}
 
 		/// Retrieves whether the object associated to the action is visible or not.
-		FEBool bIsVisible()
+		bool bIsVisible()
 		{
 			return(m_bVisible);
 		}
@@ -95,15 +88,10 @@ class CFESkelAnimNodeAction
 	public:
 
 		CFEKFBFunc<CFEVect2>	m_oPosFunc;
-		CFEKFBFunc<FEReal>		m_rAngleFunc;
-		CFESkelAnimEventFunc	m_oEventFunc;
-
-		#ifdef USE_SKELANIM_SCALE_COLOR
 		CFEKFBFunc<CFEVect2>	m_oScaleFunc;
 		CFEKFBFunc<CFEColor>	m_oColorFunc;
-		#endif
-
-		FEBool					m_bVisible;
+		CFEKFBFunc<FEReal>		m_rAngleFunc;
+		bool					m_bVisible;
 		uint					m_uiNodeIdx; 
 
 		// Only valid for sprites
@@ -120,8 +108,7 @@ typedef enum ESAAPlayMode {
     SAAPM_LOOP,
     SAAPM_PINGPONG,
 
-    SAAPM_NUM,
-    SAAPM_MAX = 0xffffffff
+    SAAPM_NUM
     
 }ESAAPlayMode;
 //-----------------------------------------------------------------------------
@@ -153,7 +140,7 @@ class CFESkelAnimAction : public CFENamedObject
 		/// Deletes a action in the  element.
 		void DeleteNodeAction(uint _uiNodeAction)
 		{
-			m_oNodeActions.erase(m_oNodeActions.begin() + (long)_uiNodeAction);
+			m_oNodeActions.erase(m_oNodeActions.begin() + _uiNodeAction);
 		}
 
         /// Swaps the two given actions
@@ -237,14 +224,13 @@ class CFESkelAnimActionSet
 		/// Retrieves the action identified by the given index.
 		CFESkelAnimAction* poGetAction(uint _uiAction)
 		{
-			if (_uiAction>=m_oActions.size()) return(NULL);
 			return( m_oActions[_uiAction] );
 		}
 
 		/// Deletes a action in the  element.
 		void DeleteAction(uint _uiAction)
 		{
-			m_oActions.erase(m_oActions.begin() + (long)_uiAction);
+			m_oActions.erase(m_oActions.begin() + _uiAction);
 		}
 
         /// Swaps the two given actions
@@ -346,22 +332,19 @@ class CFESkelAnimInst
         /// Current status of the skeleton animation, i.e. animation and other things.
 
         /// Current action being played.
-        uint						m_uiAction;
+        uint m_uiAction;
 
         /// Moment in time related to the current action.
-        FEReal						m_rActionTime;
+        FEReal m_rActionTime;
 
 		/// The original skeleton animation referenced by this instance.
-        CFESkelAnim*				m_poSkelAnim;
+        CFESkelAnim* m_poSkelAnim;
 
 		// The instanced node hierarchy this animation belongs.
-		CFESkelAnimNode*			m_poInstAnimNode;
+		CFESkelAnimNode*		   m_poInstAnimNode;
 
-		// Array of correspondences between node actions indices and instanced nodes
+		// Array of correspondences between node actions and instance nodes
 		CFEArray<CFESkelAnimNode*>* m_poNodeInstTab;
-		
-		// Node mask to be used when updating nodes.
-		FEBool*						m_poNodeInstMask;
 };
 //-----------------------------------------------------------------------------
 #endif

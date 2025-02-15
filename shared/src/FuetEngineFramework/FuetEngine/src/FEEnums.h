@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class FEEnums
  *  \brief Enums shared among the FuetEngine and the application
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -20,8 +20,7 @@ typedef enum
     FSM_CUR,
     FSM_END,
 
-    FSM_NUM_MODES,
-   	FSM_MAX = 0xffffffff // to force 32 bit enum
+    FSM_NUM_MODES
 
 } EFEFileSeekMode;
 
@@ -33,8 +32,7 @@ typedef enum
     FOM_READ,
     FOM_WRITE,
 
-    FOM_NUM_MODES,
-	FOM_MAX = 0xffffffff // to force 32 bit enum
+    FOM_NUM_MODES
 
 }EFEFileOpenMode;
 
@@ -48,9 +46,7 @@ typedef enum
     THAM_RIGHT,
 		
     THAM_NUM_MODES,
-	THAM_MAX = 0xffffffff, // to force 32 bit enum
-  
-	THAM_DEFAULT = THAM_LEFT
+    THAM_DEFAULT = THAM_LEFT
 
 }EFETextHAlignmentMode;
 
@@ -64,10 +60,8 @@ typedef enum
     TVAM_BOTTOM,
 
     TVAM_NUM_MODES,
-	TVAM_MAX = 0xffffffff, // to force 32 bit enum
-
     TVAM_DEFAULT = TVAM_TOP
-	
+
 }EFETextVAlignmentMode;
 
 /// Rendering Blending modes
@@ -81,18 +75,7 @@ typedef enum
     BM_ALPHAADD,
     BM_MULT,
 
-    BM_FOG,
-    BM_FOGADD,
-
-    BM_MAGICMARKER,
-    BM_LIGHTMARKER,
-    BM_LIGHTSABER,
-    BM_REVEAL,
-	BM_LUMISHADE_REVEAL,
-
     BM_NUM_MODES,
-   	BM_MAX = 0xffffffff, // to force 32 bit enum
-
     BM_DEFAULT = BM_ALPHA
 
 }EFEBlendMode;
@@ -107,10 +90,7 @@ typedef enum{
     PF_RGB24,
     PF_RGBA32,
 
-    PF_NUM_FORMATS,
-
-    // PF_MAX = 0xffffffff // to force 32 bit enum  <------ Does not work ?!?!?!?!?!?
-    PF_MAX_FORMATS =0xffffffff // to force 32 bit enum
+    PF_NUM_FORMATS
 
 }EFEPixelFormat;
 
@@ -124,8 +104,7 @@ typedef enum
     SF_16MONO,
     SF_16STEREO,
 
-    SF_NUM_FORMATS,
-    SF_MAX = 0xffffffff // to force 32 bit enum
+    SF_NUM_FORMATS
 
 }EFESampleFormat;
 
@@ -151,8 +130,7 @@ typedef enum
 	IB_J,
 	IB_K,
 
-	IB_NUM_BUTTONS,
-    IB_MAX = 0xffffffff // to force 32 bit enum
+	IB_NUM_BUTTONS
 
 }EFEInputButton;
 
@@ -164,8 +142,7 @@ typedef enum
 	IA_Z,
 	IA_W,
 
-	IA_NUMAXIS,
-    IA_MAX = 0xffffffff // to force 32 bit enum
+	IA_NUMAXIS
 
 }EFEInputAxis;
 
@@ -176,8 +153,7 @@ typedef enum
 	IPB_B,
 	IPB_C,
 
-	IPB_NUMIPBS,
-    IPB_MAX = 0xffffffff // to force 32 bit enum
+	IPB_NUMIPBS
 
 }EFEInputPressureButton;
 
@@ -189,19 +165,9 @@ typedef enum
     SML_VOICE,
     SML_BGM,
     SML_FX,
-    SML_ENVIRONMENT,
+    FSM_ENVIRONMENT,
 
-    SML_USER_0,
-    SML_USER_1,
-    SML_USER_2,
-    SML_USER_3,
-    SML_USER_4,
-    SML_USER_5,
-    SML_USER_6,
-    SML_USER_7,
-
-    SML_NUM_LINES,
-    SML_MAX = 0xffffffff // to force 32 bit enum
+    SML_NUM_LINES
 
 } EFESoundMixerLine;
 
@@ -216,8 +182,6 @@ typedef enum{
     MP_HARDWARE_ALLOCATION,
     
     MP_NUM_MEM_ALLOC_POLICIES,
-    MP_MAX = 0xffffffff, // to force 32 bit enum
-
     MP_DEFAULT = MP_SYSTEM_ALLOCATION
 
 }EFEMemAllocPolicy;
@@ -244,17 +208,9 @@ typedef enum{
     MA_65536 = 65536,
     
     MA_NUM_ALIGNMENTS,
-    MA_MAX = 0xffffffff, // to force 32 bit enum
-    
     MA_DEFAULT = MA_NONE
 
 }EFEMemAlignment;
-
-// ------------------------------------------------------------------------
-// WARNING IMPORTANT NOTE!!!!: Every time a new language is appended, we should
-// add appropriate strings to Local String ID (CFECStdLocal) and SystemMessages 
-// (FECDSMessages,etc)
-// ------------------------------------------------------------------------
 
 /// Local IDs
 typedef enum
@@ -262,68 +218,20 @@ typedef enum
 	LID_NONE = 0,
 	LID_COMMON = 0,
 
-	LID_ES,						// spanish
-	LID_EN,						// english
-	LID_FR,						// french
-	LID_IT,						// italian
-	LID_DE,						// deutch (german)
-	LID_DU,						// dutch
-	LID_PT,						// portuguese
-
-	LID_US_ES,					// us spanish
-	LID_US_EN,					// us english
-	LID_US_FR,					// us french
-	LID_US_PT,					// us portuguese
-
-	LID_JP,						// japanish
+	LID_ES,
+	LID_EN,
+	LID_FR,
+	LID_IT,
+	LID_DE,
+	LID_DU,
+	LID_US_ES,
+	LID_US_EN,
+	LID_US_FR,
 
 	LID_NUM_IDs,
-	LID_MAX = 0xffffffff, // to force 32 bit enum
-    
-    LID_DEFAULT = LID_EN,
-    LID_US_DEFAULT = LID_US_EN
+	LID_DEFAULT = LID_ES
 
 }EFELocalID;
-
-// ------------------------------------------------------------------------
-// WARNING IMPORTANT NOTE!!!!: Every time a new region is appended, we should
-// add appropriate strings to Local String ID (CFECStdLocal)
-// ------------------------------------------------------------------------
-/// Local Region IDs
-typedef enum
-{
-	LRID_NONE = 0,
-	LRID_COMMON = 0,
-
-	LRID_US,					// united states
-	LRID_EU,					// Europe
-	LRID_JP,					// japan
-	LRID_AS,					// asia
-
-	LRID_NUM_IDs,
-	LRID_MAX = 0xffffffff,		// to force 32 bit enum
-
-    LRID_DEFAULT = LRID_EU
-
-}EFELocalRegionID;
-
-
-// Skeleton animation node types
-typedef enum 
-{
-	SANT_NONE,
-	
-	SANT_SPRITE,
-	SANT_SPRITE_MODEL,
-	SANT_MESH,
-	SANT_MESH_MODEL,
-	SANT_GROUP,
-	SANT_BONE,
-	
-	SANT_NUM,
-	SANT_MAX = 0xffffffff // to force 32 bit enum
-
-}EFESkelAnimNodeType;
 // ----------------------------------------------------------------------------
 #endif
 // ----------------------------------------------------------------------------

@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEParticleMgr
  *  \brief Particle system clases and definitions.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -58,13 +58,13 @@ class CFEParticleMgr
         static void Finish();
 
         /// Creates the given number of particles.
-        static void CreateParticles(uint _uiNumParticles, const CFEVect2& _oPos, const FEReal& _rDepth, const CFEVect2& _oSpd,CFEParticleSys* _poPS,FEHandler _hPSysInst);
+        static void CreateParticles(uint _uiNumParticles, const CFEVect2& _oPos, const FEReal& _rDepth, CFEParticleSys* _poPS);
 
         /// Updates the living particles in the system.
         static void Update(const FEReal& _rDeltaT);
 
         /// Renders the living particles in the system.
-        static void Render(CFERenderer* _poRenderer,FEHandler _hPSysInst);
+        static void Render(CFERenderer* _poRenderer);
     
         /// Invalidates all living particles.
         static void Reset();       

@@ -1,21 +1,23 @@
 // ----------------------------------------------------------------------------
 /*! \class CFELogger
  *  \brief Logging racilities implementation.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
-#include "core/CFECore.h"
+#include "System/CFESystem.h"
 #include "FEConsts.h"
 #include "CFELogger.h"
 
-#include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
+//-----------------------------------------------------------------------------
+const uint BUFF_SIZE = 2048;
+static char gsszLocalBuff[BUFF_SIZE];
 //-----------------------------------------------------------------------------
 CFELogger::CFELogger(uint _uiBufferSize) : m_pucBuffer(NULL)
 {
@@ -23,47 +25,48 @@ CFELogger::CFELogger(uint _uiBufferSize) : m_pucBuffer(NULL)
 
 	if (m_uiBufferSize>0)
 	{
-		m_pucBuffer = (char*)CFECore::Mem::pAlloc(m_uiBufferSize);
+		m_pucBuffer = (char*)CFESystem::Mem::pAlloc(m_uiBufferSize);
 		m_pucBuffer[0] = 0;
 	}
 }
 //-----------------------------------------------------------------------------
-void CFELogger::Print(const char *fmt,...)
+void CFELogger::Print(char *fmt,...)
 {
-	va_list argptr;
-	va_start(argptr,fmt);
-	char* str = CFECore::String::szFormatString(fmt,&argptr);
-	va_end  (argptr);
-	AddMessage(str);
+    va_list argptr;
+    va_start(argptr,fmt);
+    vsprintf_s(gsszLocalBuff,BUFF_SIZE,fmt,argptr);
+    va_end  (argptr);
+
+    AddMessage(gsszLocalBuff);
 }
 //-----------------------------------------------------------------------------
-void CFELogger::Warning(const char *fmt,...)
+void CFELogger::Warning(char *fmt,...)
 {
-	AddMessage("WARNING: ");
+	sprintf_s(gsszLocalBuff,BUFF_SIZE,"WARNING: ");
 
-	va_list argptr;
-	va_start(argptr,fmt);
-	char* str = CFECore::String::szFormatString(fmt,&argptr);
-	va_end  (argptr);
+    va_list argptr;
+    va_start(argptr,fmt);
+    vsprintf_s(gsszLocalBuff+9,BUFF_SIZE-9,fmt,argptr);
+    va_end  (argptr);
 
-	AddMessage(str);
-	AddMessage("\n");
+    AddMessage(gsszLocalBuff);
+    AddMessage("\n");
 }
 //-----------------------------------------------------------------------------
-void CFELogger::Error(const char *fmt,...)
+void CFELogger::Error(char *fmt,...)
 {
-	AddMessage("ERROR: ");
+	sprintf_s(gsszLocalBuff,BUFF_SIZE,"ERROR: ");
 
-	va_list argptr;
-	va_start(argptr,fmt);
-	char* str = CFECore::String::szFormatString(fmt,&argptr);
-	va_end  (argptr);
+    va_list argptr;
+    va_start(argptr,fmt);
+    vsprintf_s(gsszLocalBuff+7,BUFF_SIZE-7,fmt,argptr);
+    va_end  (argptr);
 
-	AddMessage(str);
-	AddMessage("\n");
+    AddMessage(gsszLocalBuff);
+    AddMessage("\n");
 }
 // ----------------------------------------------------------------------------
-void CFELogger::AddMessage(const char* _szMessage)
+void CFELogger::AddMessage(char* _szMessage)
 {
 	if (m_pucBuffer==NULL) return;
 
@@ -81,11 +84,7 @@ void CFELogger::AddMessage(const char* _szMessage)
 	}
 
 	// Append the string to the end of the buffer (include the trailing zero)
-	#ifdef WIN32
 	strcat_s(m_pucBuffer,m_uiBufferSize,_szMessage);
-	#else
-	strcat(m_pucBuffer,_szMessage);
-	#endif
 }
 //-----------------------------------------------------------------------------
 void CFELogger::Clean()
@@ -97,5 +96,44 @@ void CFELogger::Clean()
 const char* CFELogger::szGetLog()
 {
     return(m_pucBuffer);
+}
+// ----------------------------------------------------------------------------
+/// Prints a message to the log.
+void CFELogger::Sys::Print(char *fmt,...)
+{
+    va_list argptr;
+    va_start(argptr,fmt);
+    vsprintf_s(gsszLocalBuff,BUFF_SIZE,fmt,argptr);
+    va_end  (argptr);
+
+	CFESystem::Log::Print(gsszLocalBuff);
+}
+// ----------------------------------------------------------------------------
+/// Writes an warning to the log.
+void CFELogger::Sys::Warning(char *fmt,...)
+{
+	sprintf_s(gsszLocalBuff,BUFF_SIZE,"WARNING: ");
+
+    va_list argptr;
+    va_start(argptr,fmt);
+    vsprintf_s(gsszLocalBuff+9,BUFF_SIZE-9,fmt,argptr);
+    va_end  (argptr);
+
+	CFESystem::Log::Print(gsszLocalBuff);
+	CFESystem::Log::Print("\n");
+}
+// ----------------------------------------------------------------------------
+/// Writes an error to the log.
+void CFELogger::Sys::Error(char *fmt,...)
+{
+	sprintf_s(gsszLocalBuff,BUFF_SIZE,"ERROR: ");
+
+    va_list argptr;
+    va_start(argptr,fmt);
+    vsprintf_s(gsszLocalBuff+7,BUFF_SIZE-7,fmt,argptr);
+    va_end  (argptr);
+
+	CFESystem::Log::Print(gsszLocalBuff);
+	CFESystem::Log::Print("\n");
 }
 // ----------------------------------------------------------------------------

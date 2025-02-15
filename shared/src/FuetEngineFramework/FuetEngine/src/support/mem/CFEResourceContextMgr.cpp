@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEMem
  *  \brief Basic Memory Management Functionalities
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -50,20 +50,20 @@ void CFEResourceContextMgr::PopContext()
 {
 	// It should be good if the resource managers can be registerables but,
 	// at this moment it's not possible to do so. We do this using the already known managers.
-	CFESoundMgr::I()->ReleaseContextResources(gsuiContextID);
+	CFESoundMgr::ReleaseContextResources(gsuiContextID);
 
-	CFESkelAnimInstMgr::I()->ReleaseContextInstances(gsuiContextID);
-	CFESkelAnimMgr::I()->ReleaseContextResources(gsuiContextID);
+	CFESkelAnimInstMgr::ReleaseContextInstances(gsuiContextID);
+	CFESkelAnimMgr::ReleaseContextResources(gsuiContextID);
 
-	CFEParticleSysInstMgr::I()->ReleaseContextInstances(gsuiContextID);
-	CFEParticleSysMgr::I()->ReleaseContextResources(gsuiContextID);
+	CFEParticleSysInstMgr::ReleaseContextInstances(gsuiContextID);
+	CFEParticleSysMgr::ReleaseContextResources(gsuiContextID);
 	// CFEParticleMgr::ReleaseContextResources(gsuiContextID);
 
-	CFESpriteInstMgr::I()->ReleaseContextInstances(gsuiContextID);
-	CFESpriteMgr::I()->ReleaseContextResources(gsuiContextID);
+	CFESpriteInstMgr::ReleaseContextInstances(gsuiContextID);
+	CFESpriteMgr::ReleaseContextResources(gsuiContextID);
 
-	CFEFontMgr::I()->ReleaseContextResources(gsuiContextID);
-	CFEMaterialMgr::I()->ReleaseContextResources(gsuiContextID);
+	CFEFontMgr::ReleaseContextResources(gsuiContextID);
+	CFEMaterialMgr::ReleaseContextResources(gsuiContextID);
 
 	/*
 	if (gsuiContextID>1)

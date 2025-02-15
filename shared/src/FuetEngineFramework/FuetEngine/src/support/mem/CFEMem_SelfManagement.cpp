@@ -10,7 +10,7 @@
 // ----------------------------------------------------------------------------
 #include <stdlib.h>
 #include "CFEMem.h"
-#include "system/CFESystem.h"
+#include "System/CFESystem.h"
 #include "FEBasicTypes.h"
 // ----------------------------------------------------------------------------
 inline FEPointer pRoundUp(FEPointer _pPtr,uint _uiAlignment)
@@ -28,7 +28,7 @@ void* operator new(size_t sz)
 	void *pData = CFEMem::pAlloc(sz);
 
 	CFESystem::Check((pData!=NULL),"Unable to allocate data");
-	return(pData);
+	return(pData);	
 }
 // ----------------------------------------------------------------------------
 void operator delete(void* _pPtr)
@@ -60,11 +60,11 @@ typedef struct TMEMStaticContext
 
 typedef struct TMEMGlobals
 {
-    public:
+    public: 
 
             // Current allocation policy.
             EFEMemAllocPolicy   m_ePolicy;
-
+    
             // Current memory alignment.
             uint                m_uiAlignment;
 
@@ -88,7 +88,7 @@ typedef struct TMEMGlobals
             TMEMDynNode*        m_poFirst;
             ///
             TMEMDynNode*        m_poLast;
-
+            
             uint                m_uiNodes;
 }TMEMGlobals;
 
@@ -104,7 +104,7 @@ void CFEMem::Init(uint _uiStaticMemorySize,uint _uiMaxContexts)
     gpoMEMGlobals->m_poCurCtx->m_pBase = CFESystem::Mem::pAlloc(_uiStaticMemorySize);
     gpoMEMGlobals->m_poCurCtx->m_pCurPtr = gpoMEMGlobals->m_poCurCtx->m_pBase;
     gpoMEMGlobals->m_pTop     = gpoMEMGlobals->m_poCurCtx->m_pBase + _uiStaticMemorySize;
-
+    
     gpoMEMGlobals->m_poFirst  = NULL;
     gpoMEMGlobals->m_poLast   = NULL;
     gpoMEMGlobals->m_uiNodes  = 0;
@@ -114,7 +114,7 @@ void CFEMem::Init(uint _uiStaticMemorySize,uint _uiMaxContexts)
 }
 // ----------------------------------------------------------------------------
 void CFEMem::SwitchPolicy(EFEMemAllocPolicy _eMemPolicy)
-{
+{   
     /*
     if ( (gpoMEMGlobals->m_ePolicy==MP_DYNAMIC_ALLOCATION) && (_eMemPolicy != gpoMEMGlobals->m_ePolicy))
     {
@@ -129,9 +129,9 @@ void CFEMem::SwitchPolicy(EFEMemAllocPolicy _eMemPolicy)
 
             // free node
             CFESystem::Mem::Free((FEPointer)poNode);
-
+        
             // Next node
-            poNode = poNextNode;
+            poNode = poNextNode; 
         }
 
         gpoMEMGlobals->m_poFirst = NULL;
@@ -146,7 +146,7 @@ void CFEMem::PushContext()
 {
     uint uiCurCtx = gpoMEMGlobals->m_oCtx - gpoMEMGlobals->m_poCurCtx;
     CFESystem::Check((uiCurCtx+1)<gpoMEMGlobals->m_uiMaxCtx,"Unable to push memory context. Maximum context pushs reached.");
-
+ 
     FEPointer pBase = gpoMEMGlobals->m_poCurCtx->m_pCurPtr;
 
     gpoMEMGlobals->m_poCurCtx++;
@@ -177,14 +177,14 @@ void CFEMem::ResetContext()
 
                 // free node
                 CFESystem::Mem::Free((FEPointer)poNode);
-
+            
                 // Next node
-                poNode = poNextNode;
+                poNode = poNextNode; 
             }
 
             gpoMEMGlobals->m_poFirst = NULL;
-            gpoMEMGlobals->m_poLast  = NULL;
-        }
+            gpoMEMGlobals->m_poLast  = NULL;        
+        }        
         break;
 
         case MP_STATIC_ALLOCATION:
@@ -210,7 +210,7 @@ FEPointer CFEMem::pAlloc(uint _uiSize)
         // like MP_SYSTEM_ALLOCATION
         return( CFESystem::Mem::pAlloc(_uiSize) );
     }
-
+    
     switch (gpoMEMGlobals->m_ePolicy)
     {
         // -------------------------------------------------------
@@ -238,10 +238,10 @@ FEPointer CFEMem::pAlloc(uint _uiSize)
             gpoMEMGlobals->m_uiNodes++;
 
             poNode->m_pPtr = CFESystem::Mem::pAlloc(_uiSize);
-            return( poNode->m_pPtr );
+            return( poNode->m_pPtr );            
         }
         break;
-
+        
         // -------------------------------------------------------
         case MP_STATIC_ALLOCATION:
         {
@@ -278,7 +278,7 @@ void CFEMem::Free(FEPointer _pPtr)
         CFESystem::Mem::Free(_pPtr);
         return;
     }
-
+    
     // look if this pointer is inside the static blocks
     if ((_pPtr>= gpoMEMGlobals->m_oCtx[0].m_pBase) && (_pPtr<=gpoMEMGlobals->m_pTop))
     {
@@ -309,7 +309,7 @@ void CFEMem::Free(FEPointer _pPtr)
                 return;
                 // CFESystem::Check(poNode != NULL,"Trying to free wrong pointer 2.");
             }
-
+            
             // we've found the node to delete
             if (poNode->m_poPrev != NULL)
                 poNode->m_poPrev->m_poNext = poNode->m_poNext;
@@ -383,7 +383,7 @@ void CFEMem::Free(FEPointer _pPtr)
             }
         }
         break;
-
+            
         }
         break;
     }

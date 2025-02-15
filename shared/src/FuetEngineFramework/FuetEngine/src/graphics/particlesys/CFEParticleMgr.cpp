@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEParticleMgr
  *  \brief Particle system clases and definitions.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -15,162 +15,73 @@
 #include "support/graphics/CFERenderer.h"
 #include "types/FEKFBFLerpFuncs.h"
 #include "types/CFESingleton.h"
-//-----------------------------------------------------------------------------
 static uint uiCP = 0;
 static uint uiDP = 0;
 //-----------------------------------------------------------------------------
 class CFEParticle
 {
-
-	protected:
-
-		//
-		CFEParticleSys*	    m_poPS;
-
-		/// Initial TTL of the particle
-		FEReal				m_rTTL;
-
-		/// Current Time of the particle
-		FEReal				m_rTime;
-		
-		/// Initial pos
-		CFEVect2			m_oIPos;
-		
-		/// Initial speed
-		CFEVect2			m_oISpeed;
-
-		/// Initial Acceleration
-		CFEVect2			m_oIAccel;
-		
-		/// Initial size
-		FEReal				m_rISize;
-	
-		/// Initial size speed
-		FEReal				m_rISSpeed;
-
-		/// Initial size accel
-		// FEReal				m_rISAccel;
-
-		/// Initial angle
-		FEReal				m_rIAngle;
-
-		/// Initial angle speed
-		FEReal				m_rIASpeed;
-		
-		/// Initial angle accel
-		// FEReal				m_rIAAccel;
-
-    protected:
-
-        //
-        FEReal              m_rDepth;
-        FEHandler			m_hPSysInst;
-		CFEVect2*			m_poPSysSpeed;
-
-	public:
-
-		// Sprite instances are self managed by the particles.
-		CFESpriteInst*		m_poSprInst;
-
 	public:
 
 		CFEParticle()
 		{
 			// WARNING: This casting is ugly...
-			m_poSprInst = (CFESpriteInst*)CFESpriteInstMgr::I()->poCreateInstance();			
+			m_poSprInst = (CFESpriteInst*)CFESpriteInstMgr::poCreateInstance();
 		};
 
 		~CFEParticle()
 		{
 			// WARNING: This casting is ugly...
-			CFESpriteInstMgr::I()->DestroyInstance((CFESpriteMgrInst*)m_poSprInst);
+			CFESpriteInstMgr::DestroyInstance((CFESpriteMgrInst*)m_poSprInst);
 		};
 
-		void Init(const CFEVect2& _oPos,const FEReal& _rDepth, const CFEVect2& _oSpd, CFEParticleSys*	_poPS,FEHandler _hPSysInst)
-		{
-			m_hPSysInst	    = _hPSysInst;
+		void Init(const CFEVect2& _oPos,const FEReal& _rDepth, CFEParticleSys*	_poPS)
+		{	    
 			m_poPS	        = _poPS;
             m_rDepth        = _rDepth;
 
 			m_rTime         = _0r;
-			m_rTTL		    = m_poPS->m_rTTL;
+			m_rTTL		    = m_poPS->m_rTTL.rGetValue();
 
-			CFEVect2 oD = CFEVect2::X();
-			oD.Rotate( m_poPS->m_oEmisorPhase.rGetValue() );
+			m_rAngleOfs     = m_poPS->m_rAngle.m_oOfs.rGetValue() * m_poPS->m_rAngle.oGetValue(0);
+			m_rScaleOfs	    = m_poPS->m_rScale.m_oOfs.rGetValue() * m_poPS->m_rScale.oGetValue(0);
+			m_rXPosOfs	    = m_poPS->m_rXPos.m_oOfs.rGetValue()  * m_poPS->m_rXPos.oGetValue(0) + _oPos.x; // instead of adding initial position in oGetPos function.
+			m_rYPosOfs	    = m_poPS->m_rYPos.m_oOfs.rGetValue()  * m_poPS->m_rYPos.oGetValue(0) + _oPos.y; // instead of adding initial position in oGetPos function.
 
-			// Initial position
-			m_oIPos = _oPos + oD*m_poPS->m_oEmisorRad.rGetValue() + CFEVect2(m_poPS->m_oEmisorXOfs.rGetValue(),m_poPS->m_oEmisorYOfs.rGetValue());
-
-			if (m_poPS->m_uiFlags & PSF_TANGENTIAL_EMISION)
-				oD.Rotate(_PI2r);
-
-			/// Initial speed
-			FEReal rIXSpeed = m_poPS->m_oEmisorXSpeed.rGetValue() + _oSpd.x;
-			FEReal rIYSpeed = m_poPS->m_oEmisorYSpeed.rGetValue() + _oSpd.y;
-			FEReal rIESpeed = m_poPS->m_oEmisorSpeed.rGetValue();
-			m_oISpeed = oD*rIESpeed + CFEVect2(rIXSpeed,rIYSpeed);
-
-			/// Initial Acceleration
-			FEReal rIXAccel = m_poPS->m_rEmisorXAccel; // *CFEMath::rSign(rIXSpeed);
-			FEReal rIYAccel = m_poPS->m_rEmisorYAccel; // *CFEMath::rSign(rIYSpeed);
-			FEReal rIEAccel = m_poPS->m_rEmisorAccel;  // *CFEMath::rSign(rIESpeed);
-			m_oIAccel = oD*rIEAccel + CFEVect2(rIXAccel,rIYAccel);
-
-			/// Initial size
-			m_rISize = m_poPS->m_oPartSize.rGetValue();
-
-			/// Initial size speed
-			m_rISSpeed = m_poPS->m_oPartSizeSpeed.rGetValue();
-
-			/// Initial size accel
-			// m_rISAccel = m_poPS->m_rPartSizeAccel*CFEMath::rSign(m_rISSpeed);
-
-			/// Initial angle
-			m_rIAngle = m_poPS->m_oPartAngle.rGetValue();
-
-			/// Initial angle speed
-			m_rIASpeed = m_poPS->m_oPartAngleSpeed.rGetValue();
-
-			/// Initial angle accel
-			// m_rIAAccel = m_poPS->m_rPartAngleAccel*CFEMath::rSign(m_rIASpeed);
-
-			if ((_poPS->m_poSprite!=NULL) && (_poPS->m_poSprite->poGetAction(0) != NULL))
-				m_poSprInst->m_rActionTime = CFEMath::rRand() * _poPS->m_poSprite->poGetAction(0)->m_rRandStartTime;
-			else
-				m_poSprInst->m_rActionTime = _0r;
+			m_rColorMult    = (_1r + m_poPS->m_oColor.m_oMult.rGetValue()) * _05r;
+			m_rAngleMult    = m_poPS->m_rAngle.m_oMult.rGetValue();
+			m_rScaleMult	= (_1r + m_poPS->m_rScale.m_oMult.rGetValue()) * _05r;
+			m_rXPosMult	    = m_poPS->m_rXPos.m_oMult.rGetValue();
+			m_rYPosMult	    = m_poPS->m_rYPos.m_oMult.rGetValue();
 
 			m_poSprInst->m_poSprite               = _poPS->m_poSprite;
+            m_poSprInst->m_rActionTime            = _0r;
             m_poSprInst->m_uiCurrentActionFrame   = 0;
             m_poSprInst->m_uiSpriteAction         = 0;
 		}
 
 		CFEVect2 oGetPos()
 		{
-			CFEVect2 oSpd = m_oISpeed + m_oIAccel*m_rTime;
-		    CFEVect2 oPos = m_oIPos   + oSpd*m_rTime;
+		    CFEVect2 oPos(  m_rXPosOfs + m_poPS->m_rXPos.oGetValue(m_rTime) * m_rXPosMult, 
+		                    m_rYPosOfs + m_poPS->m_rYPos.oGetValue(m_rTime) * m_rYPosMult);
+
 			return( oPos );
 		}
 
 		CFEVect2 oGetScale()
 		{
-			// FEReal rSizeSpeed = m_rISSpeed + m_rISAccel*m_rTime;
-			FEReal rSizeSpeed = m_rISSpeed + m_poPS->m_rPartSizeAccel*m_rTime;
-		    FEReal rScale = m_rISize + rSizeSpeed*m_rTime;
+		    FEReal rScale = m_rScaleOfs + m_poPS->m_rScale.oGetValue(m_rTime) * m_rScaleMult;
 		    CFEVect2 oScale(rScale,rScale);
 			return( oScale );
 		}
 
 		FEReal rGetAngle()
 		{
-			// FEReal rAngleSpeed = m_rIASpeed + m_rIAAccel*m_rTime;
-			FEReal rAngleSpeed = m_rIASpeed + m_poPS->m_rPartAngleAccel*m_rTime;
-			FEReal rAngle = m_rIAngle + rAngleSpeed*m_rTime;
-			return( rAngle );
+			return( m_rAngleOfs + m_poPS->m_rAngle.oGetValue(m_rTime) * m_rAngleMult);
 		}
 
 		CFEColor oGetColor()
 		{
-			return( m_poPS->m_oColor.oGetValue(m_rTime) );
+			return( m_poPS->m_oColor.oGetValue(m_rTime) * m_rColorMult);
 		}
 
 		void Update(const FEReal& _rDeltaT)
@@ -178,7 +89,7 @@ class CFEParticle
 		    m_rTime += _rDeltaT;
 		}
 
-		FEBool bAlive()
+		bool bAlive()
 		{
 		    return(m_rTime <= m_rTTL);
 		}
@@ -192,11 +103,57 @@ class CFEParticle
         {
             return(m_rDepth);
         }
-        
-        FEHandler hGetPSysInst()
-        {
-			return(m_hPSysInst);
-        }
+
+	protected:
+
+		//
+		CFEParticleSys*	    m_poPS;
+
+		/// Initial TTL of the particle
+		FEReal				m_rTTL;
+
+		/// Current Time of the particle
+		FEReal				m_rTime;
+
+
+		// Multipliers
+		FEReal				m_rColorMult;
+
+		//
+		FEReal				m_rAngleMult;
+
+		//
+		FEReal				m_rScaleMult;
+
+		//
+		FEReal				m_rXPosMult;
+
+		//
+		FEReal				m_rYPosMult;
+		
+
+
+		// Offsets
+		FEReal				m_rAngleOfs;
+
+		//
+		FEReal				m_rScaleOfs;
+
+		//
+		FEReal				m_rXPosOfs;
+
+		//
+		FEReal				m_rYPosOfs;
+
+    protected:
+
+        //
+        FEReal              m_rDepth;
+
+	public:
+
+		// Sprite instances are self managed by the particles.
+		CFESpriteInst*		m_poSprInst;
 };
 // ----------------------------------------------------------------------------
 DECLARE_SINGLETON(CFEParticleMgr_DATA)
@@ -224,7 +181,7 @@ void CFEParticleMgr::Init(uint _uiMaxParticles)
 void CFEParticleMgr::Finish()
 {
     for (uint i=0;i<INSTANCEDDATA->m_uiMaxParticles;i++)
-        delete INSTANCEDDATA->m_oParticlePool.poGetAt(i);
+        delete INSTANCEDDATA->m_oParticlePool.poGet(i);
 
     INSTANCEDDATA->Finish();
 }
@@ -244,7 +201,7 @@ void CFEParticleMgr::Reset()
 }
 //-----------------------------------------------------------------------------
 /// Creates the given number of particles.
-void CFEParticleMgr::CreateParticles(uint _uiNumParticles,const CFEVect2& _oPos, const FEReal& _rDepth, const CFEVect2& _oSpd,CFEParticleSys* _poPS,FEHandler _hPSysInst)
+void CFEParticleMgr::CreateParticles(uint _uiNumParticles,const CFEVect2& _oPos, const FEReal& _rDepth,CFEParticleSys* _poPS)
 {
     for (uint i=0;i<_uiNumParticles;i++)
     {
@@ -252,7 +209,7 @@ void CFEParticleMgr::CreateParticles(uint _uiNumParticles,const CFEVect2& _oPos,
         if (poPart != NULL)
         {
             uiCP++;
-            poPart->Init(_oPos, _rDepth, _oSpd, _poPS, _hPSysInst);
+            poPart->Init(_oPos, _rDepth, _poPS);
             INSTANCEDDATA->m_oLivingParts.push_back(poPart);
         }
     }
@@ -268,7 +225,7 @@ void CFEParticleMgr::Update(const FEReal& _rDeltaT)
 
         if (poPart->bAlive())
         {
-            CFESpriteInstMgr::I()->Update(poPart->poGetSpriteIsnt(), _rDeltaT);
+            CFESpriteInstMgr::Update(poPart->poGetSpriteIsnt(), _rDeltaT);
             i++;
         }
         else
@@ -285,13 +242,11 @@ void CFEParticleMgr::Update(const FEReal& _rDeltaT)
 }
 //-----------------------------------------------------------------------------
 /// Renders the living particles in the system.
-void CFEParticleMgr::Render(CFERenderer* _poRenderer,FEHandler _hPSysInst)
+void CFEParticleMgr::Render(CFERenderer* _poRenderer)
 {
     for (uint i=0;i<INSTANCEDDATA->m_oLivingParts.size();i++)
     {
         CFEParticle* poPart = INSTANCEDDATA->m_oLivingParts[i];
-//        if (_hPSysInst != poPart->hGetPSysInst()) continue;
-
         CFESpriteRenderer::Render(  _poRenderer,
                                     poPart->poGetSpriteIsnt(),
                                     poPart->oGetPos(),

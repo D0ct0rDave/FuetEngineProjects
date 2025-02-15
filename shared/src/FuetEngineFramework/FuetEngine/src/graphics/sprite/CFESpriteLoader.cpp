@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFESpriteLoader
  *  \brief Enums shared among the FuetEngine and the application
- *  \author David Márquez de la Cruz
- *  \version 1.0
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version _1r
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -21,13 +21,13 @@ CFESprite* CFESpriteLoader::poBuildBasicSprite(FEHandler _hMat,const CFEString& 
 {
     CFESprite* poSprite = new CFESprite;
 
+    poSprite->m_eBlendMode = BM_ALPHA;
     poSprite->SetName(_sSpriteName);
 
     CFESpriteAction oAction;
     oAction.m_ePlayMode = SFSPM_ONESHOT;
 	oAction.m_rActionTime = _0r;
 	oAction.m_rRandStartTime = _0r;
-    oAction.m_eBlendMode = BM_ALPHA;
 
     CFESpriteFrame oFrame;
     oFrame.m_oPivot     = CFEVect2(_0r,_0r);
@@ -39,15 +39,11 @@ CFESprite* CFESpriteLoader::poBuildBasicSprite(FEHandler _hMat,const CFEString& 
     oFrame.m_rFrameTime = _0r;
 	oFrame.m_oPivot.x	= _05r;
 	oFrame.m_oPivot.y	= _05r;
-	oFrame.m_bScaleXUEqually = false;
-	oFrame.m_bScaleYVEqually = false;
-	oFrame.m_bUWorldCoords = false;
-	oFrame.m_bVWorldCoords = false;
 
     uint uiTX = 0;
     uint uiTY = 0;
-    CFEMaterialMgr::I()->bGetMaterialProperty(_hMat,CFEString("DiffuseMap.Width") ,(FEPointer)&uiTX);
-    CFEMaterialMgr::I()->bGetMaterialProperty(_hMat,CFEString("DiffuseMap.Height"),(FEPointer)&uiTY);
+    CFEMaterialMgr::bGetMaterialProperty(_hMat,CFEString("DiffuseMap.Width") ,(FEPointer)&uiTX);
+    CFEMaterialMgr::bGetMaterialProperty(_hMat,CFEString("DiffuseMap.Height"),(FEPointer)&uiTY);
     oFrame.m_oSize.x    = uiTX;
     oFrame.m_oSize.y    = uiTY;
     oFrame.m_hMaterial  = _hMat;
@@ -58,7 +54,7 @@ CFESprite* CFESpriteLoader::poBuildBasicSprite(FEHandler _hMat,const CFEString& 
     return( poSprite );
 }
 // ----------------------------------------------------------------------------
-static ESFSPlayMode eGetPlayMode(const CFEString& _sString)
+ESFSPlayMode eGetPlayMode(const CFEString& _sString)
 {
     if (_sString |= "ONESHOT")
         return(SFSPM_ONESHOT);
@@ -75,7 +71,7 @@ static ESFSPlayMode eGetPlayMode(const CFEString& _sString)
     return(SFSPM_NONE);
 }
 // ----------------------------------------------------------------------------
-static EFEBlendMode eGetBlendMode(const CFEString& _sString)
+EFEBlendMode eGetBlendMode(const CFEString& _sString)
 {
     if (_sString |= "ALPHA")
         return(BM_ALPHA);
@@ -92,73 +88,23 @@ static EFEBlendMode eGetBlendMode(const CFEString& _sString)
     else if (_sString |= "COPY")
         return(BM_COPY);
 
-    else if (_sString |= "FOG")
-        return(BM_FOG);
-
-    else if (_sString |= "FOGADD")
-        return(BM_FOGADD);
-
-    else if (_sString |= "MAGICMARKER")
-        return(BM_MAGICMARKER);
-
-    else if (_sString |= "LIGHTMARKER")
-        return(BM_LIGHTMARKER);
-
-    else if (_sString |= "LIGHTSABER")
-        return(BM_LIGHTSABER);
-
-    else if (_sString |= "REVEAL")
-        return(BM_REVEAL);
-
-    else if (_sString |= "LUMISHADE_REVEAL")
-        return(BM_LUMISHADE_REVEAL);
-
     return(BM_NONE);
 }
 // ----------------------------------------------------------------------------
-static uint uiGetWrapMode(const CFEString& _sString)
+CFESprite* CFESpriteLoader::poLoad(const CFEString& _sFilename)
 {
-    if (_sString |= "REPEAT")
-        return(1);
-
-    else if (_sString |= "MIRROR")
-        return(2);
-
-    return(0);
-}
-// ----------------------------------------------------------------------------
-static uint uiGetFilter(const CFEString& _sString)
-{
-    if (_sString |= "NEAREST")
-        return(0);
-
-    else if (_sString |= "LINEAR")
-        return(1);
-
-    return(1);
-}
-// ----------------------------------------------------------------------------
-CFESprite* CFESpriteLoader::poLoad(const CFEString& _sFilename,FEBool _bLoadMaterials)
-{
-	if (_sFilename == "") return(NULL);
-
     CFEString sFilename = _sFilename + ".spr";
     CFEString sWorkingDir = CFEStringUtils::sGetPath(_sFilename);
 
     CFEConfigFile oConfig(sFilename);
     if (! oConfig.bInitialized() )
     {
-		if (_bLoadMaterials == false) return(NULL);
-
         // We haven't found the sprite definition file. Let's see i we can find
         // a material and then build a basic sprite with it.
-
-		/// Retrieves the filename portion of a full qualified filename.
-		CFEString sMaterial = sWorkingDir + CFEString("/") + CFEStringUtils::sGetFilename(_sFilename);
-        FEHandler hMat = (_bLoadMaterials)?(FEHandler)CFEMaterialMgr::I()->poLoad(sMaterial):NULL;
+        FEHandler hMat = CFEMaterialMgr::hLoad(_sFilename);
 
         if (hMat)
-            return( poBuildBasicSprite(hMat,sMaterial) );
+            return( poBuildBasicSprite(hMat,_sFilename) );
         else
             return(NULL);
     }
@@ -168,26 +114,24 @@ CFESprite* CFESpriteLoader::poLoad(const CFEString& _sFilename,FEBool _bLoadMate
     // Retrieve sprite name
     poSprite->SetName( oConfig.sGetString("Sprite.Name","nonamed") );
 
+    // Retrieve sprite blend mode
+    poSprite->m_eBlendMode = eGetBlendMode(oConfig.sGetString("Sprite.BlendMode","ALPHA") );
+
     // Number of actions
     uint uiNumActions = oConfig.iGetInteger("Sprite.NumActions",0);
 
-    for (uint a=0;a<uiNumActions;a++)
+    for (uint j=0;j<uiNumActions;j++)
     {
         CFESpriteAction oAction;
         oAction.m_rActionTime = _0r;
 
-        CFEString sAction = CFEString("Sprite.Action") + CFEString((int)a);
+        CFEString sAction = CFEString("Sprite.Action") + CFEString(j);
         CFEString sVar;
 
-        // Action name
+        // Action play mode
         sVar =  sAction + ".Name";
         oAction.SetName( oConfig.sGetString(sVar,"nonamed") );
-
-		// Action blend mode
-		sVar =  sAction + ".BlendMode";
-        oAction.m_eBlendMode = eGetBlendMode(oConfig.sGetString(sVar,"ALPHA") );
-
-		// Action play mode
+        
         sVar =  sAction + ".PlayMode";
         oAction.m_ePlayMode = eGetPlayMode(oConfig.sGetString(sVar,"ONESHOT"));
 
@@ -213,12 +157,7 @@ CFESprite* CFESpriteLoader::poLoad(const CFEString& _sFilename,FEBool _bLoadMate
 
             sFRVar = sFVar + ".Material";
             CFEString sMaterial = sWorkingDir + CFEString("/") + oConfig.sGetString(sFRVar,"");
-            FEHandler hMat = (_bLoadMaterials)?(FEHandler)CFEMaterialMgr::I()->poLoad(sMaterial):NULL;
-
-            // Filter
-            sFRVar = sFVar + ".Filter";
-            CFEString sFilter = oConfig.sGetString(sFRVar,"linear");
-			if (hMat!=NULL) CFEMaterialMgr::I()->bSetMaterialProperty(hMat,"DiffuseMap.Filter",(FEPointer)uiGetFilter(sFilter));
+            FEHandler hTex = (FEHandler)CFEMaterialMgr::poLoad(sMaterial);
 
 			sFRVar =  sFVar + ".FPS";
 			FEReal rFPS = oConfig.rGetReal(sFRVar,_1r);
@@ -249,18 +188,13 @@ CFESprite* CFESpriteLoader::poLoad(const CFEString& _sFilename,FEBool _bLoadMate
                     oFrame.m_oPivot         = CFEVect2(rPivotX,rPivotY);
                     oFrame.m_oUV.m_oIni     = CFEVect2((FEReal)i*rXStep,(FEReal)j*rYStep);
                     oFrame.m_oUV.m_oEnd     = CFEVect2((FEReal)(i+1)*rXStep,(FEReal)(j+1)*rYStep);
-                    oFrame.m_hMaterial      = hMat;
-					oFrame.m_o1OverDims		= CFEVect2(0,0);
+                    oFrame.m_hMaterial      = hTex;
 					oFrame.m_oSize.x        = rFWidth;
 					oFrame.m_oSize.y        = rFHeight;
 					oFrame.m_rDelay         = _0r;
                     oFrame.m_rBlendTime     = _1r / rFPS;
                     oFrame.m_rFrameTime     = oFrame.m_rDelay + oFrame.m_rBlendTime;
                     oFrame.m_rStartTime     = oAction.m_rActionTime;
-					oFrame.m_bScaleXUEqually = false;
-					oFrame.m_bScaleYVEqually = false;
-					oFrame.m_bUWorldCoords	= false;
-					oFrame.m_bVWorldCoords	= false;
 
                     oAction.m_rActionTime  += oFrame.m_rFrameTime;
 
@@ -294,19 +228,14 @@ CFESprite* CFESpriteLoader::poLoad(const CFEString& _sFilename,FEBool _bLoadMate
 
             for (uint i=0;i<uiFrames;i++)
             {
-                CFEString sFrameTex = sMaterial + CFEString((int)i);
+                CFEString sFrameTex = sMaterial + CFEString(i);
 
                 oFrame.m_oPivot     = CFEVect2(rPivotX,rPivotY);
                 oFrame.m_oUV.m_oIni = CFEVect2(0,0);
                 oFrame.m_oUV.m_oEnd = CFEVect2(1,1);
-                oFrame.m_hMaterial  = (_bLoadMaterials)?(FEHandler)CFEMaterialMgr::I()->poLoad(sFrameTex):NULL;
-				oFrame.m_o1OverDims = CFEVect2(0,0);
+                oFrame.m_hMaterial  = CFEMaterialMgr::hLoad(sFrameTex);
                 oFrame.m_rStartTime = oAction.m_rActionTime;
-				oFrame.m_bScaleXUEqually = false;
-				oFrame.m_bScaleYVEqually = false;
-				oFrame.m_bUWorldCoords = false;
-				oFrame.m_bVWorldCoords = false;
-
+                
                 oAction.m_rActionTime  += oFrame.m_rFrameTime;
 
                 oAction.m_oSeq.push_back(oFrame);
@@ -315,7 +244,7 @@ CFESprite* CFESpriteLoader::poLoad(const CFEString& _sFilename,FEBool _bLoadMate
 
    else if (sType == "Complete")
         {
-            // Read every frame one by one
+            // Read every frame one by one        
             sFVar  = sVar + ".Complete";
             CFEString sFCVar;
 
@@ -324,31 +253,17 @@ CFESprite* CFESpriteLoader::poLoad(const CFEString& _sFilename,FEBool _bLoadMate
             uint uiFrames = oConfig.iGetInteger(sFCVar,1);
 
             // Create the frame sequence
-            CFESpriteFrame oFrame;
+            CFESpriteFrame oFrame;            
 
             for (uint i=0;i<uiFrames;i++)
             {
-                sFCVar = sFVar + ".Frame" + CFEString((int)i);
+                sFCVar = sFVar + ".Frame" + CFEString(i);
                 CFEString sFrameVar;
 
                 // Material filename
                 sFrameVar = sFCVar + ".Material";
-                CFEString sMaterial = sWorkingDir + CFEString("/") + oConfig.sGetString(sFrameVar,"");
-				FEHandler hMat = (_bLoadMaterials)?(FEHandler)CFEMaterialMgr::I()->poLoad(sMaterial):NULL;
-
-				// Wrap mode
-                sFrameVar = sFCVar + ".SWrapMode";
-                CFEString sSWrapMode = oConfig.sGetString(sFrameVar,"clamp");
-				CFEMaterialMgr::I()->bSetMaterialProperty(hMat,"DiffuseMap.SWrapMode",(FEPointer)uiGetWrapMode(sSWrapMode));
-
-                sFrameVar = sFCVar + ".TWrapMode";
-                CFEString sTWrapMode = oConfig.sGetString(sFrameVar,"clamp");
-				CFEMaterialMgr::I()->bSetMaterialProperty(hMat,"DiffuseMap.TWrapMode",(FEPointer)uiGetWrapMode(sTWrapMode));
-
-				// Filter
-                sFrameVar = sFCVar + ".Filter";
-                CFEString sFilter = oConfig.sGetString(sFrameVar,"linear");
-				CFEMaterialMgr::I()->bSetMaterialProperty(hMat,"DiffuseMap.Filter",(FEPointer)uiGetFilter(sFilter));
+                CFEString sMaterial = sWorkingDir + CFEString("/") + oConfig.sGetString(sFrameVar,"");                
+                FEHandler hTex = (FEHandler)CFEMaterialMgr::poLoad(sMaterial);
 
 				// Read delay time
                 sFrameVar = sFCVar + ".DelayTime";
@@ -357,14 +272,14 @@ CFESprite* CFESpriteLoader::poLoad(const CFEString& _sFilename,FEBool _bLoadMate
 				// Read blend time
                 sFrameVar = sFCVar + ".BlendTime";
                 FEReal rBlendTime = oConfig.rGetReal(sFrameVar,_0r);
-
+					
                 // Pivot
                 sFrameVar = sFCVar + ".Pivot.x";
                 FEReal rPivotX = oConfig.rGetReal(sFrameVar,_05r);
 
                 sFrameVar = sFCVar + ".Pivot.y";
                 FEReal rPivotY = oConfig.rGetReal(sFrameVar,_05r);
-
+                
                 // Size
 			    sFrameVar = sFCVar + ".Size.Width";
 			    FEReal rFWidth = oConfig.rGetReal(sFrameVar,_1r);
@@ -385,39 +300,7 @@ CFESprite* CFESpriteLoader::poLoad(const CFEString& _sFilename,FEBool _bLoadMate
                 sFrameVar = sFCVar + ".TexCoords.FV";
                 FEReal rFV = oConfig.rGetReal(sFrameVar,_1r);
 
-				sFrameVar = sFCVar + ".TexCoords.UWorldCoords";
-                FEBool bUWorldCoords = oConfig.bGetBool(sFrameVar,false);
-
-				sFrameVar = sFCVar + ".TexCoords.VWorldCoords";
-                FEBool bVWorldCoords = oConfig.bGetBool(sFrameVar,false);
-
-				sFrameVar = sFCVar + ".TexCoords.ScaleXUEqually";
-				FEBool bScaleXUEqually = oConfig.bGetBool(sFrameVar,false);
-
-				sFrameVar = sFCVar + ".TexCoords.ScaleYVEqually";
-				FEBool bScaleYVEqually = oConfig.bGetBool(sFrameVar,false);
-				
-				FEReal r1OverW = _0r;
-				FEReal r1OverH = _0r;
-				if (bUWorldCoords)
-				{
-					uint uiTX = 0;
-					CFEMaterialMgr::I()->bGetMaterialProperty(hMat,CFEString("DiffuseMap.Width") ,(FEPointer)&uiTX);
-					if (uiTX == 0) uiTX = 1;
-					r1OverW = _1r / (FEReal)uiTX;
-				}
-
-				if (bVWorldCoords)
-				{
-					uint uiTY = 0;
-					CFEMaterialMgr::I()->bGetMaterialProperty(hMat,CFEString("DiffuseMap.Height"),(FEPointer)&uiTY);
-					if (uiTY == 0) uiTY = 1;
-					r1OverH = _1r / (FEReal)uiTY;
-				}
-
-                oFrame.m_hMaterial  = hMat;
-
-				oFrame.m_o1OverDims = CFEVect2(r1OverW,r1OverH);
+                oFrame.m_hMaterial  = hTex;
                 oFrame.m_oPivot     = CFEVect2(rPivotX,rPivotY);
                 oFrame.m_oUV.m_oIni = CFEVect2(rIU,rIV);
                 oFrame.m_oUV.m_oEnd = CFEVect2(rFU,rFV);
@@ -426,11 +309,8 @@ CFESprite* CFESpriteLoader::poLoad(const CFEString& _sFilename,FEBool _bLoadMate
                 oFrame.m_rBlendTime = rBlendTime;
                 oFrame.m_rFrameTime = rBlendTime + rDelayTime;
                 oFrame.m_rStartTime = oAction.m_rActionTime;
-				oFrame.m_bScaleXUEqually = bScaleXUEqually;
-				oFrame.m_bScaleYVEqually = bScaleYVEqually;
-				oFrame.m_bUWorldCoords = bUWorldCoords;
-				oFrame.m_bVWorldCoords = bVWorldCoords;
-				oAction.m_rActionTime+= oFrame.m_rFrameTime;
+
+                oAction.m_rActionTime	  += oFrame.m_rFrameTime;
 
                 oAction.m_oSeq.push_back(oFrame);
             }

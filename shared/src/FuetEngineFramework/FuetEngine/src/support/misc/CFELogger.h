@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFELogger
  *  \brief Logging racilities
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -22,13 +22,13 @@ class CFELogger
 		CFELogger(uint _uiBufferSize=0);
 
         /// Prints a message to the log.
-        void Print(const char *fmt,...);
+        void Print(char *fmt,...);
 
         /// Writes an warning to the log.
-        void Warning(const char *fmt,...);
+        void Warning(char *fmt,...);
 
         /// Writes an error to the log.
-        void Error(const char *fmt,...);
+        void Error(char *fmt,...);
 
         /// Retrieves the log buffer pointer or NULL if the system logger is being used.
         const char* szGetLog();
@@ -36,10 +36,23 @@ class CFELogger
         /// Cleans the contents of the logger.
         void Clean();
 
+        class Sys
+        {
+			public:
+				/// Prints a message to the log.
+				static void Print(char *fmt,...);
+
+				/// Writes an warning to the log.
+				static void Warning(char *fmt,...);
+
+				/// Writes an error to the log.
+				static void Error(char *fmt,...);
+        };
+
     protected:
         
         /// Adds a message to the logger.
-        virtual void AddMessage(const char* _szMessage);
+        virtual void AddMessage(char* _szMessage);
         
         /// Buffer to store the log
         char* m_pucBuffer;

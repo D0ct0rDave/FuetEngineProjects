@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFESkelAnimGroup
  *  \brief A class to load FuetEngine HUD layouts.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -27,11 +27,7 @@ class CFESkelAnimNodeTableBuilder : public CFESkelAnimNodeVisitor
     public:
         
         static void BuildTable(CFEArray<CFESkelAnimNode*>* _poNodeTable, CFESkelAnimNode* _poNode);
-		
-		// avoid override function hiding
-		// http://www.parashift.com/c++-faq-lite/hiding-rule.html
-		using CFESkelAnimNodeVisitor::Visit;
-
+        
         //
         virtual void Visit(CFESkelAnimNode* _poObj);
         // 

@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEHUDShape
  *  \brief A class to store a 2D poligonal mesh.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -13,33 +13,21 @@
 //-----------------------------------------------------------------------------
 #include "CFEHUDObject.h"
 #include "CFEHUDVisitor.h"
+/*
+	CFEShape -> es una malla de polígonos 2D (triángulos)
+	CFEShapeLoader -> Una clase para cargar esta información y devolver un shape.
+	CFEShapeInstMgr -> ??? no se si será interesante
+*/
 //-----------------------------------------------------------------------------
 class CFEHUDShape : public CFEHUDObject
 {
 	public:		
 
-        CFEHUDShape(const CFEString& _sName) : 
-			CFEHUDObject(_sName),
-			m_hMeshInst(NULL)
+        CFEHUDShape(const CFEString& _sName) : CFEHUDObject(_sName)
         {
 
         };
-		
-		/// Destructor of the class
-		virtual ~CFEHUDShape();
 
-		/// Sets the image for this icon Object.
-		void SetMesh(FEHandler _hMeshInst)
-		{
-			m_hMeshInst = _hMeshInst;
-		}
-
-		/// Sets the image for this icon Object.
-		FEHandler hGetMesh()
-		{
-			return( m_hMeshInst );
-		}
-		
         /// Perform processing over the object
 		virtual void Accept(CFEHUDVisitor* _poVisitor)
 		{
@@ -47,8 +35,6 @@ class CFEHUDShape : public CFEHUDObject
 		}
 
 	protected:
-		
-		FEHandler	m_hMeshInst;		
 };
 //-----------------------------------------------------------------------------
 #endif

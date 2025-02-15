@@ -1,21 +1,16 @@
 // ----------------------------------------------------------------------------
 /*! \class FEConsts
  *  \brief Constants used by the engine exposed to the external application
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
 #ifndef FEConstsH
 #define FEConstsH
 // ----------------------------------------------------------------------------
-#include "FEBasicTypes.h"
-// ----------------------------------------------------------------------------
-#ifndef NULL
-#define NULL 0L
-#endif
 
 /// Maximum size of the logger buffer
 const uint LOGGER_MAX_SIZE   = 65536;

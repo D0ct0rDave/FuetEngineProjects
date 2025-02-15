@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEFile
  *  \brief SFile class implementation
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -22,7 +22,7 @@ class CFEFile
   public:
         CFEFile();
         ~CFEFile();
-        virtual FEBool bOpen(const CFEString& _sFilename, EFEFileOpenMode _eMode);
+        virtual bool bOpen(const CFEString& _sFilename, EFEFileOpenMode _eMode);
 
         virtual void Close ();
 
@@ -42,10 +42,7 @@ class CFEFile
 
         FEHandler hGetHandler() { return (m_hFD); };
 
-		/// Returns a pointer of allocated data with the contents of the file.
-		static FEPointer pReadFile(const CFEString& _sFilename, uint* _puiSize = NULL);
-
-  protected:
+  private:
         // Data Members for Class Attributes
         FEHandler    m_hFD;
         CFEString    m_sFilename;

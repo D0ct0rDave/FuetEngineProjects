@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFESkelAnimSprite
  *  \brief This class stores the features of a sprite inside a skeletal hierarchy.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -20,7 +20,7 @@ class CFESkelAnimSpriteModel : public CFESkelAnimNode
 {
 	public:		
 
-	    CFESkelAnimSpriteModel(const CFEString& _sName) : CFESkelAnimNode(_sName), m_sSpriteModel(""), m_uiSpriteAction(0)
+	    CFESkelAnimSpriteModel(const CFEString& _sName) : CFESkelAnimNode(_sName), m_sSpriteModel("")
 	    {
 	    }
 
@@ -39,18 +39,6 @@ class CFESkelAnimSpriteModel : public CFESkelAnimNode
 		    return( m_sSpriteModel );
 	    }
 
-		/// Sets the current action to be played by the sprite.
-		void SetSpriteAction(uint _uiSpriteAction)
-		{
-			m_uiSpriteAction = _uiSpriteAction;
-		}
-
-		/// Sets the current action to be played by the sprite.
-		const uint uiGetSpriteAction()
-		{
-			return( m_uiSpriteAction );
-		}
-
         /// Perform processing over the object
 	    virtual void Accept(CFESkelAnimNodeVisitor* _poVisitor)
 	    {
@@ -60,7 +48,6 @@ class CFESkelAnimSpriteModel : public CFESkelAnimNode
     private:	
 
 	    CFEString   m_sSpriteModel;
-		uint		m_uiSpriteAction;
 };
 
 //-----------------------------------------------------------------------------

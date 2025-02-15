@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEHUDLoader
  *  \brief A class to load FuetEngine HUD layouts.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -13,7 +13,7 @@
 // -----------------------------------------------------------------------------
 #include "CFEHUDAction.h"
 #include "CFEHUD.h"
-#include "CFEHUDElement.h"
+#include "CFEHUDelement.h"
 #include "CFEHUDObject.h"
 #include "CFEHUDGroup.h"
 #include "CFEHUDLabel.h"
@@ -48,8 +48,6 @@ class CHUDTranslator : public CFEHUDVisitor
         virtual void Visit(CFEHUDRect* _poObj);
         /// 
         virtual void Visit(CFEHUDShape* _poObj);
-        /// 
-        virtual void Visit(CFEHUDPSys* _poObj);
 
         virtual void Visit(CFEHUD* _poObj);
         /// 
@@ -64,13 +62,12 @@ class CHUDTranslator : public CFEHUDVisitor
 		CFEDictionary* m_poDictionary;
 };
 //-----------------------------------------------------------------------------
-void CHUDTranslator::Visit(CFEHUDIcon*){}
-void CHUDTranslator::Visit(CFEHUDRect*){}
-void CHUDTranslator::Visit(CFEHUDShape*){}
-void CHUDTranslator::Visit(CFEHUDPSys*){}
-void CHUDTranslator::Visit(CFEHUDElementAction*){}
-void CHUDTranslator::Visit(CFEHUDObjectAction*){}
-void CHUDTranslator::Visit(CFEHUDObject*){}
+void CHUDTranslator::Visit(CFEHUDIcon* _poObj){};
+void CHUDTranslator::Visit(CFEHUDRect* _poObj){};
+void CHUDTranslator::Visit(CFEHUDShape* _poObj){};
+void CHUDTranslator::Visit(CFEHUDElementAction* _poObj){};
+void CHUDTranslator::Visit(CFEHUDObjectAction* _poObj){};
+void CHUDTranslator::Visit(CFEHUDObject* _poObj){};
 //-----------------------------------------------------------------------------
 void CHUDTranslator::Visit(CFEHUD* _poObj)
 {

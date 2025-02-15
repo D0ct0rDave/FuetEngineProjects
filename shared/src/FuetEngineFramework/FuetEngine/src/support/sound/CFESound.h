@@ -17,14 +17,13 @@
 class CFESound
 {
     public:
-
         CFESound();
-
-        FEBool          m_bLoop;
-        void*			m_pData;
-        uint			m_uiSampleRate;
-        EFESampleFormat	m_eSampleFormat;
-        FEHandler		m_hHandle;
+    
+        bool            m_bLoop;    
+        void*            m_pData;
+        uint            m_uiSampleRate;
+        EFESampleFormat    m_eSampleFormat;
+        FEHandler        m_hHandle;
     
 };
 // ----------------------------------------------------------------------------

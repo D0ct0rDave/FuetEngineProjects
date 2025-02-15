@@ -1,44 +1,53 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEMapRenderer
  *  \brief class to renders FuetEngine maps.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
 #include "CFEMap.h"
 #include "CFEMapRenderer.h"
 #include "Support/Math/CFEMathIntersect.h"
-#include "Graphics/Sprite/CFESpriteInstMgr.h"
 #include "Graphics/Sprite/CFESpriteRenderer.h"
 #include "Support/Graphics/CFERenderer.h"
 // ----------------------------------------------------------------------------
+static CFEVect2 gsoCamPos;
+static FEReal	gsrCamZoom;
+// ----------------------------------------------------------------------------
+void CFEMapRenderer::SetCameraPos(FEReal _rX,FEReal _rY)
+{
+	gsoCamPos.x = _rX;
+	gsoCamPos.y = _rY;
+}
+// ----------------------------------------------------------------------------
+void CFEMapRenderer::SetZoom(FEReal _rZoom)
+{
+	gsrCamZoom = _rZoom;
+}
+// ----------------------------------------------------------------------------
 void CFEMapRenderer::Render(CFEMap *_poMap,CFERenderer *_poRenderer)
-{	
+{
 	CFEVect2 oCamPos = _poRenderer->oGetCameraTranslation();
 	CFEVect2 oCamArea;
 	oCamArea.x = _poRenderer->uiGetScreenVWidth() / _poRenderer->rGetCameraZoom();
 	oCamArea.y = _poRenderer->uiGetScreenVHeight() / _poRenderer->rGetCameraZoom();
-    FEReal rDeltaT = _poRenderer->rGetDeltaT();
 
 	    for (uint uiLayer=0;uiLayer<_poMap->m_poLayers.size();uiLayer++)
 	    {
 	        CFEMapLayer* poLayer = _poMap->m_poLayers[uiLayer];
 		    if ((poLayer==NULL) || (! poLayer->m_bVisible)) continue;
 
-			// #pragma message(__FUNCTION__"/"__FILE__)
+			#pragma message(__FUNCTION__"/"__FILE__)
         	#pragma message("#################")
 			#pragma message("Implement automatic movement of a map layer.")
 			#pragma message("#################")
 
-			// Camera position after parallax effect is applied
-		    CFEVect2 oLayerCamPos = _poMap->oGetRelLayerPos(uiLayer,oCamPos); 
-
-
-			// process the layer as seen by the layer camera.    
+		    CFEVect2 oLayerCamPos = (poLayer->m_oParallaxFact * oCamPos) /* + poLayer->m_oSpeed * GlobalTime */ ;
 		    _poRenderer->TranslateCamera(oLayerCamPos.x,oLayerCamPos.y);
+
 			for (uint uiSector=0;uiSector<poLayer->m_poSectors.size();uiSector++)
 			{
 				CFEMapSector* poSector = poLayer->m_poSectors[uiSector];
@@ -47,24 +56,20 @@ void CFEMapRenderer::Render(CFEMap *_poMap,CFERenderer *_poRenderer)
 				// check if the sector is visible from the current camera position
 				#if 1
 
-					CFERect oViewRect;
-					oViewRect.m_oIni.x = oLayerCamPos.x + _poRenderer->oGetViewTranslation().x;
-					oViewRect.m_oIni.y = oLayerCamPos.y + _poRenderer->oGetViewTranslation().y;
-					oViewRect.m_oEnd.x = oViewRect.m_oIni.x + oCamArea.x;
-					oViewRect.m_oEnd.y = oViewRect.m_oIni.y + oCamArea.y;
+					CFERect oCamRect;
+					oCamRect.m_oIni.x = oLayerCamPos.x;
+					oCamRect.m_oIni.y = oLayerCamPos.y;
+					oCamRect.m_oEnd.x = oLayerCamPos.x + oCamArea.x;
+					oCamRect.m_oEnd.y = oLayerCamPos.y + oCamArea.y;
 					
-					if (CFEMath::bOverlap(oViewRect,poSector->m_oBV))
+					if (CFEMath::bOverlap(oCamRect,poSector->m_oBV))
 					{
 						for (uint uiElem=0;uiElem < poSector->m_oElements.size();uiElem++)
 						{
 							CFEMapElement* poElem = &poSector->m_oElements[uiElem];
 							if (! poElem->m_bVisible) continue;
-							
-							CFEColor oColor;
-							oColor = poElem->m_oColor * poLayer->m_oColor;
 
-							CFESpriteInstMgr::I()->Update(poElem->m_hSprInst,rDeltaT);
-							CFESpriteRenderer::Render(_poRenderer,(CFESpriteInst*)poElem->m_hSprInst,poElem->m_oPos,poLayer->m_rDepth + (0.00999f - poElem->m_rDepth),poElem->m_oScale,poElem->m_rAngle,oColor);
+							CFESpriteRenderer::Render(_poRenderer,(CFESpriteInst*)poElem->m_hSprInst,poElem->m_oPos,poLayer->m_rDepth + (0.00999f - poElem->m_rDepth),poElem->m_oScale,poElem->m_rAngle,poElem->m_oColor);
 						}
 					}
 

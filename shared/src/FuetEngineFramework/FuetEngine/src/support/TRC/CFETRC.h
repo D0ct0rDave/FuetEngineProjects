@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFETRC
  *  \brief Basic Localization Facilities.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -19,7 +19,7 @@ namespace CFETRC
 {
 	typedef void(*TOpenMessageBoxFunc)(const CFEString& _sMessage,const CFEString& _sOptions);
 	typedef int(*TMessageBoxStepFunc)();
-	typedef FEBool(*TCloseMessageBoxFunc)();
+	typedef bool(*TCloseMessageBoxFunc)();
 
 	/// Initializes the TRC Technical Requirements system
 	void Init();

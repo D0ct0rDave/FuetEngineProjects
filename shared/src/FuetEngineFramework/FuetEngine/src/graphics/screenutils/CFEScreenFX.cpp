@@ -1,14 +1,13 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEScreenFX
  *  \brief CFEScreenFX Class Definition
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
-#include <stdlib.h>             // for NULL
 #include "CFEScreenFX.h"
 #include "CFEScreenUtils.h"
 // ----------------------------------------------------------------------------
@@ -33,11 +32,7 @@ void CFEScreenFX::FadeIn(FEReal _rTime)
     m_rTime   = _rTime;
     m_oIColor = m_oFadeColor;	m_oIColor.a = _0r;
     m_oFColor = m_oFadeColor;
-
-    if (_rTime == _0r)
-		m_oColor = m_oFadeColor;
-	else
-	    m_oColor  = m_oIColor;
+    m_oColor  = m_oIColor;
 }
 // ----------------------------------------------------------------------------
 void CFEScreenFX::FadeOut(FEReal _rTime)
@@ -47,35 +42,6 @@ void CFEScreenFX::FadeOut(FEReal _rTime)
     m_oIColor = m_oFadeColor;
     m_oFColor = m_oFadeColor;	m_oFColor.a = _0r;
     m_oColor  = m_oIColor;
-
-    if (_rTime == _0r)
-		m_oColor = m_oFColor;
-	else
-	    m_oColor  = m_oFadeColor;
-}
-// ----------------------------------------------------------------------------
-void CFEScreenFX::ContinueFadeIn(FEReal _rTime)
-{
-    m_rIniTime= _rTime;
-    m_rTime   = _rTime;
-
-    m_oIColor = m_oColor;
-    m_oFColor = m_oFadeColor;
-
-    if (_rTime == _0r)
-		m_oColor = m_oFadeColor;
-}
-// ----------------------------------------------------------------------------
-void CFEScreenFX::ContinueFadeOut(FEReal _rTime)
-{
-    m_rIniTime= _rTime;
-    m_rTime   = _rTime;
-
-	m_oIColor = m_oColor;
-    m_oFColor = m_oFadeColor;	m_oFColor.a = _0r;
-
-    if (_rTime == _0r)
-		m_oColor = m_oFColor;
 }
 // ----------------------------------------------------------------------------
 void CFEScreenFX::Update(FEReal _rDeltaT)
@@ -98,7 +64,7 @@ void CFEScreenFX::Render(CFERenderer* _poRenderer)
 	}
 }
 // ----------------------------------------------------------------------------
-FEBool CFEScreenFX::bPlaying()
+bool CFEScreenFX::bPlaying()
 {
 	return (m_rTime > _0r);
 }

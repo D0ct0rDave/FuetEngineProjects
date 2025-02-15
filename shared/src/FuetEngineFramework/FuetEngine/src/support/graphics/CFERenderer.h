@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFRenderer
  *  \brief Class for Rendering Functionlalities
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -57,7 +57,7 @@ class CFERenderer
             standardized reference system, independent from the actual physical screen
             dimensions. These 2 functions should be called before a Begin/End scene block.
             -----------------------------------------------------------------------------**/
-
+			
             /// Sets the screen virtual width.
             void SetScreenVWidth(uint _uiScrVWidth);
 
@@ -70,15 +70,6 @@ class CFERenderer
             /// Retrieves the virtual screen height.
             uint uiGetScreenVHeight();
 
-            /// Sets the current shader.
-            uint uiRegisterShader(const CFEString& _sShader);
-
-            /// Sets the current shader.
-            void SetShader(uint _uiShaderID);
-
-            /// Retrieves the current shader.
-            uint uiGetShader();
-
             /// Sets the current blend mode.
             void SetBlendMode(EFEBlendMode _eBlendMode);
 
@@ -87,30 +78,26 @@ class CFERenderer
 
             /// Sets the current font.
             void SetFont(CFEFont* _poFont);
-
+            
             /// Sets the current depth for the subsequent rendering calls.
             void SetDepth(FEReal _rDepth);
-
-			/// Sets the point size for the rendered text.
-			void SetTextPointSize(FEReal _rTextPointSize);
-
-			/// Sets the tracking for the rendered text.
-			void SetTextTracking(FEReal _rTextTracking);
-
-			/// Sets the interlining space for the rendered text.
-			void SetTextInterlining(FEReal _rTextInterlining);
-
-            /// Renders a line with the given color.
-            void RenderLine(FEReal _rIX,FEReal _rIY,FEReal _rFX,FEReal _rFY,const CFEColor& _oColor);
-
-            /// Renders a rectangle with the given initial and final coodinates and color without material.
-            void RenderRect(FEReal _rIX,FEReal _rIY,FEReal _rFX,FEReal _rFY,const CFEColor& _oColor);
-
-            /// Renders a quad with the given initial and final vertex and fills it with the current material and color.
-            void RenderQuad(FEReal _rIX,FEReal _rIY,FEReal _rFX,FEReal _rFY,const CFEColor& _oColor);
-
-			/// Renders a quad with the given initial and final vertex and texture coordinates and color, using the current material.
-            void RenderQuadList(CFEVect2* _poVX,CFEVect2* _poUV,CFEColor* _poVC,uint _uiNumQuads);
+            
+            /// Renders a rectangle using the current material.
+            void RenderRect(FEReal _rIX,FEReal _rIY,FEReal _rFX,FEReal _rFY,
+                            FEReal _rIU,FEReal _rIV,FEReal _rFU,FEReal _rFV,
+                            const CFEColor& _oColor);
+            
+            /// Renders a quad with the given initial and final vertex and texture coordinates and color, using the current material.
+            void RenderQuad(FEReal _rIX,FEReal _rIY,FEReal _rFX,FEReal _rFY,
+                            FEReal _rIU,FEReal _rIV,FEReal _rFU,FEReal _rFV,
+                            const CFEColor& _oColor);            
+            
+            /// Renders a quad using the provided vertices and texcoords, using the current material.
+            void RenderQuad(CFEVect2* _poVXs,CFEVect2* _poUVs,
+                            const CFEColor& _oColor);
+            
+            /// Renders a quad using the provided vertices, texcoords and colors, using the current material.
+            void RenderQuad(CFEVect2* _poVXs,CFEVect2* _poUVs,CFEColor* _poColor);
 
             /// Renders a billboard using the current material.
 			void RenderSprite(const CFEVect2& _oPos,const CFEVect2& _oPivot,const CFEVect2& _oScale,FEReal _rAngle,
@@ -122,10 +109,17 @@ class CFERenderer
 							FEReal _rX,FEReal _rY,
 							const CFEColor& _oColor,
 							EFETextHAlignmentMode _eHAlignment = THAM_DEFAULT,
-							EFETextVAlignmentMode _eVAlignment = TVAM_DEFAULT);
+							EFETextVAlignmentMode _eVAlignment = TVAM_DEFAULT,							
+							FEReal _rFontPointSize = _1r);
 
-			/// Renders a triangle mesh, using the current material.
-            void RenderMesh(unsigned short* _pusIdx,CFEVect2* _poVXs,CFEVect2* _poUVs,const CFEColor& _oColor,uint _uiNumPoints);
+            /// Renders a triangle mesh, using the current material.
+            void RenderMesh(unsigned short* _pusIdx,CFEVect2* _poVXs,CFEVect2* _poUVs,CFEColor* _poVCs,uint _uiNumPoints);
+
+            /// Renders a line with the given color.
+            void RenderLine(FEReal _rIX,FEReal _rIY,FEReal _rFX,FEReal _rFY,const CFEColor& _oColor);
+
+            /// Renders a rectangle with the given initial and final coodinates and color.
+            void RenderRect(FEReal _rIX,FEReal _rIY,FEReal _rFX,FEReal _rFY,const CFEColor& _oColor);
 
             /// Sets the current transform to the identity.
             void ResetTransform();
@@ -163,40 +157,28 @@ class CFERenderer
             /// Retrieves the current camera zoom.
             FEReal rGetCameraZoom();
 
-            /// Sets the current camera rotation.
-            void RotateCamera(FEReal _rAngle);
-
-            /// Retrieves the current camera rotation.
-            FEReal rGetCameraRotation();
-
-            /// Sets the current view position.
-            void TranslateView(FEReal _rX,FEReal _rY);
-
-            /// Retrieves the current renderer camera translation.
-            CFEVect2 oGetViewTranslation();
-
-            /// Sets the current camera rotation.
-            void RotateView(FEReal _rAngle);
-
-            /// Retrieves the current camera rotation.
-            FEReal rGetViewRotation();
-
-            /// Get Camera/View transform
-            const CFEMatrix& oGetCamViewTransform();
-
             /// Retrieves a renderer property if it exists.
-            FEBool bGetProperty(const CFEString& _sProperty,FEPointer _pParam);
+            bool bGetProperty(const CFEString& _sProperty,FEPointer _pParam);
 
             /// Sets a renderer property if it exists.
-            FEBool bSetProperty(const CFEString& _sProperty,FEPointer _pParam);
+            bool bSetProperty(const CFEString& _sProperty,FEPointer _pParam);
 	        
 		private:
 
-            // Update the transformation matrix after camera or transform modifications.
-            void UpdateViewTransform();
+            // Internal function to render a primitive.
+            void RenderPrimitive(CFEVect2* _poVX,CFEVect2* _poUV,CFEColor* _poVC,FEHandler _hMat,uint _uiPrimType,uint _uiNumVXs = 0,unsigned short* _pusIdx = NULL);
 
-            // Update the transformation matrix after camera or transform or modifications.
-            void UploadTransform();
+            // Pushes a primitive into the render primitive list.
+            void PushRenderPrim(CFEVect2* _poVX,CFEVect2* _poUV,CFEColor* _poVC,FEHandler _hMat,uint _uiPrimType,uint _uiNumVXs = 0,unsigned short* _pusIdx = NULL);
+            
+            /// Fills a rendering primitive using the given data.
+            void FillRenderPrim(CRenderPrim* _poRP,CFEVect2* _poVX,CFEVect2* _poUV,CFEColor* _poVC,FEHandler _hMat,uint _uiPrimType,uint _uiNumVXs,unsigned short* _pusIdx);
+
+            // Flushes the contents of the render primitive list.
+            void FlushRenderPrims();
+
+            // Update the transformation matrix after camera or transform modifications.
+            void UpdateTransform();
 
             // Renderer Internal Data.
             CFERendererData*    m_poData;

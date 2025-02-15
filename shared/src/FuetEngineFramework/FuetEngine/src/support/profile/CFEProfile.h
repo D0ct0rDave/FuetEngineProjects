@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEProfile
  *  \brief Basic profile management.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -17,22 +17,16 @@
 namespace CFEProfile
 {
 	/// Registers and initializes the application profile assigned area.
-	void RegisterApplication(const CFEString& _sApplicationName,uint _uiApplicationVersion = 0);
+	void RegisterApplication(const CFEString& _sApplicationName);
 
 	/// Saves data to the application profile assigned area.
-	FEBool bSave(FEPointer _pData, uint _uiSize);
+	bool bSave(FEPointer _pData, uint _uiSize);
 
 	/// Loads the data from the application profile assigned area.
-	FEBool bLoad(FEPointer _pData, uint _uiSize);
+	bool bLoad(FEPointer _pData, uint _uiSize);
 
-	/// Retrieves the application version.
-	uint uiGetVersion();
-
-	/// Cleans'up the profile information from the assigned area.	
+	/// Cleans'up the profile information from the assigned area.
 	void Reset();
-	
-	/// Finalizes the profile system.
-	void Finish();
 }
 // ----------------------------------------------------------------------------
 #endif

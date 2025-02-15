@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFESkelAnimNodeLocator
  *  \brief A generic class to perfrm a process over all the elemnts of a HUD hierarchy.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -23,11 +23,6 @@ class CFESkelAnimNodeLocator : public CFESkelAnimNodeVisitor
 
         /// Retrieves the object that matches with the specified name.
         static CFESkelAnimNode* poLocateNode(CFESkelAnimNode* _poNode,const CFEString& _sName);
-		
-		// avoid override function hiding
-		// http://stackoverflow.com/questions/2057823/issues-with-partial-class-function-overrides-in-c
-		// http://www.parashift.com/c++-faq-lite/hiding-rule.html
-		using CFESkelAnimNodeVisitor::Visit;
 
         virtual void Visit(CFESkelAnimNode* _poObj);
         /// 

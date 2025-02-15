@@ -56,7 +56,6 @@ class CRealClass {
 	private:
 
 		INTERNAL_TYPE g; // the guts
-		float f;
 
 		#if defined(DOUBLE_SUPPORT)
 		static double dSTEP() { return DOUBLE_STEP; }  // smallest step we can represent
@@ -69,22 +68,22 @@ class CRealClass {
 	public:
 
 		// Internal special constructor
-		CRealClass(CRealClassRAW, INTERNAL_TYPE guts) : g(guts),f() {}
+		CRealClass(CRealClassRAW, INTERNAL_TYPE guts) : g(guts) {}
 		
 		// Default constructor
-		CRealClass() : g(0), f(0.0f) {}
+		CRealClass() : g(0) {}
 
 		// Constructors
-		CRealClass(const CRealClass& a) : g( a.g ), f(a.f) {}
-		CRealClass(int a) : g( a << BP ),f((float)a) {}
-		CRealClass(unsigned int a) : g( (INTERNAL_TYPE)(a << BP) ),f((float)a) {}
-		CRealClass(long a) : g( a << BP ),f((float)a) {}
+		CRealClass(const CRealClass& a) : g( a.g ) {}
+		CRealClass(int a) : g( a << BP ) {}
+		CRealClass(unsigned int a) : g( (INTERNAL_TYPE)(a << BP) ) {}
+		CRealClass(long a) : g( a << BP ) {}
 
 		// copy constructors
-		CRealClass& operator =(const CRealClass& a) { g = a.g; f = a.f; return *this; }
-		CRealClass& operator =(int a) { g = CRealClass(a).g; f = CRealClass(a).f; return *this; }
-		CRealClass& operator =(unsigned int a) { g = CRealClass(a).g; f = CRealClass(a).f; return *this; }
-		CRealClass& operator =(long a) { g = CRealClass(a).g; f = CRealClass(a).f; return *this; }
+		CRealClass& operator =(const CRealClass& a) { g = a.g; return *this; }
+		CRealClass& operator =(int a) { g = CRealClass(a).g; return *this; }
+		CRealClass& operator =(unsigned int a) { g = CRealClass(a).g; return *this; }
+		CRealClass& operator =(long a) { g = CRealClass(a).g; return *this; }
 		
 		// cast operators
 		operator int() { return int(g>>BP); }
@@ -92,11 +91,10 @@ class CRealClass {
 		operator long() { return long(g>>BP); }
 
 		// short support
-		CRealClass(short a) : g( INTERNAL_TYPE(a) << BP ), f(a) {}
+		CRealClass(short a) : g( INTERNAL_TYPE(a) << BP ) {}
 		CRealClass& operator =(short a)
 		{
-			g = INTERNAL_TYPE(a) << BP;
-			f = CRealClass(a).f; 
+			g= INTERNAL_TYPE(a) << BP;
 			return *this;
 		}
 
@@ -104,11 +102,10 @@ class CRealClass {
 		operator const short() const { return (short)((g >> BP) & SHORTMASK); }
 
 		// unsigned short support
-		CRealClass(unsigned short a) : g( INTERNAL_TYPE(a) << BP ), f(a) {}
+		CRealClass(unsigned short a) : g( INTERNAL_TYPE(a) << BP ) {}
 		CRealClass& operator =(unsigned short a)
 		{
 			g= INTERNAL_TYPE(a) << BP;
-			f = CRealClass(a).f; 
 			return *this;
 		}
 
@@ -116,65 +113,43 @@ class CRealClass {
 		operator const unsigned short() const { return (unsigned short)((g >> BP) & SHORTMASK); }
 
 		// arithmetic operators
-		CRealClass operator +() const
-		{
-			CRealClass rRes(RCR_RAW,g);
-			rRes.f = f;
-			return rRes;
-		}
-		
-		CRealClass operator -() const
-		{		
-			CRealClass rRes(RCR_RAW,-g);
-			rRes.f = f;
-			return rRes;
-		}
-
+		CRealClass operator +() const { return CRealClass(RCR_RAW, g); }
+		CRealClass operator -() const { return CRealClass(RCR_RAW,-g); }
 		CRealClass operator +(const CRealClass& a) const
 		{
 			int iA = int(a.g>>BP);
 			int iB = int(this->g>>BP);
 			int iSum = iA+iB;
-
 			CRealClass rRes = CRealClass(RCR_RAW, g + a.g);
-			rRes.f = f + a.f;
-
 			int iRes = rRes.g >> BP;
-			
-			// to detect overflows
 			if (iSum*iRes < 0)
 			{
-				int a = 0;
-				// _asm { int 3 };
+				_asm { int 3 };
 			}
 
 			return rRes; 
 		}
-
-		CRealClass operator -(const CRealClass& a) const
-		{
-			CRealClass rRes(RCR_RAW,g - a.g);
-			rRes.f = f - a.f;
-			return rRes;
-		}
+		CRealClass operator -(const CRealClass& a) const { return CRealClass(RCR_RAW, g - a.g); }
 
 	#if 1
 		// more acurate, using long long
-		CRealClass operator *(const CRealClass& a) const
-		{
-			CRealClass rRes(RCR_RAW,  INTERNAL_TYPE((long long(g) * long long(a.g)) >> BP));
-			rRes.f = f * a.f;
-			return rRes;
-		}
+		CRealClass operator *(const CRealClass& a) const { return CRealClass(RCR_RAW,  INTERNAL_TYPE((long long(g) * long long(a.g)) >> BP)); }
 	#else
 		// faster, but with only half as many bits right of binary point
 		CRealClass operator *(const CRealClass& a) const { return CRealClass(RCR_RAW, (g>>BPhalf) * (a.g>>BPhalf) ); }
 	#endif
 		CRealClass operator /(const CRealClass& a) const
 		{
-			CRealClass rRes(RCR_RAW, INTERNAL_TYPE((( (s64(g)) << BP) / ((s64(a.g))))));
-			rRes.f = f / a.f;
-			return rRes;
+			#if 0 
+			long long gg = long long(g) << BP2;
+			long long aa = long long(a.g);
+			INTERNAL_TYPE res = INTERNAL_TYPE((gg / aa) >> BP);
+			return CRealClass(RCR_RAW, INTERNAL_TYPE(res));
+			#else
+			// return CRealClass(RCR_RAW, INTERNAL_TYPE((( (s64(g)) << BP2) / ((s64(a.g)))) >> BP));
+			return CRealClass(RCR_RAW, INTERNAL_TYPE((( (s64(g)) << BP) / ((s64(a.g))))));
+			// return CRealClass(RCR_RAW, INTERNAL_TYPE( FX_DivFx64c((fx32)g,(fx32)a.g) >> (FX64C_SHIFT-BP)) );
+			#endif
 		}
 
 		CRealClass& operator +=(CRealClass a) { return *this = *this + a; return *this; }
@@ -206,45 +181,29 @@ class CRealClass {
 
 
 		#ifdef FLOAT_SUPPORT
-		CRealClass(float a) : g( INTERNAL_TYPE(a / fSTEP()) ), f(a) {}
-		CRealClass& operator =(float a) { g = CRealClass(a).g; f=a; return *this; }
+		CRealClass(float a) : g( INTERNAL_TYPE(a / fSTEP()) ) {}
+		CRealClass& operator =(float a) { g = CRealClass(a).g; return *this; }
 		operator float() { return float(g) * fSTEP(); }
 		operator const float() const { return float(g) * fSTEP(); }
 
-		CRealClass operator +(float a) const
-		{
-			CRealClass rRes(RCR_RAW, g + CRealClass(a).g);
-			rRes.f = f + a;
-			return rRes;
-		}
-		
-		CRealClass operator -(float a) const
-		{
-			CRealClass rRes(RCR_RAW, g - CRealClass(a).g);
-			rRes.f = f - a;
-			return rRes;
-		}		
-
+		CRealClass operator +(float a) const { return CRealClass(RCR_RAW, g + CRealClass(a).g); }
+		CRealClass operator -(float a) const { return CRealClass(RCR_RAW, g - CRealClass(a).g); }		
 		CRealClass operator *(float a) const
 		{
-			CRealClass rRes(RCR_RAW, (g>>BPhalf) * (CRealClass(a).g>>BPhalf) );
-			rRes.f = f * a;
-			return rRes;
+			return CRealClass(RCR_RAW, (g>>BPhalf) * (CRealClass(a).g>>BPhalf) );
 		}
 
 		CRealClass operator /(float a) const
 		{
 			// return CRealClass(RCR_RAW, INTERNAL_TYPE( FX_DivFx64c((fx32)g,(fx32)CRealClass(a).g) >> (FX64C_SHIFT-BP)) );
 			// return CRealClass(RCR_RAW, INTERNAL_TYPE( ((s64(g) << BP2) / (s64(CRealClass(a).g))) >> BP));
-			CRealClass rRes(RCR_RAW, INTERNAL_TYPE( ((s64(g) << BP) / (s64(CRealClass(a).g))) ));
-			rRes.f = f / a;
-			return rRes;
+			return CRealClass(RCR_RAW, INTERNAL_TYPE( ((s64(g) << BP) / (s64(CRealClass(a).g))) ));
 		}
 
-		CRealClass& operator +=(float a) { return *this = *this + CRealClass(a); return *this; }
-		CRealClass& operator -=(float a) { return *this = *this - CRealClass(a); return *this; }
-		CRealClass& operator *=(float a) { return *this = *this * CRealClass(a); return *this; }
-		CRealClass& operator /=(float a) { return *this = *this / CRealClass(a); return *this; }	
+		CRealClass& operator +=(float a) { return *this = *this + a; return *this; }
+		CRealClass& operator -=(float a) { return *this = *this - a; return *this; }
+		CRealClass& operator *=(float a) { return *this = *this * a; return *this; }
+		CRealClass& operator /=(float a) { return *this = *this / a; return *this; }	
 
 		bool operator ==(float a) const { return g == CRealClass(a).g; }
 		bool operator !=(float a) const { return g != CRealClass(a).g; }

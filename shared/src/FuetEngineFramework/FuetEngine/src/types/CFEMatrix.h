@@ -1,16 +1,18 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEMatrix
  *  \brief 3x3 Matrix class
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  *  \TODO: implement operations with 3x2 matrices
  */
 // ----------------------------------------------------------------------------
 #ifndef CFEMatrixH
 #define CFEMatrixH
+// ----------------------------------------------------------------------------
+#pragma warning( disable : 4244 )	// double to FEReal conversion
 // ----------------------------------------------------------------------------
 #include "Support/Math/CFEMath.h"
 #include "FEBasicTypes.h"
@@ -89,11 +91,11 @@ class CFEMatrix
             m[0][0] = _oA.m[0][0]*_oB.m[0][0] + _oA.m[0][1]*_oB.m[1][0] + _oA.m[0][2]*_oB.m[2][0];
             m[0][1] = _oA.m[0][0]*_oB.m[0][1] + _oA.m[0][1]*_oB.m[1][1] + _oA.m[0][2]*_oB.m[2][1];
             m[0][2] = _oA.m[0][0]*_oB.m[0][2] + _oA.m[0][1]*_oB.m[1][2] + _oA.m[0][2]*_oB.m[2][2];
-
+            
             m[1][0] = _oA.m[1][0]*_oB.m[0][0] + _oA.m[1][1]*_oB.m[1][0] + _oA.m[1][2]*_oB.m[2][0];
             m[1][1] = _oA.m[1][0]*_oB.m[0][1] + _oA.m[1][1]*_oB.m[1][1] + _oA.m[1][2]*_oB.m[2][1];
             m[1][2] = _oA.m[1][0]*_oB.m[0][2] + _oA.m[1][1]*_oB.m[1][2] + _oA.m[1][2]*_oB.m[2][2];
-
+            
             m[2][0] = _oA.m[2][0]*_oB.m[0][0] + _oA.m[2][1]*_oB.m[1][0] + _oA.m[2][2]*_oB.m[2][0];
             m[2][1] = _oA.m[2][0]*_oB.m[0][1] + _oA.m[2][1]*_oB.m[1][1] + _oA.m[2][2]*_oB.m[2][1];
             m[2][2] = _oA.m[2][0]*_oB.m[0][2] + _oA.m[2][1]*_oB.m[1][2] + _oA.m[2][2]*_oB.m[2][2];
@@ -123,10 +125,10 @@ class CFEMatrix
         void Transpose()
         {
 			CFEMatrix oMat = *this;
-
+			
 			for (uint j=0;j<3;j++)
 				for (uint i=0;i<3;i++)
-					m[j][i] = oMat.m[i][j];
+					m[j][i] = oMat.m[i][j];	
         }
 
         /// Computes the inverse of the given matrix
@@ -149,7 +151,7 @@ class CFEMatrix
 
                 // do the translation part
                 m[2][0] = -(oMat.m[2][0]*m[0][0] + oMat.m[2][1]*m[1][0]);
-                m[2][1] = -(oMat.m[2][0]*m[0][1] + oMat.m[2][1]*m[1][1]);
+                m[2][1] = -(oMat.m[2][0]*m[0][1] + oMat.m[2][1]*m[1][1]);                               
             }
             */
 
@@ -157,23 +159,23 @@ class CFEMatrix
 			// http://stackoverflow.com/questions/983999/simple-3x3-matrix-inverse-code-c
 			CFEMatrix oMat = *this;
 
-			FEReal rDet = m[0][0]*m[1][1]*m[2][2] + m[1][0]*m[2][1]*m[0][2] + m[2][0]*m[0][1]*m[1][2]
+			FEReal rDet = m[0][0]*m[1][1]*m[2][2] + m[1][0]*m[2][1]*m[0][2] + m[2][0]*m[0][1]*m[1][2] 
 			            - m[0][0]*m[2][1]*m[1][2] - m[1][0]*m[0][1]*m[2][2] - m[2][0]*m[1][1]*m[0][2];
 
-			if (rDet != _0r)
-			{
+			if (rDet != _0r) 
+			{			
 				FEReal rInvDet = _1r / rDet;
 				m[0][0] =  (oMat.m[1][1]*oMat.m[2][2] - oMat.m[2][1]*oMat.m[1][2])*rInvDet;
 				m[0][1] =  (oMat.m[0][2]*oMat.m[2][1] - oMat.m[0][1]*oMat.m[2][2])*rInvDet;
 				m[0][2] =  (oMat.m[0][1]*oMat.m[1][2] - oMat.m[0][2]*oMat.m[1][1])*rInvDet;
-
+				
 				m[1][0] =  (oMat.m[1][2]*oMat.m[2][0] - oMat.m[1][0]*oMat.m[2][2])*rInvDet;
 				m[1][1] =  (oMat.m[0][0]*oMat.m[2][2] - oMat.m[0][2]*oMat.m[2][0])*rInvDet;
 				m[1][2] =  (oMat.m[1][0]*oMat.m[0][2] - oMat.m[0][0]*oMat.m[1][2])*rInvDet;
-
+				
 				m[2][0] =  (oMat.m[1][0]*oMat.m[2][1] - oMat.m[2][0]*oMat.m[1][1])*rInvDet;
 				m[2][1] =  (oMat.m[2][0]*oMat.m[0][1] - oMat.m[0][0]*oMat.m[2][1])*rInvDet;
-				m[2][2] =  (oMat.m[0][0]*oMat.m[1][1] - oMat.m[1][0]*oMat.m[0][1])*rInvDet;
+				m[2][2] =  (oMat.m[0][0]*oMat.m[1][1] - oMat.m[1][0]*oMat.m[0][1])*rInvDet;				
 			}
 
 			// http://www.euclideanspace.com/maths/algebra/matrix/functions/inverse/threeD/index.htm
@@ -189,28 +191,8 @@ class CFEMatrix
 			 m20 = (m10*m21 - m11*m20)/det;
 			 m21 = (m01*m20 - m00*m21)/det;
 			 m22 = (m00*m11 - m01*m10)/det;
-			*/
+			*/			
         }
-
-		bool operator == (const CFEMatrix &other) const
-		{
-			return(	m[0][0] == other.m[0][0] &&
-					m[0][1] == other.m[0][1] &&
-					m[0][2] == other.m[0][2] &&
-
-					m[1][0] == other.m[1][0] &&
-					m[1][1] == other.m[1][1] &&
-					m[1][2] == other.m[1][2] &&
-
-					m[2][0] == other.m[2][0] &&
-					m[2][1] == other.m[2][1] &&
-					m[2][2] == other.m[2][2] );
-		}
-
-		bool operator != (const CFEMatrix &other) const
-		{
-			return !(*this == other);
-		}
 };
 // ----------------------------------------------------------------------------
 #endif

@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class FEEnums
  *  \brief Enums shared among the FuetEngine and the application
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -24,19 +24,6 @@ class CFEMaterial;
 class CFESpriteFrame
 {
     public:
-
-		/// Should we use the same scale of X for the U tex coord?
-		FEBool m_bScaleXUEqually;
-
-		/// Should we use the same scale of Y for the V tex coord?
-		FEBool m_bScaleYVEqually;
-
-		/// Should this frame use projected world coordinates instead of UV coords? (U component)
-		FEBool m_bUWorldCoords;
-
-		/// Should this frame use projected world coordinates instead of UV coords? (V component)
-		FEBool m_bVWorldCoords;
-				
         /// Rectangle inside the sprite material defining this sprite frame.
 		CFERect  m_oUV;
 
@@ -61,9 +48,6 @@ class CFESpriteFrame
 
         /// The material used by this sprite frame.
         FEHandler m_hMaterial;
-
-		/// Inverse of the material dimensions
-		CFEVect2 m_o1OverDims;
 };
 // ----------------------------------------------------------------------------
 typedef enum ESFSPlayMode {
@@ -76,8 +60,7 @@ typedef enum ESFSPlayMode {
     SFSPM_LOOP,
     SFSPM_PINGPONG,
 
-    SFSPM_NUM,
-   	SFSPM_MAX = 0xffffffff // to force 32 bit enum
+    SFSPM_NUM
 
 } ESFSPlayMode;
 
@@ -85,7 +68,7 @@ class CFESpriteAction : public CFENamedObject
 {
     public:
 
-		CFESpriteAction() : CFENamedObject(""), m_rActionTime(_0r), m_eBlendMode(BM_ALPHA) , m_ePlayMode(SFSPM_NONE), m_rRandStartTime(_0r) {};
+		CFESpriteAction() : CFENamedObject(""), m_rActionTime(_0r), m_ePlayMode(SFSPM_NONE), m_rRandStartTime(_0r) {};
 
 		/// Returns the sprite frame number corresponding to the given time, searching from SeekFrame.
 		uint uiGetFrame(FEReal _rTime,uint _uiSeekFrame = 0);
@@ -94,7 +77,7 @@ class CFESpriteAction : public CFENamedObject
 		uint uiNextFrame(uint _uiFrame);
 		
 		/// Retrieves the action play mode.
- 		ESFSPlayMode eGetPlayMode() { return(m_ePlayMode); };
+		ESFSPlayMode eGetPlayMode() { return(m_ePlayMode); };
 
 		/// Retrieves the maximum time of the animation without looping or -1 if infinite (when looping)
 		FEReal rGetMaxActionTime() { return(m_rActionTime); };
@@ -104,9 +87,6 @@ class CFESpriteAction : public CFENamedObject
 		
 		/// Total time of one loop of the animation.
         FEReal					m_rActionTime;
-
-        /// The blending mode to use for this sprite action
-        EFEBlendMode            m_eBlendMode;
 
         /// Play mode
         ESFSPlayMode			m_ePlayMode;
@@ -122,7 +102,7 @@ class CFESprite : public CFENamedObject
 {
     public:
         
-		CFESprite() : CFENamedObject(""){};
+		CFESprite() : CFENamedObject(""), m_eBlendMode(BM_ALPHA) {};
 
 		/// Retrieves an action by the given index.
 		CFESpriteAction* poGetAction(uint _uiActionIdx);
@@ -132,6 +112,9 @@ class CFESprite : public CFENamedObject
 
 		/// Retrieves an action index by its name or -1 if the action is not found.
 		int iGetActionIdx(const CFEString& _sActionName);
+
+        /// The blending mode to use for this sprite
+        EFEBlendMode                m_eBlendMode;
 
         /// CFESpriteSequence list that builds the different animation one sprite may contain
         /// Reference to the sprite material used by this sprite ...

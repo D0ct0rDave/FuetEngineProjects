@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEScreenFX
  *  \brief A class to perform common full screen fx.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -35,20 +35,8 @@ class CFEScreenFX
         /// Presents the background with the current fade status.
         static void Render(CFERenderer* _poRenderer);
 
-        /// Starts a Fades-in using current color values.
-        static void ContinueFadeIn(FEReal _rTime);
-
-        /// Starts a Fades-out using current color values.
-        static void ContinueFadeOut(FEReal _rTime);
-
-		/// Retrieves the current fade color.
-		static CFEColor oGetCurrentColor()
-		{
-			return(m_oColor);
-		}
-
         /// Tells whether a screen fade is being performed or not.
-        static FEBool bPlaying();
+        static bool bPlaying();
         
         /// Sets the fade plane depth for rendering
         static void SetDepth(FEReal _rDepth) { m_rDepth = _rDepth; };

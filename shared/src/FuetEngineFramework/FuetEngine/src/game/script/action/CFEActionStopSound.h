@@ -1,10 +1,10 @@
 // -----------------------------------------------------------------------------
 /*! \class CFEActionStopSound
  *  \brief An action to play sounds
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 1999-2009
- *  \par Copyright (c) 1999 David Márquez de la Cruz
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // -----------------------------------------------------------------------------
@@ -16,25 +16,19 @@
 class CFEActionStopSound : public CFEAction
 {
 	public:
-
-		/// Specific destructor for this class. If there are specific attributes it MUST not be inherited!
-		virtual ~CFEActionStopSound() {};
-
+		
 		/// Initializes the action with the given sound to be played.
-		void Init(FEHandler _hSoundResource);
+		void Init(FEHandler _hSound);
 
 		/// Performs an update step in the action logic.
-		virtual FEBool bUpdate(FEReal _rDeltaT);
+		virtual bool bUpdate(FEReal _rDeltaT);
 
 		/// Resets the action to its initial state.
 		virtual void Reset();
-
-		/// Retrieves the action signature.
-		virtual CFEString sGetActionSignature();
-
+	
 	protected:
 
-		FEHandler			m_hSoundResource;
+		FEHandler			m_hSound;
 };
 
 // -----------------------------------------------------------------------------

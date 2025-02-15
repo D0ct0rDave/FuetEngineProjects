@@ -1,10 +1,10 @@
 // -----------------------------------------------------------------------------
 /*! \class CFEActionSleep
  *  \brief An action to perform a non active wait over the action queue.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 1999-2009
- *  \par Copyright (c) 1999 David Márquez de la Cruz
+ *  \par Copyright (c) 1999 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // -----------------------------------------------------------------------------
@@ -21,20 +21,9 @@ void CFEActionSleep::Reset()
 	m_rTime = m_rSleepTime;
 }
 // -----------------------------------------------------------------------------
-FEBool CFEActionSleep::bUpdate(FEReal _rDeltaT)
+bool CFEActionSleep::bUpdate(FEReal _rDeltaT)
 {
 	m_rTime -= _rDeltaT;
 	return(m_rTime > _0r);
-}
-// -----------------------------------------------------------------------------
-void CFEActionSleep::ForceFinish()
-{
-	m_rTime = _0r;
-	return;
-}
-// -----------------------------------------------------------------------------
-CFEString CFEActionSleep::sGetActionSignature()
-{
-	return( CFEString::sFormat("CFEActionSleep(_rTime=%.02f)",m_rSleepTime) );
 }
 // -----------------------------------------------------------------------------

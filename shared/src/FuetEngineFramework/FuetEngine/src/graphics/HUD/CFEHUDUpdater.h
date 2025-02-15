@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEHUDUpdater
  *  \brief A generic class to perfrm a process over all the elemnts of a HUD hierarchy.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -20,28 +20,19 @@ class CFEHUDObjectAction;
 class CFEHUDUpdater /* : public CFEHUDVisitor*/
 {
     public:
-
-		/// Updates the whole HUD object
-        static void Update(CFEHUD* _poHUD,FEReal _rDeltaT);
-        
-		/// Updates an element of the HUD
-        static void Update(CFEHUDElement* _poElement,FEReal _rDeltaT);        
+        static void Update(FEHandler _hHUDInstance,FEReal _rDeltaT);
 
         /// 
-        static void Process(CFEHUDElementAction* _poObj,FEReal _rTime);
+        static void Process(CFEHUDElementAction* _poObj);
 
         /// 
-        static void Process(CFEHUDObjectAction* _poObj,FEReal _rTime);
+        static void Process(CFEHUDObjectAction* _poObj);
 
-		///
-		static void SetActionDefaultValues(CFEHUDObject* _poObj);
+        ///
+        static void SetTime(FEReal _rTime);
 
-		///
-		static void RestartActions(CFEHUDElementAction* _poObj);
-
-		/// Reset the all the HUD elements and components to its initial values.
-		static void ResetHUD(CFEHUD* _poHUD);
-
+    protected:
+        static FEReal  m_rTime;
 };
 //-----------------------------------------------------------------------------
 #endif

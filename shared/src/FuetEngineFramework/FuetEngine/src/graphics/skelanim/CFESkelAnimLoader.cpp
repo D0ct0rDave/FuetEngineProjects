@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFESkelAnimLoader
  *  \brief A class to load FuetEngine HUD layouts.
- *  \author David Márquez de la Cruz
- *  \version 1.0
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version _1r
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -22,11 +22,196 @@
 #include "CFESkelAnimMeshModel.h"
 #include "CFESkelAnim.h"
 #include "CFESkelAnimNodeTableBuilder.h"
-#include "CFESkelAnimUtils.h"
 
-#include "core/CFECore.h"
+#include "system/CFESystem.h"
 #include "types/CFEKFBFuncUtils.h"
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+// BEGIN: HELPERS
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+typedef enum TSkelAnimNodeType
+{
+	SANT_NONE,
+	
+	SANT_SPRITE,
+	SANT_MESH,
+	SANT_GROUP,
+	
+	SANT_NUM
+};
+//-----------------------------------------------------------------------------
+class CFESkelAnimNodeActionTimeGetter : public CFESkelAnimNodeVisitor
+{
+	public:
 
+		FEReal rGetTime(CFESkelAnimNode* _poNode,unsigned int _uiAction)
+		{
+			m_uiAction	= _uiAction;
+			m_rMaxTime	= -_1r;
+			m_rTime		= _0r;
+
+			_poNode->Accept(this);
+			return(m_rMaxTime);
+		}
+
+		/*
+		virtual void Visit(CFESkelAnimSprite* _poNode)
+		{
+			CFESprite* poSprite = CFESpriteInstMgr::poGetSprite( _poNode->hGetSprite() );
+
+			if ((poSprite->poGetAction(m_uiAction)->m_ePlayMode != SFSPM_LOOP) && (poSprite->poGetAction(m_uiAction)->m_ePlayMode != SFSPM_PINGPONG))
+				m_fTime = poSprite->poGetAction(m_uiAction)->m_rActionTime;
+		}
+        */
+
+		virtual void Visit(CFESkelAnimGroup* _poNode)
+		{
+			for (uint i=0;i<_poNode->uiNumObjs();i++)
+			{
+				
+				CFESkelAnimNode* poChildNode = _poNode->poGetNode(i);
+				if (poChildNode != NULL)
+				{
+					poChildNode->Accept(this);
+
+					if (m_rTime != -_1r)
+						if (m_rTime > m_rMaxTime)
+							m_rMaxTime = m_rTime;
+				}
+			}
+		}
+
+		virtual void Visit(CFESkelAnimSpriteModel* _poNode)
+		{
+			CFESprite* poSprite = CFESpriteMgr::poLoad( _poNode->sGetSprite() );
+			if ((poSprite->poGetAction(m_uiAction)->m_ePlayMode != SFSPM_LOOP) && (poSprite->poGetAction(m_uiAction)->m_ePlayMode != SFSPM_PINGPONG))
+				m_rTime = poSprite->poGetAction(m_uiAction)->m_rActionTime;
+		}
+
+	protected:
+
+		FEReal			m_rTime;
+		FEReal			m_rMaxTime;
+		unsigned int	m_uiAction;
+};
+//-----------------------------------------------------------------------------
+class CFESkelAnimNodeTypeGetter : public CFESkelAnimNodeVisitor
+{
+	public:
+
+		TSkelAnimNodeType eGetType(CFESkelAnimNode* _poNode)
+		{
+			m_eType = SANT_NONE;
+			_poNode->Accept(this);
+			return(m_eType);
+		}
+
+		virtual void Visit(CFESkelAnimGroup* _poNode)
+		{
+			m_eType = SANT_GROUP;
+		}
+
+		virtual void Visit(CFESkelAnimMeshModel* _poNode)
+		{
+			m_eType = SANT_MESH;
+		}
+
+		virtual void Visit(CFESkelAnimMesh* _poNode)
+		{
+			m_eType = SANT_MESH;
+		}
+
+		virtual void Visit(CFESkelAnimSpriteModel* _poNode)
+		{
+			m_eType = SANT_SPRITE;
+		}
+
+		virtual void Visit(CFESkelAnimSprite* _poNode)
+		{
+			m_eType = SANT_SPRITE;
+		}
+	
+	protected:
+		
+		TSkelAnimNodeType m_eType;
+		
+};
+
+//-----------------------------------------------------------------------------
+FEReal rGetActionTime(CFESkelAnimAction* _poAction)
+{
+	uint i;
+	FEReal rActionTime = -_1r;
+    for (i=0;i<_poAction->uiNumNodeActions();i++)
+    {
+		CFESkelAnimNodeAction* poNodeAction = _poAction->poGetNodeAction(i);
+		EFEKFBFuncWrapMode eWrapMode;
+		FEReal rTime;
+
+		eWrapMode = poNodeAction->m_oPosFunc.eGetWrapMode();
+		rTime = poNodeAction->m_oPosFunc.rGetMaxLimit();
+		if ((eWrapMode != KFBFWM_LOOP) && (eWrapMode != KFBFWM_PINGPONG) && (rTime>_0r)&& (rActionTime < rTime)) rActionTime = rTime;
+
+		eWrapMode = poNodeAction->m_oScaleFunc.eGetWrapMode();
+		rTime = poNodeAction->m_oScaleFunc.rGetMaxLimit();
+		if ((eWrapMode != KFBFWM_LOOP) && (eWrapMode != KFBFWM_PINGPONG) && (rTime>_0r)&& (rActionTime < rTime)) rActionTime = rTime;
+
+		eWrapMode = poNodeAction->m_oColorFunc.eGetWrapMode();
+		rTime = poNodeAction->m_oColorFunc.rGetMaxLimit();
+		if ((eWrapMode != KFBFWM_LOOP) && (eWrapMode != KFBFWM_PINGPONG) && (rTime>_0r)&& (rActionTime < rTime)) rActionTime = rTime;
+
+		eWrapMode = poNodeAction->m_rAngleFunc.eGetWrapMode();
+		rTime = poNodeAction->m_rAngleFunc.rGetMaxLimit();
+		if ((eWrapMode != KFBFWM_LOOP) && (eWrapMode != KFBFWM_PINGPONG) && (rTime>_0r)&& (rActionTime < rTime)) rActionTime = rTime;
+    }
+
+    return(rActionTime);
+}
+//-----------------------------------------------------------------------------
+FEReal rGetMaxActionTime(CFESkelAnimAction* _poAction)
+{
+	uint i;
+	FEReal rMaxActionTime = -_1r;
+    for (i=0;i<_poAction->uiNumNodeActions();i++)
+    {
+		CFESkelAnimNodeAction* poNodeAction = _poAction->poGetNodeAction(i);
+		FEReal rMaxTime;
+
+		rMaxTime = poNodeAction->m_oPosFunc.rGetMaxLimit();
+		if ((rMaxTime>_0r) && (rMaxActionTime < rMaxTime)) rMaxActionTime = rMaxTime;
+
+		rMaxTime = poNodeAction->m_oScaleFunc.rGetMaxLimit();
+		if ((rMaxTime>_0r) && (rMaxActionTime < rMaxTime)) rMaxActionTime = rMaxTime;
+
+		rMaxTime = poNodeAction->m_oColorFunc.rGetMaxLimit();
+		if ((rMaxTime>_0r) && (rMaxActionTime < rMaxTime)) rMaxActionTime = rMaxTime;
+
+		rMaxTime = poNodeAction->m_rAngleFunc.rGetMaxLimit();
+		if ((rMaxTime>_0r) && (rMaxActionTime < rMaxTime)) rMaxActionTime = rMaxTime;
+    }
+
+    return(rMaxActionTime);
+}
+//-----------------------------------------------------------------------------
+static ESAAPlayMode eGetActionPlayMode(const CFEString& _sPlayMode)
+{
+    if (_sPlayMode |= "Loop")
+        return(SAAPM_LOOP);
+
+else if (_sPlayMode |= "PingPong")
+        return(SAAPM_PINGPONG);
+
+else if (_sPlayMode |= "FinalValue")
+        return(SAAPM_ONESHOT);
+
+	return(SAAPM_ONESHOT);
+}
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+// END: HELPERS
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
 CFEString CFESkelAnimLoader::m_sWorkingDir;
@@ -40,7 +225,7 @@ CFESkelAnim* CFESkelAnimLoader::poLoad(const CFEString& _sFilename)
 
 	if (! oConfig.bInitialized() )
 	{
-	    CFECore::Log::Print("WARNING: Unable to load skeletal anim %s\n",_sFilename.szString());
+	    CFESystem::Log::Print("WARNING: Unable to load skeletal anim %s\n",_sFilename.szString());
 	    return(NULL);
     }
     
@@ -52,7 +237,7 @@ CFESkelAnim* CFESkelAnimLoader::poLoad(const CFEString& _sFilename)
 	if (poAnimNode == NULL)
 	{
 		// error
-		CFECore::Log::Print("WARNING: Unable to load skeletal node in anim file %s\n",_sFilename.szString());
+		CFESystem::Log::Print("WARNING: Unable to load skeletal node in anim file %s\n",_sFilename.szString());
 		return(NULL);
 	}	
 
@@ -66,7 +251,7 @@ CFESkelAnim* CFESkelAnimLoader::poLoad(const CFEString& _sFilename)
 	if (poActionSet != NULL)
 		poSkelAnim->SetActionSet(poActionSet);
     else
-        CFECore::Log::Print("WARNING: Unable to load action set in anim file %s\n",_sFilename.szString());
+        CFESystem::Log::Print("WARNING: Unable to load action set in anim file %s\n",_sFilename.szString());
 
 	return(poSkelAnim);
 }
@@ -80,7 +265,7 @@ CFESkelAnimNode* CFESkelAnimLoader::poLoadNode(const CFEString& _sFilename)
 
 	if (! oConfig.bInitialized() )
 	{
-	    CFECore::Log::Print("WARNING: Unable to skeleton %s\n",_sFilename.szString());
+	    CFESystem::Log::Print("WARNING: Unable to skeleton %s\n",_sFilename.szString());
 	    return(NULL);
 	}
     
@@ -97,7 +282,7 @@ CFESkelAnimAction* CFESkelAnimLoader::poLoadAction(const CFEString& _sFilename, 
 
 	if (! oConfig.bInitialized() )
 	{	    
-	    CFECore::Log::Print("WARNING: Unable to load action %s\n",_sFilename.szString());
+	    CFESystem::Log::Print("WARNING: Unable to load action %s\n",_sFilename.szString());
 	    return(NULL);
     }
 
@@ -114,30 +299,29 @@ void CFESkelAnimLoader::LoadNode(const CFEString& _sPrefix, const CFEConfigFile&
     FEReal rY = _oConfigFile.rGetReal(_sPrefix + ".Position.y",_0r);
     _poNode->SetPos( CFEVect2(rX,rY) );
 
-    // angle
-    FEReal rA = _oConfigFile.rGetReal(_sPrefix + ".Angle",_0r);
-    _poNode->SetAngle( rA );
-    
-	#ifdef USE_SKELANIM_SCALE_COLOR
-	// scale
+    // scale
     FEReal rSX = _oConfigFile.rGetReal(_sPrefix + ".Scale.x",_1r);
     FEReal rSY = _oConfigFile.rGetReal(_sPrefix + ".Scale.y",_1r);
     _poNode->SetScale( CFEVect2(rSX,rSY) );
+
+    // angle
+    FEReal rA = _oConfigFile.rGetReal(_sPrefix + ".Angle",_0r);
+    _poNode->SetAngle( rA );
     
     // color
     FEReal rCR = _oConfigFile.rGetReal(_sPrefix + ".Color.r",_1r);
     FEReal rCG = _oConfigFile.rGetReal(_sPrefix + ".Color.g",_1r);
     FEReal rCB = _oConfigFile.rGetReal(_sPrefix + ".Color.b",_1r);
     FEReal rCA = _oConfigFile.rGetReal(_sPrefix + ".Color.a",_1r);
-	_poNode->SetColor( CFEColor(rCR,rCG,rCB,rCA) );
-	#endif
 
     // Depth
     FEReal rDepth = _oConfigFile.rGetReal(_sPrefix + ".Depth",_0r);
     _poNode->SetDepth( rDepth );
 
+    _poNode->SetColor( CFEColor(rCR,rCG,rCB,rCA) );
+    
     // visibility
-    FEBool bVisible = _oConfigFile.bGetBool(_sPrefix + ".Visible",true);
+    bool bVisible = _oConfigFile.bGetBool(_sPrefix + ".Visible",true);
     _poNode->Show( bVisible );
 }
 //-----------------------------------------------------------------------------
@@ -150,17 +334,9 @@ CFESkelAnimNode* CFESkelAnimLoader::poLoadNode(const CFEString& _sPrefix,const C
     {
         CFESkelAnimSpriteModel* poSprite = new CFESkelAnimSpriteModel(sNodeName);
         LoadNode(_sPrefix,_oConfigFile,poSprite);
-			
-        CFEString sSprite = _oConfigFile.sGetString(_sPrefix + ".Sprite","");
 
-        if (sSprite != "")
-			sSprite = m_sWorkingDir + CFEString("/") + sSprite;
-
+        CFEString sSprite = m_sWorkingDir + CFEString("/") + _oConfigFile.sGetString(_sPrefix + ".Sprite","");
 		poSprite->SetSprite( sSprite );
-
-		uint uiSpriteAction = _oConfigFile.iGetInteger(_sPrefix + ".SpriteAction",0);
-		poSprite->SetSpriteAction( uiSpriteAction );
-
         return(poSprite);
     }
 	/*
@@ -182,14 +358,14 @@ CFESkelAnimNode* CFESkelAnimLoader::poLoadNode(const CFEString& _sPrefix,const C
         CFESkelAnimGroup* poGroup = new CFESkelAnimGroup(sNodeName);
         LoadNode(_sPrefix,_oConfigFile,poGroup);
 
-        uint uiNumChildren = _oConfigFile.iGetInteger(_sPrefix + ".NumChildren",0);
+        uint uiNumNodes = _oConfigFile.iGetInteger(_sPrefix + ".NumNodes",0);
 
-        for (uint i=0;i<uiNumChildren;i++)
+        for (uint i=0;i<uiNumNodes;i++)
         {
-            CFEString sNode = _sPrefix + ".Child" + CFEString((int)i);
+            CFEString sNode = _sPrefix + ".Node" + CFEString(i);
             CFESkelAnimNode* poNode = poLoadNode(sNode,_oConfigFile/*,_poAction*/);
 
-            poGroup->uiAddChild(poNode);
+            poGroup->uiAddNode(poNode);
         }
 
         return(poGroup);
@@ -200,21 +376,12 @@ CFESkelAnimNode* CFESkelAnimLoader::poLoadNode(const CFEString& _sPrefix,const C
         CFESkelAnimBone* poBone = new CFESkelAnimBone(sNodeName);
         LoadNode(_sPrefix,_oConfigFile,poBone);
 
-		// bone position
-		FEReal rX = _oConfigFile.rGetReal(_sPrefix + ".BonePos.x",_0r);
-		FEReal rY = _oConfigFile.rGetReal(_sPrefix + ".BonePos.y",_0r);
-		poBone->SetBonePos( CFEVect2(rX,rY) );
-
-		// read bone children
-        uint uiNumChildren = _oConfigFile.iGetInteger(_sPrefix + ".NumChildren",0);
-
-        for (uint i=0;i<uiNumChildren;i++)
-        {
-            CFEString sNode = _sPrefix + ".Child" + CFEString((int)i);
-            CFESkelAnimNode* poNode = poLoadNode(sNode,_oConfigFile/*,_poAction*/);
-
-            poBone->uiAddChild(poNode);
-        }
+		CFEString sNodeType = _oConfigFile.sGetString(_sPrefix + ".AttachedNode.Type","none");
+		if (sNodeType != "none")
+		{
+            CFESkelAnimNode* poNode = poLoadNode(_sPrefix + ".AttachedNode",_oConfigFile);
+            poBone->SetAttachedNode(poNode);		    
+		}
 
         return(poBone);
     }
@@ -227,18 +394,15 @@ CFESkelAnimNode* CFESkelAnimLoader::poLoadNode(const CFEString& _sPrefix,const C
         CFEString sSprite = m_sWorkingDir + CFEString("/") + _oConfigFile.sGetString(_sPrefix + ".Sprite","");
         poMesh->SetSprite(sSprite);
         
-		uint uiSpriteAction = _oConfigFile.iGetInteger(_sPrefix + ".SpriteAction",0);
-		poMesh->SetSpriteAction( uiSpriteAction );
-
         uint uiNumAttachedBones = _oConfigFile.iGetInteger(_sPrefix + ".NumAttachedBones",0);
 
         for (uint i=0;i<uiNumAttachedBones;i++)
-            poMesh->AttachBone( _oConfigFile.sGetString(_sPrefix + ".AttachedBone" + CFEString((int)i) + CFEString(".Name"),"nonamed-bone") );
+            poMesh->AttachBone( _oConfigFile.sGetString(_sPrefix + ".AttachedBone" + CFEString(i) + CFEString(".Name"),"nonamed-bone") );
 
         return(poMesh);
     }
     
-    CFECore::Log::Print("WARNING: Unknown node type %s\n",sNodeType.szString());
+    CFESystem::Log::Print("WARNING: Unknown node type %s\n",sNodeType.szString());
     return(NULL);
 }
 //-----------------------------------------------------------------------------
@@ -252,7 +416,7 @@ CFESkelAnimActionSet* CFESkelAnimLoader::poLoadActionSet(const CFEString& _sPref
     // Read actions.
     for (uint j=0;j<uiNumActions;j++)
     {
-        CFEString sVar = _sPrefix + CFEString(".Action") + CFEString((int)j);
+        CFEString sVar = _sPrefix + CFEString(".Action") + CFEString(j);
 
 		// Load action
         CFESkelAnimAction* poAction = poLoadAction(sVar,_oConfigFile,_poAnim);
@@ -261,7 +425,7 @@ CFESkelAnimActionSet* CFESkelAnimLoader::poLoadActionSet(const CFEString& _sPref
         if (poAction != NULL)
 			poActionSet->uiAddAction(poAction);
         else
-            CFECore::Log::Print("WARNING: Unable to load action %d\n",j);
+            CFESystem::Log::Print("WARNING: Unable to load action %d\n",j);
     }
 
     return(poActionSet);
@@ -276,18 +440,18 @@ CFESkelAnimAction* CFESkelAnimLoader::poLoadAction(const CFEString& _sPrefix,con
     uint uiNumNodeActions = _oConfigFile.iGetInteger(_sPrefix + ".NumNodeActions",0);
     for (uint i=0;i<uiNumNodeActions;i++)
     {
-        CFEString sPrefix = _sPrefix + CFEString(".NodeAction") + CFEString((int)i);
+        CFEString sPrefix = _sPrefix + CFEString(".NodeAction") + CFEString(i);
         CFESkelAnimNodeAction* poNodeAction = poLoadNodeAction(sPrefix,_oConfigFile,_poAnim);
 
         if (poNodeAction != NULL)
 			poAction->uiAddNodeAction(poNodeAction);
         else
-            CFECore::Log::Print("WARNING: Unable to load node action %d\n",i);
+            CFESystem::Log::Print("WARNING: Unable to load node action %d\n",i);
     }
 
-	poAction->SetPlayMode(CFESkelAnimUtils::eGetActionPlayMode( _oConfigFile.sGetString(_sPrefix + ".PlayMode","loop") ) );
-	poAction->SetActionTime(CFESkelAnimUtils::rGetActionTime(_poAnim, poAction) );
-	poAction->SetMaxActionTime(CFESkelAnimUtils::rGetMaxActionTime(_poAnim, poAction) );
+	poAction->SetPlayMode( eGetActionPlayMode( _oConfigFile.sGetString(_sPrefix + ".PlayMode","loop") ) );
+	poAction->SetActionTime( rGetActionTime(poAction) );
+	poAction->SetMaxActionTime( rGetMaxActionTime(poAction) );
 
     return(poAction);
 }
@@ -299,7 +463,7 @@ CFESkelAnimNodeAction* CFESkelAnimLoader::poLoadNodeAction(const CFEString& _sPr
     if (iNodeIdx == -1)
     {
 		// error
-		CFECore::Log::Print("WARNING: Cannot find node %s for node action.\n",sNodeName.szString());
+		CFESystem::Log::Print("WARNING: Cannot find node %s for node action.\n",sNodeName.szString());
 		return(NULL);
     }
 
@@ -332,7 +496,7 @@ CFESkelAnimNodeAction* CFESkelAnimLoader::poLoadNodeAction(const CFEString& _sPr
 		{
 			for (i=0;i<uiKeyFrames;i++)
 			{
-				CFEString sIVar = sVar + CFEString(".KeyFrame") + CFEString((int)i);
+				CFEString sIVar = sVar + CFEString(".KeyFrame") + CFEString(i);
 
 				CFEVect2 oPos;
 				oPos.x = _oConfigFile.rGetReal(sIVar + ".x",_0r);
@@ -341,6 +505,30 @@ CFESkelAnimNodeAction* CFESkelAnimLoader::poLoadNodeAction(const CFEString& _sPr
 				CFEString sLerpFunc = _oConfigFile.sGetString(sIVar + ".LerpFunc","linear");
 
 				poNodeAction->m_oPosFunc.InsertKeyFrame(oPos,rTime,CFEKFBFuncUtils::eGetLerpFunc(sLerpFunc) );
+			}
+		}
+
+		// Scale
+		sVar = _sPrefix + ".ScaleFunc";
+		sWrapMode = _oConfigFile.sGetString(sVar + ".WrapMode","finalvalue");    
+		eWrapMode = CFEKFBFuncUtils::eGetWrapMode(sWrapMode);
+		poNodeAction->m_oScaleFunc.SetWrapMode( eWrapMode );
+
+		rTime = _0r;
+		uiKeyFrames = _oConfigFile.iGetInteger(sVar + ".NumKeyFrames",0);    
+		if (uiKeyFrames>0)
+		{
+			for (i=0;i<uiKeyFrames;i++)
+			{
+				CFEString sIVar = sVar + CFEString(".KeyFrame") + CFEString(i);
+
+				CFEVect2 oScale;
+				oScale.x = _oConfigFile.rGetReal(sIVar + ".x",_0r);
+				oScale.y = _oConfigFile.rGetReal(sIVar + ".y",_0r);
+				rTime = _oConfigFile.rGetReal(sIVar + ".Time",_0r);
+				CFEString sLerpFunc = _oConfigFile.sGetString(sIVar + ".LerpFunc","linear");
+
+				poNodeAction->m_oScaleFunc.InsertKeyFrame(oScale,rTime,CFEKFBFuncUtils::eGetLerpFunc(sLerpFunc) );
 			}
 		}
 
@@ -356,38 +544,13 @@ CFESkelAnimNodeAction* CFESkelAnimLoader::poLoadNodeAction(const CFEString& _sPr
 		{
     		for (i=0;i<uiKeyFrames;i++)
 			{
-				CFEString sIVar = sVar + CFEString(".KeyFrame") + CFEString((int)i);
+				CFEString sIVar = sVar + CFEString(".KeyFrame") + CFEString(i);
 
 				FEReal rAngle = _oConfigFile.rGetReal(sIVar + ".Value",_0r);
 				rTime = _oConfigFile.rGetReal(sIVar + ".Time",_0r);
 				CFEString sLerpFunc = _oConfigFile.sGetString(sIVar + ".LerpFunc","linear");
 
 				poNodeAction->m_rAngleFunc.InsertKeyFrame(rAngle,rTime,CFEKFBFuncUtils::eGetLerpFunc(sLerpFunc) );
-			}
-		}
-		
-		#ifdef USE_SKELANIM_SCALE_COLOR
-		// Scale
-		sVar = _sPrefix + ".ScaleFunc";
-		sWrapMode = _oConfigFile.sGetString(sVar + ".WrapMode","finalvalue");    
-		eWrapMode = CFEKFBFuncUtils::eGetWrapMode(sWrapMode);
-		poNodeAction->m_oScaleFunc.SetWrapMode( eWrapMode );
-
-		rTime = _0r;
-		uiKeyFrames = _oConfigFile.iGetInteger(sVar + ".NumKeyFrames",0);    
-		if (uiKeyFrames>0)
-		{
-			for (i=0;i<uiKeyFrames;i++)
-			{
-				CFEString sIVar = sVar + CFEString(".KeyFrame") + CFEString((int)i);
-
-				CFEVect2 oScale;
-				oScale.x = _oConfigFile.rGetReal(sIVar + ".x",_0r);
-				oScale.y = _oConfigFile.rGetReal(sIVar + ".y",_0r);
-				rTime = _oConfigFile.rGetReal(sIVar + ".Time",_0r);
-				CFEString sLerpFunc = _oConfigFile.sGetString(sIVar + ".LerpFunc","linear");
-
-				poNodeAction->m_oScaleFunc.InsertKeyFrame(oScale,rTime,CFEKFBFuncUtils::eGetLerpFunc(sLerpFunc) );
 			}
 		}
 
@@ -403,7 +566,7 @@ CFESkelAnimNodeAction* CFESkelAnimLoader::poLoadNodeAction(const CFEString& _sPr
 		{
 			for (i=0;i<uiKeyFrames;i++)
 			{
-				CFEString sIVar = sVar + CFEString(".KeyFrame") + CFEString((int)i);
+				CFEString sIVar = sVar + CFEString(".KeyFrame") + CFEString(i);
 
 				CFEColor oColor;
 				oColor.r = _oConfigFile.rGetReal(sIVar + ".r",_1r);
@@ -417,13 +580,12 @@ CFESkelAnimNodeAction* CFESkelAnimLoader::poLoadNodeAction(const CFEString& _sPr
 				poNodeAction->m_oColorFunc.InsertKeyFrame(oColor,rTime,CFEKFBFuncUtils::eGetLerpFunc(sLerpFunc) );
 			}
 		}
-		#endif
 
 		// Retrieve the action to be played on this node (only for sprites)
 		CFESkelAnimNodeTypeGetter oTypeGetter;
-		EFESkelAnimNodeType eType = oTypeGetter.eGetType(_poAnim->m_oNodeTab[iNodeIdx]);
+		TSkelAnimNodeType eType = oTypeGetter.eGetType(_poAnim->m_oNodeTab[iNodeIdx]);
 
-		if ((eType == SANT_SPRITE) || (eType == SANT_MESH) || (eType == SANT_SPRITE_MODEL) || (eType == SANT_MESH_MODEL))
+		if ((eType == SANT_SPRITE) || (eType == SANT_MESH))
 		{
 			int iNodeAction = _oConfigFile.iGetInteger(_sPrefix + ".NodeAction",-1);
 			poNodeAction->SetNodeActionIdx(iNodeAction);

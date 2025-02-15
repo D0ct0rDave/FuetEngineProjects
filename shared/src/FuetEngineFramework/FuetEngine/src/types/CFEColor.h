@@ -1,19 +1,17 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEColor
  *  \brief Color class
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
 #ifndef CFEColorH
 #define CFEColorH
 // ----------------------------------------------------------------------------
-#include "Support/Math/CFEMath.h"
 #include "FEBasicTypes.h"
-#include "FEConsts.h"
 // ----------------------------------------------------------------------------
 /// Class CFEColor
 // ----------------------------------------------------------------------------
@@ -45,14 +43,6 @@ class CFEColor
             a = _1r;
         }
 
-        CFEColor(uint _uiColor)
-        {
-            r = FEReal( _uiColor        & 0x000000ff) * _1o255r;
-            g = FEReal((_uiColor >>  8) & 0x000000ff) * _1o255r;
-            b = FEReal((_uiColor >> 16) & 0x000000ff) * _1o255r;
-            a = FEReal((_uiColor >> 24) & 0x000000ff) * _1o255r;
-        }
-
         /// Stores the linear interpolation between 2 colors and a given factor
         void Lerp(const CFEColor& _oA,const CFEColor& _oB,FEReal _rFact)
         {
@@ -62,15 +52,6 @@ class CFEColor
             b = _oA.b + (_oB.b - _oA.b)*_rFact;
             a = _oA.a + (_oB.a - _oA.a)*_rFact;
         }
-
-		// Clamps the internal RGBA values into the normalized range.
-		void Clamp()
-		{
-			if (r>_1r) r=_1r; else if (r<_0r) r=_0r;
-			if (g>_1r) g=_1r; else if (g<_0r) g=_0r;
-			if (b>_1r) b=_1r; else if (b<_0r) b=_0r;
-			if (a>_1r) a=_1r; else if (a<_0r) a=_0r;
-		}
 
         /// Scales a color by a scalar factor.
         CFEColor operator *(const FEReal& _rFactor) const
@@ -182,25 +163,6 @@ class CFEColor
             a /= _oColor.a;
 
             return *this;
-        }
-
-        FEBool operator |=(const CFEColor& _oColor)
-        {
-            return( CFEMath::bBetween(r-EPSILON,r+EPSILON,_oColor.r) && 
-					CFEMath::bBetween(g-EPSILON,g+EPSILON,_oColor.g) &&
-					CFEMath::bBetween(b-EPSILON,b+EPSILON,_oColor.b) &&
-					CFEMath::bBetween(a-EPSILON,a+EPSILON,_oColor.a)
-					);
-        }
-
-        FEBool operator ==(const CFEColor& _oColor)
-        {
-			return( (r == _oColor.r) && (g == _oColor.g) && (b == _oColor.b) && (a == _oColor.a));
-        }
-
-        FEBool operator !=(const CFEColor& _oColor)
-        {
-			return( (r != _oColor.r) || (g != _oColor.g) || (b != _oColor.b) || (a != _oColor.a));
         }
 
         /// Returns the full opaque BLACK color.

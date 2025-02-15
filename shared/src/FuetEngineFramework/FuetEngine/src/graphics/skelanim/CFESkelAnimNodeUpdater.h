@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFESkelAnimNodeUpdater
  *  \brief A generic class to perfrm a process over all the elemnts of a HUD hierarchy.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -23,21 +23,7 @@ class CFESkelAnimNodeUpdater : public CFESkelAnimNodeVisitor
     public:
 
         /// Update static nodes in the skeletal hierarchy        
-        static void Update(CFESkelAnimNode* _poNode,FEReal _rTime,FEReal _rDeltaT);
-		
-		/// 
-		CFESkelAnimNodeUpdater(CFESkelAnimNode* _poNode, FEReal _rTime, FEReal _rDeltaT) : 
-			m_poNode(_poNode), 
-			m_rTime(_rTime),
-			m_rDeltaT(_rDeltaT)
-		{
-		};
-
-		// avoid override function hiding
-		// http://stackoverflow.com/questions/2057823/issues-with-partial-class-function-overrides-in-c
-		// http://www.parashift.com/c++-faq-lite/hiding-rule.html
-		using CFESkelAnimNodeVisitor::Visit;
-
+        static void Update(CFESkelAnimNode* _poNode,FEReal _rTime);
         /// 
         virtual void Visit(CFESkelAnimSprite* _poObj);
         /// 
@@ -47,9 +33,8 @@ class CFESkelAnimNodeUpdater : public CFESkelAnimNodeVisitor
 
 	protected:
 
-		CFESkelAnimNode*    m_poNode;
-		FEReal				m_rTime;
-		FEReal				m_rDeltaT;
+		static CFESkelAnimNode*     m_poNode;
+		static FEReal				m_rTime;
 };
 //-----------------------------------------------------------------------------
 #endif

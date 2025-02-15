@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEResourceMgr
  *  \brief A generic template definition to manage resources.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -16,66 +16,32 @@
 #include "CFELookupDatabase.h"
 #include "CFESingleton.h"
 #include "Support/Mem/CFEResourceContextMgr.h"
-#include "Support/misc/CFEStringUtils.h"
 //-----------------------------------------------------------------------------
-#define DECLARE_RESOURCE_MANAGER(CLASSNAME,RESOURCETYPE)\
-class CLASSNAME : public CFEResourceMgr<CLASSNAME,RESOURCETYPE>
+#define DECLARE_RESOURCE_MANAGER(ClassName,ResourceType)\
+class ClassName : public CFEResourceMgr<ClassName,ResourceType>
 //-----------------------------------------------------------------------------
-template <class B, class T>
+template <typename B, typename T>
 class CFEResourceMgr
-{
-	// -------------------
-	// BEGIN: singleton code
-    // -------------------
-	public:
+{	
+	friend class CFEResourceMgr<B,T>;
 
-        static B* I()
-        {
-            if (m_spoInstance == NULL)
-                m_spoInstance = new B;
-
-            return(m_spoInstance);
-        }
-
-        static void Finish()
-        {
-            if (m_spoInstance != NULL)
-            {
-                delete m_spoInstance;
-                m_spoInstance = NULL;
-            }
-        }
-
-    protected:
-
-        static B* m_spoInstance;
-	
-    // -------------------
-	// END: singleton code
-	// -------------------
-	
     public:
 
-        virtual ~CFEResourceMgr()
+        /// Loads the resource identified by the given filename and returns it.
+        static T* poLoad(const CFEString& _sFilename)
         {
-			Reset();
-        };
+			m_bInitialized = true;
 
-	    /// Loads the resource identified by the given filename and returns it.
-        T* poLoad(const CFEString& _sFilename)
-        {
-			CFEString sFilename = CFEStringUtils::sGetCanonicalPath(_sFilename);
-
-		    // Search for the object
-            CFEResourceObj<T>* poResEntry = m_oResDB.poGet(sFilename);
+            // Search for the object
+            CFEResourceObj<T>* poResEntry = CFEResDB::I()->m_oResDB.poGet(_sFilename);
             if (poResEntry == NULL)
             {
-                // Loads the resource through sFilename virtual implementation of the function.
-                T* poRes = poLoadResource(sFilename);
+                // Loads the resource through the virtual implementation of the function.
+                T* poRes = B::poLoadResource(_sFilename);
 
                 // Adds the object to the database
                 if (poRes != NULL)
-					Register(poRes,sFilename,true);
+					Register(poRes,_sFilename);
 
                 return( poRes );
             }
@@ -88,126 +54,161 @@ class CFEResourceMgr
 
         /// Registers an external resource and associates it to a name.
         /// Replaces the contents in case the resource is already in the database
-        void Register(T* _poRes,const CFEString& _sResourceName,FEBool _bFirstReference = false)
+        static void Register(T* _poRes,const CFEString& _sResourceName)
         {
+			m_bInitialized = true;
+
 			// Adds the object to the database
             CFEResourceObj<T>* poResEntry = new CFEResourceObj<T>;
             poResEntry->m_poRes		= _poRes;
             poResEntry->m_uiCtxID	= CFEResourceContextMgr::uiGetContextID();
-            poResEntry->m_uiRefCount= _bFirstReference?1:0;
+            poResEntry->m_uiRefCount= 0;
 
-            m_oResDB.uiAdd(_sResourceName,poResEntry);
+            CFEResDB::I()->m_oResDB.uiAdd(_sResourceName,poResEntry);
         }
 
         /// Function for reload the full contents of the resource manager.
-        void Reload()
+        static void Reload()
         {
-			for (uint i=0;i<m_oResDB.uiNumElems();i++)
+			if (! m_bInitialized) return;
+
+            for (uint i=0;i<CFEResDB::I()->m_oResDB.uiNumElems();i++)
             {
-                const CFEString& sFilename = m_oResDB.sGetVariable(i);
-                T* poNewRes = poLoadResource(sFilename);
+                const CFEString& sFilename = CFEResDB::I()->m_oResDB.sGetVariable(i);
+                T* poNewRes = B::poLoadResource(sFilename);
 
                 if (poNewRes != NULL)
                 {
-                    CFEResourceObj<T>* poResEntry = m_oResDB.poGetAt(i);
+                    CFEResourceObj<T>* poResEntry = CFEResDB::I()->m_oResDB.poGet(i);
 
                     // We have to copy new resource data into old one to prevent objects having invalid references by just
                     // substituting the contents of the element in the resource array.
-					*poResEntry->m_poRes = *poNewRes;
+					*poResEntry->m_poRes = *poNewRes;                    
                 }
             }
         }
 
         /// Resets to the initial state manager.
-        void Reset()
+        static void Reset()
         {
-			for (uint i=0;i<m_oResDB.uiNumElems();i++)
-			{
-                this->InvalidateResource( m_oResDB.poGetAt(i)->m_poRes );
-				delete m_oResDB.poGetAt(i);
-			}
+			if (! m_bInitialized) return;
 
-            m_oResDB.Clear();
+            for (uint i=0;i<CFEResDB::I()->m_oResDB.uiNumElems();i++)
+                B::InvalidateResource( CFEResDB::I()->m_oResDB.poGet(i)->m_poRes );
+
+            CFEResDB::I()->m_oResDB.Clear();
         }
 
         /// Releases the given resource, and invalidates it if it's not being used anymore.
-		void ReleaseResource(T* _poRes)
+		static void ReleaseResource(T* _poRes)
 		{
-            for (uint i=0;i<m_oResDB.uiNumElems();i++)
+			if (! m_bInitialized) return;
+			
+			bool bFound = false;
+            for (uint i=0;((i<CFEResDB::I()->m_oResDB.uiNumElems()) && (! bFound));i++)
             {
-				// Found ?
-				if (m_oResDB.poGetAt(i)->m_poRes == _poRes)
+				if (CFEResDB::I()->m_oResDB.poGet(i)->m_poRes == _poRes)
 				{
-					m_oResDB.poGetAt(i)->m_uiRefCount--;
+					CFEResDB::I()->m_oResDB.poGet(i)->m_uiRefCount--;
 
-					if (m_oResDB.poGetAt(i)->m_uiRefCount == 0)
+					if (CFEResDB::I()->m_oResDB.poGet(i)->m_uiRefCount == 0)
 					{
-						InvalidateResource(m_oResDB.poGetAt(i)->m_poRes);
-						delete m_oResDB.poGetAt(i);
+						B::InvalidateResource(CFEResDB::I()->m_oResDB.poGet(i)->m_poRes);
+						delete CFEResDB::I()->m_oResDB.poGet(i);
 
-						m_oResDB.Delete(i);
+						CFEResDB::I()->m_oResDB.Delete(i);
 					}
 
-					return;
+					bFound = true;
 				}
 			}
+
+			// To avoid init/finish stage we should do something like this.
+			if ((bFound) && (CFEResDB::I()->m_oResDB.uiNumElems()==0))
+				DestroySingleton();
 		}
 
         /// Releases the resources allocated at the given or greater context.
-        void ReleaseContextResources(uint _uiContextID)
+        static void ReleaseContextResources(uint _uiContextID)
         {
-			for (uint i=0;i<m_oResDB.uiNumElems();)
-            {
-				if (m_oResDB.poGetAt(i)->m_uiCtxID >= _uiContextID)
-				{
-					InvalidateResource(m_oResDB.poGetAt(i)->m_poRes);
-					delete m_oResDB.poGetAt(i);			
+			if (! m_bInitialized) return;
 
-					m_oResDB.Delete(i);
+            for (uint i=0;i<CFEResDB::I()->m_oResDB.uiNumElems();)
+            {
+				if (CFEResDB::I()->m_oResDB.poGet(i)->m_uiCtxID >= _uiContextID)
+				{
+					B::InvalidateResource(CFEResDB::I()->m_oResDB.poGet(i)->m_poRes);
+					delete CFEResDB::I()->m_oResDB.poGet(i);
+					CFEResDB::I()->m_oResDB.Delete(i);
 				}
 				else
 					i++;
 			}
+			
+			// To avoid init/finish stage we should do something like this.
+			if (CFEResDB::I()->m_oResDB.uiNumElems()==0)
+				DestroySingleton();
         }
 
         /// Retrieves the resource name associated with the given resource.
-        const CFEString& sGetResourceName(T* _poRes)
+        static const CFEString& sGetResourceName(T* _poRes)
         {
-
-            // Adds (or replaces) the object in the database
-            for (uint i=0;i<m_oResDB.uiNumElems();i++)
-                if (m_oResDB.poGetAt(i)->m_poRes == _poRes)
-                    return( m_oResDB.sGetVariable(i) );
+			if (m_bInitialized)
+			{
+				// Adds (or replaces) the object in the database
+				for (uint i=0;i<CFEResDB::I()->m_oResDB.uiNumElems();i++)
+					if (CFEResDB::I()->m_oResDB.poGet(i)->m_poRes == _poRes)
+						return( CFEResDB::I()->m_oResDB.sGetVariable(i) );
+			}
 
             return( CFEString::sNULL() );
         }
 
         /// Tells wether a given resource exists or not
-        FEBool bExists(const CFEString& _sResourceName)
+        static bool bExists(const CFEString& _sResourceName)
         {
-			return( m_oResDB.poGet(_sResourceName) != NULL );
+			if (! m_bInitialized) return(false);
+            return( CFEResDB::I()->m_oResDB.poGet(_sResourceName) != NULL );
         }
 
 	protected:
 
         /// Function to override for every type Resource
-        /// virtual T* poLoadResource(const CFEString& _sFilename)
-        virtual T* poLoadResource(const CFEString&) { return(NULL); };    	// <- avoid unused parameter warning
+        static T* poLoadResource(const CFEString& _sFilename) { return(NULL); };
 
         /// Function to override for every type Resource
         /// Here the user can free resources or handlers belonging to this object
-        /// virtual void InvalidateResource(T* _poRes)
-        virtual void InvalidateResource(T*){}; 								// <- avoid unused parameter warning
+        static void InvalidateResource(T* _poRes){};
 
 	protected:
+		
+		///
+		static void DestroySingleton()
+		{
+			CFEResDB::I()->Finish();
+			m_bInitialized = false;
+		}
 
-		typedef CFEResourceObj<T> CResourceEntry;
-        CFELookUpDatabase<CResourceEntry> m_oResDB;
+    protected:
+
+		DECLARE_SINGLETON(CFEResDB)
+		{
+			public:
+				~CFEResDB()
+				{
+					m_oResDB.Clear();
+				}
+				
+			typedef CFEResourceObj<T> CResourceEntry;
+			CFELookUpDatabase<CResourceEntry> m_oResDB;				
+		};
+
+		/// 		
+		static bool	m_bInitialized;
 };
-
-template <class B, class T>
-B* CFEResourceMgr<B,T>::m_spoInstance = NULL;
-
+//-----------------------------------------------------------------------------
+template <typename B, typename T>
+bool CFEResourceMgr<B,T>::m_bInitialized = false;
 //-----------------------------------------------------------------------------
 #endif // CFEResourceMgrH
 //-----------------------------------------------------------------------------

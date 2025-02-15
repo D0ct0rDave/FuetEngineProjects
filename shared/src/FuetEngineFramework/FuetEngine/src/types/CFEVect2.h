@@ -1,10 +1,10 @@
 // ---------------------------------------------------------------------------
 /*! \class CFEVect2
  *  \brief 2D Vector class
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -13,7 +13,6 @@
 // ----------------------------------------------------------------------------
 #include "Support/Math/CFEMath.h"
 #include "FEBasicTypes.h"
-#include "FEConsts.h"
 // ----------------------------------------------------------------------------
 class CFEVect2
 {
@@ -88,16 +87,7 @@ class CFEVect2
 
 		/// Makes the vector unitary.
         void Normalize()
-        {
-        	#ifdef DS
-        	// Dirty trick for DS fixed point math:_(
-        	if ((x>_64r) || (y>_64r))
-        	{
-	       		x *= _0001r;
-        		y *= _0001r;
-        	}
-        	#endif
-        	
+        {      	
 			FEReal rLen = rLength();
 			if (rLen == _0r)
 			{
@@ -204,38 +194,6 @@ class CFEVect2
             y /= v.y;
 
             return *this;
-        }
-
-        FEBool operator |=(const CFEVect2& v)
-        {
-            return( CFEMath::bBetween(x-EPSILON,x+EPSILON,v.x) && CFEMath::bBetween(y-EPSILON,y+EPSILON,v.y));
-        }
-
-        FEBool operator ==(const CFEVect2& v)
-        {
-			return( (x == v.x) && (y == v.y));
-        }
-
-        FEBool operator ==(const CFEVect2& v) const
-        {
-			return( (x == v.x) && (y == v.y));
-        }
-
-        FEBool operator !=(const CFEVect2& v)
-        {
-			return( (x != v.x) || (y != v.y));
-        }
-		
-		FEReal &operator[](const uint index)
-		{
-			if (index == 0) return(x);
-			return(y);
-		}
-
-        FEReal operator[](const uint index) const
-        {
-			if (index == 0) return(x);
-			return(y);
         }
 
         /// Returns the ZERO vector.

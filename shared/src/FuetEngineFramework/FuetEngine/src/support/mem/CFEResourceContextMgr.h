@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEResourceContextMgr
  *  \brief Resource Context Management class to help the automatic deallocation of system resources.
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------

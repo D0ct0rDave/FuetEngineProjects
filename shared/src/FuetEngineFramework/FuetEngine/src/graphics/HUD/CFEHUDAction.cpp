@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
 /*! \class CFEConfigFile
  *  \brief A class for generic configuration settings reading
- *  \author David Márquez de la Cruz
+ *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 2009
- *  \par Copyright (c) 2009 David Márquez de la Cruz
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -12,14 +12,10 @@
 //-----------------------------------------------------------------------------
 CFEHUDObjectAction::~CFEHUDObjectAction()
 {
-	m_rXFunc.Reset();
-	m_rYFunc.Reset();
+	m_oPosFunc.Reset();
 	m_oScaleFunc.Reset();
 	m_oColorFunc.Reset();
 	m_rAngleFunc.Reset();
-	m_rDepthFunc.Reset();
-	m_bVisFunc.Reset();
-	m_oEventFunc.Reset();
 }
 //-----------------------------------------------------------------------------
 CFEHUDElementAction::~CFEHUDElementAction()
