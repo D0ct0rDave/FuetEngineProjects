@@ -13,22 +13,22 @@
 #include "System/CFESystem.h"
 #include "Support/Graphics/CFERenderer.h"
 // ----------------------------------------------------------------------------
-void CFEScreenUtils::FSRender(CFERenderer* _poRenderer,FEHandler _hMat,const CFEColor& _oColor,FEReal _rDepth)
+void CFEScreenUtils::FSRender(CFERenderer* _poRenderer,FEHandler _hMat,const CFEColor& _oColor)
 {
-	_poRenderer->SetDepth(_rDepth);
 	_poRenderer->SetMaterial(_hMat);
 	_poRenderer->RenderQuad(0,0,_poRenderer->uiGetScreenVWidth(),_poRenderer->uiGetScreenVHeight(),0,0,1,1,_oColor);
 }
 // ----------------------------------------------------------------------------
-void CFEScreenUtils::FSRender(CFERenderer* _poRenderer,FEHandler _hMat,const CFEColor& _oColor,FEReal _rAlpha,FEReal _rDepth)
+void CFEScreenUtils::FSRender(CFERenderer* _poRenderer,FEHandler _hMat,const CFEColor& _oColor,FEReal _rAlpha)
 {
     CFEColor oColor = _oColor;
     oColor.a = _rAlpha;
-    FSRender(_poRenderer,_hMat,oColor,_rDepth);
+    FSRender(_poRenderer,_hMat,oColor);
 }
 // ----------------------------------------------------------------------------
-void CFEScreenUtils::FSRender(CFERenderer* _poRenderer,FEHandler _hMat,FEReal _rDepth)
+void CFEScreenUtils::FSRender(CFERenderer* _poRenderer,FEHandler _hMat)
 {
-    FSRender(_poRenderer,_hMat,CFEColor::WHITE(),_rDepth);
+    CFEColor oColor(1,1,1,1);
+    FSRender(_poRenderer,_hMat,oColor);
 }
 // ----------------------------------------------------------------------------

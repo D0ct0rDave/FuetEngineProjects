@@ -22,8 +22,6 @@ class CFEInputData
             m_uiScreenVHeight(480),
             m_hHandler(NULL)
         {
-			memset(&m_oCurInput,0,sizeof(TFEInputStruct));
-			memset(&m_oOldInput,0,sizeof(TFEInputStruct));
         };
 
 		TFEInputStruct  m_oCurInput;
@@ -38,21 +36,11 @@ CFEInput::CFEInput()
 	m_poData = new CFEInputData;
 }
 // ----------------------------------------------------------------------------
-CFEInput::~CFEInput()
-{
-	CFESystem::Input::Finish(m_poData->m_hHandler);
-	delete m_poData;
-}
-// ----------------------------------------------------------------------------
 void CFEInput::Init(FEHandler _hParam)
 {
     m_poData->m_hHandler = CFESystem::Input::hInit(_hParam);
     memset(&m_poData->m_oCurInput,0,sizeof(TFEInputStruct));
     memset(&m_poData->m_oOldInput,0,sizeof(TFEInputStruct));
-}
-// ----------------------------------------------------------------------------
-void CFEInput::Finish()
-{
 }
 // ----------------------------------------------------------------------------
 void CFEInput::Update(FEReal _rDeltaT)

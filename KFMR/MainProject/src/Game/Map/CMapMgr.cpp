@@ -12,6 +12,7 @@
 #include "Game/CGameGlobals.h"
 #include "Game/Entity/CEntityFactory.h"
 #include "Game/Helpers/CGameHelper.h"
+#include "Game/Helpers/CGroundMgr.h"
 //-----------------------------------------------------------------------------
 CFEArray<CEntity*> CMapMgr::m_poMapEntities;
 //-----------------------------------------------------------------------------
@@ -36,7 +37,7 @@ void CMapMgr::Load(const CFEString& _sMapName)
  	goGameGlobals.m_poMap = CFEMapLoader::poLoad(_sMapName);
  	goGameGlobals.m_poMap->m_oBV.m_oIni.x += goGameGlobals.m_rScreenMargin;
  	goGameGlobals.m_poMap->m_oBV.m_oEnd.x -= goGameGlobals.m_rScreenMargin;
-
+ 	
  	CFEString sKFRMMapName = _sMapName + ".km";
     CFEConfigFile oCfg(sKFRMMapName);
     if (oCfg.bInitialized())
@@ -117,6 +118,9 @@ void CMapMgr::Load(const CFEString& _sMapName)
                 m_poMapEntities.push_back(poEnt);
             }
         }
+        
+        // Read Ground properties
+        CGroundMgr::Init(oCfg,"KFRMMap");
     }    
 }
 //-----------------------------------------------------------------------------

@@ -17,7 +17,7 @@
 #include "CFEFile.h"
 #include "System/CFESystem.h"
 // ----------------------------------------------------------------------------
-CFEFile::CFEFile() : m_hFD(NULL)
+CFEFile::CFEFile()
 {
 }
 // ----------------------------------------------------------------------------
@@ -48,13 +48,13 @@ void CFEFile::Close ()
 // ----------------------------------------------------------------------------
 uint CFEFile::uiRead(FEPointer _pData, uint _uiSize)
 {
-    CFESystemCheck(_pData != NULL,"NULL Data buffer");
+    CFESystem::Check(_pData != NULL,"NULL Data buffer");
     return ( CFESystem::File::uiRead(m_hFD,_pData,_uiSize) );
 }
 // ----------------------------------------------------------------------------
 uint CFEFile::uiWrite (FEPointer _pData, uint _uiSize)
 {
-    CFESystemCheck(_pData != NULL,"NULL Data buffer");
+    CFESystem::Check(_pData != NULL,"NULL Data buffer");
     return ( CFESystem::File::uiWrite(m_hFD,_pData,_uiSize) );
 }
 // ----------------------------------------------------------------------------

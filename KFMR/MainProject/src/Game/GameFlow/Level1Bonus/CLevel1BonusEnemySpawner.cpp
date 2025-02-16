@@ -27,6 +27,7 @@ CLevel1BonusEnemySpawner::CLevel1BonusEnemySpawner(uint _uiSkill)
     m_uiSkill = _uiSkill;
 	
     // Create a pool for the good objects
+	m_oPoolGoodObjs.Init(MAX_THROWN_OBJS);
 	for(uint i = 0; i < MAX_THROWN_OBJS; i++)
 	{
 		CLevel1BonusThrownObject* poObj = new CLevel1BonusThrownObject;
@@ -34,6 +35,7 @@ CLevel1BonusEnemySpawner::CLevel1BonusEnemySpawner(uint _uiSkill)
 		m_oPoolGoodObjs.iAdd(poObj);
 	}
     // Create a pool for the bad objects
+	m_oPoolBadObjs.Init(MAX_THROWN_OBJS);
 	for(uint i = 0; i < MAX_THROWN_OBJS; i++)
 	{
 		CLevel1BonusThrownObject* poObj = new CLevel1BonusThrownObject;
@@ -46,6 +48,8 @@ CLevel1BonusEnemySpawner::CLevel1BonusEnemySpawner(uint _uiSkill)
 //-----------------------------------------------------------------------------
 CLevel1BonusEnemySpawner::~CLevel1BonusEnemySpawner()
 {
+    m_oPoolGoodObjs.Finish();
+    m_oPoolBadObjs.Finish();
 }
 //-----------------------------------------------------------------------------
 void CLevel1BonusEnemySpawner::Reset()

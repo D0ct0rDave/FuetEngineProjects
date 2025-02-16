@@ -25,17 +25,14 @@ class CFESkelAnimNode : public CFENamedObject
         /// Default constructor of this element
         CFESkelAnimNode(const CFEString& _sName) :
             CFENamedObject(_sName),
-            m_oPos( CFEVect2::ZERO() ),
-            m_oScale( CFEVect2::ONE() ),
+            m_oPos( CFEVect2(_0r,_0r) ),
+            m_oScale( CFEVect2(_1r,_1r) ),
             m_rAngle(_0r),
-            m_oColor( CFEColor::WHITE()),
+            m_oColor(CFEColor(_1r,_1r,_1r,_1r)),
             m_rDepth(_0r),
             m_bVisible(true)
         {
         }
-
-        /// Destructor of the class
-        virtual ~CFESkelAnimNode(){};
 
     	/// Sets the position for the object.
 		void SetPos(const CFEVect2& _oPos)

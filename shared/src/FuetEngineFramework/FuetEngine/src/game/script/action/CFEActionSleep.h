@@ -17,9 +17,6 @@ class CFEActionSleep : public CFEAction
 {
 	public:
 
-		/// Default constructor.
-		CFEActionSleep() : m_rSleepTime(_0r), m_rTime(_0r) {};
-
 		/// Initializes the action with the given parameters.
 		void Init(FEReal _rTime);
 		

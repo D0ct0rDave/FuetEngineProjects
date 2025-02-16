@@ -27,33 +27,13 @@ void CFEHUDUpdater::Update(FEHandler _hHUDInstance,FEReal _rDeltaT)
 //-----------------------------------------------------------------------------
 void CFEHUDUpdater::Process(CFEHUDElementAction* _poObj)
 {
-	FEReal m_rTimeBackup  = m_rTime;
-
-		// Update the element anim
-		FEReal rMaxActionTime = _poObj->rGetMaxActionTime();
-		FEReal rActionTime    = _poObj->rGetActionTime();
-
-		// To prevent overflows
-		if (rActionTime > _0r)
-		{
-			// One shot anims ...
-			m_rTime = CFEMath::rMin(m_rTime,rMaxActionTime);
-		}
-		else
-		{
-			// loop anims...
-			m_rTime = CFEMath::rMod(m_rTime,rMaxActionTime);
-		}
-
-		for (uint i=0;i<_poObj->uiNumActions();i++)
-			Process( _poObj->poGetAction(i) );
-
-	m_rTime = m_rTimeBackup;
+    for (uint i=0;i<_poObj->uiNumActions();i++)
+        Process( _poObj->poGetAction(i) );
 }
 //-----------------------------------------------------------------------------
 void CFEHUDUpdater::Process(CFEHUDObjectAction* _poObj)
 {
-    _poObj->oGetValue( m_rTime);
+    _poObj->oGetValue(m_rTime);
 }
 //-----------------------------------------------------------------------------
 void CFEHUDUpdater::SetTime(FEReal _rTime)

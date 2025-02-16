@@ -16,6 +16,7 @@
 #define USE_WINDOWS         1
 #define USE_LINUX           2
 #define USE_MACOS           3
+#define USE_DS              4
 
 // #define TARGETPLATFORM: This variable will hold the target platform where the engine is built.
 
@@ -34,13 +35,6 @@
 #define USE_DIRECTSOUND     4
 
 // #define SOUND: This variable will hold the sound API to implement the engine functionality.
-
-// Sound Sample loading support
-#define USE_NATIVE_SUPPORT	0
-#define USE_OPENAL	        1
-#define USE_LIBSND          2
-
-// #define SAMPLELIB: This variable will hold the sound sample API to implement the engine functionality.
 
 // Config files
 #define USE_NATIVE_SUPPORT		0
@@ -85,9 +79,6 @@
 
 // #define MATH: This variable will hold the math system to implement the engine functionality.
 
-// Profile
-#define USE_NATIVE_SUPPORT	0
-#define USE_STDPROFILE		1
 // ----------------------------------------------------------------------------
 #endif
 // ----------------------------------------------------------------------------

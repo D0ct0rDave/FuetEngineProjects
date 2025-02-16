@@ -12,7 +12,6 @@
 #define CFEMemH
 // ----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "types/CFEString.h"
 #include "FEEnums.h"
 
 namespace CFEMem
@@ -27,9 +26,6 @@ namespace CFEMem
     /// Switch between the different policies in the system. Static allocation, Dynamic Allocation, Hardware Allocation, ...
     /// Switching from dynamic to static policy implies deallocating ALL the current dynamically allocated data.
     void SwitchPolicy(EFEMemAllocPolicy _eMemPolicy);
-    
-    /// Retrieves the currently being used allocation policy.
-    EFEMemAllocPolicy eGetMemPolicy();
 
     /// Push the current status of the memory system into the context stack. The current base pointer plus the allocated size becomes the new base pointer. 
     /// Allocations will be done relative to the new base pointer.
@@ -52,13 +48,6 @@ namespace CFEMem
     
     /// Frees the memory associated to the given pointer. Does nothing with static allocation policy.
     void Free(FEPointer _pPtr);
-    
-    /// Retrieves a memory property if exists.
-    bool bGetProperty(const CFEString& _sProperty,FEPointer _pParam);
-
-    /// Sets a memory property if exists and it's possible.
-    bool bSetProperty(const CFEString& _sProperty,FEPointer _pParam);
-    
 }
 // ----------------------------------------------------------------------------
 #endif

@@ -12,7 +12,6 @@
 #define CFEHUDActionH
 //-----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "types/CFENamedObject.h"
 #include "types/CFEKFBFunc.h"
 #include "types/FEKFBFLerpFuncs.h"
 #include "CFEHUDObject.h"
@@ -21,26 +20,15 @@
 class CFEHUDObjectAction
 {
 	public:
-		
-		/// Default constructor for the class.
-		CFEHUDObjectAction() :
-			m_poHUDObject(NULL),
-			m_iAction(-1)
-		{
-		}
-		
-		/// Destructor of the class.
-		~CFEHUDObjectAction();
 
 		/// Retrieves the configuration of the HUDObject at a given moment in time.
-		const CFEHUDObject& oGetValue(FEReal _rTime)
+		const CFEHUDObject& oGetValue(FEReal _fTime)
 		{
 			// Computes all the values for all the properties of the HUD object.
-			m_poHUDObject->SetCurAngle( m_rAngleFunc.oGetValue(_rTime) );
-			m_poHUDObject->SetCurPos( m_oPosFunc.oGetValue(_rTime) );
-			m_poHUDObject->SetCurScale( m_oScaleFunc.oGetValue(_rTime) );
-			m_poHUDObject->SetCurColor( m_oColorFunc.oGetValue(_rTime) );
-			m_poHUDObject->SetCurAction(m_iAction);
+			m_poHUDObject->SetAngle( m_rAngleFunc.oGetValue(_fTime) );
+			m_poHUDObject->SetPos( m_oPosFunc.oGetValue(_fTime) );
+			m_poHUDObject->SetScale( m_oScaleFunc.oGetValue(_fTime) );
+			m_poHUDObject->SetColor( m_oColorFunc.oGetValue(_fTime) );
 
 			return( *m_poHUDObject );
 		}
@@ -57,18 +45,6 @@ class CFEHUDObjectAction
 			return(m_poHUDObject);
 		}
 
-		/// Sets an action idx associated to the hud object and this action.
-		void SetObjectAction(int _iAction)
-		{
-			m_iAction = _iAction;
-		}
-
-		/// Retrieves the action idx associated to the hud object and this action.
-		int iGetObjectAction()
-		{
-			return(m_iAction);
-		}
-
         /// Perform processing over the object
 		virtual void Accept(CFEHUDVisitor* _poVisitor)
 		{
@@ -77,26 +53,36 @@ class CFEHUDObjectAction
 
 	public:
 
+		CFEKFBFunc<bool>		m_bVisibleFunc;
 		CFEKFBFunc<CFEVect2>	m_oPosFunc;
 		CFEKFBFunc<CFEVect2>	m_oScaleFunc;
 		CFEKFBFunc<CFEColor>	m_oColorFunc;
 		CFEKFBFunc<FEReal>		m_rAngleFunc;
-		int						m_iAction;
 
 		CFEHUDObject*			m_poHUDObject;
 };
 //-----------------------------------------------------------------------------
-class CFEHUDElementAction : public CFENamedObject
+class CFEHUDElementAction
 {
     public:
 
         /// Default constructor of this element
-        CFEHUDElementAction(const CFEString& _sName) : CFENamedObject(_sName), m_rActionTime(_0r), m_rMaxActionTime(_0r)
+        CFEHUDElementAction(const CFEString& _sName)
         {
+            SetName(_sName);
         }
-		
-		/// Destructor of the class
-		~CFEHUDElementAction();
+
+		/// Sets the name for this HUD element.
+		void SetName(const CFEString& _sName)
+		{
+		    m_sName = _sName;
+		}
+
+		/// Retrieves the name of this HUD element action.
+		const CFEString sGetName()
+		{
+		    return ( m_sName );
+		}
 
 		/// Adds a new action into the HUD Element.
 		uint uiAddAction(CFEHUDObjectAction* _poAction)
@@ -104,7 +90,7 @@ class CFEHUDElementAction : public CFENamedObject
 			m_oObjectActions.push_back(_poAction);
 			return(m_oObjectActions.size()-1);
 		}
-			
+		
 		/// Retrieves the action identified by the given index.
 		CFEHUDObjectAction* poGetAction(uint _uiAction)
 		{
@@ -137,34 +123,22 @@ class CFEHUDElementAction : public CFENamedObject
 		    _poVisitor->Visit(this);
 		}
 		
-		/// Sets the maximum time of the animation without looping or -1 if infinite (when looping).
+		/// Sets the maximum time of the animation without looping or -1 if infinite.
 		void SetActionTime(FEReal _rActionTime)
 		{
 			m_rActionTime = _rActionTime;
 		}
 
-		/// Retrieves the maximum time of the animation without looping or -1 if infinite (when looping)
+		/// Retrieves the maximum time of the animation without looping or -1 if infinite
 		FEReal rGetActionTime()
 		{
 			return(m_rActionTime);
 		}
 
-		/// Sets the maximum time of the animation taking into account the length of looping cycles.
-		void SetMaxActionTime(FEReal _rMaxActionTime)
-		{
-			m_rMaxActionTime = _rMaxActionTime;
-		}
-
-		/// Retrieves the maximum time of the animation taking into account the length of looping cycles.
-		FEReal rGetMaxActionTime()
-		{
-			return(m_rMaxActionTime);
-		}
-
 	protected:
 
 		FEReal							m_rActionTime;
-		FEReal							m_rMaxActionTime;
+		CFEString                       m_sName;
 		CFEArray<CFEHUDObjectAction*>   m_oObjectActions;
 };
 //-----------------------------------------------------------------------------

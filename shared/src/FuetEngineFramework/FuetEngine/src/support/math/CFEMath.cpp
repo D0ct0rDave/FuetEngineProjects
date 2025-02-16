@@ -13,8 +13,7 @@
 // ----------------------------------------------------------------------------
 FEReal CFEMath::rSin(FEReal _rAngle)
 {
-    return ( CFESystem::Math::rSin(_rAngle) );
-}
+    return ( CFESystem::Math::rSin(_rAngle) );}
 // ----------------------------------------------------------------------------
 FEReal CFEMath::rCos(FEReal _rAngle)
 {
@@ -52,6 +51,7 @@ FEReal CFEMath::rSqrt(FEReal _rValue)
 {
     return ( CFESystem::Math::rSqrt(_rValue) );
 }
+
 // ----------------------------------------------------------------------------
 FEReal CFEMath::rMin(FEReal _rA,FEReal _rB)
 {
@@ -75,28 +75,10 @@ bool CFEMath::bBetween(FEReal _rMin,FEReal _rMax,FEReal _rVal)
 // ----------------------------------------------------------------------------
 FEReal CFEMath::rAbs(FEReal _rValue)
 {
-	/*
-	// This is only valid for FLOATS!!!!!!!!!!!!
-	uint* _puiValue = (uint*)&_rValue;
-	*_puiValue &= 0x7fffffff;
-
-	return(_rValue);
-	*/
-
-	if (_rValue < _0r)	
+	if (_rValue < _0r)
 		return(-_rValue);
 	else 
 		return(_rValue);
-
-}
-// ----------------------------------------------------------------------------
-FEReal CFEMath::rSign(FEReal _rValue)
-{
-	/// Zero can be considered both positive or negative: http://mathforum.org/library/drmath/view/57215.html
-	if (_rValue<_0r)
-		return(-_1r);
-	else
-		return(_1r);
 }
 // ----------------------------------------------------------------------------
 FEReal CFEMath::rLerp(FEReal _rA,FEReal _rB,FEReal _rFact)

@@ -94,7 +94,7 @@ void CThrownObject::Update(FEReal _rDeltaT)
 		CFESpriteInstMgr::SetPos(m_hAnimInst,m_oPos);
 
 		// spin the object
-		CFESpriteInstMgr::SetAngle( m_hAnimInst, CFESpriteInstMgr::rGetAngle(m_hAnimInst) + SPIN_FREQ * _2PIr * _rDeltaT * m_rDir);
+		CFESpriteInstMgr::SetAngle( m_hAnimInst, CFESpriteInstMgr::rGetAngle(m_hAnimInst) + SPIN_FREQ * _2PIr_ * _rDeltaT * m_rDir);
 
 		// Instruct to test collisions for this object.
 		CGameMsgMgr::SendMsg(GMSG_ENEMY_OBJ,this,(FEPointer)&m_oAttackInfo);

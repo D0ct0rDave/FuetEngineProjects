@@ -178,7 +178,6 @@ static HGLRC gshFirstHGLRC = 0;
 
 FEHandler CFESystem::Graphics::hInit(FEHandler _hParam)
 {
-	if (_hParam == NULL) return(NULL);
     CRendererHandler* poRnd = new CRendererHandler;
 
     poRnd->m_hWnd = ((HWND)_hParam);
@@ -276,8 +275,6 @@ FEHandler CFESystem::Graphics::hInit(FEHandler _hParam)
 // ----------------------------------------------------------------------------
 void CFESystem::Graphics::Finish(FEHandler _hRenderer)
 {
-    if (_hRenderer == NULL) return;
-
     Check(_hRenderer != NULL,"NULL Renderer Handler");
     DestroyRenderingContext( ((CRendererHandler*)_hRenderer )->m_hGLRC);
     ReleaseDC(((CRendererHandler*)_hRenderer )->m_hWnd, ((CRendererHandler*)_hRenderer)->m_hDC );
@@ -302,7 +299,7 @@ void CFESystem::Graphics::BeginScene(FEHandler _hRenderer)
     glLoadIdentity();
 
     glTranslatef(-1.0f,+ 1.0f,0.0f);
-    glScalef    ( 2.0f/(float)FESglobals.m_uiScrVWidth,-2.0f/(float)FESglobals.m_uiScrVHeight,1.0f);
+    glScalef    ( 2.0f/(FEReal)FESglobals.m_uiScrVWidth,-2.0f/(FEReal)FESglobals.m_uiScrVHeight,1.0f);
     CHECKERROR();
 
 	glClearColor(0,0,0,1);
@@ -315,16 +312,6 @@ void CFESystem::Graphics::EndScene()
 
 	glFinish();
 	::SwapBuffers( FESglobals.m_poCurrentRenderer->m_hDC );
-}
-// ----------------------------------------------------------------------------
-bool CFESystem::Graphics::bGetProperty(const CFEString& _sProperty,FEPointer _pParam)
-{
-	return(false);
-}
-// ----------------------------------------------------------------------------
-bool CFESystem::Graphics::bSetProperty(const CFEString& _sProperty,FEPointer _pParam)
-{
-	return(false);
 }
 // ----------------------------------------------------------------------------
 #endif

@@ -10,22 +10,4 @@
 // ----------------------------------------------------------------------------
 #include "CFEHUDAction.h"
 //-----------------------------------------------------------------------------
-CFEHUDObjectAction::~CFEHUDObjectAction()
-{
-	m_oPosFunc.Reset();
-	m_oScaleFunc.Reset();
-	m_oColorFunc.Reset();
-	m_rAngleFunc.Reset();
-}
-//-----------------------------------------------------------------------------
-CFEHUDElementAction::~CFEHUDElementAction()
-{
-	///
-	for (uint a=0;a<m_oObjectActions.size();a++)
-		delete m_oObjectActions[a];
-
-	/// 
-	m_oObjectActions.clear();
-}
-//-----------------------------------------------------------------------------
 

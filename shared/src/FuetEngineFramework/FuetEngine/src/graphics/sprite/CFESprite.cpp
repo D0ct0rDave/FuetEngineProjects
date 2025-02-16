@@ -45,12 +45,13 @@ uint uiSafeGetFrame(CFESpriteAction* _poAction,FEReal _rTime,uint _uiSeekFrame)
     }
 
     return(uiMaxFrames-1);
+
 }
 // ----------------------------------------------------------------------------
 uint CFESpriteAction::uiGetFrame(FEReal _rTime,uint _uiSeekFrame)
 {
     uint uiMaxFrames = m_oSeq.size();
-    CFESystemCheck(_uiSeekFrame<uiMaxFrames,"Seek frame > max action frames");
+    CFESystem::Check(_uiSeekFrame<uiMaxFrames,"Seek frame > max action frames");
 
     switch (m_ePlayMode)
     {
@@ -201,7 +202,7 @@ uint CFESpriteAction::uiNextFrame(uint _uiFrame)
 int CFESprite::iGetActionIdx(const CFEString& _sActionName)
 {
 	for (uint i=0;i<this->m_oActions.size();i++)
-		if (m_oActions[i].sGetName() |= _sActionName)
+		if (m_oActions[i].m_sName |= _sActionName)
 			return(i);
 
 	return(-1);

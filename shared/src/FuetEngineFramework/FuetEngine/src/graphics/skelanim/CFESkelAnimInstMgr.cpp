@@ -15,9 +15,7 @@
 #include "CFESkelAnim.h"
 #include "CFESkelAnimRenderer.h"
 #include "CFESkelAnimUpdater.h"
-#include "CFESkelAnimNodeUpdater.h"
 #include "CFESkelAnimSprite.h"
-#include "CFESkelAnimMesh.h"
 #include "CFESkelAnimGroup.h"
 #include "CFESkelAnimBone.h"
 #include "system/CFESystem.h"
@@ -34,19 +32,11 @@ class CFESkelAnimNodeEnabler : public CFESkelAnimNodeVisitor
 		// Do nothing
         virtual void Visit(CFESkelAnimSpriteModel* _poObj)
         {
-
+            int a = 0;
         };
 
         /// 
         virtual void Visit(CFESkelAnimSprite* _poObj)
-        {
-			if (m_bEnable)
-				CFESpriteInstMgr::Enable(_poObj->hGetSprite());
-			else
-				CFESpriteInstMgr::Disable(_poObj->hGetSprite());
-        }
-
-        virtual void Visit(CFESkelAnimMesh* _poObj)
         {
 			if (m_bEnable)
 				CFESpriteInstMgr::Enable(_poObj->hGetSprite());
@@ -71,60 +61,6 @@ class CFESkelAnimNodeEnabler : public CFESkelAnimNodeVisitor
 	protected:
 
 		bool	m_bEnable;
-};
-//-----------------------------------------------------------------------------
-class CFESkelAnimNodeActionChanger : public CFESkelAnimNodeVisitor
-{
-	public:
-		CFESkelAnimNodeActionChanger(int _iAction,FEReal _rSpeedMult)
-		{
-			m_iAction		= _iAction;
-			m_rSpeedMult	= _rSpeedMult;
-		}
-
-		// Do nothing
-        virtual void Visit(CFESkelAnimSpriteModel* _poObj)
-        {
-
-        };
-
-        /// 
-        virtual void Visit(CFESkelAnimSprite* _poObj)
-        {
-			if (m_iAction != -1)
-			{
-				CFESpriteInstMgr::SetAction(_poObj->hGetSprite(),m_iAction);				
-				CFESpriteInstMgr::SetSpeedMult( _poObj->hGetSprite(), m_rSpeedMult);				
-			}
-        }
-
-        virtual void Visit(CFESkelAnimMesh* _poObj)
-        {
-			if (m_iAction != -1)
-			{
-				CFESpriteInstMgr::SetAction(_poObj->hGetSprite(),m_iAction);				
-				CFESpriteInstMgr::SetSpeedMult( _poObj->hGetSprite(), m_rSpeedMult);				
-			}
-        }
-
-        /// 
-        virtual void Visit(CFESkelAnimBone* _poObj)
-        {
-            if (_poObj->poGetAttachedNode() != NULL)
-                _poObj->poGetAttachedNode()->Accept(this);
-        }
-
-        /// 
-        virtual void Visit(CFESkelAnimGroup* _poObj)
-        {
-			for (uint i=0;i<_poObj->uiNumObjs();i++)
-				_poObj->poGetNode(i)->Accept(this);
-        }
-
-	protected:
-
-		int		m_iAction;
-		FEReal	m_rSpeedMult;
 };
 // ----------------------------------------------------------------------------
 class CFESkelAnimMgrInst : public CFESkelAnimInst
@@ -157,7 +93,19 @@ class CFESkelAnimMgrInst : public CFESkelAnimInst
 
         /// This instance is handled internally.
         bool m_bInternal;
+
+        /// Sets the instance as free to be used later.
+        bool m_bFree;
 };
+// ----------------------------------------------------------------------------
+//
+DECLARE_SINGLETON(CFESkelAnimInstMgr_DATA)
+{
+    public:
+        
+        CFEArray<CFESkelAnimMgrInst*>   m_oList;
+};
+#define INSTANCEDDATA CFESkelAnimInstMgr_DATA::I()
 // ----------------------------------------------------------------------------
 // handlers are instances
 // #define ANIMINST(handler) *((CFESpriteInst*)handler)
@@ -169,54 +117,105 @@ inline CFESkelAnimMgrInst& ANIMINST(FEHandler _hHandler)
     return( *(CFESkelAnimMgrInst*)_hHandler );
 }
 // ----------------------------------------------------------------------------
-FEHandler CFESkelAnimInstMgr::hGetResource(const CFEString& _sResource)
+void CFESkelAnimInstMgr::Init(uint _uiMaxInstances)
 {
-	return( (FEHandler)CFESkelAnimMgr::poLoad(_sResource) );
-}
-// ----------------------------------------------------------------------------
-void CFESkelAnimInstMgr::SetupInstance(CFESkelAnimMgrInst* _poInstance,FEHandler _hResource)
-{
-	_poInstance->m_poSkelAnim		= (CFESkelAnim*)_hResource;
+    for (uint i=0;i<_uiMaxInstances;i++)
+    {
+        CFESkelAnimMgrInst* poInst = new CFESkelAnimMgrInst;
+        poInst->m_bFree     = true;
+        poInst->m_bEnabled  = false;
+        poInst->m_bInternal = false;
+		poInst->m_rSpeedMult= _1r;
+        poInst->m_bIsRenderManaged = true;
 
-    _poInstance->m_bEnabled			= false;
-    _poInstance->m_rActionTime		= _0r;
-    _poInstance->m_rAngle			= _0r;
-    _poInstance->m_oColor			= CFEColor(_1r,_1r,_1r,_1r);
-    _poInstance->m_oPos				= CFEVect2::ZERO();
-    _poInstance->m_rDepth       	= _0r;
-    _poInstance->m_oScale			= CFEVect2::ONE();
-    _poInstance->m_uiAction			= 0;
-    _poInstance->m_rSpeedMult		= _1r;
-    _poInstance->m_bInternal		= false;
-	_poInstance->m_bIsRenderManaged = true;
+        INSTANCEDDATA->m_oList.push_back(poInst);
+    }
+}
+// ----------------------------------------------------------------------------
+void CFESkelAnimInstMgr::Finish()
+{
+    Reset();
 
-    CFESkelAnimInstancer::CreateInstance( (CFESkelAnim*)_hResource, _poInstance);
-}
-// ----------------------------------------------------------------------------
-CFESkelAnimMgrInst* CFESkelAnimInstMgr::poCreateInstance()
-{
-	return( new CFESkelAnimMgrInst() );
-}
-// ----------------------------------------------------------------------------
-void CFESkelAnimInstMgr::DestroyInstance(CFESkelAnimMgrInst* _poInstance)
-{
-	// InvalidateInstance(_poInstance);
-	delete _poInstance;
-}
-// ----------------------------------------------------------------------------
-void CFESkelAnimInstMgr::InvalidateInstance(CFESkelAnimMgrInst* _poInstance)
-{
-	if (_poInstance->m_poInstAnimNode != NULL)
-	{
-		delete _poInstance->m_poInstAnimNode;
-		_poInstance->m_poInstAnimNode = NULL;
-	}
+    for (uint i=0;i<INSTANCEDDATA->m_oList.size();i++)
+        delete INSTANCEDDATA->m_oList[i];
 
-	if (_poInstance->m_poNodeInstTab != NULL)
-	{
-		delete _poInstance->m_poNodeInstTab;
-		_poInstance->m_poNodeInstTab = NULL;
-	}
+    INSTANCEDDATA->m_oList.clear();
+    INSTANCEDDATA->Finish();
+}
+// ----------------------------------------------------------------------------
+void CFESkelAnimInstMgr::Reset()
+{
+    for (uint i=0;i<INSTANCEDDATA->m_oList.size();i++)
+    {
+        if (! INSTANCEDDATA->m_oList[i]->m_bFree)
+        {
+            if (INSTANCEDDATA->m_oList[i]->m_poInstAnimNode != NULL)
+            {
+                delete INSTANCEDDATA->m_oList[i]->m_poInstAnimNode;
+                INSTANCEDDATA->m_oList[i]->m_poInstAnimNode = NULL;
+            }
+
+            if (INSTANCEDDATA->m_oList[i]->m_poNodeInstTab != NULL)
+            {
+                delete INSTANCEDDATA->m_oList[i]->m_poNodeInstTab;
+                INSTANCEDDATA->m_oList[i]->m_poInstAnimNode = NULL;
+            }
+        }
+
+        INSTANCEDDATA->m_oList[i]->m_bFree     = true;
+        INSTANCEDDATA->m_oList[i]->m_bEnabled  = false;
+        INSTANCEDDATA->m_oList[i]->m_bInternal = false;
+		INSTANCEDDATA->m_oList[i]->m_rSpeedMult= _1r;
+        INSTANCEDDATA->m_oList[i]->m_bIsRenderManaged = true;        
+    }
+}
+// ----------------------------------------------------------------------------
+void CFESkelAnimInstMgr::Load(const CFEString& _sSkelAnim)
+{
+    CFESkelAnimMgr::poLoad(_sSkelAnim);
+}
+// ----------------------------------------------------------------------------
+FEHandler CFESkelAnimInstMgr::hGetInstance(const CFEString& _sSkelAnim)
+{
+    // Retrieve the sprite resource
+    CFESkelAnim* poAnim = CFESkelAnimMgr::poLoad(_sSkelAnim);
+
+    // Unable to load sprite
+    if (poAnim == NULL) return(NULL);
+
+    for (uint i=0;i<INSTANCEDDATA->m_oList.size();i++)
+    {
+        if (INSTANCEDDATA->m_oList[i]->m_bFree)
+        {
+            CFESkelAnimMgrInst* poInst = INSTANCEDDATA->m_oList[i];           
+            CFESkelAnimInstancer::CreateInstance(poAnim,poInst);
+
+            poInst->m_poSkelAnim    = poAnim;
+
+            poInst->m_bFree			= false;
+            poInst->m_bEnabled		= false;
+            poInst->m_rActionTime	= _0r;
+            poInst->m_rAngle		= _0r;
+            poInst->m_oColor		= CFEColor(_1r,_1r,_1r,_1r);
+            poInst->m_oPos			= CFEVect2::oZERO();
+            poInst->m_rDepth        = _0r;
+            poInst->m_oScale		= CFEVect2::oONE();
+            poInst->m_uiAction		= 0;
+            poInst->m_rSpeedMult	= _1r;
+            poInst->m_bInternal		= false;
+			poInst->m_bIsRenderManaged= true;
+
+            return((FEHandler)poInst);    // we can also return the index in case.
+        }
+    }
+
+    return(NULL);
+}
+// ----------------------------------------------------------------------------
+void CFESkelAnimInstMgr::DeleteInstance(FEHandler _hInstance)
+{
+    ANIMINST(_hInstance).m_bFree    = true;
+    ANIMINST(_hInstance).m_bEnabled = false;
 }
 // ----------------------------------------------------------------------------
 const CFEVect2& CFESkelAnimInstMgr::oGetPos(FEHandler _hInstance)
@@ -280,8 +279,8 @@ void CFESkelAnimInstMgr::SetActionAndSpeedMult(FEHandler _hInstance,uint _uiActi
 {
 	// sanity checks
 	if (_uiAction >= ANIMINST(_hInstance).m_poSkelAnim->poGetAnimActionSet()->uiNumActions()) return;
-	CFESystemCheck( _uiAction< ANIMINST(_hInstance).m_poSkelAnim->poGetAnimActionSet()->uiNumActions(),CFEString("Bad action number ") + CFEString(_uiAction) );
-
+	CFESystem::Check( _uiAction< ANIMINST(_hInstance).m_poSkelAnim->poGetAnimActionSet()->uiNumActions(),CFEString("Bad action number ") + CFEString(_uiAction) );
+	
     ANIMINST(_hInstance).m_uiAction		= _uiAction;
     ANIMINST(_hInstance).m_rActionTime	= _0r;
 	ANIMINST(_hInstance).m_rSpeedMult	= _rSpeedMult;
@@ -293,13 +292,13 @@ void CFESkelAnimInstMgr::SetActionAndSpeedMult(FEHandler _hInstance,uint _uiActi
         {
 		    CFESkelAnimNodeAction* poNodeAction = poAction->poGetNodeAction(i);
 
-		    if ((poNodeAction->iGetNodeActionIdx() != -1) && poNodeAction->bIsVisible())
+		    if (poNodeAction->iGetNodeActionIdx() != -1)
 		    {
 		        uint uiNodeIdx = poNodeAction->uiGetNodeIdx();
 
-				CFESkelAnimNodeActionChanger oActionChanger(poNodeAction->iGetNodeActionIdx(),_rSpeedMult);
-				CFESkelAnimNode* poNode = ANIMINST(_hInstance).m_poNodeInstTab->at(uiNodeIdx);
-				poNode->Accept(&oActionChanger);
+			    CFESkelAnimSprite* poAnimNodeSprite = (CFESkelAnimSprite*)ANIMINST(_hInstance).m_poNodeInstTab->at(uiNodeIdx);
+			    CFESpriteInstMgr::SetAction( poAnimNodeSprite->hGetSprite(), poNodeAction->iGetNodeActionIdx() );
+			    CFESpriteInstMgr::SetSpeedMult( poAnimNodeSprite->hGetSprite(), _rSpeedMult);
 		    }
         }
     }
@@ -317,32 +316,7 @@ uint CFESkelAnimInstMgr::uiGetAction(FEHandler _hInstance)
 // ----------------------------------------------------------------------------
 void CFESkelAnimInstMgr::SetActionTime(FEHandler _hInstance,FEReal _rActionTime)
 {
-	if (_hInstance == NULL) return;
-	CFESkelAnimMgrInst* poAI 	= &ANIMINST(_hInstance);
-    CFESkelAnimAction*  poAction= poAI->m_poSkelAnim->poGetAnimActionSet()->poGetAction(poAI->m_uiAction);
-	FEReal rNewTime				= _rActionTime;
-
-	// To prevent overflows
-	switch (poAction->eGetPlayMode())
-    {
-		case SAAPM_ONESHOT:
-		rNewTime = CFEMath::rMin(rNewTime,poAction->rGetMaxActionTime());
-		break;
-
-		case SAAPM_LOOP:
-		rNewTime = CFEMath::rMod(rNewTime,poAction->rGetMaxActionTime());
-		break;
-
-		case SAAPM_PINGPONGSTOP:
-		rNewTime = CFEMath::rMin(rNewTime,_2r*poAction->rGetMaxActionTime()+_001r);
-		break;
-
-		case SAAPM_PINGPONG:
-		rNewTime = CFEMath::rMod(rNewTime,_2r*poAction->rGetMaxActionTime());
-		break;
-    }
-
-	poAI->m_rActionTime = rNewTime;
+    ANIMINST(_hInstance).m_rActionTime = _rActionTime;
 }
 // ----------------------------------------------------------------------------
 FEReal CFESkelAnimInstMgr::rGetActionTime(FEHandler _hInstance)
@@ -411,43 +385,36 @@ bool CFESkelAnimInstMgr::bIsRenderManaged(FEHandler _hInstance)
 // ----------------------------------------------------------------------------
 void CFESkelAnimInstMgr::Update(FEHandler _hInstance,FEReal _rDeltaT)
 {
-    CFESkelAnimMgrInst* poAI     = &ANIMINST(_hInstance);
+    CFESkelAnimMgrInst* poAI    = &ANIMINST(_hInstance);
+    CFESkelAnimAction*  poAction = poAI->m_poSkelAnim->poGetAnimActionSet()->poGetAction(poAI->m_uiAction);
+    poAI->m_rActionTime		 += _rDeltaT * poAI->m_rSpeedMult;
 
-	SetActionTime(_hInstance,poAI->m_rActionTime+_rDeltaT*poAI->m_rSpeedMult);
-
-	// Update static nodes
-	CFESkelAnimNodeUpdater::Update(poAI->m_poInstAnimNode,poAI->m_rActionTime);
-
-	// Update nodes with actions.
 	CFESkelAnimUpdater::Update(poAI);
 }
 // ----------------------------------------------------------------------------
 void CFESkelAnimInstMgr::Update(FEReal _rDeltaT)
 {
-    for (uint i=0;i<uiGetMaxInstances();i++)
-    {
-		CFESkelAnimMgrInst* poInst = poGetResourceInstance(i);
-
-        if ((! bIsInstanceFree(i)) && (poInst->m_bEnabled) && (poInst->m_bIsRenderManaged))
-            Update((FEHandler)poInst,_rDeltaT);
+    for (uint i=0;i<INSTANCEDDATA->m_oList.size();i++)
+    {   
+        if (INSTANCEDDATA->m_oList[i]->m_bEnabled)
+            Update((FEHandler)INSTANCEDDATA->m_oList[i],_rDeltaT);
     }
 }
 // ----------------------------------------------------------------------------
 void CFESkelAnimInstMgr::Render(CFERenderer *_poRenderer)
 {
-    for (uint i=0;i<uiGetMaxInstances();i++)
+    for (uint i=0;i<INSTANCEDDATA->m_oList.size();i++)
     {
-		CFESkelAnimMgrInst* poInst = poGetResourceInstance(i);
-
-        if ((! bIsInstanceFree(i)) && (poInst->m_bEnabled) && (poInst->m_bIsRenderManaged))
+        if ( INSTANCEDDATA->m_oList[i]->m_bEnabled && INSTANCEDDATA->m_oList[i]->m_bIsRenderManaged)
         {
+			CFESkelAnimMgrInst* poAnimInst = INSTANCEDDATA->m_oList[i];
             CFESkelAnimRenderer::Render(_poRenderer,
-								        poInst->m_poInstAnimNode,
-                                        poInst->m_oPos,
-                                        poInst->m_rDepth,
-                                        poInst->m_oScale,
-                                        poInst->m_rAngle,
-                                        poInst->m_oColor);
+								        poAnimInst->m_poInstAnimNode,
+                                        poAnimInst->m_oPos,
+                                        poAnimInst->m_rDepth,
+                                        poAnimInst->m_oScale,
+                                        poAnimInst->m_rAngle,
+                                        poAnimInst->m_oColor);
         }
     }
 }

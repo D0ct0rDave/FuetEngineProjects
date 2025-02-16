@@ -2,7 +2,6 @@
 #ifndef CFELookUpDatabaseH
 #define CFELookUpDatabaseH
 //-----------------------------------------------------------------------------
-#include "Types/CFEArray.h"
 //-----------------------------------------------------------------------------
 template <typename T>
 class CFELookUpDatabase
@@ -76,12 +75,6 @@ class CFELookUpDatabase
             return ( m_oData.size() );
         }
 
-        /// Deletes the element associated to the given index.
-        void Delete(uint _uiIdx)
-        {
-			m_oData.Delete(_uiIdx);
-        }
-
     protected:
 
         ///
@@ -93,7 +86,7 @@ class CFELookUpDatabase
         }TResourceEntry;
 
         /// The database where all the elements are stored (can be a std::map)
-        CFEArray<TResourceEntry> m_oData;
+        std::vector<TResourceEntry> m_oData;
 };
 //-----------------------------------------------------------------------------
 #endif

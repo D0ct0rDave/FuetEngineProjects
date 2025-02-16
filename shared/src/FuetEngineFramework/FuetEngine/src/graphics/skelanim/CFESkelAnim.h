@@ -22,25 +22,14 @@ class CFESkelAnimNodeAction
 {
 	public:
 
-		CFESkelAnimNodeAction() : m_bVisible(true), m_uiNodeIdx(0), m_iNodeActionIdx(-1)
-		{
-		};
-
 		/// Sets up the configuration of a given node according to the given time.
 		void SetupNode(FEReal _fTime,CFESkelAnimNode* _poNode)
 		{
 			// Computes all the values for all the properties of the node.
-			if (bIsVisible())
-			{
-				_poNode->Show();
-
-				if (m_rAngleFunc.uiGetNumKeyFrames()>0) _poNode->SetAngle( m_rAngleFunc.oGetValue(_fTime) ); else _poNode->SetAngle(_0r);
-				if (m_oPosFunc.uiGetNumKeyFrames()>0)   _poNode->SetPos( m_oPosFunc.oGetValue(_fTime) );	 else _poNode->SetPos( CFEVect2::ZERO() );
-				if (m_oScaleFunc.uiGetNumKeyFrames()>0) _poNode->SetScale( m_oScaleFunc.oGetValue(_fTime) ); else _poNode->SetScale( CFEVect2::ONE() );
-				if (m_oColorFunc.uiGetNumKeyFrames()>0) _poNode->SetColor( m_oColorFunc.oGetValue(_fTime) ); else _poNode->SetColor ( CFEColor::WHITE() );
-			}
-			else
-				_poNode->Hide();
+			_poNode->SetAngle( m_rAngleFunc.oGetValue(_fTime) );
+			_poNode->SetPos( m_oPosFunc.oGetValue(_fTime) );
+			_poNode->SetScale( m_oScaleFunc.oGetValue(_fTime) );
+			_poNode->SetColor( m_oColorFunc.oGetValue(_fTime) );
 		}
 
 		/// Sets the node index this action will affect.
@@ -67,31 +56,13 @@ class CFESkelAnimNodeAction
 			return (m_iNodeActionIdx);
 		}
 
-		/// Makes the object associated to the action visible.
-		void Show(bool _bShow = true)
-		{
-			m_bVisible = _bShow;
-		}
-
-		/// Makes the object associated to the action invisible.
-		void Hide()
-		{
-			m_bVisible = false;
-		}
-
-		/// Retrieves whether the object associated to the action is visible or not.
-		bool bIsVisible()
-		{
-			return(m_bVisible);
-		}
-
 	public:
 
 		CFEKFBFunc<CFEVect2>	m_oPosFunc;
 		CFEKFBFunc<CFEVect2>	m_oScaleFunc;
 		CFEKFBFunc<CFEColor>	m_oColorFunc;
 		CFEKFBFunc<FEReal>		m_rAngleFunc;
-		bool					m_bVisible;
+
 		uint					m_uiNodeIdx; 
 
 		// Only valid for sprites
@@ -99,7 +70,6 @@ class CFESkelAnimNodeAction
 };
 // ----------------------------------------------------------------------------
 typedef enum ESAAPlayMode {
-
     SAAPM_NONE,
 
     SAAPM_ONESHOT,
@@ -109,20 +79,16 @@ typedef enum ESAAPlayMode {
     SAAPM_PINGPONG,
 
     SAAPM_NUM
-    
-}ESAAPlayMode;
+};
 //-----------------------------------------------------------------------------
 class CFESkelAnimAction : public CFENamedObject
 {
     public:
 
         /// Default constructor of this element
-        CFESkelAnimAction(const CFEString& _sName) : CFENamedObject(_sName), m_rActionTime(_0r), m_rMaxActionTime(_0r), m_ePlayMode(SAAPM_NONE)
+        CFESkelAnimAction(const CFEString& _sName) : CFENamedObject(_sName)
         {
         }
-		
-		/// Destructor of the class
-        ~CFESkelAnimAction();
 
 		/// Adds a new action into the  Element.
 		uint uiAddNodeAction(CFESkelAnimNodeAction* _poNodeAction)
@@ -175,44 +141,28 @@ class CFESkelAnimAction : public CFENamedObject
 			return(m_ePlayMode);
         }
 
-		/// Sets the maximum time of the animation without looping or -1 if infinite (when looping or pingpoing)
+		// Sets the total animation time or -1 if infinite.
 		void SetActionTime(FEReal _rActionTime)
 		{
 			m_rActionTime = _rActionTime;
 		}
 
-		/// Retrieves the maximum time of the animation without looping or -1 if infinite (when looping or pingpoing)
+		// Retrieves the time the animation takes to last or -1 if infinite.	
 		FEReal rGetActionTime()
 		{
 			return(m_rActionTime);
 		}
-		
-		/// Sets the maximum time of the animation taking into account the length of looping or pingpong cycles.
-		void SetMaxActionTime(FEReal _rMaxActionTime)
-		{
-			m_rMaxActionTime = _rMaxActionTime;
-		}
 
-		/// Retrieves the maximum time of the animation taking into account the length of looping or pingpong cycles.
-		FEReal rGetMaxActionTime()
-		{
-			return(m_rMaxActionTime);
-		}
-		
 	protected:
 
 		CFEArray<CFESkelAnimNodeAction*>	m_oNodeActions;
 		FEReal								m_rActionTime;
-		FEReal								m_rMaxActionTime;
 		ESAAPlayMode						m_ePlayMode;
 };
 //-----------------------------------------------------------------------------
 class CFESkelAnimActionSet
 {
 	public:
-		
-		/// Destructor of the class
-		~CFESkelAnimActionSet();
 		
 		/// Adds a new action into the animation.
 		uint uiAddAction(CFESkelAnimAction* _poAction)
@@ -232,7 +182,7 @@ class CFESkelAnimActionSet
 		{
 			m_oActions.erase(m_oActions.begin() + _uiAction);
 		}
-
+        
         /// Swaps the two given actions
         void Swap(uint _uiIdxA,uint _uiIdxB)
         {
@@ -246,7 +196,7 @@ class CFESkelAnimActionSet
 		{
 			return(m_oActions.size());
 		}
-
+		
 		CFESkelAnimAction* poGetAction(const CFEString& _sActionName)
 		{
 			int iIdx = iGetActionIdx(_sActionName);
@@ -259,7 +209,7 @@ class CFESkelAnimActionSet
 		{
 			for (uint i=0;i<this->m_oActions.size();i++)
 				if ((m_oActions[i]!=NULL) && (m_oActions[i]->sGetName() |= _sActionName))
-					return((int)i);
+					return(i);
 
 			return(-1);		
 		}
@@ -274,13 +224,10 @@ class CFESkelAnim : public CFENamedObject
     public:
 
         /// Default constructor of this element
-        CFESkelAnim(const CFEString& _sName) :  CFENamedObject(_sName), m_poActionSet(NULL), m_poAnimNode(NULL)
+        CFESkelAnim(const CFEString& _sName) :  CFENamedObject(_sName)
         {
         }
-		
-		/// Destructor of the class
-		~CFESkelAnim();
-		
+
 		/// Sets the animation node for this animation.
 		void SetAnimNode(CFESkelAnimNode* _poAnimNode)
 		{

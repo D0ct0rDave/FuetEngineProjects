@@ -38,6 +38,9 @@ class CFEParticleSysMgrInst : public CFEParticleSysInst
         /// This instance is handled internally.
         bool m_bInternal;
 
+        /// Sets the instance as free to be used later.
+        bool m_bFree;
+
         /// Number of accumulated particles
         FEReal  m_rAccParts;
 };
@@ -52,46 +55,98 @@ inline CFEParticleSysMgrInst& PSINST(FEHandler _hHandler)
     return( *(CFEParticleSysMgrInst*)_hHandler );
 }
 // ----------------------------------------------------------------------------
-FEHandler CFEParticleSysInstMgr::hGetResource(const CFEString& _sResource)
+DECLARE_SINGLETON(CFEParticleSysInstMgr_DATA)
 {
-	return( (FEHandler)CFEParticleSysMgr::poLoad(_sResource) );
+    public:
+        CFEArray<CFEParticleSysMgrInst*> m_oList;
+};
+#define INSTANCEDDATA CFEParticleSysInstMgr_DATA::I()
+// ----------------------------------------------------------------------------
+void CFEParticleSysInstMgr::Init(uint _uiMaxPSINSTances)
+{
+    for (uint i=0;i<_uiMaxPSINSTances;i++)
+    {
+        CFEParticleSysMgrInst* poInst = new CFEParticleSysMgrInst;
+        INSTANCEDDATA->m_oList.push_back(poInst);
+    }
+
+    Reset();
 }
 // ----------------------------------------------------------------------------
-void CFEParticleSysInstMgr::SetupInstance(CFEParticleSysMgrInst* _poInstance,FEHandler _hResource)
+void CFEParticleSysInstMgr::Finish()
 {
-	_poInstance->m_poPS      = (CFEParticleSys*)_hResource;
-	_poInstance->m_bEnabled  = false;
-	_poInstance->m_oPos      = CFEVect2::ZERO();
-	_poInstance->m_rDepth    = _0r;
-	_poInstance->m_bInternal = false;
-	_poInstance->m_bIsRenderManaged = true;
-	_poInstance->m_rAccParts = _0r;
-	_poInstance->m_rLifeTime = _0r;
+    for (uint i=0;i<INSTANCEDDATA->m_oList.size();i++)
+        delete INSTANCEDDATA->m_oList[i];
+
+    INSTANCEDDATA->m_oList.clear();
+    INSTANCEDDATA->Finish();
 }
 // ----------------------------------------------------------------------------
-CFEParticleSysMgrInst* CFEParticleSysInstMgr::poCreateInstance()
+void CFEParticleSysInstMgr::Reset()
 {
-	return( new CFEParticleSysMgrInst );
+    for (uint i=0;i<INSTANCEDDATA->m_oList.size();i++)
+    {
+        INSTANCEDDATA->m_oList[i]->m_bFree     = true;
+        INSTANCEDDATA->m_oList[i]->m_bEnabled  = false;
+        INSTANCEDDATA->m_oList[i]->m_bInternal = false;
+        INSTANCEDDATA->m_oList[i]->m_bIsRenderManaged = true;
+    }
 }
 // ----------------------------------------------------------------------------
-void CFEParticleSysInstMgr::DestroyInstance(CFEParticleSysMgrInst* _poInstance)
+/// Forces the loading of a ParticleSys resource.
+void CFEParticleSysInstMgr::Load(const CFEString& _sParticleSysModel)
 {
-	delete _poInstance;
+    CFEParticleSysMgr::poLoad(_sParticleSysModel);
 }
 // ----------------------------------------------------------------------------
-void CFEParticleSysInstMgr::Spawn(const CFEString& _sParticleSysModel,const FEReal& _rLifeTime,const CFEVect2& _oPos,const FEReal& _rDepth)
+/// Retrieves a ParticleSys instance of a given ParticleSys resource.
+FEHandler CFEParticleSysInstMgr::hGetInstance(const CFEString& _sParticleSysModel)
+{
+    // Retrieve the ParticleSys resource
+    return ( hGetInstance( CFEParticleSysMgr::poLoad(_sParticleSysModel)) );
+}
+// ----------------------------------------------------------------------------
+/// Retrieves a ParticleSys instance of a given ParticleSys object.
+FEHandler CFEParticleSysInstMgr::hGetInstance(CFEParticleSys* _poParticleSys)
+{
+	// Check if the ParticleSys object exists.
+    if (_poParticleSys == NULL) return(NULL);
+
+    for (uint i=0;i<INSTANCEDDATA->m_oList.size();i++)
+    {
+        if (INSTANCEDDATA->m_oList[i]->m_bFree)
+        {
+            CFEParticleSysMgrInst* poInst = INSTANCEDDATA->m_oList[i];
+            poInst->m_poPS      = _poParticleSys;
+            poInst->m_bFree     = false;
+            poInst->m_bEnabled  = false;
+            poInst->m_oPos      = CFEVect2::oZERO();
+            poInst->m_rDepth    = _0r;
+            poInst->m_bInternal = false;
+			poInst->m_bIsRenderManaged = true;
+            poInst->m_rAccParts = _0r;
+            poInst->m_rLifeTime = _0r;
+
+            return((FEHandler)poInst);    // we can also return the index in case.
+        }
+    }
+
+    return(NULL);
+}
+// ----------------------------------------------------------------------------
+void CFEParticleSysInstMgr::Spawn(const CFEString& _sParticleSysModel,FEReal _rLifeTime,const CFEVect2& _oPos,FEReal _rDepth)
 {
     FEHandler hHandler = hGetInstance(_sParticleSysModel);
     if (hHandler != NULL) Spawn(hHandler,_rLifeTime,_oPos,_rDepth);
 }
 // ----------------------------------------------------------------------------
-void CFEParticleSysInstMgr::Spawn(CFEParticleSys* _poPS,const FEReal& _rLifeTime,const CFEVect2& _oPos,const FEReal& _rDepth)
+void CFEParticleSysInstMgr::Spawn(CFEParticleSys* _poPS,FEReal _rLifeTime,const CFEVect2& _oPos,FEReal _rDepth)
 {
     FEHandler hHandler = hGetInstance(_poPS);
     if (hHandler != NULL) Spawn(hHandler,_rLifeTime,_oPos,_rDepth);
 }
 // ----------------------------------------------------------------------------
-void CFEParticleSysInstMgr::Spawn(FEHandler _hInst,const FEReal& _rLifeTime,const CFEVect2& _oPos,const FEReal& _rDepth)
+void CFEParticleSysInstMgr::Spawn(FEHandler _hInst,FEReal _rLifeTime,const CFEVect2& _oPos,FEReal _rDepth)
 {
     CFEParticleSysMgrInst* poInst = (CFEParticleSysMgrInst*)_hInst;
 
@@ -103,20 +158,28 @@ void CFEParticleSysInstMgr::Spawn(FEHandler _hInst,const FEReal& _rLifeTime,cons
 }
 // ----------------------------------------------------------------------------
 /// Spawns a ParticleSys automanaged by the manager.
-void CFEParticleSysInstMgr::SpawnParticle(const CFEString& _sParticleSysModel,const CFEVect2& _oPos,const FEReal& _rDepth)
+void CFEParticleSysInstMgr::SpawnParticle(const CFEString& _sParticleSysModel,const CFEVect2& _oPos,FEReal _rDepth)
 {
     // Retrieve the ParticleSys resource
     SpawnParticle(CFEParticleSysMgr::poLoad(_sParticleSysModel),_oPos,_rDepth);
 }
 // ----------------------------------------------------------------------------
 /// Spawns a ParticleSys automanaged by the manager.
-void CFEParticleSysInstMgr::SpawnParticle(CFEParticleSys* _poPS,const CFEVect2& _oPos,const FEReal& _rDepth)
+void CFEParticleSysInstMgr::SpawnParticle(CFEParticleSys* _poPS,const CFEVect2& _oPos,FEReal _rDepth)
 {
 	// Check if the ParticleSys object exists.
     if (_poPS == NULL) return;
 
 	// 
     CFEParticleMgr::CreateParticles(1,_oPos,_rDepth,_poPS);
+}
+// ----------------------------------------------------------------------------
+/// Deletes a given ParticleSys instance.
+void CFEParticleSysInstMgr::DeleteInstance(FEHandler _hInstance)
+{
+    if (_hInstance == NULL) return;
+    PSINST(_hInstance).m_bFree    = true;
+    PSINST(_hInstance).m_bEnabled = false;
 }
 // ----------------------------------------------------------------------------
 /// Gets the poPSItion of a given ParticleSys instance.
@@ -133,7 +196,7 @@ void CFEParticleSysInstMgr::SetPos(FEHandler _hInstance,const CFEVect2& _oPos)
 }
 // ----------------------------------------------------------------------------
 /// Sets the depth of a given ParticleSys instance.
-void CFEParticleSysInstMgr::SetDepth(FEHandler _hInstance,const FEReal& _rDepth)
+void CFEParticleSysInstMgr::SetDepth(FEHandler _hInstance,FEReal _rDepth)
 {
     if (_hInstance == NULL) return;
 	PSINST(_hInstance).m_rDepth = _rDepth;
@@ -188,7 +251,7 @@ bool CFEParticleSysInstMgr::bIsRenderManaged(FEHandler _hInstance)
 	return( PSINST(_hInstance).m_bIsRenderManaged );
 }
 // ----------------------------------------------------------------------------
-void CFEParticleSysInstMgr::Update(FEHandler _hInstance,const FEReal& _rDeltaT)
+void CFEParticleSysInstMgr::Update(FEHandler _hInstance,FEReal _rDeltaT)
 {
     if (_hInstance == NULL) return;
 
@@ -199,7 +262,7 @@ void CFEParticleSysInstMgr::Update(FEHandler _hInstance,const FEReal& _rDeltaT)
 
         if (poPSI->m_rLifeTime <= _0r)
         {
-            ReleaseInstance(_hInstance);
+            DeleteInstance(_hInstance);
             return;
         }
     }
@@ -214,14 +277,12 @@ void CFEParticleSysInstMgr::Update(FEHandler _hInstance,const FEReal& _rDeltaT)
     poPSI->m_rAccParts = rNumParts - FEReal(uiNumParts);
 }
 // ----------------------------------------------------------------------------
-void CFEParticleSysInstMgr::Update(const FEReal& _rDeltaT)
+void CFEParticleSysInstMgr::Update(FEReal _rDeltaT)
 {
-    for (uint i=0;i<uiGetMaxInstances();i++)
+    for (uint i=0;i<INSTANCEDDATA->m_oList.size();i++)
     {
-		CFEParticleSysMgrInst* poInst = poGetResourceInstance(i);
-
-        if ((! bIsInstanceFree(i)) && (poInst->m_bEnabled) && (poInst->m_bIsRenderManaged))
-            Update((FEHandler)poInst,_rDeltaT);
+        if (INSTANCEDDATA->m_oList[i]->m_bEnabled)
+            Update((FEHandler)INSTANCEDDATA->m_oList[i],_rDeltaT);
     }
 
     CFEParticleMgr::Update(_rDeltaT);

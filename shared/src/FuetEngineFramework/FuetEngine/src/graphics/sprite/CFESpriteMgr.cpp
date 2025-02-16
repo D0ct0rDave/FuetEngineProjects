@@ -17,8 +17,3 @@ CFESprite* CFESpriteMgr::poLoadResource(const CFEString& _sFilename)
     return( CFESpriteLoader::poLoad(_sFilename) );
 }
 // ----------------------------------------------------------------------------
-void CFESpriteMgr::InvalidateResource(CFESprite* _poRes)
-{
-	delete _poRes;
-}
-// ----------------------------------------------------------------------------

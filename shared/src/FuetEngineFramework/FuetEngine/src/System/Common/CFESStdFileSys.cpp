@@ -24,7 +24,6 @@
 // ----------------------------------------------------------------------------
 FEHandler CFESystem::File::hOpen(const CFEString& _sFilename, EFEFileOpenMode _eMode)
 {
-	CFESystem::Log::Print("Loading %s ",_sFilename.szString());
     char* szOpenMode = NULL;
     switch (_eMode)
     {
@@ -40,42 +39,9 @@ FEHandler CFESystem::File::hOpen(const CFEString& _sFilename, EFEFileOpenMode _e
         return(false);
     }
 
-	CFEString sFilename = _sFilename;
-	if (CFESystem::Local::bIsAutoLocEnabled())
-	{
-		FILE* fd = NULL;
-	
-		// first try the non-localized or common version of the file.
-		CFEString sLocalFilename = CFESystem::Local::sGetLocalID(LID_COMMON) + "/" + _sFilename;
-		(FEHandler)fopen_s(&fd,sLocalFilename.szString(),szOpenMode);
-		if (fd != NULL)
-		{
-			CFESystem::Log::Print("Ok\n");
-			return(fd);
-		}
-
-		// then try localized version of the file.
-		sLocalFilename = CFESystem::Local::sGetLocalID() + "/" + _sFilename;
-		(FEHandler)fopen_s(&fd,sLocalFilename.szString(),szOpenMode);
-		if (fd != NULL)
-			CFESystem::Log::Print("Ok\n");
-		else
-			CFESystem::Log::Print("ERROR\n");
-		
-		return(fd);
-	}
-	else
-	{
-		FILE* fd = NULL;
-		(FEHandler)fopen_s(&fd,_sFilename.szString(),szOpenMode);
-
-		if (fd != NULL)
-			CFESystem::Log::Print("Ok\n");
-		else
-			CFESystem::Log::Print("ERROR\n");
-
-		return(fd);
-	}
+    FILE* fd = NULL;
+    (FEHandler)fopen_s(&fd,_sFilename.szString(),szOpenMode);
+    return(fd);
 }
 // ----------------------------------------------------------------------------
 /// Closes the file associated to the given handler.

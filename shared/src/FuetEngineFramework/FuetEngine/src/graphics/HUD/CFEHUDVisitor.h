@@ -18,10 +18,8 @@ class CFEHUDGroup;
 class CFEHUDLabel;
 class CFEHUDIcon;
 class CFEHUDRect;
-class CFEHUDShape;
 class CFEHUDObjectAction;
 class CFEHUDElementAction;
-class CFEString;
 //-----------------------------------------------------------------------------
 class CFEHUDVisitor
 {
@@ -41,14 +39,9 @@ class CFEHUDVisitor
         /// 
         virtual void Visit(CFEHUDRect* _poObj) = 0;
         /// 
-        virtual void Visit(CFEHUDShape* _poObj) = 0;
-        /// 
         virtual void Visit(CFEHUDElementAction* _poObj) = 0;
         /// 
         virtual void Visit(CFEHUDObjectAction* _poObj) = 0;
-        
-        /// Retrieves the type of visitor (useful when needed to extend the basic class hierarchy).
-        virtual const CFEString sGetType() = 0;
 };
 //-----------------------------------------------------------------------------
 #endif

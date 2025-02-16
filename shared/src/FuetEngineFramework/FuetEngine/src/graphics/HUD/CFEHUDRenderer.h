@@ -11,24 +11,15 @@
 #ifndef CFEHUDRendererH
 #define CFEHUDRendererH
 //-----------------------------------------------------------------------------
-#include "CFEHUDVisitor.h"
 #include "FEBasicTypes.h"
-#include "Types/CFEColor.h"
-#include "Types/CFEString.h"
+#include "CFEHUDVisitor.h"
 //-----------------------------------------------------------------------------
 class CFERenderer;
 //-----------------------------------------------------------------------------
 class CFEHUDRenderer : public CFEHUDVisitor
 {
     public:
-
-        CFEHUDRenderer()
-        {
-			m_poRenderer = NULL;
-			m_oModColor = CFEColor::WHITE();
-			m_rDepth    = _0r;
-        }
-
+        
         void Render(FEHandler _hHUDInstance,CFERenderer* _poRenderer);
 
         /// Sets the renderer for this class. This way visit functions can be called externally.
@@ -58,25 +49,12 @@ class CFEHUDRenderer : public CFEHUDVisitor
         /// 
         virtual void Visit(CFEHUDRect* _poObj);
         /// 
-        virtual void Visit(CFEHUDShape* _poObj);
+        virtual void Visit(CFEHUDElementAction* _poObj) {};
         /// 
-        virtual void Visit(CFEHUDElementAction* _poObj);
-        /// 
-        virtual void Visit(CFEHUDObjectAction* _poObj);
-		
-		virtual const CFEString sGetType() { return("CFEHUDRenderer"); };
+        virtual void Visit(CFEHUDObjectAction* _poObj) {};
 
     protected:
-
-		// The renderer to use when rendering.
-        CFERenderer*	m_poRenderer;
-        
-        // Accumulated modulation color to render hud objects.
-        CFEColor		m_oModColor;
-        
-        // Accumulated depth
-        FEReal			m_rDepth;
-        
+        CFERenderer* m_poRenderer;
 };
 //-----------------------------------------------------------------------------
 #endif

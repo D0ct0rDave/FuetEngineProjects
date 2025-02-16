@@ -15,21 +15,15 @@
 #include <stdio.h>
 #include <string.h>
 //-----------------------------------------------------------------------------
-const uint BUFF_SIZE = 2048;
-static char gsszLocalBuff[BUFF_SIZE];
-//-----------------------------------------------------------------------------
-CFEHUDLabel::~CFEHUDLabel()
-{
-	SetText("");
-}
-//-----------------------------------------------------------------------------
 void CFEHUDLabel::SetText(char *fmt,...)
 {
+ 	char szLocalBuff[8192];
+
 	va_list argptr;
 	va_start(argptr,fmt);
-	vsprintf_s(gsszLocalBuff,BUFF_SIZE,fmt,argptr);
+	vsprintf_s(szLocalBuff,8192,fmt,argptr);
 	va_end  (argptr);
 
-	SetText( CFEString(gsszLocalBuff) );
+	SetText( CFEString(szLocalBuff) );
 }
 //-----------------------------------------------------------------------------

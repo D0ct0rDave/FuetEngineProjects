@@ -14,6 +14,24 @@
 #include "support/misc/CFEStringUtils.h"
 #include "FEBasicTypes.h"
 // ----------------------------------------------------------------------------
+// Override new/delete methods.
+// ----------------------------------------------------------------------------
+void* operator new(size_t sz)
+{
+	if (! sz) return(NULL);
+
+	void *pData = CFEMem::pAlloc(sz);
+
+	CFESystem::Check((pData!=NULL),"Unable to allocate data");
+	return(pData);	
+}
+// ----------------------------------------------------------------------------
+void operator delete(void* _pPtr)
+{
+    if (_pPtr == NULL) return;
+	CFEMem::Free((FEPointer)_pPtr);
+}
+// ----------------------------------------------------------------------------
 typedef struct TMEMNode{
 
     /// Pointer to the dynamically allocated node.
@@ -33,7 +51,7 @@ typedef struct TMEMNodeList
     uint             m_uiNodes;
 }TMEMNodeList;
 // ----------------------------------------------------------------------------
-const uint MEM_CTXHT_SIZE = 512;
+const uint MEM_CTXHT_SIZE = 1024;
 typedef struct TMEMContext
 {
     public:
@@ -68,29 +86,6 @@ typedef struct TMEMGlobals
 
 static TMEMGlobals* gpoMEMGlobals = NULL;
 // ----------------------------------------------------------------------------
-// Override new/delete methods.
-// ----------------------------------------------------------------------------
-void* operator new(size_t sz)
-{
-	if (! sz) return(NULL);
-
-	void *pData = CFEMem::pAlloc(sz);
-
-	/*
-		// forbidden to use CFEString here: CFEString uses new, so an stack overflow will happen.
-		if (gpoMEMGlobals != NULL)
-			CFESystemCheck((pData!=NULL),"Unable to allocate data");
-	*/
-
-	return(pData);	
-}
-// ----------------------------------------------------------------------------
-void operator delete(void* _pPtr)
-{
-    if (_pPtr == NULL) return;
-	CFEMem::Free((FEPointer)_pPtr);
-}
-// ----------------------------------------------------------------------------
 inline FEPointer pRoundUp(FEPointer _pPtr,uint _uiAlignment)
 {
     uint uiMask = _uiAlignment-1;
@@ -102,9 +97,9 @@ void CFEMem::Init(uint _uiMaxContexts)
     gpoMEMGlobals = (TMEMGlobals*)CFESystem::Mem::pAlloc(sizeof(TMEMGlobals));
 
     gpoMEMGlobals->m_uiMaxCtx = _uiMaxContexts;
-    gpoMEMGlobals->m_oCtx     = (TMEMContext*)CFESystem::Mem::pAlloc(sizeof(TMEMContext)*gpoMEMGlobals->m_uiMaxCtx);
+    gpoMEMGlobals->m_oCtx     = (TMEMContext*)CFESystem::Mem::pAlloc(sizeof(TMEMContext)*gpoMEMGlobals->m_uiMaxCtx);    
     gpoMEMGlobals->m_poCurCtx = gpoMEMGlobals->m_oCtx;
-
+    
     memset(gpoMEMGlobals->m_oCtx,0,sizeof(TMEMContext)*gpoMEMGlobals->m_uiMaxCtx);
 
     gpoMEMGlobals->m_ePolicy  = MP_SYSTEM_ALLOCATION;
@@ -113,8 +108,6 @@ void CFEMem::Init(uint _uiMaxContexts)
 // ----------------------------------------------------------------------------
 void CFEMem::Finish()
 {
-	if (gpoMEMGlobals==NULL) return;
-
     bool bExit = false;
     while (! bExit)
     {
@@ -136,21 +129,13 @@ void CFEMem::Finish()
 // ----------------------------------------------------------------------------
 void CFEMem::SwitchPolicy(EFEMemAllocPolicy _eMemPolicy)
 {   
-	if (gpoMEMGlobals == NULL) return;
-	gpoMEMGlobals->m_ePolicy = _eMemPolicy;
-}
-// ----------------------------------------------------------------------------
-EFEMemAllocPolicy CFEMem::eGetMemPolicy()
-{
-	if (gpoMEMGlobals == NULL) return(MP_SYSTEM_ALLOCATION);
-	return(gpoMEMGlobals->m_ePolicy);
+    gpoMEMGlobals->m_ePolicy = _eMemPolicy;
 }
 // ----------------------------------------------------------------------------
 void CFEMem::PushContext()
 {
-	if (gpoMEMGlobals == NULL) return;
-
-    CFESystemCheck(((gpoMEMGlobals->m_poCurCtx - gpoMEMGlobals->m_oCtx)+1)<gpoMEMGlobals->m_uiMaxCtx,"Unable to push memory context. Maximum context pushs reached.");
+    uint uiCurCtx = gpoMEMGlobals->m_oCtx - gpoMEMGlobals->m_poCurCtx;
+    CFESystem::Check((uiCurCtx+1)<gpoMEMGlobals->m_uiMaxCtx,"Unable to push memory context. Maximum context pushs reached.");
  
     gpoMEMGlobals->m_poCurCtx++;
 
@@ -160,9 +145,7 @@ void CFEMem::PushContext()
 // ----------------------------------------------------------------------------
 void CFEMem::PopContext()
 {
-	if (gpoMEMGlobals == NULL) return;
-
-    CFESystemCheck(gpoMEMGlobals->m_poCurCtx>=gpoMEMGlobals->m_oCtx,"Unable to pop memory context. Base context reached.");
+    CFESystem::Check(gpoMEMGlobals->m_poCurCtx>gpoMEMGlobals->m_oCtx,"Unable to pop memory context. Base context reached.");
     
     // Free all the allocated pointers in the current context.
     ResetContext();
@@ -172,8 +155,6 @@ void CFEMem::PopContext()
 // ----------------------------------------------------------------------------
 void CFEMem::ResetContext()
 {
-	if (gpoMEMGlobals == NULL) return;
-
     // free up everything in this context.
     for (uint i=0;i<MEM_CTXHT_SIZE;i++)
     {
@@ -205,19 +186,17 @@ void CFEMem::ResetContext()
 // ----------------------------------------------------------------------------
 void CFEMem::SetAlignment(EFEMemAlignment _eMemAlignment)
 {
-	if (gpoMEMGlobals == NULL) return;
     gpoMEMGlobals->m_uiAlignment = _eMemAlignment;
 }
 // ----------------------------------------------------------------------------
 EFEMemAlignment CFEMem::eGetAlignment()
 {
-	if (gpoMEMGlobals == NULL) return(MA_NONE);
     return( EFEMemAlignment(gpoMEMGlobals->m_uiAlignment) );
 }
 // ----------------------------------------------------------------------------
 FEPointer CFEMem::pAlloc(uint _uiSize)
 {
-	if ((gpoMEMGlobals == NULL) || (gpoMEMGlobals->m_ePolicy == MP_SYSTEM_ALLOCATION))
+    if ((gpoMEMGlobals == NULL) || (gpoMEMGlobals->m_ePolicy == MP_SYSTEM_ALLOCATION))
     {
         return( CFESystem::Mem::pAlloc(_uiSize) );
     }
@@ -309,15 +288,5 @@ void CFEMem::Free(FEPointer _pPtr)
 
     // Data has been allocated by system allocations???
     CFESystem::Mem::Free(_pPtr);
-}
-// ----------------------------------------------------------------------------
-bool CFEMem::bGetProperty(const CFEString& _sProperty,FEPointer _pParam)
-{
-	return(CFESystem::Mem::bGetProperty(_sProperty,_pParam) );
-}
-// ----------------------------------------------------------------------------
-bool CFEMem::bSetProperty(const CFEString& _sProperty,FEPointer _pParam)
-{
-	return(CFESystem::Mem::bSetProperty(_sProperty,_pParam) );
 }
 // ----------------------------------------------------------------------------

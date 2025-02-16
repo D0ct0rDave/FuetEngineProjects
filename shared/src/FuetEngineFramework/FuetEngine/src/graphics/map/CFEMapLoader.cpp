@@ -13,35 +13,35 @@
 #include "Support/Misc/CFEStringUtils.h"
 // ----------------------------------------------------------------------------
 /// Loads an element
-CFEMapElement CFEMapLoader::oLoadElement(const CFEConfigFile& _oCfg,const CFEString& _sElement,const CFEArray<CFEString>& _oSpriteList)
+CFEMapElement* CFEMapLoader::poLoadElement(const CFEConfigFile& _oCfg,const CFEString& _sElement,const CFEArray<CFEString>& _oSpriteList)
 {
-	CFEMapElement oElem;	
+	CFEMapElement* poElem = new CFEMapElement;	
 	uint uiSpriteID = _oCfg.iGetInteger(_sElement + ".SpriteIdx",0);
 
-	oElem.m_oPos.x   = _oCfg.rGetReal(_sElement + ".Position.x",_0r);
-	oElem.m_oPos.y   = _oCfg.rGetReal(_sElement + ".Position.y",_0r);
+	poElem->m_oPos.x   = _oCfg.rGetReal(_sElement + ".Position.x",_0r);
+	poElem->m_oPos.y   = _oCfg.rGetReal(_sElement + ".Position.y",_0r);
 	
-	oElem.m_oScale.x = _oCfg.rGetReal(_sElement + ".Scale.x",_1r);
-	oElem.m_oScale.y = _oCfg.rGetReal(_sElement + ".Scale.y",_1r);
+	poElem->m_oScale.x = _oCfg.rGetReal(_sElement + ".Scale.x",_1r);
+	poElem->m_oScale.y = _oCfg.rGetReal(_sElement + ".Scale.y",_1r);
 
-	oElem.m_rDepth   = _oCfg.rGetReal(_sElement + ".Depth",_0r);
+	poElem->m_rDepth   = _oCfg.rGetReal(_sElement + ".Depth",_0r);
 	
-	oElem.m_oColor.r = _oCfg.rGetReal(_sElement + ".Color.r",_1r);
-	oElem.m_oColor.g = _oCfg.rGetReal(_sElement + ".Color.g",_1r);
-	oElem.m_oColor.b = _oCfg.rGetReal(_sElement + ".Color.b",_1r);
-	oElem.m_oColor.a = _oCfg.rGetReal(_sElement + ".Color.a",_1r);
+	poElem->m_oColor.r = _oCfg.rGetReal(_sElement + ".Color.r",_1r);
+	poElem->m_oColor.g = _oCfg.rGetReal(_sElement + ".Color.g",_1r);
+	poElem->m_oColor.b = _oCfg.rGetReal(_sElement + ".Color.b",_1r);
+	poElem->m_oColor.a = _oCfg.rGetReal(_sElement + ".Color.a",_1r);
 	
-	oElem.m_rAngle   = _oCfg.rGetReal(_sElement + ".Angle",_0r);
-	oElem.m_bVisible = _oCfg.bGetBool(_sElement + ".Visible",true);
+	poElem->m_rAngle   = _oCfg.rGetReal(_sElement + ".Angle",_0r);
+	poElem->m_bVisible = _oCfg.bGetBool(_sElement + ".Visible",true);
 
-	oElem.m_hSprInst = CFESpriteInstMgr::hGetInstance(_oSpriteList[uiSpriteID]);
-	CFESpriteInstMgr::ManageRender(oElem.m_hSprInst,false);
-	CFESpriteInstMgr::Enable(oElem.m_hSprInst);
-	CFESpriteInstMgr::SetPos(oElem.m_hSprInst,oElem.m_oPos);
-	CFESpriteInstMgr::SetScale(oElem.m_hSprInst,oElem.m_oScale);
-	CFESpriteInstMgr::SetAngle(oElem.m_hSprInst,oElem.m_rAngle);
+	poElem->m_hSprInst = CFESpriteInstMgr::hGetInstance(_oSpriteList[uiSpriteID]);
+	CFESpriteInstMgr::ManageRender(poElem->m_hSprInst,false);
+	CFESpriteInstMgr::Enable(poElem->m_hSprInst);
+	CFESpriteInstMgr::SetPos(poElem->m_hSprInst,poElem->m_oPos);
+	CFESpriteInstMgr::SetScale(poElem->m_hSprInst,poElem->m_oScale);
+	CFESpriteInstMgr::SetAngle(poElem->m_hSprInst,poElem->m_rAngle);
 
-	return(oElem);
+	return(poElem);
 }
 // ----------------------------------------------------------------------------
 CFEMapSector* CFEMapLoader::poLoadSector(const CFEConfigFile& _oCfg,const CFEString& _sSector,const CFEArray<CFEString>& _oSpriteList)
@@ -59,7 +59,10 @@ CFEMapSector* CFEMapLoader::poLoadSector(const CFEConfigFile& _oCfg,const CFEStr
 	uint uiNumElements = _oCfg.iGetInteger(_sSector+".Elements.NumElements",0);
 
 	for (uint i=0;i<uiNumElements;i++)
-		poSector->m_oElements.push_back( oLoadElement(_oCfg,_sSector + CFEString(".Elements.Element") + CFEString(i),_oSpriteList ) );
+	{
+		CFEMapElement* poElem = poLoadElement(_oCfg,_sSector + CFEString(".Elements.Element") + CFEString(i),_oSpriteList );
+		poSector->m_oElements.push_back( *poElem );
+	}
 
 	return(poSector);
 }
@@ -68,7 +71,7 @@ CFEMapLayer* CFEMapLoader::poLoadLayer(const CFEConfigFile& _oCfg,const CFEStrin
 {
     CFEMapLayer* poLayer = new CFEMapLayer;
 
-    poLayer->SetName( _oCfg.sGetString(_sLayer+".Name","") );
+    poLayer->m_sName    = _oCfg.sGetString(_sLayer+".Name","");
     poLayer->m_bVisible = _oCfg.bGetBool(_sLayer+".Visible",true);
     poLayer->m_bVisible = _oCfg.bGetBool(_sLayer+".Visible",true);
     
@@ -105,7 +108,7 @@ CFEArray<CFEString>* CFEMapLoader::poLoadSpriteSet(const CFEConfigFile& _oCfg,co
 		poSpriteList->push_back(sSprite);
 
 		// preload sprite
-		CFESpriteInstMgr::Preload(sSprite);
+		CFESpriteInstMgr::Load(sSprite);
 	}
 	
 	return(poSpriteList);
@@ -122,7 +125,7 @@ CFEMap* CFEMapLoader::poLoad(const CFEString& _sFilename)
     CFEMap* poMap = new CFEMap;
 
     // Retrieve map name.
-    poMap->SetName( oConfig.sGetString("Map.Name","NonamedMap") );
+    poMap->m_sName = oConfig.sGetString("Map.Name","NonamedMap");
 
     // Bounding volume
     poMap->m_oBV.m_oIni.x = oConfig.rGetReal("Map.BV.Mins.x",_0r);
@@ -141,10 +144,6 @@ CFEMap* CFEMapLoader::poLoad(const CFEString& _sFilename)
 		CFEMapLayer* poLayer = poLoadLayer(oConfig,CFEString("Map.Layers.Layer") + CFEString(j),*poSpriteSet);
 		poMap->m_poLayers.push_back(poLayer);
 	}
-	
-	// Delete preloaded sprite set.
-	poSpriteSet->clear();
-	delete poSpriteSet;
 
 	/*
 	// Compute Map Bounding Volume

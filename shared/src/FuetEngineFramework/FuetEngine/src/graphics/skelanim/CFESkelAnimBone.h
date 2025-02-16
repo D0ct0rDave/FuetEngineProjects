@@ -21,12 +21,6 @@ class CFESkelAnimBone : public CFESkelAnimNode
         {
         };
 
-	    /// Destructor of the class
-		virtual ~CFESkelAnimBone()
-		{
-			delete m_poAttachedNode;
-		}
-
         /// Perform processing over the object.
 		virtual void Accept(CFESkelAnimNodeVisitor* _poVisitor)
 		{

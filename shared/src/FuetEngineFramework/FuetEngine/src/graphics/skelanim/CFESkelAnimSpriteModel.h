@@ -24,9 +24,6 @@ class CFESkelAnimSpriteModel : public CFESkelAnimNode
 	    {
 	    }
 
-		/// Destructor of the class.
-		virtual ~CFESkelAnimSpriteModel();
-
 	    /// Sets the sprite model for this object.
 	    void SetSprite(const CFEString& _sSpriteModel)
 	    {

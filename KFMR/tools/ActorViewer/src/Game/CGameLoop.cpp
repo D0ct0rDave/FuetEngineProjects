@@ -154,7 +154,7 @@ void RenderMap(CFERenderer* _poRnd,CFEMap*_poMap,bool _bRenderFore)
 	    CFEMapLayer* poLayer = goGameGlobals.m_poMap->m_poLayers[j];
 	    if (poLayer == NULL) return;
 
-		if (poLayer->sGetName() |= "Foreground")
+		if (poLayer->m_sName |= "Foreground")
 			poLayer->m_bVisible = _bRenderFore;
 	    else
 			poLayer->m_bVisible = ! _bRenderFore;

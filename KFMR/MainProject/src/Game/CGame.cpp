@@ -146,14 +146,14 @@ void CGame::FinishGameFlow()
     CHUDMgr::Finish();
     CMapMgr::Finish();
 
-    CFESkelAnimMgr::Reset();
+    CFESkelAnimMgr::Clear();
     CFESkelAnimInstMgr::Reset();
 
-    CFESpriteMgr::Reset();
+    CFESpriteMgr::Clear();
     CFESpriteInstMgr::Reset();
 
     CFEParticleMgr::Reset();
-    CFEParticleSysMgr::Reset();
+    CFEParticleSysMgr::Clear();
     CFEParticleSysInstMgr::Reset();
 
     if (goGameGlobals.m_poMap != NULL)

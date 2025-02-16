@@ -12,8 +12,6 @@
 #define CFESpriteH
 // ----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "types/CFEArray.h"
-#include "types/CFENamedObject.h"
 #include "types/CFEString.h"
 #include "types/CFEVect2.h"
 #include "types/CFERect.h"
@@ -61,49 +59,38 @@ typedef enum ESFSPlayMode {
     SFSPM_PINGPONG,
 
     SFSPM_NUM
+};
 
-} ESFSPlayMode;
-
-class CFESpriteAction : public CFENamedObject
+class CFESpriteAction
 {
     public:
 
-		CFESpriteAction() : CFENamedObject(""), m_rActionTime(_0r), m_ePlayMode(SFSPM_NONE), m_rRandStartTime(_0r) {};
-
-		/// Returns the sprite frame number corresponding to the given time, searching from SeekFrame.
+		// Returns the sprite frame number corresponding to the given time, searching from SeekFrame.
 		uint uiGetFrame(FEReal _rTime,uint _uiSeekFrame = 0);
 
-		/// Returns the following frame to the given one taking into account the playing mode.
+		// Returns the following frame to the given one taking into account the playing mode.
 		uint uiNextFrame(uint _uiFrame);
-		
-		/// Retrieves the action play mode.
-		ESFSPlayMode eGetPlayMode() { return(m_ePlayMode); };
 
-		/// Retrieves the maximum time of the animation without looping or -1 if infinite (when looping)
-		FEReal rGetMaxActionTime() { return(m_rActionTime); };
-
-        /// Retrieves the maximum time of the animation taking into account the length of looping cycles.
-		FEReal rGetActionTime() { return(m_rActionTime); };
-		
-		/// Total time of one loop of the animation.
-        FEReal					m_rActionTime;
+        /// Total time of one loop of the animation.
+        FEReal            m_rActionTime;
 
         /// Play mode
-        ESFSPlayMode			m_ePlayMode;
+        ESFSPlayMode    m_ePlayMode;
 
         /// Random start time: range of random time to start the action.
-        FEReal					m_rRandStartTime;
+        FEReal			m_rRandStartTime;
 
         /// Sequence of frames composing the sprite
         CFEArray<CFESpriteFrame> m_oSeq;
+
+        /// Meaningful action name
+        CFEString		m_sName;
 };
 // ----------------------------------------------------------------------------
-class CFESprite : public CFENamedObject
+class CFESprite
 {
     public:
-        
-		CFESprite() : CFENamedObject(""), m_eBlendMode(BM_ALPHA) {};
-
+    
 		/// Retrieves an action by the given index.
 		CFESpriteAction* poGetAction(uint _uiActionIdx);
 
@@ -112,6 +99,9 @@ class CFESprite : public CFENamedObject
 
 		/// Retrieves an action index by its name or -1 if the action is not found.
 		int iGetActionIdx(const CFEString& _sActionName);
+		
+        /// The name of this sprite
+        CFEString                   m_sName;
 
         /// The blending mode to use for this sprite
         EFEBlendMode                m_eBlendMode;
@@ -124,8 +114,6 @@ class CFESprite : public CFENamedObject
 class CFESpriteInst
 {
     public:
-
-		CFESpriteInst() : m_uiSpriteAction(0), m_poSprite(NULL), m_rActionTime(_0r), m_uiCurrentActionFrame(0) {};
 
         /// Current status of the sprite, i.e. animation and other things.
 

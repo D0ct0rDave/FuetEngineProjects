@@ -18,7 +18,7 @@ class CFEChrono
     public:
 
 		/// Default constructor for the chrono object.
-		CFEChrono() : m_rTime(_0r), m_uiStartTick(0), m_bStarted(false)
+		CFEChrono() : m_rTime(_0r), m_bStarted(false)
 		{
 		}
 
@@ -34,8 +34,7 @@ class CFEChrono
     protected:
 
         /// 
-        uint	m_uiStartTick;
-        FEReal	m_rTime;
+        FEReal  m_rTime;
         bool    m_bStarted;
 };
 // ----------------------------------------------------------------------------

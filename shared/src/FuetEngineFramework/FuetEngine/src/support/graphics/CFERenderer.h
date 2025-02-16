@@ -20,7 +20,6 @@
 // -----------------------------------------------------------------------------
 class CFEFont;
 class CFERendererData;
-class CRenderPrim;
 // -----------------------------------------------------------------------------
 class CFERenderer
 {
@@ -31,10 +30,7 @@ class CFERenderer
             /// Constructor of the rendering system
             CFERenderer(FEHandler _hParam) { Init(_hParam); };
 
-            /// Constructor of the rendering system
-            ~CFERenderer();
-
-			/// Initializes the rendering system
+            /// Initializes the rendering system
             void Init(FEHandler _hParam);
 
             /// Finalizes the rendering system
@@ -48,9 +44,6 @@ class CFERenderer
 
             /// Retrieves the time between 2 consecutive BeginScene calls
             FEReal rGetDeltaT();
-
-            /// Resets the timer. Avoids great DeltaT's after long processes, like loading of data.
-            void ResetTimer();
 
             /**-----------------------------------------------------------------------------
             Virtual screen dimensions. This allow specifying coordinates in using an
@@ -105,12 +98,7 @@ class CFERenderer
                               const CFEColor& _oColor,FEReal _rAlpha);
 
             /// Renders text using the current font.
-            void RenderText(const CFEString& _sStr,
-							FEReal _rX,FEReal _rY,
-							const CFEColor& _oColor,
-							EFETextHAlignmentMode _eHAlignment = THAM_DEFAULT,
-							EFETextVAlignmentMode _eVAlignment = TVAM_DEFAULT,							
-							FEReal _rFontPointSize = _1r);
+            void RenderText(const CFEString& _sStr,FEReal _rX,FEReal _rY,const CFEColor& _oColor,EFETextHAlignmentMode _eHAlignment = THAM_LEFT,EFETextVAlignmentMode _eVAlignment = TVAM_TOP);
 
             /// Renders a triangle mesh, using the current material.
             void RenderMesh(unsigned short* _pusIdx,CFEVect2* _poVXs,CFEVect2* _poUVs,CFEColor* _poVCs,uint _uiNumPoints);
@@ -160,23 +148,10 @@ class CFERenderer
             /// Retrieves a renderer property if it exists.
             bool bGetProperty(const CFEString& _sProperty,FEPointer _pParam);
 
-            /// Sets a renderer property if it exists.
-            bool bSetProperty(const CFEString& _sProperty,FEPointer _pParam);
-	        
 		private:
-
-            // Internal function to render a primitive.
-            void RenderPrimitive(CFEVect2* _poVX,CFEVect2* _poUV,CFEColor* _poVC,FEHandler _hMat,uint _uiPrimType,uint _uiNumVXs = 0,unsigned short* _pusIdx = NULL);
-
-            // Pushes a primitive into the render primitive list.
-            void PushRenderPrim(CFEVect2* _poVX,CFEVect2* _poUV,CFEColor* _poVC,FEHandler _hMat,uint _uiPrimType,uint _uiNumVXs = 0,unsigned short* _pusIdx = NULL);
+            // Internal function to render a quad.
+            void RenderQuadINT(CFEVect2* _poVX,CFEVect2* _poUV,CFEColor* _poVC);
             
-            /// Fills a rendering primitive using the given data.
-            void FillRenderPrim(CRenderPrim* _poRP,CFEVect2* _poVX,CFEVect2* _poUV,CFEColor* _poVC,FEHandler _hMat,uint _uiPrimType,uint _uiNumVXs,unsigned short* _pusIdx);
-
-            // Flushes the contents of the render primitive list.
-            void FlushRenderPrims();
-
             // Update the transformation matrix after camera or transform modifications.
             void UpdateTransform();
 

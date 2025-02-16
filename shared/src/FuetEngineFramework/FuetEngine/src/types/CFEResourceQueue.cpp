@@ -15,6 +15,8 @@ static void Test()
 {
 	CFEResourceQueue<uint> lolo;
 
+	lolo.Init(10);
+	
 	lolo.iAdd((uint*)1);
 	lolo.iAdd((uint*)2);
 	lolo.iAdd((uint*)3);

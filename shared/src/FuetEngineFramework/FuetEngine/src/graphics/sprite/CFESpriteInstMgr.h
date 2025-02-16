@@ -21,36 +21,47 @@
 #include "types/CFEVect2.h"
 #include "types/CFEColor.h"
 #include "CFESpriteMgr.h"
-#include "types/CFEInstanceMgr.h"
 // ----------------------------------------------------------------------------
-// class CFESpriteInst;
-class CFESpriteFrame;
-class CFERenderer;
+class CFESpriteInst;
 class CFESpriteMgrInst;
+class CFERenderer;
 // ----------------------------------------------------------------------------
-DECLARE_INSTANCE_MANAGER(CFESpriteInstMgr,CFESpriteMgrInst)
+class CFESpriteInstMgr
 {
-	friend class CFEInstanceMgr<CFESpriteInstMgr, CFESpriteMgrInst>;
-
     public:
 
-			/// OVERRIDED: Main initialiation procedure.
-			static void Init(uint _uiMaxInstances = 256);
+            /// Main initialiation procedure.
+            static void Init(uint _uiMaxSpriteInstances = 256);
+            
+            /// Main finalization procedure.
+            static void Finish();
+            
+            /// Resets to the initial state manager.
+            static void Reset();
 
-			/// OVERRIDED: Main finalization procedure.
-			static void Finish();
-		
+            /// Forces the loading of a sprite resource.
+            static void Load(const CFEString& _sSpriteModel);
+
+            /// Retrieves a sprite instance of a given sprite resource.
+            static FEHandler hGetInstance(const CFEString& _sSpriteModel);
+
+            /// Retrieves a sprite instance of a given sprite object.
+            static FEHandler hGetInstance(CFESprite* _poSprite);
+
             /// Spawns a sprite automanaged by the manager.
-            static void Spawn(const CFEString& _sSpriteModel,uint _uiAction,const CFEVect2& _oPos,const FEReal& _rDepth,const FEReal& _rSize,const FEReal& _rAngle,const CFEColor& _oColor);
+            static void Spawn(const CFEString& _sSpriteModel,uint _uiAction,const CFEVect2& _oPos,const FEReal _rDepth,FEReal _rSize,FEReal _rAngle,const CFEColor& _oColor);
+
+            /// Deletes a given sprite instance.
+            static void DeleteInstance(FEHandler _hInstance);
 
             /// Sets the position of a given sprite instance.
             static void SetPos(FEHandler _hInstance,const CFEVect2& _oPos);
 
 			/// Gets the position of a given sprite instance.
-			static const CFEVect2& oGetPos(FEHandler _hInstance);
+			static CFEVect2 oGetPos(FEHandler _hInstance);
 
             /// Sets the depth of a given sprite instance.
-            static void SetDepth(FEHandler _hInstance,const FEReal& _rDepth);
+            static void SetDepth(FEHandler _hInstance,FEReal _rDepth);
 
 			/// Gets the depth of a given sprite instance.
 			static FEReal rGetDepth(FEHandler _hInstance);
@@ -59,19 +70,19 @@ DECLARE_INSTANCE_MANAGER(CFESpriteInstMgr,CFESpriteMgrInst)
             static void SetScale(FEHandler _hInstance,const CFEVect2& _oScale);
 
             /// Sets the scale of a given sprite instance.
-            static void SetScale(FEHandler _hInstance,const FEReal& _rScale);
+            static void SetScale(FEHandler _hInstance,FEReal _rScale);
 
             /// Retrieves the scale of a given sprite instance.
             static const CFEVect2& oGetScale(FEHandler _hInstance);
 
             /// Sets the speed multiplier for a given sprite instance.
-            static void SetSpeedMult(FEHandler _hInstance,const FEReal& _rSpeedMult);
+            static void SetSpeedMult(FEHandler _hInstance,FEReal _rSpeedMult);
 
             /// Retrieves the speed multiplier of a given sprite instance.
             static FEReal rGetSpeedMult(FEHandler _hInstance);
 
             /// Sets the angle of a given sprite instance.
-            static void SetAngle(FEHandler _hInstance,const FEReal& _rAngle);
+            static void SetAngle(FEHandler _hInstance,FEReal _rAngle);
 
             /// Retrieves the current angle of a given sprite instance.
             static FEReal rGetAngle(FEHandler _hInstance);
@@ -106,18 +117,6 @@ DECLARE_INSTANCE_MANAGER(CFESpriteInstMgr,CFESpriteMgrInst)
 			/// Retrieves the transformed geometry of the given sprite instance.
 			static void GetGeometry(FEHandler _hInstance,CFEVect2* _poVXs);
 
-            /// Retrieves the time in the current action this sprite instance is being played.
-            static FEReal rGetCurrentActionTime(FEHandler _hInstance);
-
-            /// Sets the time in the current action this sprite instance will be played.
-            static void SetCurrentActionTime(FEHandler _hInstance,const FEReal& _rActionTime);
-
-            /// Retrieves the current frame this sprite instance is playing.
-            static CFESpriteFrame* poGetCurrentFrame(FEHandler _hInstance);
-
-            /// Retrieves the current frame index this sprite instance is playing.
-            static uint uiGetCurrentFrame(FEHandler _hInstance);
-
             /// Retrieves the sprite model used by the given sprite instance.
             static CFESprite* poGetSprite(FEHandler _hInstance);
 
@@ -128,41 +127,16 @@ DECLARE_INSTANCE_MANAGER(CFESpriteInstMgr,CFESpriteMgrInst)
             static bool bIsRenderManaged(FEHandler _hInstance);
 
             /// Performs an update step over the given sprite instance, also in case it's disabled.
-            static void Update(CFESpriteMgrInst* _poInstance,const FEReal& _rDeltaT);
-
-            /// Performs an update step over the enabled sprite instances in the system.
-            static void Update(const FEReal& _rDeltaT);
+            static void Update(CFESpriteInst* _poInstance,FEReal _rDeltaT);
 
             /// Performs an update step over the given sprite instance, also in case it's disabled.
-            static void Update(FEHandler _hInstance,const FEReal& _rDeltaT);
+            static void Update(FEHandler _hInstance,FEReal _rDeltaT);
+
+            /// Performs an update step over the enabled sprite instances in the system.
+            static void Update(FEReal _rDeltaT);
 
             /// Renders all the enabled sprite instances in the system.
             static void Render(CFERenderer *_poRenderer);
-
-            /// Renders the given sprite instance, also in case it's disabled.
-            static void Render(FEHandler _hInstance,CFERenderer *_poRenderer);
-
-	protected:
-
-			/// OVERRIDED: Retrieves the resource associated to a given name and returns it as a handler.
-			static FEHandler hGetResource(const CFEString& _sResource);
-
-			/// OVERRIDED: Sets up a recently aquired instance
-			static void SetupInstance(CFESpriteMgrInst* _poInstance,FEHandler _hResource);
-
-	public:	/// WARNING: dirty trick to give access to this function from ParticleMgr to SpriteInstanceMgr
-			
-			/// OVERRIDED: Here the programmer can free the possible allocated data when the instance is retrieved through hGetInstance methods.
-			static void InvalidateInstance(CFESpriteMgrInst* _poInstance);
-
-			/// OVERRIDED: Creates an instance object of the specific type.
-			static CFESpriteMgrInst* poCreateInstance();
-
-			/// OVERRIDED: Here the programmer can free the possible allocated data when the instance is retrieved through hGetInstance methods.
-			static void DestroyInstance(CFESpriteMgrInst* _poInstance);
-
-			/// 
-			static CFEArray<CFESpriteMgrInst*> m_oEnabledInsts;
 };
 // ----------------------------------------------------------------------------
 #endif

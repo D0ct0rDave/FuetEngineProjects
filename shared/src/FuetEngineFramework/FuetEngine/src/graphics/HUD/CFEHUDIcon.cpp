@@ -11,18 +11,9 @@
 #include "CFEHUDIcon.h"
 #include "graphics/sprite/CFESpriteInstMgr.h"
 //-----------------------------------------------------------------------------
-CFEHUDIcon::~CFEHUDIcon()
+void CFEHUDIcon::SetAction(uint _uiAction)
 {
-	if (m_hSpriteInst != NULL)
-		CFESpriteInstMgr::ReleaseInstance(m_hSpriteInst);
-}
-//-----------------------------------------------------------------------------
-void CFEHUDIcon::SetCurAction(int _iAction)
-{
-	if ((_iAction != -1) && (_iAction != m_iCurAction))
-	{
-		m_iCurAction = _iAction;
-		CFESpriteInstMgr::SetAction(m_hSpriteInst,_iAction);
-	}
+	m_uiAction = _uiAction;
+	CFESpriteInstMgr::SetAction(m_hSpriteInst,_uiAction);
 }
 //-----------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
-/*! \class CFESingleton
- *  \brief Singleton template pattern to help on resource creation control.
+/*! \class
+ *  \brief
  *  \author David M&aacute;rquez de la Cruz
  *  \version 1.5
  *  \date 1999-2009
@@ -20,7 +20,7 @@
 template <class T>
 class CFESingleton
 {
-    friend class CFESingleton<T>;
+    friend CFESingleton<T>;
 
     protected:
         CFESingleton(){};
@@ -35,7 +35,7 @@ class CFESingleton
 
             return(m_spoInstance);
         }
-
+        
         static void Finish()
         {
             if (m_spoInstance != NULL)
@@ -51,8 +51,7 @@ class CFESingleton
 };
 
 //
-template <typename T>
-T* CFESingleton<T>::m_spoInstance;
+template <typename T> T* CFESingleton<T>::m_spoInstance;
 
 // ----------------------------------------------------------------------------
 #endif

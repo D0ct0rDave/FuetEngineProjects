@@ -61,7 +61,7 @@ void CThrowerEnemy::Init(uint _uiSkill)
 ///-----------------------------------------------------------------------------
 void CThrowerEnemy::Reset()
 {
-	m_oPos = CFEVect2::ZERO();
+	m_oPos = CFEVect2::oZERO();
     m_rZ = _1r;
 
 	CAnimHelper::Play(m_hAnimInst,ACTION_ACTOR_WALK);

@@ -11,8 +11,6 @@
 #ifndef CFESkelAnimInstMgrH
 #define CFESkelAnimInstMgrH
 // ----------------------------------------------------------------------------
-#include "types/CFEInstanceMgr.h"
-
 #include "FEBasicTypes.h"
 #include "types/CFEString.h"
 #include "types/CFEVect2.h"
@@ -24,11 +22,27 @@ class CFESkelAnimNode;
 class CFESkelAnimMgrInst;
 class CFERenderer;
 // ----------------------------------------------------------------------------
-DECLARE_INSTANCE_MANAGER(CFESkelAnimInstMgr,CFESkelAnimMgrInst)
+class CFESkelAnimInstMgr
 {
-	friend CFEInstanceMgr<CFESkelAnimInstMgr,CFESkelAnimMgrInst>;
- 
     public:
+
+            /// Main initialiation procedure.
+            static void Init(uint _uiMaxSkelAnimInstances = 256);
+
+            /// Main finalization procedure.
+            static void Finish();
+
+            /// Invalidates all the instaced animations inside the manager.
+            static void Reset();
+
+            /// Forces the loading of a skeleton animation resource.
+            static void Load(const CFEString& _sSkelAnim);
+
+            /// Retrieves a skel animation instance of a given skeleton animation resource.
+            static FEHandler hGetInstance(const CFEString& _sSkelAnim);
+
+            /// Deletes a given skeleton animation instance.
+            static void DeleteInstance(FEHandler _hInstance);
 
             /// Sets the position of a given skeleton animation instance.
             static void SetPos(FEHandler _hInstance,const CFEVect2& _oPos);
@@ -115,23 +129,8 @@ DECLARE_INSTANCE_MANAGER(CFESkelAnimInstMgr,CFESkelAnimMgrInst)
             static void Render(CFERenderer *_poRenderer);
 
     protected:
-
-			/// OVERRIDED: Retrieves the resource associated to a given name and returns it as a handler.
-			static FEHandler hGetResource(const CFEString& _sResource);
-
-			/// OVERRIDED: Sets up a recently aquired instance
-			static void SetupInstance(CFESkelAnimMgrInst* _poInstance,FEHandler _hResource);
-
-			/// OVERRIDED: Creates an instance object of the specific type.
-			static CFESkelAnimMgrInst* poCreateInstance();
-
-			/// OVERRIDED: Here the programmer can free the possible allocated data when the instance is retrieved through hGetInstance methods.
-			static void DestroyInstance(CFESkelAnimMgrInst* _poInstance);
-
-			/// OVERRIDED: Here the user can free the possible allocated instance data.
-			static void InvalidateInstance(CFESkelAnimMgrInst* _poInstance);
-
-			/// Setups both action and speed mult at the same time
+            
+            /// Setups both action and speed mult at the same time
             static void SetActionAndSpeedMult(FEHandler _hInstance,uint _uiAction,FEReal _rSpeedMult);
 };
 // ----------------------------------------------------------------------------

@@ -42,23 +42,13 @@ typedef struct TFEInputStruct
 
 }TFEInputStruct;
 // ----------------------------------------------------------------------------
-#ifdef DEBUG
-#define CFESystemCheck(a,b)
-// CFESystem::Check((a),(b))
-#else
-#define CFESystemCheck(a,b) 
-#endif
-// ----------------------------------------------------------------------------
 namespace CFESystem
 {
-	/// Assert functionality
-	void Check(bool _bCondition,const CFEString& _sMessage);
-	
-	/// Retrieves time in ticks since the start of the engine.
-	uint uiGetEngineTicks();
+    /// Assert functionality
+    void Check(bool _bCondition,const CFEString& _sMessage);
 
-    /// Retrieves time in seconds of the given system tics.
-    FEReal rGetTickTime(uint _uiTicks);
+    /// Retrieves time in seconds since the start of the engine.
+    FEReal rGetEngineTime();
 
     /// Performs an update step over the entire system. Call it once per frame.
     void Update();
@@ -71,12 +61,6 @@ namespace CFESystem
 
         /// Frees the buffer associated by the given pointer.
         void Free(FEPointer _pPtr);
-
-        /// Retrieves a memory property if exists.
-        bool bGetProperty(const CFEString& _sProperty,FEPointer _pParam);
-
-        /// Sets a memory property if exists and it's possible.
-        bool bSetProperty(const CFEString& _sProperty,FEPointer _pParam);
     }
 
     /// Logging Functionality
@@ -125,9 +109,6 @@ namespace CFESystem
         
         /// Retrieves the total file length
         uint uiLen(FEHandler _hFile);
-        
-        /// Reads the contents of a file and returns it as a memory buffer.
-        FEPointer pReadFile(const CFEString& _sFilename,uint* _puiSize);
     }
 
     /// Config File Functionality
@@ -169,12 +150,6 @@ namespace CFESystem
         
         /// Reloads the material associated to the given handler with the contents of the file provided. Handler is still reusable after function call.
         void ReloadMaterial(FEHandler _hMaterial,const CFEString& _sFilename);
-
-        /// Retrieves a renderer property if exists.
-        bool bGetProperty(const CFEString& _sProperty,FEPointer _pParam);
-
-        /// Sets a renderer property if exists and it's possible.
-        bool bSetProperty(const CFEString& _sProperty,FEPointer _pParam);
 
         /// Retrieves a material property if exists.
         bool bGetMaterialProperty(FEHandler _hMaterial,const CFEString& _sProperty,FEPointer _pParam);
@@ -261,8 +236,8 @@ namespace CFESystem
         /// Sets the volume of the given Line to a given level.
         void SetLineLevel(EFESoundMixerLine _eSoundLine,FEReal _rVol);
 
-        /// Loads a sound indicating if we want to treat it as a BGM or not.
-        FEHandler hLoadSound(const CFEString& _sFilename,bool _bBGM);
+        /// Loads a sound. Doesn't upload it to the graphics system.
+        FEHandler hLoadSound(const CFEString& _sFilename);
 
         /// Deletes a given sound.
         void DeleteSound(FEHandler _hSound);
@@ -307,82 +282,6 @@ namespace CFESystem
         /// Retrieves the modulus of the division between the numerator and the given denominator.
         FEReal rMod(FEReal _rNum,FEReal _rDen);
     }
-
-    /// Localization related stuff.
-    namespace Local
-    {
-		/// Enables the autolocalization system for file loading.
-		void EnableAutoLoc();
-
-		/// Disables the autolocalization system for file loading.
-		void DisableAutoLoc();
-
-		/// Retrieves whether the autolocalization system is active or not.
-		bool bIsAutoLocEnabled();
-
-		/// Retrieves the localization string ID.
-		const CFEString& sGetLocalID();
-
-		/// Retrieves the localization string ID of a given ID enum value.
-		const CFEString& sGetLocalID(EFELocalID _eLID);
-
-		/// Retrieves the localization ID as an enumerated type.
-		EFELocalID eGetLocalID();
-
-		/// Sets the localization ID that will be used by the system.
-		void SetLocalID(EFELocalID _eLocalID);
-	}
-	
-    /// Profile management stuff.
-    namespace Profile
-    {
-		/// Registers and initializes the application profile assigned area.
-		void RegisterApplication(const CFEString& _sApplicationName);
-
-		/// Saves data to the application profile assigned area.
-		bool bSave(FEPointer _pData, uint _uiSize);
-
-		/// Loads the data from the application profile assigned area.
-		bool bLoad(FEPointer _pData, uint _uiSize);
-
-		/// Cleans'up the profile information from the assigned area.
-		void Reset();
-	}
-	
-	/// TRC management stuff.
-    namespace TRC
-    {
-		typedef void(*TOpenMessageBoxFunc)(const CFEString& _sMessage,const CFEString& _sOptions);
-		typedef int(*TMessageBoxStepFunc)();
-		typedef bool(*TCloseMessageBoxFunc)();
-
-		/// Initializes the TRC Technical Requirements system
-		void Init();
-
-		/// Performs a check step in the TRC system.
-		void CheckStep();
-
-		/// Registers a the function to open a message box.
-		void RegisterOpenMessageBoxFunc(TOpenMessageBoxFunc _pFunc);
-
-		/// Registers a the function to write a message in a message box.
-		void RegisterMessageBoxStepFunc(TMessageBoxStepFunc _pFunc);
-
-		/// Registers a the function to close a message box.
-		void RegisterCloseMessageBoxFunc(TCloseMessageBoxFunc _pFunc);
-
-		/// Opens a message box.
-		void OpenMessageBox(const CFEString& _sMessage,const CFEString& _sOptions);	
-
-		/// Performs a message box step. Returns the input selected option or -1 if no option selected.
-		int iMessageBoxStep();
-
-		/// Closes the message box.
-		bool bCloseMessageBox();
-
-		/// Finalizes the TRC system.
-		void Finish();
-	}
 }
 // ----------------------------------------------------------------------------
 #endif

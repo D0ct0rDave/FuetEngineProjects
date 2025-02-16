@@ -11,8 +11,7 @@
 #ifndef CFEMapLoaderH
 #define CFEMapLoaderH
 // ----------------------------------------------------------------------------
-#include "types/CFEArray.h"
-#include "types/CFEString.h"
+#include "Types/CFEString.h"
 #include "Support/Config/CFEConfigFile.h"
 #include "CFEMap.h"
 // ----------------------------------------------------------------------------
@@ -31,7 +30,7 @@ class CFEMapLoader
             static CFEMapLayer* poLoadLayer(const CFEConfigFile& _oCfg,const CFEString& _sLayer,const CFEArray<CFEString>& _oSpriteList);
 
             /// Loads an element
-            static CFEMapElement oLoadElement(const CFEConfigFile& _oCfg,const CFEString& _sElement,const CFEArray<CFEString>& _oSpriteList);
+            static CFEMapElement* poLoadElement(const CFEConfigFile& _oCfg,const CFEString& _sElement,const CFEArray<CFEString>& _oSpriteList);
 
 			// Loads the sprite set used in this map.
 			static CFEArray<CFEString>* poLoadSpriteSet(const CFEConfigFile& _oCfg,const CFEString& _sWorkingDir);

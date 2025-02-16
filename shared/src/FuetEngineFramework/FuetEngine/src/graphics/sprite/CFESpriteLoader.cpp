@@ -22,7 +22,7 @@ CFESprite* CFESpriteLoader::poBuildBasicSprite(FEHandler _hMat,const CFEString& 
     CFESprite* poSprite = new CFESprite;
 
     poSprite->m_eBlendMode = BM_ALPHA;
-    poSprite->SetName(_sSpriteName);
+    poSprite->m_sName      = _sSpriteName;
 
     CFESpriteAction oAction;
     oAction.m_ePlayMode = SFSPM_ONESHOT;
@@ -112,7 +112,7 @@ CFESprite* CFESpriteLoader::poLoad(const CFEString& _sFilename)
     CFESprite* poSprite = new CFESprite;
 
     // Retrieve sprite name
-    poSprite->SetName( oConfig.sGetString("Sprite.Name","nonamed") );
+    poSprite->m_sName = oConfig.sGetString("Sprite.Name","nonamed");
 
     // Retrieve sprite blend mode
     poSprite->m_eBlendMode = eGetBlendMode(oConfig.sGetString("Sprite.BlendMode","ALPHA") );
@@ -130,7 +130,7 @@ CFESprite* CFESpriteLoader::poLoad(const CFEString& _sFilename)
 
         // Action play mode
         sVar =  sAction + ".Name";
-        oAction.SetName( oConfig.sGetString(sVar,"nonamed") );
+        oAction.m_sName = oConfig.sGetString(sVar,"nonamed");
         
         sVar =  sAction + ".PlayMode";
         oAction.m_ePlayMode = eGetPlayMode(oConfig.sGetString(sVar,"ONESHOT"));
@@ -310,7 +310,7 @@ CFESprite* CFESpriteLoader::poLoad(const CFEString& _sFilename)
                 oFrame.m_rFrameTime = rBlendTime + rDelayTime;
                 oFrame.m_rStartTime = oAction.m_rActionTime;
 
-                oAction.m_rActionTime	  += oFrame.m_rFrameTime;
+                oAction.m_rActionTime  += oFrame.m_rFrameTime;
 
                 oAction.m_oSeq.push_back(oFrame);
             }

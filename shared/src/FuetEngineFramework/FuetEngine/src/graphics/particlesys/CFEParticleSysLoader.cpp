@@ -36,7 +36,48 @@ CFEPSFunc<CFEVect2>	m_oPos;
 #include "graphics/Sprite/CFESpriteMgr.h"
 #include "CFEParticleSysLoader.h"
 #include "support/misc/CFEStringUtils.h"
-#include "types/CFEKFBFuncUtils.h"
+//-----------------------------------------------------------------------------
+static EFEKFBFuncWrapMode eGetWrapMode(const CFEString& _sWrapMode)
+{
+    if (_sWrapMode |= "Loop")
+        return(KFBFWM_LOOP);
+
+else if (_sWrapMode |= "PingPong")
+        return(KFBFWM_PINGPONG);
+
+else if (_sWrapMode |= "InitialValue")
+        return(KFBFWM_INITIALVALUE);
+
+else if (_sWrapMode |= "FinalValue")
+        return(KFBFWM_FINALVALUE);
+    
+    return(KFBFWM_FINALVALUE);
+}
+//-----------------------------------------------------------------------------
+static EFEKFLerpFunc eGetLerpFunc(const CFEString& _sLerpFunc)
+{
+     if (_sLerpFunc |= "constant")
+        return(KFLF_CONSTANT);
+
+else if (_sLerpFunc |= "sin")
+        return(KFLF_SIN);
+else if (_sLerpFunc |= "exp")
+        return(KFLF_EXP);
+
+else if (_sLerpFunc |= "random")
+        return(KFLF_RAND);
+
+else if (_sLerpFunc |= "linear")
+        return(KFLF_LERP);
+
+else if (_sLerpFunc |= "sinsin")
+        return(KFLF_SINSIN);
+
+else if (_sLerpFunc |= "explog")
+        return(KFLF_EXPLOG);
+
+    return(KFLF_CONSTANT);
+}
 // ----------------------------------------------------------------------------
 void LoadFunc(CFEPSFunc<FEReal>* _poPSFunc,const CFEString& _sPrefix,const CFEConfigFile& _oConfigFile)
 {   
@@ -48,7 +89,7 @@ void LoadFunc(CFEPSFunc<FEReal>* _poPSFunc,const CFEString& _sPrefix,const CFECo
     CFEString sVar = _sPrefix + ".KFFunc";
     CFEString sWrapMode = _oConfigFile.sGetString(sVar + ".WrapMode","finalvalue");
 
-	_poPSFunc->m_oFunc.SetWrapMode( CFEKFBFuncUtils::eGetWrapMode(sWrapMode) );
+	_poPSFunc->m_oFunc.SetWrapMode( eGetWrapMode(sWrapMode) );
     
     uint uiKeyFrames = _oConfigFile.iGetInteger(sVar + ".NumKeyFrames",0);
     for (uint i=0;i<uiKeyFrames;i++)
@@ -58,7 +99,7 @@ void LoadFunc(CFEPSFunc<FEReal>* _poPSFunc,const CFEString& _sPrefix,const CFECo
         FEReal rTime = _oConfigFile.rGetReal(sIVar + ".Time",_0r);
         CFEString sLerpFunc = _oConfigFile.sGetString(sIVar + ".LerpFunc","linear");
 
-        _poPSFunc->m_oFunc.InsertKeyFrame(rValue,rTime,CFEKFBFuncUtils::eGetLerpFunc(sLerpFunc) );
+        _poPSFunc->m_oFunc.InsertKeyFrame(rValue,rTime,eGetLerpFunc(sLerpFunc) );
     }
 }
 // ----------------------------------------------------------------------------
@@ -72,7 +113,7 @@ void LoadFunc(CFEPSFunc<CFEColor>* _poPSFunc,const CFEString& _sPrefix,const CFE
     CFEString sVar = _sPrefix + ".KFFunc";
     CFEString sWrapMode = _oConfigFile.sGetString(sVar + ".WrapMode","finalvalue");
 
-	_poPSFunc->m_oFunc.SetWrapMode( CFEKFBFuncUtils::eGetWrapMode(sWrapMode) );
+	_poPSFunc->m_oFunc.SetWrapMode( eGetWrapMode(sWrapMode) );
     
     uint uiKeyFrames = _oConfigFile.iGetInteger(sVar + ".NumKeyFrames",0);
     for (uint i=0;i<uiKeyFrames;i++)
@@ -87,7 +128,7 @@ void LoadFunc(CFEPSFunc<CFEColor>* _poPSFunc,const CFEString& _sPrefix,const CFE
         oColor.b = _oConfigFile.rGetReal(sIVar + ".b",_1r);
         oColor.a = _oConfigFile.rGetReal(sIVar + ".a",_1r);
 
-        _poPSFunc->m_oFunc.InsertKeyFrame(oColor,rTime,CFEKFBFuncUtils::eGetLerpFunc(sLerpFunc) );
+        _poPSFunc->m_oFunc.InsertKeyFrame(oColor,rTime,eGetLerpFunc(sLerpFunc) );
     }
 }
 // ----------------------------------------------------------------------------

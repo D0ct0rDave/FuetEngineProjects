@@ -369,7 +369,7 @@ void ProcessPath(TiXmlNode* _poNode)
     TiXmlNode* poItemNode = poItems->FirstChild();
 
     bool bFirstPoint = true;
-    CFEVect2 oLastPoint = CFEVect2::ZERO();
+    CFEVect2 oLastPoint = CFEVect2::oZERO();
 
     while (poItemNode)
     {

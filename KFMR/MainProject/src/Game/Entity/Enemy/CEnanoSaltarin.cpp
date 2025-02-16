@@ -67,7 +67,7 @@ void CEnanoSaltarin::Reset()
 	m_rInitialSpeed = 0;
 	m_rSpeed = 0;
 
-	m_oPos = CFEVect2::ZERO();
+	m_oPos = CFEVect2::oZERO();
     m_rZ = _1r;
 
 	CAnimHelper::Play(m_hAnimInst,ACTION_ACTOR_WALK);

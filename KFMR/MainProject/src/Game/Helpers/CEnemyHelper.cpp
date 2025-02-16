@@ -55,8 +55,8 @@ void CEnemyHelper::GenericDie(CEnemy* _poEnemy,TEntityAttack* _poReceivedAttack)
 	    break;
 	}
 
-    FEReal rAngle = CFEMath::rRand(rLowLimit,rUpLimit)*_PIr;
-    _poEnemy->m_oSpeed = CFEVect2::X();
+    FEReal rAngle = CFEMath::rRand(rLowLimit,rUpLimit)*_PIr_;
+    _poEnemy->m_oSpeed = CFEVect2::oX();
     _poEnemy->m_oSpeed.Rotate(rAngle);
     _poEnemy->m_oSpeed *= 20 * _poReceivedAttack->m_rDamage;
     _poEnemy->m_oSpeed.x *= rMult;
@@ -67,7 +67,7 @@ void CEnemyHelper::GenericDie(CEnemy* _poEnemy,TEntityAttack* _poReceivedAttack)
     _poEnemy->m_rZ = _1r;
 
     // Launch onomatopeia FX
-    CSFXHelper::SpawnFollowerFX(SFX_ONOMATOPEIA,_poEnemy,CFEVect2::ZERO());
+    CSFXHelper::SpawnFollowerFX(SFX_ONOMATOPEIA,_poEnemy,CFEVect2::oZERO());
 }
 //-----------------------------------------------------------------------------
 void CEnemyHelper::GenericDieUpdate(FEReal _rDeltaT,CEnemy* _poEnemy)

@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------
-/*! \class CFEHashTable
+/*! \class CFEMatrix
  *  \brief Hash table storage class.
  *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
@@ -60,12 +60,13 @@ class CFEHashTable
 
         void Finish ()
         {
-            if (m_poElems != NULL)
+            if (m_poElems)
             {
-				//#pragma message("#################")
-				//#pragma message("WARNING Memory leak!!!!. Arreglar para que también funcione con el delete!!!!!")
-				//#pragma message("#################")
-                delete []m_poElems;
+                #pragma message("#################")
+                #pragma message("WARNING Memory leak!!!!. Arreglar para que también funcione con el delete!!!!!")
+                #pragma message("#################")
+                // delete m_poElems;
+
                 m_poElems = NULL;
             }	
         }

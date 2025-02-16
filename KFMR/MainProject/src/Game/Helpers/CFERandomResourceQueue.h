@@ -23,10 +23,10 @@ class CFERandomResourceQueue : public CFEResourceQueue<T>
 		   bool bExit = false;
 		   uint uiTestElems = 0;
 		   uint uiTryCounter = 0;
-		   uint uiMaxTries = uiGetNumElems() * 2;		// Al ser aleatorio, para no entrar en un bucle infinito al no encontrar resource libre haremos NumElements * 2 intentos
+		   uint uiMaxTries = m_uiNumElems * 2;		// Al ser aleatorio, para no entrar en un bucle infinito al no encontrar resource libre haremos NumElements * 2 intentos
 
 		   do {
-			   uiTestElems = CFEMath::iRand(0, uiGetNumElems() - 1);
+			   uiTestElems = CFEMath::iRand(0, m_uiNumElems - 1);
 
 			   if ( m_oList[uiTestElems].m_bFree)
 			   {
@@ -47,10 +47,10 @@ class CFERandomResourceQueue : public CFEResourceQueue<T>
 					return( m_oList[m_uiCurElem].m_poElem );
 			   }
 
-			   m_uiCurElem = (m_uiCurElem + 1) % uiGetNumElems();
+			   m_uiCurElem = (m_uiCurElem + 1) % m_uiNumElems;
 			   uiTestElems++;
 
-		   } while ( uiTestElems < uiGetNumElems() );
+		   } while ( uiTestElems < m_uiNumElems );
 
 			// No free resources ...
 		   return(NULL);

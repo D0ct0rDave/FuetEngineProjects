@@ -11,7 +11,6 @@
 #ifndef CFESkelAnimMeshH
 #define CFESkelAnimMeshH
 // ----------------------------------------------------------------------------
-#include "types/CFEArray.h"
 #include "CFESkelAnimBone.h"
 // ----------------------------------------------------------------------------
 const FEReal JOINT_MARGIN = _1r / _32r;
@@ -22,9 +21,6 @@ class CFESkelAnimMesh : public CFESkelAnimNode
 
         /// Default constructor for the class.
         CFESkelAnimMesh(const CFEString& _sName);
-
-	    /// Destructor of the class
-		virtual ~CFESkelAnimMesh();
 
         /// Attach a new influencer bone to this mesh.
         void AttachBone(CFESkelAnimBone* _poBone);
@@ -53,36 +49,26 @@ class CFESkelAnimMesh : public CFESkelAnimNode
             return( &m_oUV[0] );
         }
 
-        /// Retrieves the address of the color array.
-        CFEColor* poGetVC()
-        {
-            return( &m_oVC[0] );
-        }
-
         /// Retrieve the number of vertices
         uint uiGetNumVXs()
         {
             return((uint)m_oVX.size());           
         }
 
-        /// Sets the sprite instance to use by the current mesh.
-        void SetSprite(FEHandler _hSpriteInst)
-		{
-			m_hSpriteInst = _hSpriteInst;
-		}
+        /// Sets the material of the current mesh.
+        void SetMaterial(FEHandler _hMaterial);
 
-        /// Retrieves the sprite used by the current mesh.
-        FEHandler hGetSprite()
+        /// Sets the material of the current mesh.
+        FEHandler hGetMaterial()
         {
-            return(m_hSpriteInst);
+            return(m_hMaterial);
         }
 
-		/// Sets the current action to be played by the sprite.
-		void SetAction(uint _uiAction);
-
-		/// Retrieves the current action being played by the sprite.
-		uint uiGetAction();
-
+        /// Retrieves the half width of the mesh. This function is purely by convenience, since it's useful on rendering.
+        FEReal rGetHalfWidth()
+        {
+            return(m_rHalfWidth);
+        }
 
         /// Perform processing over the object.
 		virtual void Accept(CFESkelAnimNodeVisitor* _poVisitor)
@@ -101,11 +87,11 @@ class CFESkelAnimMesh : public CFESkelAnimNode
         /// The array of texture coordinates.
         CFEArray<CFEVect2> m_oUV;
 
-        /// The array of vertex colors.
-        CFEArray<CFEColor> m_oVC;
-
-        /// The sprite instance attached to this mesh.
-        FEHandler m_hSpriteInst;
+        /// The material attached to this mesh.
+        FEHandler m_hMaterial;
+        
+        /// The half of the width of the mesh
+        FEReal  m_rHalfWidth;
 };
 // ----------------------------------------------------------------------------
 #endif

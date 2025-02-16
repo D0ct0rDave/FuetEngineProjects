@@ -18,15 +18,9 @@ class CFESprite;
 // ----------------------------------------------------------------------------
 DECLARE_RESOURCE_MANAGER(CFESpriteMgr,CFESprite)
 {
-	friend class CFEResourceMgr<CFESpriteMgr,CFESprite>;
+    public:
 
-    protected:
-
-        /// OVERRIDED: Implementation of the poLoadResource function.
         static CFESprite* poLoadResource(const CFEString& _sFilename);
-
-        /// OVERRIDED: Implementation of the InvalidateResource function.
-        static void InvalidateResource(CFESprite* _poRes);
 };
 // ----------------------------------------------------------------------------
 #endif

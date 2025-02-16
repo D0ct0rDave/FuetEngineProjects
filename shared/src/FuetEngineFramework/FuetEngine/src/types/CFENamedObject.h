@@ -30,7 +30,7 @@ class CFENamedObject
 		}
 
 		/// Retrieves the name of this object.
-		const CFEString& sGetName()
+		const CFEString sGetName()
 		{
 		    return ( m_sName );
 		}

@@ -26,6 +26,9 @@
     #define TARGETPLATFORM  USE_MACOS
     #include "MacOS/FESConfig.h"
 
+#elif defined(DS)
+    #define TARGETPLATFORM  USE_DS
+    #include "DS/FESConfig.h"
 #endif
 
 // ----------------------------------------------------------------------------

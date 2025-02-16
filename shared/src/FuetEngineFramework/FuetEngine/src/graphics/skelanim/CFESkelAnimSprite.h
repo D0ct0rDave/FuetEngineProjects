@@ -22,9 +22,6 @@ class CFESkelAnimSprite : public CFESkelAnimNode
 				{
 				}
 
-				/// Destructor of the class
-				virtual ~CFESkelAnimSprite();
-
 				/// Sets the sprite for this object.
 				void SetSprite(FEHandler _hSpriteInst)
 				{

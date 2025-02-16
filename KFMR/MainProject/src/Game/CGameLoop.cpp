@@ -12,6 +12,12 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+
+#include "Extensions/CMusicTrack.h"
+#include "Extensions/CMusicTracker.h"
+#include "Extensions/CMusicTrackLoader.h"
+//-----------------------------------------------------------------------------
+static CMusicTrack*		m_poMT;
 //-----------------------------------------------------------------------------
 static CFEMapLayer*		m_poForeLayer;
 static CFEFont*			m_poFont;
@@ -22,6 +28,7 @@ static FEReal			m_rTime;
 static bool				m_bGamePaused = false;
 
 CFELogger				m_oSysLog(10000);
+
 //-----------------------------------------------------------------------------
 void CGameLoop::Init(CFERenderer* _poRnd0,CFERenderer* _poRnd1,CFEInput* _poInput)
 {
@@ -57,6 +64,12 @@ void CGameLoop::Init(CFERenderer* _poRnd0,CFERenderer* _poRnd1,CFEInput* _poInpu
 		    goGameGlobals.m_poRenderer[1]->EndScene();
         }
 	}
+
+    /*
+	m_poMT = CMusicTrackLoader::poLoad("data/sound/bgm/final_boss/final_boss");
+    CMusicTracker::Init(m_poMT);
+    CMusicTracker::Play();
+	*/
 
 	goGameGlobals.m_oChrono.Stop();
 	goGameGlobals.m_oLogger.Print("------> Total initialization time: %.1f seconds\n",(float)goGameGlobals.m_oChrono.rGetElapsedTime());
@@ -109,7 +122,10 @@ void CGameLoop::Update(FEReal _rDeltaT)
 	
 	/// Update camera manager.
 	CCameraMgr::Update(_rDeltaT);
-}	
+	
+    /// Update music tracker.
+	CMusicTracker::Update(_rDeltaT);	
+}
 //-----------------------------------------------------------------------------
 void RenderMap(CFERenderer* _poRnd,CFEMap*_poMap,bool _bRenderFore)
 {
@@ -118,7 +134,7 @@ void RenderMap(CFERenderer* _poRnd,CFEMap*_poMap,bool _bRenderFore)
 	    CFEMapLayer* poLayer = goGameGlobals.m_poMap->m_poLayers[j];
 	    if (poLayer == NULL) return;
 
-		if (poLayer->sGetName().SubString(0,4) |= "Fore")
+		if (poLayer->m_sName.SubString(0,4) |= "Fore")
 			poLayer->m_bVisible = _bRenderFore;
 	    else
 			poLayer->m_bVisible = ! _bRenderFore;

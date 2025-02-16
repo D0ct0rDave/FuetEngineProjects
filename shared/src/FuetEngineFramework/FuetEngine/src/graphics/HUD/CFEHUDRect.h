@@ -23,13 +23,10 @@
 class CFEHUDRect : public CFEHUDObject
 {
 	public:		
-				/// Default constructor for the class.
-				CFEHUDRect(const CFEString& _sName) : CFEHUDObject(_sName), m_rWidth(_0r), m_rHeight(_0r), m_oPivot(CFEVect2::ZERO())	             {
-					m_oCorners[0] = m_oCorners[1] = m_oCorners[2] = m_oCorners[3] = CFEColor::WHITE();
-	            };
+	            CFEHUDRect(const CFEString& _sName) : CFEHUDObject(_sName)
+	            {
 
-				/// Destructor of the class
-				virtual ~CFEHUDRect();
+	            };
 
                 /// Perform processing over the object
         		virtual void Accept(CFEHUDVisitor* _poVisitor)
@@ -86,7 +83,7 @@ class CFEHUDRect : public CFEHUDObject
         		}
 
     protected:
-
+	
 	            FEReal                  m_rWidth;
 	            FEReal                  m_rHeight;
 	            CFEColor                m_oCorners[4];

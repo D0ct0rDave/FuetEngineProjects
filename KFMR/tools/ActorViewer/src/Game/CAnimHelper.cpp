@@ -70,15 +70,12 @@ CFESkelAnimSprite* CAnimHelper::poSubstNodeSprite(FEHandler _hAnimInst,const CFE
 CFESkelAnimMesh* CAnimHelper::poSubstNodeMesh(FEHandler _hAnimInst,const CFEString& _sNodeName,const CFEString& _sMaterial)
 {
 	CFESkelAnimMesh* poNode = (CFESkelAnimMesh*)CFESkelAnimNodeLocator::poLocateNode(CFESkelAnimInstMgr::poGetInstancedNode(_hAnimInst),_sNodeName);
-	
-	#if 0
 	if (poNode != NULL)
 	{
 		FEHandler hMaterial = CFEMaterialMgr::hLoad(_sMaterial);
 		if (hMaterial != NULL)
 		    poNode->SetMaterial(hMaterial);
 	}
-	#endif
 
 	return(poNode);
 }

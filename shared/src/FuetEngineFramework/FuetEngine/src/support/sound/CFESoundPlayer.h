@@ -28,7 +28,7 @@ class CFESoundPlayer
         static void Init(FEHandler _hParam);
 
         /// Plays a sound in the given mix line with the supplied parameters.
-        static void Play(FEHandler _hSound,EFESoundMixerLine _eSoundLine,FEReal _rVol = _1r,FEReal _rPan = _05r);
+        static void Play(FEHandler _hSound,EFESoundMixerLine _eSoundLine,FEReal _rVol,FEReal _rPan);
 
         /// Stops a sound currently being played.
         static void Stop(FEHandler _hSound);

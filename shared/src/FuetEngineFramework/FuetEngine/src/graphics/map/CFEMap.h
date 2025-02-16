@@ -12,10 +12,8 @@
 #define CFEMapH
 // ----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "types/CFEArray.h"
 #include "types/CFEColor.h"
 #include "types/CFEString.h"
-#include "types/CFENamedObject.h"
 #include "Graphics/Sprite/CFESprite.h"
 // ----------------------------------------------------------------------------
 class CFEMapElement
@@ -51,18 +49,14 @@ class CFEMapElement
 class CFEMapSector
 {
     public:
-		
-		/// Default constructor of the class.    
     	CFEMapSector() : m_bVisible(true)
     	{
     		
     	}
 
-    	/// Destructor for the class.
-    	~CFEMapSector();
-
         /// The complete list of the elements of this sector / should be arranged spatially and by material.
         CFEArray <CFEMapElement> m_oElements;
+
 
         /// The Sector bounding volume.
         CFERect	m_oBV;
@@ -71,18 +65,13 @@ class CFEMapSector
         bool m_bVisible;
 };
 // ----------------------------------------------------------------------------
-class CFEMapLayer : public CFENamedObject
+class CFEMapLayer
 {
     public:
-		
-		/// Default constructor of the class.    
-    	CFEMapLayer() : CFENamedObject(""), m_oParallaxFact(CFEVect2::ZERO()), m_rDepth(_0r), m_oSpeed(CFEVect2::ZERO()), m_bAutoMovable(false), m_bVisible(true)
+    	CFEMapLayer() : m_bVisible(true), m_sName(""), m_rDepth(_0r)
     	{
     		
     	}
-    	
-    	/// Destructor for the class.
-    	~CFEMapLayer();
 
 		/// The list of sectors that make this layer.
         CFEArray<CFEMapSector*> m_poSectors;
@@ -95,26 +84,21 @@ class CFEMapLayer : public CFENamedObject
 
         /// Movement (speed) of the layer.
         CFEVect2  m_oSpeed;
-        
-        /// Does this layer move automatically?
-        bool      m_bAutoMovable;
+
+        /// Name of the layer.
+        CFEString m_sName;
         
         /// Is this layer visible or does it contain non renderable info.
         bool      m_bVisible;
 };
 // ----------------------------------------------------------------------------
-class CFEMap : public CFENamedObject
+class CFEMap
 {
     public:
-
-		/// Default constructor of the class.
-		CFEMap() : CFENamedObject("")
+		CFEMap() : m_sName("")
 		{
 			
 		}
-		
-		/// Destructor for the class.
-		~CFEMap();
 
         /// Retrieves the layer associated with the given name.
         CFEMapLayer* poGetLayer(const CFEString& _sLayerName);
@@ -122,7 +106,10 @@ class CFEMap : public CFENamedObject
         /// The list of layers belonging to this map.
         CFEArray <CFEMapLayer*> m_poLayers;
 
-        /// The map bounding volume.
+        /// Name of the map
+        CFEString m_sName;
+
+        // The map bounding volume.
         CFERect	m_oBV;
 };
 // ----------------------------------------------------------------------------

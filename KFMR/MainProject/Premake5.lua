@@ -2,6 +2,7 @@ local ProjectRelativeSDKSRoot = "$(ProjectDir)../../../shared/src/SDKS"
 local ProjectRelativeFuetEngineRoot = "$(ProjectDir)../../../shared/src/FuetEngineFramework/FuetEngine"
 local SDKSRoot = "$(FuetEngineProjectsDev)/shared/src/sdks"
 local FuetEngineRoot = "$(FuetEngineProjectsDev)/shared/src/FuetEngineFramework/FuetEngine"
+local ProjectRelativeFinalDataRoot = "$(ProjectDir)../../data/finaldata/HD"
 	
 workspace "KFMR"
     configurations { "Debug", "Release" }
@@ -20,7 +21,7 @@ project "KFMR"
     targetdir("$(ProjectDir)../exe/%{cfg.platform}/%{cfg.buildcfg}") -- Output directory for binaries
     objdir("$(ProjectDir)../obj/%{cfg.platform}/%{cfg.buildcfg}") -- Output directory for intermediate files
 	characterset("ASCII")
-	sourceDir = "$(ProjectDir)../src"
+	debugdir(ProjectRelativeFinalDataRoot)
 
 	-- Specify the root directory of the library
     local sourceRoot = os.getcwd() .. "/src"
@@ -34,6 +35,7 @@ project "KFMR"
 	
 	excludes {
 		sourceRoot .. "/**dsi_app.*",
+		sourceRoot .. "/**CPlayer_Backup.*",
 	}
 	
 	filter { "system:windows" }
@@ -152,4 +154,9 @@ project "KFMR"
 		"comctl32.lib",
 		"rpcrt4.lib",
 		"odbc32.lib",
+	}
+	
+	postbuildcommands
+	{
+		"{COPYFILE} " .. SDKSRoot .. "/Externals/FreeImage/Dist/%{cfg.platform}/%{cfg.buildcfg}/FreeImage.dll " .. ProjectRelativeFinalDataRoot
 	}

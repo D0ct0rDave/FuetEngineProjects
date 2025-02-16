@@ -13,14 +13,25 @@
 // ----------------------------------------------------------------------------
 void CFESmoother::Init(FEReal _rSmoothFact)
 {
-    m_rAccum = _0r;
-    m_rSmoothFact = CFEMath::rClamp(_0r,_1r,_rSmoothFact);
+    m_rAccum = 0.0f;
+    m_rSmoothFact = CFEMath::rClamp(0.0f,1.0f,_rSmoothFact);
 }
 // ----------------------------------------------------------------------------
 FEReal CFESmoother::rGetValue(FEReal _rInputVal,FEReal _rDeltaT)
 {
+    if ( m_rSmoothFact > 100.0f )
+    {
+        int A = 0;
+    }
+
+    if ( m_rAccum > 100.0f )
+    {
+        int A = 0;
+    }
+    // FERealfNewVal = fClamp(0.0f,1.0f,_rInputVal);
+
     FEReal rRet = CFEMath::rLerp(m_rAccum,_rInputVal,m_rSmoothFact);
-    m_rAccum = (m_rAccum + rRet) * _05r;
+    m_rAccum = (m_rAccum + rRet) * 0.5f;
 
     return(rRet);
 }

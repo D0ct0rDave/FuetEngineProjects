@@ -65,7 +65,10 @@ void CFESystem::Config::Close(FEHandler _hConfig)
     if (_hConfig != NULL)
     {
     	// warning: in debug this takes looooooong time to process
+    	#if 1 // (!defined(DS) || !defined(_DEBUG))
         config_destroy((config_t*)_hConfig);
+        #endif
+
         CFESystem::Mem::Free((FEPointer)_hConfig);
     }
 }

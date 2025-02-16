@@ -111,6 +111,9 @@
       <AdditionalDependencies>FuetEngine.lib;ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win32;$(ProjectDir)..\..\..\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\Externals\FreeImage\Dist\Win32\Debug\FreeImage.dll $(ProjectDir)..\..\data\finaldata\HD</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -130,6 +133,9 @@
       <AdditionalDependencies>FuetEngine.lib;ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\lib\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win64;$(ProjectDir)..\..\..\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\Externals\FreeImage\Dist\x64\Debug\FreeImage.dll $(ProjectDir)..\..\data\finaldata\HD</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -153,6 +159,9 @@
       <AdditionalDependencies>FuetEngine.lib;ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\lib\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win32;$(ProjectDir)..\..\..\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\Externals\FreeImage\Dist\Win32\Release\FreeImage.dll $(ProjectDir)..\..\data\finaldata\HD</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -176,6 +185,9 @@
       <AdditionalDependencies>FuetEngine.lib;ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\lib\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win64;$(ProjectDir)..\..\..\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\Externals\FreeImage\Dist\x64\Release\FreeImage.dll $(ProjectDir)..\..\data\finaldata\HD</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Extensions\CMusicTrack.h" />
@@ -357,6 +369,11 @@
     <ClCompile Include="..\src\Profile\CProfileMgr.cpp" />
     <ClCompile Include="..\src\app.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\shared\src\FuetEngineFramework\FuetEngine\build\FuetEngine.vcxproj">
+      <Project>{0f7bc24d-fb32-049b-643a-ddf650119f8b}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

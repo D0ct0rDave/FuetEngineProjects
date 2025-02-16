@@ -37,7 +37,6 @@ FEHandler CFESystem::Input::hInit(FEHandler _hParam)
 void CFESystem::Input::Finish(FEHandler _hInputHandler)
 {
     if (_hInputHandler == NULL) return;
-    delete ((CInputData*)_hInputHandler);
 }
 // ----------------------------------------------------------------------------
 void CFESystem::Input::Update(FEHandler _hInputHandler,TFEInputStruct* _poInputs)
@@ -69,10 +68,6 @@ void CFESystem::Input::Update(FEHandler _hInputHandler,TFEInputStruct* _poInputs
 	_poInputs->m_bButtons[IB_B] = (GetAsyncKeyState('M') != 0);
 	_poInputs->m_bButtons[IB_C] = (GetAsyncKeyState('N') != 0);
 	_poInputs->m_bButtons[IB_D] = (GetAsyncKeyState('B') != 0);
-	_poInputs->m_bButtons[IB_E] = (GetAsyncKeyState('Q') != 0);
-	_poInputs->m_bButtons[IB_F] = (GetAsyncKeyState('E') != 0);
-
-	_poInputs->m_bButtons[IB_G] = (GetAsyncKeyState(VK_RETURN) != 0);
 }
 // ----------------------------------------------------------------------------
 #endif

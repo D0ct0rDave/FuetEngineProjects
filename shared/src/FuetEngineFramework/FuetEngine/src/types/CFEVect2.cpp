@@ -16,25 +16,25 @@ static CFEVect2 gsoX(_1r,_0r);
 static CFEVect2 gsoY(_0r,_1r);
 // ----------------------------------------------------------------------------
 /// Returns the ZERO vector.
-const CFEVect2& CFEVect2::ZERO()
+const CFEVect2& CFEVect2::oZERO()
 {
     return(gsoZERO);
 }
 // ----------------------------------------------------------------------------
 /// Returns the ONE vector.
-const CFEVect2& CFEVect2::ONE()
+const CFEVect2& CFEVect2::oONE()
 {
     return(gsoONE);
 }
 // ----------------------------------------------------------------------------
 /// Returns the X vector.
-const CFEVect2& CFEVect2::X()
+const CFEVect2& CFEVect2::oX()
 {
     return(gsoX);
 }
 // ----------------------------------------------------------------------------
 /// Returns the Y vector.
-const CFEVect2& CFEVect2::Y()
+const CFEVect2& CFEVect2::oY()
 {
     return(gsoY);
 }

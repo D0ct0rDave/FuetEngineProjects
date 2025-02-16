@@ -18,7 +18,6 @@
 #include "CFEHUDLabel.h"
 #include "CFEHUDIcon.h"
 #include "CFEHUDRect.h"
-#include "CFEHUDShape.h"
 //-----------------------------------------------------------------------------
 const uint ST_ELEMACTION = 0;
 const uint ST_OBJACTION  = 1;
@@ -96,18 +95,6 @@ CFEHUDObjectAction* CFEHUDElemLocator::poLocateObjAction(CFEHUDElement* _poElem,
     return((CFEHUDObjectAction*)m_poHUDElem);
 }
 //-----------------------------------------------------------------------------
-CFEHUDObjectAction* CFEHUDElemLocator::poLocateObjAction(CFEHUDElementAction* _poElemAction, CFEString& _sName)
-{
-	if ((_poElemAction == NULL) ||(_sName == "")) return(NULL);
-
-	m_sName = _sName;
-	m_poHUDElem = NULL;
-	m_uiSearchType = ST_OBJACTION;
-
-	_poElemAction->Accept(this);
-	return((CFEHUDObjectAction*)m_poHUDElem);
-}
-//-----------------------------------------------------------------------------
 CFEHUDObject* CFEHUDElemLocator::poLocateHUDObject(CFEHUDElement* _poElem,const CFEString& _sName)
 {
     if ((_poElem == NULL) ||(_sName == "")) return(NULL);
@@ -150,7 +137,6 @@ void CFEHUDElemLocator::Visit(CFEHUDElement* _poObj)
 		}
 		break;
 
-		case  ST_OBJACTION:
 		case  ST_ELEMACTION:
 		{
 			for (uint i=0;i<_poObj->uiNumActions();i++)
@@ -177,9 +163,7 @@ void CFEHUDElemLocator::Visit(CFEHUDGroup* _poObj)
 
 	for (uint i=0;i<_poObj->uiNumObjs();i++)
     {
-		if (_poObj->poGetObject(i) != NULL)
-			_poObj->poGetObject(i)->Accept(this);
-
+        _poObj->poGetObject(i)->Accept(this);
         if (m_poHUDElem != NULL) return;
 	}
 }
@@ -197,12 +181,6 @@ void CFEHUDElemLocator::Visit(CFEHUDIcon* _poObj)
 }
 //-----------------------------------------------------------------------------
 void CFEHUDElemLocator::Visit(CFEHUDRect* _poObj)
-{
-	if ((_poObj->sGetName() == m_sName) && (m_uiSearchType == ST_HUDOBJ))
-		m_poHUDElem = (void*)_poObj;
-} 
-//-----------------------------------------------------------------------------
-void CFEHUDElemLocator::Visit(CFEHUDShape* _poObj)
 {
 	if ((_poObj->sGetName() == m_sName) && (m_uiSearchType == ST_HUDOBJ))
 		m_poHUDElem = (void*)_poObj;

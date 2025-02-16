@@ -11,20 +11,15 @@
 #ifndef CFEHUDGroupH
 #define CFEHUDGroupH
 //-----------------------------------------------------------------------------
-#include "types/CFEArray.h"
 #include "CFEHUDObject.h"
 #include "CFEHUDVisitor.h"
 //-----------------------------------------------------------------------------
 class CFEHUDGroup : public CFEHUDObject
 {
 	public:
-				/// Default constructor of the class.
 			    CFEHUDGroup(const CFEString& _sName) : CFEHUDObject(_sName)
 				{
 				}
-				
-				/// Destructor of the class.
-				virtual ~CFEHUDGroup();
 
 				/// Adds a new object to the group.
 				uint uiAddObject(CFEHUDObject* _poObject)
@@ -44,7 +39,7 @@ class CFEHUDGroup : public CFEHUDObject
                 {
                     for (uint i=0;i<m_oObjs.size();i++)
 						if (m_oObjs[i] == _poObject)
-							return((int)i);
+							return(i);
 
                     return(-1);
                 }

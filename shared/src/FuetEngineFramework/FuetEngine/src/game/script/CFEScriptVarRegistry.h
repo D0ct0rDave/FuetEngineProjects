@@ -15,7 +15,7 @@
 #include "FEBasicTypes.h"
 #include "types/CFEResourceMgr.h"
 // -----------------------------------------------------------------------------
-class CFEScriptVarRegistry : public CFELookUpDatabase<FEPointer>
+static class CFEScriptVarRegistry : public CFELookUpDatabase<FEPointer>
 {
     public:
 };

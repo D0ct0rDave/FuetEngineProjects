@@ -19,15 +19,14 @@ class CFERenderer;
 class CFEScreenUtils
 {
     public:
-
         /// Renders a full screen quad using the given material.
-        static void FSRender(CFERenderer* _poRenderer,FEHandler _hMat,FEReal _rDepth = _0r);
-
+        static void FSRender(CFERenderer* _poRenderer,FEHandler _hMat);
+        
         /// Renders a full screen quad using the given material and color.
-        static void FSRender(CFERenderer* _poRenderer,FEHandler _hMat,const CFEColor& _oColor,FEReal _rDepth = _0r);
+        static void FSRender(CFERenderer* _poRenderer,FEHandler _hMat,const CFEColor& _oColor);
 
         /// Renders a full screen quad using the given material, color and separate alpha value.
-        static void FSRender(CFERenderer* _poRenderer,FEHandler _hMat,const CFEColor& _oColor,FEReal _rAlpha,FEReal _rDepth);
+        static void FSRender(CFERenderer* _poRenderer,FEHandler _hMat,const CFEColor& _oColor,FEReal _rAlpha);
 };
 // ----------------------------------------------------------------------------
 #endif // CFEScreenUtilsH

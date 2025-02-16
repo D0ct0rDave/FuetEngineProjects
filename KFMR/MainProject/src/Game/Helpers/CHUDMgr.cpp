@@ -57,10 +57,10 @@ void CHUDMgr::SubstNode(CFESkelAnimNode* _poNode,const CFEString& _sParentNode,c
                     {
                         poOldObj = poGroup->poGetObject(j);
 
-                        poNewNode->SetIniPos(poOldObj->oGetPos());
-                        poNewNode->SetIniScale(poOldObj->oGetScale());
-                        poNewNode->SetIniAngle(poOldObj->rGetAngle());
-                        poNewNode->SetIniColor(poOldObj->oGetColor());
+                        poNewNode->SetPos(poOldObj->oGetPos());
+                        poNewNode->SetScale(poOldObj->oGetScale());
+                        poNewNode->SetAngle(poOldObj->rGetAngle());
+                        poNewNode->SetColor(poOldObj->oGetColor());
 
                         // Substitue node
                         poGroup->SetObject(j,poNewNode);
@@ -229,7 +229,7 @@ void CHUDMgr::Init(CFEString _sHUDs[])
             CFEString sLive = CFEString("Live") + CFEString(i);
             if (m_poLives[i] == NULL) m_poLives[i] = CFEHUDInstMgr::poGetObject(m_hHUD[j],sLive);
         }
-
+        
         if (m_poLevelTitle == NULL) m_poLevelTitle = (CFEHUDLabel*)CFEHUDInstMgr::poGetObject(m_hHUD[j],"LevelNameValue");
         if (m_poScore == NULL) m_poScore = (CFEHUDLabel*)CFEHUDInstMgr::poGetObject(m_hHUD[j],"ScoreValue");
 

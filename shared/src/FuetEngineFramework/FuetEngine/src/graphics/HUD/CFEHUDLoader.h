@@ -23,32 +23,18 @@ class CFEHUDElement;
 class CFEHUDLoader
 {
     public:
-
         /// Loads a HUD from a given file    
         static CFEHUD* poLoad(const CFEString& _sFilename);
 
-        /// Loads a HUD element from disk
-        static CFEHUDElement* poLoadElement(const CFEString& _sFilename);
-
-        /// Loads a HUD element actions from disk
-        static void LoadElementActions(const CFEString& _sFilename,CFEHUDElement* _poElem);
-
-        /// Loads a HUD object from disk
-        static CFEHUDObject* poLoadObject(const CFEString& _sFilename);
-
     protected:
+        
+        static CFEHUDObject* poLoadObject(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile, CFEHUDElement* _poElem);
 
-        static CFEHUDElement* poLoadElement(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile);
-
-        static CFEHUDObject* poLoadObject(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile);
-
-        static void LoadElementActions(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile,CFEHUDElement* _poElem);
-
-		static CFEHUDElementAction* poLoadAction(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile, CFEHUDElement* _poElem);
+        static CFEHUDElementAction* poLoadAction(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile, CFEHUDElement* _poElem);
 
         static CFEHUDObjectAction* poLoadObjAction(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile, CFEHUDElement* _poElem);
 
-        static void LoadCommonObjectProperties(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile,CFEHUDObject* _poObj);
+        static void LoadObject(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile,CFEHUDObject* _poObj);
         
         static CFEString m_sWorkingDir;
 };

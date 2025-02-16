@@ -11,11 +11,3 @@
 #include "CFEHUD.h"
 #include "CFEHUDElement.h"
 //-----------------------------------------------------------------------------
-CFEHUD::~CFEHUD()
-{
-	for (uint e=0;e<m_oElements.size();e++)
-		delete m_oElements[e];
-
-	m_oElements.clear();	
-}
-//-----------------------------------------------------------------------------
