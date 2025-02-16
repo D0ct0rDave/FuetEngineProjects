@@ -1,0 +1,27 @@
+/* XPM */
+static char *keyframe_icon[] = {
+/* columns rows colors chars-per-pixel */
+"10 10 11 1",
+"  c #6B6BCB",
+". c #7575CB",
+"X c #8F8FCB",
+"o c #A6A4CB",
+"O c #B0B0CB",
+"+ c #9595FF",
+"@ c #A4A4FF",
+"# c #B3B3FF",
+"$ c #C2C1FF",
+"% c #D1D0FF",
+"& c None",
+/* pixels */
+"&&&&&&&&&&",
+"&&&&&&&&&&",
+"&&&& .&&&&",
+"&&& +@X&&&",
+"&& +@#$o&&",
+"&&.@#$%O&&",
+"&&&X$%O&&&",
+"&&&&oO&&&&",
+"&&&&&&&&&&",
+"&&&&&&&&&&"
+};

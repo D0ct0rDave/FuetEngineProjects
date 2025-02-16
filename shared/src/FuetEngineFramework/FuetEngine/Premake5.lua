@@ -104,3 +104,7 @@ project "FuetEngine"
         defines { "PLAYTEST" }
 	filter {}
 
+	disablewarnings
+	{
+		"4091",
+	}
