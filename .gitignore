@@ -6,6 +6,8 @@
 # svn
 *.svn
 
+data/*
+
 # User-specific files
 *.rsuser
 *.suo
@@ -385,8 +387,4 @@ doc
 /shared/toolchain/FuetEngine/*
 
 # white listed files
-!/shared/src/sdks/OpenAL_1.1_SDK/libs/Win32/*.lib
-!/shared/src/sdks/OpenAL_1.1_SDK/libs/Win64/*.lib
-!/shared/src/sdks/OpenAL_1.1_SDK/libs/*.lib
-!/shared/src/sdks/OpenAL_1.1_SDK/*/[Ww][Ii][Nn]32/
-/shared/toolchain/toolchain_generated_files_come_here.txt
+!/shared/toolchain/toolchain_generated_files_come_here.txt
