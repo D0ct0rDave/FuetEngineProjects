@@ -104,6 +104,11 @@ project "KFMR"
         defines { "PLAYTEST" }
 	filter {}
 
+	disablewarnings
+	{
+		"4091",
+	}
+
 	-- Library directories common for all configurations
 	libdirs
 	{

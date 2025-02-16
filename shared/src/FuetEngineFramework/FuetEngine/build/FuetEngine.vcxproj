@@ -321,6 +321,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -338,6 +339,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -355,6 +357,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
@@ -376,6 +379,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
@@ -397,6 +401,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;DEVELOPMENT_WITH_SOUND;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -414,6 +419,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;DEVELOPMENT_WITH_SOUND;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -431,6 +437,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -448,6 +455,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;DEVELOPMENT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -465,6 +473,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;PLAYTEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -482,6 +491,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;PLAYTEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -499,6 +509,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;PLAYTEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
@@ -520,6 +531,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;PLAYTEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
@@ -541,6 +553,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -558,6 +571,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
@@ -575,6 +589,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
@@ -596,6 +611,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
