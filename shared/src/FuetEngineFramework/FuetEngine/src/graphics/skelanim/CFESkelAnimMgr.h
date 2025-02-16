@@ -18,15 +18,9 @@ class CFESkelAnim;
 // ----------------------------------------------------------------------------
 DECLARE_RESOURCE_MANAGER(CFESkelAnimMgr,CFESkelAnim)
 {
-	friend CFEResourceMgr<CFESkelAnimMgr,CFESkelAnim>;
+    public:
 
-    protected:
-
-        /// OVERRIDED: Implementation of the poLoadResource function.
         static CFESkelAnim* poLoadResource(const CFEString& _sFilename);
-
-        /// OVERRIDED: Implementation of the InvalidateResource function.
-        static void InvalidateResource(CFESkelAnim* _poRes);
 };
 // ----------------------------------------------------------------------------
 #endif

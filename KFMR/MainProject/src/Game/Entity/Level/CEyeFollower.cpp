@@ -132,7 +132,7 @@ void CEyeFollower::Update(FEReal _rDeltaT)
 	            {
 	                CFEVect2 oDir = CFESpriteInstMgr::oGetPos(m_hEye[i]) - goGameGlobals.m_poPlayer->oGetPos();
 	                oDir.Normalize();
-	                FEReal rAngle = oDir.x * _PI2r;
+	                FEReal rAngle = oDir.x * _PI2r_;
 
 	                CFESpriteInstMgr::SetAngle( m_hEye[i], rAngle);
 	            }

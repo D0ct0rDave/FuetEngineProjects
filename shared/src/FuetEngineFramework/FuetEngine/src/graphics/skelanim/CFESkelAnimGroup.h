@@ -11,7 +11,6 @@
 #ifndef CFESkelAnimGroupH
 #define CFESkelAnimGroupH
 //-----------------------------------------------------------------------------
-#include "types/CFEArray.h"
 #include "CFESkelAnimNode.h"
 #include "CFESkelAnimNodeVisitor.h"
 //-----------------------------------------------------------------------------
@@ -22,9 +21,6 @@ class CFESkelAnimGroup : public CFESkelAnimNode
 		CFESkelAnimGroup(const CFEString& _sName) : CFESkelAnimNode(_sName)
 		{
 		}
-
-	    /// Destructor of the class
-		virtual ~CFESkelAnimGroup();
 
 		/// Adds a new oode to the group.
 		uint uiAddNode(CFESkelAnimNode* _poNode)
@@ -40,7 +36,7 @@ class CFESkelAnimGroup : public CFESkelAnimNode
 		{
 			for (uint i=0;i<m_oNodes.size();i++)
 				if (m_oNodes[i] == _poNode)
-					return((int)i);
+					return(i);
 
 			return(-1);
 		}

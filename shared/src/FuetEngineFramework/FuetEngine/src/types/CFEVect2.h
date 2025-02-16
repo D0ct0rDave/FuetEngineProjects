@@ -19,7 +19,6 @@ class CFEVect2
     public:
         /// Default constructor for the class.
         CFEVect2(){};
-
         FEReal x;
         FEReal y;
 
@@ -87,16 +86,8 @@ class CFEVect2
 
 		/// Makes the vector unitary.
         void Normalize()
-        {      	
-			FEReal rLen = rLength();
-			if (rLen == _0r)
-			{
-				x = _INFr;
-				y = _INFr;
-				return;
-			}
-			
-			FEReal r1_OVER_LEN = _1r / rLen;
+        {
+            FEReal r1_OVER_LEN = FEReal(_1r) / rLength();
             x *= r1_OVER_LEN;
             y *= r1_OVER_LEN;
         }
@@ -144,25 +135,25 @@ class CFEVect2
             return *this;
         }
 
-        CFEVect2 operator *(const FEReal& _rFactor) const
+        CFEVect2 operator *(const FEReal _rFactor) const
         {
             return CFEVect2(x*_rFactor,y*_rFactor);
         }
 
-        CFEVect2& operator *=(const FEReal& _rFactor)
+        CFEVect2& operator *=(const FEReal _rFactor)
         {
             x *= _rFactor;
             y *= _rFactor;
             return *this;
         }
 
-        CFEVect2 operator /(const FEReal& _rFactor) const
+        CFEVect2 operator /(const FEReal _rFactor) const
         {
             FEReal rFactor = 1.0f / _rFactor;
             return CFEVect2(x*rFactor,y*rFactor);
         }
 
-        CFEVect2& operator /=(const FEReal& _rFactor)
+        CFEVect2& operator /=(const FEReal _rFactor)
         {
             FEReal rFactor = 1.0f / _rFactor;
             x *= rFactor;
@@ -197,16 +188,16 @@ class CFEVect2
         }
 
         /// Returns the ZERO vector.
-        static const CFEVect2& ZERO();
+        static const CFEVect2& oZERO();
 
         /// Returns the ONE vector.
-        static const CFEVect2& ONE();
+        static const CFEVect2& oONE();
 
         /// Returns the X vector.
-        static const CFEVect2& X();
+        static const CFEVect2& oX();
 
         /// Returns the Y vector.
-        static const CFEVect2& Y();
+        static const CFEVect2& oY();
 };
 // ----------------------------------------------------------------------------
 #endif

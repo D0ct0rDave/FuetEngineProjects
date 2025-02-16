@@ -43,6 +43,8 @@ CLevel1AEnemySpawner::CLevel1AEnemySpawner(uint _uiSkill)
     // for every enemy type ...    
     for (uint j=0;j<MAX_ENEMY_TYPES;j++)
     {
+	    m_oPool[j].Init( MAX_ENEMIES[j] );
+
         for (uint i=0;i<MAX_ENEMIES[j];i++)
         {
             CEnemy* poEnemy = NULL;
@@ -82,8 +84,10 @@ CLevel1AEnemySpawner::~CLevel1AEnemySpawner()
     {
     	for (uint i=0;i<MAX_ENEMIES[j];i++)
 		    delete m_oPool[j].poGet(i);
+    
+	    m_oPool[j].Finish();
 	}
-
+	
 	delete m_oPool;
 }
 //-----------------------------------------------------------------------------

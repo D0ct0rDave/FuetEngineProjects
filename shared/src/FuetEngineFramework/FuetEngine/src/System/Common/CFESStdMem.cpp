@@ -32,31 +32,5 @@ void CFESystem::Mem::Free(FEPointer _pPtr)
     free(_pPtr);
 }
 // ----------------------------------------------------------------------------
-/// Retrieves a memory property if exists.
-// ----------------------------------------------------------------------------
-bool CFESystem::Mem::bGetProperty(const CFEString& _sProperty,FEPointer _pParam)
-{
-	if (_sProperty == "FreeMemory")
-    {
-        *(uint*)_pParam = 0;
-        return (true);
-    }
-
-else if (_sProperty == "TotalMemory")
-    {
-        *(uint*)_pParam = 0;
-        return (true);
-    }
-
-	return(false);
-}
-// ----------------------------------------------------------------------------
-/// Sets a memory property if exists and it's possible.
-// ----------------------------------------------------------------------------
-bool CFESystem::Mem::bSetProperty(const CFEString& _sProperty,FEPointer _pParam)
-{
-	return(false);
-}
-// ----------------------------------------------------------------------------
 #endif
 // ----------------------------------------------------------------------------

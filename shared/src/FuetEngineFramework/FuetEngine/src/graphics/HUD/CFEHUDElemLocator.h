@@ -38,12 +38,8 @@ class CFEHUDElemLocator : public CFEHUDVisitor
 		/// Retrieves the object action that matches with the specified names.
         CFEHUDObjectAction* poLocateObjAction(CFEHUDElement* _poElem,const CFEString& _sName);
 
-		/// Retrieves the object action that matches with the specified name in the ElemAction
-		CFEHUDObjectAction* poLocateObjAction(CFEHUDElementAction* _poElemAction, CFEString& _sName);
-
         /// Retrieves the object that matches with the specified name.
         CFEHUDObject* poLocateHUDObject(CFEHUDElement* _poElem,const CFEString& _sName);
-
 
         /// 
         virtual void Visit(CFEHUD* _poObj);
@@ -60,14 +56,9 @@ class CFEHUDElemLocator : public CFEHUDVisitor
         /// 
         virtual void Visit(CFEHUDRect* _poObj);
         /// 
-        virtual void Visit(CFEHUDShape* _poObj);
-        /// 
         virtual void Visit(CFEHUDElementAction* _poObj);
         /// 
         virtual void Visit(CFEHUDObjectAction* _poObj);        
-		
-		///
-		virtual const CFEString sGetType() { return("CFEHUDElemLocator"); };
 
 	protected:
 		

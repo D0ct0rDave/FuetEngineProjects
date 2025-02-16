@@ -25,11 +25,9 @@ CFESystemGlobals::CFESystemGlobals() :
 			m_rCurDepth(0.0f),
             m_uiScrVWidth(640),
             m_uiScrVHeight(480),
-            m_uiLastTick(0),
-            m_bAutoLocEnabled(false)
+            m_uiStartTime(0)
 {
-    m_uiLastTick  = GetTickCount();    // system time at the start of the engine.
-    m_eLocalID    = LID_ES;
+    m_uiStartTime = GetTickCount();    // system time at the start of the engine.
 }
 // ----------------------------------------------------------------------------
 #endif

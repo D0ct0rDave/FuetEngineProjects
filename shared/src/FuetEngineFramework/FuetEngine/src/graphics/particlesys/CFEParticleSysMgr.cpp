@@ -17,8 +17,3 @@ CFEParticleSys* CFEParticleSysMgr::poLoadResource(const CFEString& _sFilename)
     return( CFEParticleSysLoader::poLoad(_sFilename) );
 }
 // ----------------------------------------------------------------------------
-void CFEParticleSysMgr::InvalidateResource(CFEParticleSys* _poRes)
-{
-	delete _poRes;
-}
-// ----------------------------------------------------------------------------

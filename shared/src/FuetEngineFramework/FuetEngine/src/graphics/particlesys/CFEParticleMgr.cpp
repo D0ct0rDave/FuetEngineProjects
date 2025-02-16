@@ -15,26 +15,12 @@
 #include "support/graphics/CFERenderer.h"
 #include "types/FEKFBFLerpFuncs.h"
 #include "types/CFESingleton.h"
-static uint uiCP = 0;
-static uint uiDP = 0;
 //-----------------------------------------------------------------------------
 class CFEParticle
 {
 	public:
 
-		CFEParticle()
-		{
-			// WARNING: This casting is ugly...
-			m_poSprInst = (CFESpriteInst*)CFESpriteInstMgr::poCreateInstance();
-		};
-
-		~CFEParticle()
-		{
-			// WARNING: This casting is ugly...
-			CFESpriteInstMgr::DestroyInstance((CFESpriteMgrInst*)m_poSprInst);
-		};
-
-		void Init(const CFEVect2& _oPos,const FEReal& _rDepth, CFEParticleSys*	_poPS)
+		void Init(const CFEVect2& _oPos,FEReal _rDepth, CFEParticleSys*	_poPS)
 		{	    
 			m_poPS	        = _poPS;
             m_rDepth        = _rDepth;
@@ -47,16 +33,16 @@ class CFEParticle
 			m_rXPosOfs	    = m_poPS->m_rXPos.m_oOfs.rGetValue()  * m_poPS->m_rXPos.oGetValue(0) + _oPos.x; // instead of adding initial position in oGetPos function.
 			m_rYPosOfs	    = m_poPS->m_rYPos.m_oOfs.rGetValue()  * m_poPS->m_rYPos.oGetValue(0) + _oPos.y; // instead of adding initial position in oGetPos function.
 
-			m_rColorMult    = (_1r + m_poPS->m_oColor.m_oMult.rGetValue()) * _05r;
-			m_rAngleMult    = m_poPS->m_rAngle.m_oMult.rGetValue();
-			m_rScaleMult	= (_1r + m_poPS->m_rScale.m_oMult.rGetValue()) * _05r;
-			m_rXPosMult	    = m_poPS->m_rXPos.m_oMult.rGetValue();
-			m_rYPosMult	    = m_poPS->m_rYPos.m_oMult.rGetValue();
+			m_rColorMult    = _1r - m_poPS->m_oColor.m_oMult.rGetValue();
+			m_rAngleMult    = _1r - m_poPS->m_rAngle.m_oMult.rGetValue();
+			m_rScaleMult	= _1r - m_poPS->m_rScale.m_oMult.rGetValue();
+			m_rXPosMult	    = _1r - m_poPS->m_rXPos.m_oMult.rGetValue();
+			m_rYPosMult	    = _1r - m_poPS->m_rYPos.m_oMult.rGetValue();
 
-			m_poSprInst->m_poSprite               = _poPS->m_poSprite;
-            m_poSprInst->m_rActionTime            = _0r;
-            m_poSprInst->m_uiCurrentActionFrame   = 0;
-            m_poSprInst->m_uiSpriteAction         = 0;
+			m_oSprInst.m_poSprite               = _poPS->m_poSprite;
+            m_oSprInst.m_rActionTime            = 0;
+            m_oSprInst.m_uiCurrentActionFrame   = 0;
+            m_oSprInst.m_uiSpriteAction         = 0;
 		}
 
 		CFEVect2 oGetPos()
@@ -84,7 +70,7 @@ class CFEParticle
 			return( m_poPS->m_oColor.oGetValue(m_rTime) * m_rColorMult);
 		}
 
-		void Update(const FEReal& _rDeltaT)
+		void Update(FEReal _rDeltaT)
 		{
 		    m_rTime += _rDeltaT;
 		}
@@ -96,7 +82,7 @@ class CFEParticle
 
         CFESpriteInst* poGetSpriteIsnt()
         {
-            return( m_poSprInst );
+            return( &m_oSprInst );
         }
 
         FEReal rGetDepth()
@@ -153,7 +139,7 @@ class CFEParticle
 	public:
 
 		// Sprite instances are self managed by the particles.
-		CFESpriteInst*		m_poSprInst;
+		CFESpriteInst       m_oSprInst;
 };
 // ----------------------------------------------------------------------------
 DECLARE_SINGLETON(CFEParticleMgr_DATA)
@@ -174,6 +160,8 @@ DECLARE_SINGLETON(CFEParticleMgr_DATA)
 void CFEParticleMgr::Init(uint _uiMaxParticles)
 {
     INSTANCEDDATA->m_uiMaxParticles = _uiMaxParticles;
+    INSTANCEDDATA->m_oParticlePool.Init(INSTANCEDDATA->m_uiMaxParticles);
+
     for (uint i=0;i<INSTANCEDDATA->m_uiMaxParticles;i++)
         INSTANCEDDATA->m_oParticlePool.iAdd( new CFEParticle() );
 }
@@ -183,6 +171,7 @@ void CFEParticleMgr::Finish()
     for (uint i=0;i<INSTANCEDDATA->m_uiMaxParticles;i++)
         delete INSTANCEDDATA->m_oParticlePool.poGet(i);
 
+    INSTANCEDDATA->m_oParticlePool.Finish();
     INSTANCEDDATA->Finish();
 }
 //-----------------------------------------------------------------------------
@@ -201,14 +190,13 @@ void CFEParticleMgr::Reset()
 }
 //-----------------------------------------------------------------------------
 /// Creates the given number of particles.
-void CFEParticleMgr::CreateParticles(uint _uiNumParticles,const CFEVect2& _oPos, const FEReal& _rDepth,CFEParticleSys* _poPS)
+void CFEParticleMgr::CreateParticles(uint _uiNumParticles,const CFEVect2& _oPos, FEReal _rDepth,CFEParticleSys* _poPS)
 {
     for (uint i=0;i<_uiNumParticles;i++)
     {
         CFEParticle* poPart = INSTANCEDDATA->m_oParticlePool.poGetResource();
         if (poPart != NULL)
         {
-            uiCP++;
             poPart->Init(_oPos, _rDepth, _poPS);
             INSTANCEDDATA->m_oLivingParts.push_back(poPart);
         }
@@ -216,7 +204,7 @@ void CFEParticleMgr::CreateParticles(uint _uiNumParticles,const CFEVect2& _oPos,
 }
 //-----------------------------------------------------------------------------
 /// Updates the living particles in the system.
-void CFEParticleMgr::Update(const FEReal& _rDeltaT)
+void CFEParticleMgr::Update(FEReal _rDeltaT)
 {
     for (uint i=0;i<INSTANCEDDATA->m_oLivingParts.size();)
     {
@@ -235,8 +223,6 @@ void CFEParticleMgr::Update(const FEReal& _rDeltaT)
 
             // 
             INSTANCEDDATA->m_oParticlePool.Release(poPart);
-
-            uiDP++;
         }
     }
 }

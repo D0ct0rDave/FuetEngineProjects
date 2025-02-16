@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
-/*! \class CFEFont
- *  \brief Font object. Stores all the information related to a given font.
+/*! \class FEEnums
+ *  \brief Enums shared among the FuetEngine and the application
  *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
  *  \date 2009
@@ -11,19 +11,6 @@
 #include "CFEFont.h"
 #include "Support/Mem/CFEMem.h"
 #include "Support/Graphics/CFEMaterialMgr.h"
-// ----------------------------------------------------------------------------
-CFEFont::CFEFont() : m_hMaterial(NULL), m_oCharTable(NULL), m_poKT(NULL)
-{
-}
-// ----------------------------------------------------------------------------
-CFEFont::~CFEFont()
-{
-	if (m_oCharTable != NULL)
-		CFEMem::Free((FEPointer)m_oCharTable);
-	
-	if (m_poKT != NULL)
-		delete m_poKT;
-}
 // ----------------------------------------------------------------------------
 void CFEFont::ParseCoords(FEPointer _pBuff)
 {
@@ -38,47 +25,21 @@ FEReal CFEFont::rStringLen(const CFEString& _sString) const
     
     FEReal rLen = _0r;
     FEReal rMaxLen = _0r;
-	char cPrevChar = 0;
+
     while (*szStr)
     {
-		char c = *szStr;
-        switch (c)
+        if (*szStr == '\n')
         {
-			case '\n':
-			{
-        		if (rLen > rMaxLen)
-        			rMaxLen = rLen;
+        	if (rLen > rMaxLen) rMaxLen = rLen;
+        	rLen = _0r;
+        }
+        else
+			rLen += (rCharWidth(*szStr) + rCharKerning());
 
-        		rLen = _0r;
-        		cPrevChar = 0;
-        	}
-        	break;
-
-			case ' ':
-            {
-                //
-                rLen += rCharWidth(' ');
-                cPrevChar = 0;
-            }
-            break;
-
-			default:
-			{
-				if (cPrevChar > 0)
-				{
-					rLen += rCharKerning(cPrevChar,c);
-				}
-
-				rLen += rCharWidth(c);
-				cPrevChar = c;
-			}
-		}
-		
         szStr++;
     }
 
-	if (rLen > rMaxLen)
-		rMaxLen = rLen;
+	if (rLen > rMaxLen) rMaxLen = rLen;
 
     return(rMaxLen);
 }

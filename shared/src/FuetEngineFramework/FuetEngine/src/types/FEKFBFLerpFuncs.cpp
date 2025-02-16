@@ -15,7 +15,7 @@ const uint RANDTABLE_SIZE = 64;
 static bool gbInitialized = false;
 static FEReal grRandomTable[RANDTABLE_SIZE];
 // ----------------------------------------------------------------------------
-FEReal FEKFBFLerpFuncs_rRand(const FEReal& _rFact)
+FEReal FEKFBFLerpFuncs_rRand(FEReal _rFact)
 {
     if (gbInitialized == false)
     {

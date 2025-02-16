@@ -22,14 +22,10 @@ class CFEFont;
 class CFEHUDLabel : public CFEHUDObject
 {
 	public:		
-				/// Default constructor for the class.
-	            CFEHUDLabel(const CFEString& _sName) : CFEHUDObject(_sName), m_poFont(NULL), m_eHAlignment(THAM_NONE), m_eVAlignment(TVAM_NONE)
+	            CFEHUDLabel(const CFEString& _sName) : CFEHUDObject(_sName)
 	            {
 
 	            };
-
-				/// Destructor of the class
-				virtual ~CFEHUDLabel();
 
 				/// Sets the font for this label.
 				void SetFont(CFEFont* _poFont)

@@ -70,7 +70,7 @@ CPlayer::~CPlayer()
 void CPlayer::Init(CFEInput* _poInput,const CFEVect2& _oPos)
 {
     CAnimHelper::CreateActor("player");
-    m_hAnimInst = CFESkelAnimInstMgr::hGetInstance( "player" );
+    m_hAnimInst = CFESkelAnimInstMgr::hGetInstance("player");
 	SetActorFace( (CFESkelAnimSprite*)CFESkelAnimNodeLocator::poLocateNode( CFESkelAnimInstMgr::poGetInstancedNode(m_hAnimInst),"face") );
     if (poGetActorFace() == NULL)
 	{

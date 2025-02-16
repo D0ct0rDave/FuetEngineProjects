@@ -16,9 +16,6 @@
 #include "CFESprite.h"
 #include "CFESpriteRenderer.h"
 #include "types/CFESingleton.h"
-
-/// ----------------------------------------------------------------------------
-CFEArray<CFESpriteMgrInst*> CFESpriteInstMgr::m_oEnabledInsts;
 // ----------------------------------------------------------------------------
 // handlers are instances
 // #define SPRITEINST(handler) *((CFESpriteInst*)handler)
@@ -33,18 +30,6 @@ inline CFESpriteMgrInst& SPRITEINST(FEHandler _hHandler)
 class CFESpriteMgrInst : public CFESpriteInst
 {
     public:
-		CFESpriteMgrInst() : 
-			m_bEnabled(false),
-			m_bIsRenderManaged(false),
-			m_oPos(CFEVect2::ZERO()),
-			m_rDepth(_0r),
-			m_oScale(CFEVect2::ONE()),
-			m_rAngle(_0r),
-			m_oColor(CFEColor::WHITE()),
-			m_rSpeedMult(_1r),
-			m_bInternal(false)
-		{
-		}
 
         /// Is the current sprite instance being played?
         bool m_bEnabled;
@@ -72,11 +57,13 @@ class CFESpriteMgrInst : public CFESpriteInst
 
         /// This instance is handled internally.
         bool m_bInternal;
+
+        /// Sets the instance as free to be used later.
+        bool m_bFree;
 };
 // ----------------------------------------------------------------------------
 // INSTANCEDDATA to store all the global DATOS.
 // ----------------------------------------------------------------------------
-/*
 DECLARE_SINGLETON(CFESpriteInstMgr_DATA)
 {
     public:
@@ -84,68 +71,96 @@ DECLARE_SINGLETON(CFESpriteInstMgr_DATA)
 };
 
 #define INSTANCEDDATA CFESpriteInstMgr_DATA::I()
-*/
 // ----------------------------------------------------------------------------
-void CFESpriteInstMgr::Init(uint _uiMaxInstances)
+void CFESpriteInstMgr::Init(uint _uiMaxSpriteInstances)
 {
-	m_oEnabledInsts.reserve(_uiMaxInstances);
-	CFEInstanceMgr<CFESpriteInstMgr,CFESpriteMgrInst>::Init(_uiMaxInstances);
+    for (uint i=0;i<_uiMaxSpriteInstances;i++)
+    {
+        CFESpriteMgrInst* poInst = new CFESpriteMgrInst;
+        
+        INSTANCEDDATA->m_oList.push_back(poInst);
+    }
+
+    Reset();
 }
 // ----------------------------------------------------------------------------
+/// Main finalization procedure.
 void CFESpriteInstMgr::Finish()
 {
-	m_oEnabledInsts.clear();
-	CFEInstanceMgr<CFESpriteInstMgr,CFESpriteMgrInst>::Finish();
-}
-// ----------------------------------------------------------------------------
-CFESpriteMgrInst* CFESpriteInstMgr::poCreateInstance()
-{
-	return( new CFESpriteMgrInst() );
-};
-// ----------------------------------------------------------------------------
-void CFESpriteInstMgr::DestroyInstance(CFESpriteMgrInst* _poInstance)
-{
-	// WARNING: for some reasong these are deleted elsewere in the world!!!!!!!!
-	delete _poInstance;
-}
-// ----------------------------------------------------------------------------
-FEHandler CFESpriteInstMgr::hGetResource(const CFEString& _sResource)
-{
-	return( (FEHandler)CFESpriteMgr::poLoad(_sResource) );
-}
-// ----------------------------------------------------------------------------
-void CFESpriteInstMgr::SetupInstance(CFESpriteMgrInst* _poInstance,FEHandler _hResource)
-{
-	CFESprite* poSprite = (CFESprite*)_hResource;
+    for (uint i=0;i<INSTANCEDDATA->m_oList.size();i++)
+        delete INSTANCEDDATA->m_oList[i];
 
-    _poInstance->m_poSprite = poSprite;
-    _poInstance->m_bEnabled = false;
-
-    if ((poSprite!=NULL) && (poSprite->poGetAction(0) != NULL))
-        _poInstance->m_rActionTime = CFEMath::rRand() * poSprite->poGetAction(0)->m_rRandStartTime;
-    else
-        _poInstance->m_rActionTime = _0r;
-
-    _poInstance->m_rAngle = _0r;
-    _poInstance->m_oColor = CFEColor(_1r,_1r,_1r,_1r);
-    _poInstance->m_oPos = CFEVect2::ZERO();
-    _poInstance->m_rDepth = _0r;
-    _poInstance->m_oScale= CFEVect2::ONE();
-    _poInstance->m_uiSpriteAction = 0;
-    _poInstance->m_uiCurrentActionFrame = 0;
-    _poInstance->m_rSpeedMult= _1r;
-    _poInstance->m_bInternal = false;
-	_poInstance->m_bIsRenderManaged = true;
+    INSTANCEDDATA->m_oList.clear();
+    INSTANCEDDATA->Finish();
+}           
+// ----------------------------------------------------------------------------
+/// Resets to the initial state manager.
+void CFESpriteInstMgr::Reset()
+{
+    for (uint i=0;i<INSTANCEDDATA->m_oList.size();i++)
+    {
+        INSTANCEDDATA->m_oList[i]->m_poSprite  = NULL;
+        INSTANCEDDATA->m_oList[i]->m_bFree     = true;
+        INSTANCEDDATA->m_oList[i]->m_bEnabled  = false;
+        INSTANCEDDATA->m_oList[i]->m_bInternal = false;
+		INSTANCEDDATA->m_oList[i]->m_rSpeedMult= _1r;
+        INSTANCEDDATA->m_oList[i]->m_bIsRenderManaged = true;        
+    }
 }
 // ----------------------------------------------------------------------------
-void CFESpriteInstMgr::InvalidateInstance(CFESpriteMgrInst* _poInstance)
+/// Forces the loading of a sprite resource.
+void CFESpriteInstMgr::Load(const CFEString& _sSpriteModel)
 {
-	if (_poInstance->m_bEnabled)
-		Disable(_poInstance);
+    CFESpriteMgr::poLoad(_sSpriteModel);
+}
+// ----------------------------------------------------------------------------
+/// Retrieves a sprite instance of a given sprite resource.
+FEHandler CFESpriteInstMgr::hGetInstance(const CFEString& _sSpriteModel)
+{
+    // Retrieve the sprite resource
+    return ( hGetInstance( CFESpriteMgr::poLoad(_sSpriteModel)) );
+}
+// ----------------------------------------------------------------------------
+/// Retrieves a sprite instance of a given sprite object.
+FEHandler CFESpriteInstMgr::hGetInstance(CFESprite* _poSprite)
+{
+	// Check if the sprite object exists.
+    if (_poSprite == NULL) return(NULL);
+
+    for (uint i=0;i<INSTANCEDDATA->m_oList.size();i++)
+    {
+        if (INSTANCEDDATA->m_oList[i]->m_bFree)
+        {
+            CFESpriteMgrInst* poInst = INSTANCEDDATA->m_oList[i];
+            poInst->m_poSprite = _poSprite;
+            poInst->m_bFree    = false;
+            poInst->m_bEnabled = false;
+
+            if (_poSprite->poGetAction(0) != NULL)
+                poInst->m_rActionTime = CFEMath::rRand() * _poSprite->poGetAction(0)->m_rRandStartTime;
+            else
+                poInst->m_rActionTime = _0r;
+
+            poInst->m_rAngle = _0r;
+            poInst->m_oColor = CFEColor(_1r,_1r,_1r,_1r);
+            poInst->m_oPos = CFEVect2::oZERO();
+            poInst->m_rDepth = _0r;
+            poInst->m_oScale= CFEVect2::oONE();
+            poInst->m_uiSpriteAction = 0;
+            poInst->m_uiCurrentActionFrame = 0;
+            poInst->m_rSpeedMult= _1r;
+            poInst->m_bInternal = false;
+			poInst->m_bIsRenderManaged = true;
+
+            return((FEHandler)poInst);    // we can also return the index in case.
+        }
+    }
+
+    return(NULL);
 }
 // ----------------------------------------------------------------------------
 /// Spawns a sprite automanaged by the manager.
-void CFESpriteInstMgr::Spawn(const CFEString& _sSpriteModel,uint _uiAction,const CFEVect2& _oPos,const FEReal& _rDepth,const FEReal& _rScale,const FEReal& _rAngle,const CFEColor& _oColor)
+void CFESpriteInstMgr::Spawn(const CFEString& _sSpriteModel,uint _uiAction,const CFEVect2& _oPos,const FEReal _rDepth,FEReal _rScale,FEReal _rAngle,const CFEColor& _oColor)
 {
     FEHandler hHandler = hGetInstance(_sSpriteModel);
     if (hHandler != NULL)
@@ -160,6 +175,14 @@ void CFESpriteInstMgr::Spawn(const CFEString& _sSpriteModel,uint _uiAction,const
         poInst->m_bEnabled  = true;
         poInst->m_bInternal = true;
     }
+}
+// ----------------------------------------------------------------------------
+/// Deletes a given sprite instance.
+void CFESpriteInstMgr::DeleteInstance(FEHandler _hInstance)
+{
+    if (_hInstance == NULL) return;
+    SPRITEINST(_hInstance).m_bFree    = true;
+    SPRITEINST(_hInstance).m_bEnabled = false;
 }
 // ----------------------------------------------------------------------------
 /// Retrieves the transformed geometry of the given sprite instance.
@@ -178,14 +201,14 @@ void CFESpriteInstMgr::SetPos(FEHandler _hInstance,const CFEVect2& _oPos)
 }
 // ----------------------------------------------------------------------------
 /// Gets the position of a given sprite instance.
-const CFEVect2& CFESpriteInstMgr::oGetPos(FEHandler _hInstance)
+CFEVect2 CFESpriteInstMgr::oGetPos(FEHandler _hInstance)
 {
-    if (_hInstance == NULL) return(CFEVect2::ZERO());
+    if (_hInstance == NULL) return(CFEVect2(_0r,_0r) );
 	return SPRITEINST(_hInstance).m_oPos;
 }
 // ----------------------------------------------------------------------------
 /// Sets the depth of a given sprite instance.
-void CFESpriteInstMgr::SetDepth(FEHandler _hInstance,const FEReal& _rDepth)
+void CFESpriteInstMgr::SetDepth(FEHandler _hInstance,FEReal _rDepth)
 {
     if (_hInstance == NULL) return;
 	SPRITEINST(_hInstance).m_rDepth = _rDepth;
@@ -206,7 +229,7 @@ void CFESpriteInstMgr::SetScale(FEHandler _hInstance,const CFEVect2& _oScale)
 }
 // ----------------------------------------------------------------------------
 /// Sets the scale of a given sprite instance.
-void CFESpriteInstMgr::SetScale(FEHandler _hInstance,const FEReal& _rScale)
+void CFESpriteInstMgr::SetScale(FEHandler _hInstance,FEReal _rScale)
 {
     if (_hInstance == NULL) return;
     SPRITEINST(_hInstance).m_oScale.x = _rScale;
@@ -216,12 +239,12 @@ void CFESpriteInstMgr::SetScale(FEHandler _hInstance,const FEReal& _rScale)
 /// Retrieves the scale of a given sprite instance.
 const CFEVect2& CFESpriteInstMgr::oGetScale(FEHandler _hInstance)
 {
-    if (_hInstance == NULL) return( CFEVect2::ONE() );
+    if (_hInstance == NULL) return( CFEVect2::oONE() );
 	return(SPRITEINST(_hInstance).m_oScale);
 }
 // ----------------------------------------------------------------------------
 /// Sets the angle of a given sprite instance.
-void CFESpriteInstMgr::SetAngle(FEHandler _hInstance,const FEReal& _rAngle)
+void CFESpriteInstMgr::SetAngle(FEHandler _hInstance,FEReal _rAngle)
 {
     if (_hInstance == NULL) return;
     SPRITEINST(_hInstance).m_rAngle = _rAngle;
@@ -250,20 +273,16 @@ const CFEColor& CFESpriteInstMgr::oGetColor(FEHandler _hInstance,const CFEColor&
 	return SPRITEINST(_hInstance).m_oColor;
 }
 // ----------------------------------------------------------------------------
-/// Sets the current action of a given sprite instance.
+/// Sets the cu rrent action of a given sprite instance.
 void CFESpriteInstMgr::SetAction(FEHandler _hInstance,uint _uiAction)
 {
     if (_hInstance == NULL) return;
-	CFESpriteAction* poAction = SPRITEINST(_hInstance).m_poSprite->poGetAction(_uiAction);
-	if (poAction == NULL) return;
+	CFESpriteAction* poSprAct = SPRITEINST(_hInstance).m_poSprite->poGetAction(_uiAction);
+	if (poSprAct == NULL) return;
 
     SPRITEINST(_hInstance).m_uiSpriteAction			= _uiAction;
-    SPRITEINST(_hInstance).m_rActionTime			= CFEMath::rRand() * poAction->m_rRandStartTime;
-
-    if (poAction->m_oSeq.size() > 0)
-	    SPRITEINST(_hInstance).m_uiCurrentActionFrame	= poAction->uiGetFrame( SPRITEINST(_hInstance).m_rActionTime );
-	else
-		SPRITEINST(_hInstance).m_uiCurrentActionFrame	= 0;
+    SPRITEINST(_hInstance).m_rActionTime			= CFEMath::rRand() * poSprAct->m_rRandStartTime;
+    SPRITEINST(_hInstance).m_uiCurrentActionFrame	= 0;
 }
 // ----------------------------------------------------------------------------
 /// Sets the current action of a given sprite instance.
@@ -283,7 +302,7 @@ uint CFESpriteInstMgr::uiGetAction(FEHandler _hInstance)
 }
 // ----------------------------------------------------------------------------
 /// Sets the speed multiplier for a given sprite instance.
-void CFESpriteInstMgr::SetSpeedMult(FEHandler _hInstance,const FEReal& _rSpeedMult)
+void CFESpriteInstMgr::SetSpeedMult(FEHandler _hInstance,FEReal _rSpeedMult)
 {
     if (_hInstance == NULL) return;
 	SPRITEINST(_hInstance).m_rSpeedMult = _rSpeedMult;
@@ -300,26 +319,14 @@ FEReal CFESpriteInstMgr::rGetSpeedMult(FEHandler _hInstance)
 void CFESpriteInstMgr::Enable(FEHandler _hInstance)
 {
     if (_hInstance == NULL) return;
-    if (! SPRITEINST(_hInstance).m_bEnabled)
-    {
-		SPRITEINST(_hInstance).m_bEnabled = true;
-		m_oEnabledInsts.push_back( &SPRITEINST(_hInstance) );
-	}
+    SPRITEINST(_hInstance).m_bEnabled = true;
 }
 // ----------------------------------------------------------------------------
 /// Disables the given sprite instance.
 void CFESpriteInstMgr::Disable(FEHandler _hInstance)
 {
     if (_hInstance == NULL) return;
-    if (SPRITEINST(_hInstance).m_bEnabled)
-    {
-		SPRITEINST(_hInstance).m_bEnabled = false;
-		for (uint i=0;i<m_oEnabledInsts.size();i++)
-		{
-			if (m_oEnabledInsts[i] == _hInstance)
-				m_oEnabledInsts.Delete(i);
-		}
-	}
+    SPRITEINST(_hInstance).m_bEnabled = false;
 }
 // ----------------------------------------------------------------------------
 /// Retrieves whether this sprite is enabled or not.
@@ -340,64 +347,6 @@ bool CFESpriteInstMgr::bIsPlaying(FEHandler _hInstance)
 		return( poSI->m_rActionTime < poAction->m_rActionTime );
 	else
 		return( false );
-}
-// ----------------------------------------------------------------------------
-/// Retrieves the time in the current action this sprite instance is being played.
-FEReal CFESpriteInstMgr::rGetCurrentActionTime(FEHandler _hInstance)
-{
-    if (_hInstance == NULL) return(_0r);
-    return( SPRITEINST(_hInstance).m_rActionTime );
-}
-// ----------------------------------------------------------------------------
-/// Sets the time in the current action this sprite instance will be played.
-void CFESpriteInstMgr::SetCurrentActionTime(FEHandler _hInstance,const FEReal& _rActionTime)
-{
-	if (_hInstance == NULL) return;
-
-	CFESpriteMgrInst* poSI		= &SPRITEINST(_hInstance);
-	CFESpriteAction* poAction	= &(poSI->m_poSprite->m_oActions[ poSI->m_uiSpriteAction ]);
-	FEReal rNewTime				= _rActionTime;
-
-	// To prevent overflows
-	switch (poAction->eGetPlayMode())
-    {
-		case SFSPM_ONESHOT:
-		rNewTime = CFEMath::rMin(rNewTime,poAction->rGetMaxActionTime());
-		break;
-
-		case SFSPM_LOOP:
-		rNewTime = CFEMath::rMod(rNewTime,poAction->rGetMaxActionTime());
-		break;
-
-		case SFSPM_PINGPONGSTOP:
-		rNewTime = CFEMath::rMin(rNewTime,_2r*poAction->rGetMaxActionTime()+_001r);
-		break;
-
-		case SFSPM_PINGPONG:
-		rNewTime = CFEMath::rMod(rNewTime,_2r*poAction->rGetMaxActionTime());
-		break;
-    }
-
-	poSI->m_rActionTime				= rNewTime;
-	poSI->m_uiCurrentActionFrame	= poAction->uiGetFrame( rNewTime );
-}
-// ----------------------------------------------------------------------------
-/// Retrieves the current frame this sprite instance is playing.
-CFESpriteFrame* CFESpriteInstMgr::poGetCurrentFrame(FEHandler _hInstance)
-{
-    if (_hInstance == NULL) return(NULL);
-
-    CFESpriteMgrInst* poSI    = &SPRITEINST(_hInstance);
-    CFESpriteAction* poAction = &(poSI->m_poSprite->m_oActions[ poSI->m_uiSpriteAction ]);   
-    
-    return( &poAction->m_oSeq[ poSI->m_uiCurrentActionFrame ] );
-}
-// ----------------------------------------------------------------------------
-/// Retrieves the current frame index this sprite instance is playing.
-uint CFESpriteInstMgr::uiGetCurrentFrame(FEHandler _hInstance)
-{
-    if (_hInstance == NULL) return(0);
-    return( SPRITEINST(_hInstance).m_uiCurrentActionFrame);
 }
 // ----------------------------------------------------------------------------
 /// Retrieves the sprite model used by the given sprite instance.
@@ -422,18 +371,21 @@ bool CFESpriteInstMgr::bIsRenderManaged(FEHandler _hInstance)
 }
 // ----------------------------------------------------------------------------
 /// Performs an update step over the given sprite instance, also in case it's disabled.
-void CFESpriteInstMgr::Update(CFESpriteMgrInst* _poInstance,const FEReal& _rDeltaT)
+void CFESpriteInstMgr::Update(CFESpriteInst* _poInstance,FEReal _rDeltaT)
 {
-	SetCurrentActionTime(_poInstance,_poInstance->m_rActionTime+_rDeltaT*_poInstance->m_rSpeedMult);
+    CFESpriteAction* poAction = &(_poInstance->m_poSprite->m_oActions[ _poInstance->m_uiSpriteAction ]);
+
+    _poInstance->m_rActionTime		    += _rDeltaT;
+    _poInstance->m_uiCurrentActionFrame	 = poAction->uiGetFrame( _poInstance->m_rActionTime );
 }
 // ----------------------------------------------------------------------------
-void CFESpriteInstMgr::Update(FEHandler _hInstance,const FEReal& _rDeltaT)
+void CFESpriteInstMgr::Update(FEHandler _hInstance,FEReal _rDeltaT)
 {
     if (_hInstance == NULL) return;
-
+    
     CFESpriteMgrInst* poSI    = &SPRITEINST(_hInstance);
-    Update(poSI,_rDeltaT);
-
+    Update(poSI,_rDeltaT*poSI->m_rSpeedMult);
+    
 	// Check if this instance should be disabled or not
     if (poSI->m_bInternal)
     {
@@ -455,63 +407,38 @@ void CFESpriteInstMgr::Update(FEHandler _hInstance,const FEReal& _rDeltaT)
                 #pragma message("#################")
             {
                 poSI->m_bEnabled  = false;
+                poSI->m_bFree     = true;
                 poSI->m_bInternal = false;
             }
         }
     }
 }
 // ----------------------------------------------------------------------------
-void CFESpriteInstMgr::Update(const FEReal& _rDeltaT)
+void CFESpriteInstMgr::Update(FEReal _rDeltaT)
 {
-	for (uint i=0;i<m_oEnabledInsts.size();i++)
-		Update(m_oEnabledInsts[i],_rDeltaT);
-
-	/*
-    for (uint i=0;i<uiGetMaxInstances();i++)
+    for (uint i=0;i<INSTANCEDDATA->m_oList.size();i++)
     {
-		CFESpriteMgrInst* poInst = poGetResourceInstance(i);
-		if ((! bIsInstanceFree(i)) && (poInst->m_bEnabled))
-		{
-			Update(poInst,_rDeltaT);
-		}
+        if (INSTANCEDDATA->m_oList[i]->m_bEnabled)
+            Update((FEHandler)INSTANCEDDATA->m_oList[i],_rDeltaT);
     }
-    */
 }
 // ----------------------------------------------------------------------------
 void CFESpriteInstMgr::Render(CFERenderer *_poRenderer)
 {
-	for (uint i=0;i<m_oEnabledInsts.size();i++)
-	{
-		CFESpriteMgrInst* poInst = m_oEnabledInsts[i];
-		if (poInst->m_bIsRenderManaged)
-		{
-			Render(poInst,_poRenderer);
-		}
-	}
-	
-    /*
-    for (uint i=0;i<CFESpriteInstMgr::uiGetMaxInstances();i++)
+    for (uint i=0;i<INSTANCEDDATA->m_oList.size();i++)
     {
-		CFESpriteMgrInst* poInst = poGetResourceInstance(i);
-        if ((! bIsInstanceFree(i)) && (poInst->m_bEnabled) && (poInst->m_bIsRenderManaged))
+    	CFESpriteMgrInst* poInst = INSTANCEDDATA->m_oList[i];
+
+        if ( poInst->m_bEnabled && poInst->m_bIsRenderManaged)
         {
-			Render(poInst,_poRenderer);
+            CFESpriteRenderer::Render(  _poRenderer,
+                                        poInst,
+                                        poInst->m_oPos,
+                                        poInst->m_rDepth,
+                                        poInst->m_oScale,
+                                        poInst->m_rAngle,
+                                        poInst->m_oColor);
         }
     }
-    */
-}
-// ----------------------------------------------------------------------------
-void CFESpriteInstMgr::Render(FEHandler _hInstance,CFERenderer *_poRenderer)
-{
-	if (_hInstance == NULL) return;
-
-	CFESpriteMgrInst* poInst = &SPRITEINST(_hInstance);
-    CFESpriteRenderer::Render(_poRenderer,
-                              poInst,
-                              poInst->m_oPos,
-                              poInst->m_rDepth,
-                              poInst->m_oScale,
-                              poInst->m_rAngle,
-                              poInst->m_oColor);
 }
 // ----------------------------------------------------------------------------

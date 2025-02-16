@@ -11,7 +11,6 @@
 #include "support/misc/CFEStringUtils.h"
 #include "graphics/font/CFEFontMgr.h"
 #include "graphics/sprite/CFESpriteInstMgr.h"
-#include "types/CFEKFBFuncUtils.h"
 
 #include "CFEHUDLoader.h"
 #include "CFEHUDAction.h"
@@ -26,17 +25,6 @@
 #include "CFEHUDAction.h"
 #include "CFEHUDElemLocator.h"
 //-----------------------------------------------------------------------------
-#define GENERAL_ACTION_TIME_CHECK()\
-		if ((eWrapMode != KFBFWM_LOOP) && (eWrapMode != KFBFWM_PINGPONG))\
-		{\
-			 if ((rTime>=_0r)&& (rActionTime < rTime))\
-				rActionTime = rTime;\
-		}\
-		else\
-		{\
-			return(-_1r);\
-		}
-
 FEReal rGetActionTime(CFEHUDElementAction* _poAction)
 {
 	FEReal rActionTime = -_1r;
@@ -48,46 +36,22 @@ FEReal rGetActionTime(CFEHUDElementAction* _poAction)
 
 		eWrapMode = poObjAction->m_oPosFunc.eGetWrapMode();
 		rTime = poObjAction->m_oPosFunc.rGetMaxLimit();
-		GENERAL_ACTION_TIME_CHECK();
+		if ((eWrapMode != KFBFWM_LOOP) && (eWrapMode != KFBFWM_PINGPONG) && (rTime>_0r)&& (rActionTime < rTime)) rActionTime = rTime;
 
 		eWrapMode = poObjAction->m_oScaleFunc.eGetWrapMode();
 		rTime = poObjAction->m_oScaleFunc.rGetMaxLimit();
-		GENERAL_ACTION_TIME_CHECK();
+		if ((eWrapMode != KFBFWM_LOOP) && (eWrapMode != KFBFWM_PINGPONG) && (rTime>_0r)&& (rActionTime < rTime)) rActionTime = rTime;
 
 		eWrapMode = poObjAction->m_oColorFunc.eGetWrapMode();
 		rTime = poObjAction->m_oColorFunc.rGetMaxLimit();
-		GENERAL_ACTION_TIME_CHECK();
+		if ((eWrapMode != KFBFWM_LOOP) && (eWrapMode != KFBFWM_PINGPONG) && (rTime>_0r)&& (rActionTime < rTime)) rActionTime = rTime;
 
 		eWrapMode = poObjAction->m_rAngleFunc.eGetWrapMode();
 		rTime = poObjAction->m_rAngleFunc.rGetMaxLimit();
-		GENERAL_ACTION_TIME_CHECK();
+		if ((eWrapMode != KFBFWM_LOOP) && (eWrapMode != KFBFWM_PINGPONG) && (rTime>_0r)&& (rActionTime < rTime)) rActionTime = rTime;
     }
 
     return(rActionTime);
-}
-//-----------------------------------------------------------------------------
-FEReal rGetMaxActionTime(CFEHUDElementAction* _poAction)
-{
-	FEReal rMaxActionTime = -_1r;
-    for (uint i=0;i<_poAction->uiNumActions();i++)
-    {
-		CFEHUDObjectAction* poObjAction = _poAction->poGetAction(i);
-		FEReal rMaxTime;
-
-		rMaxTime = poObjAction->m_oPosFunc.rGetMaxLimit();
-		if ((rMaxTime>=_0r) && (rMaxActionTime < rMaxTime)) rMaxActionTime = rMaxTime;
-
-		rMaxTime = poObjAction->m_oScaleFunc.rGetMaxLimit();
-		if ((rMaxTime>=_0r) && (rMaxActionTime < rMaxTime)) rMaxActionTime = rMaxTime;
-
-		rMaxTime = poObjAction->m_oColorFunc.rGetMaxLimit();
-		if ((rMaxTime>=_0r) && (rMaxActionTime < rMaxTime)) rMaxActionTime = rMaxTime;
-
-		rMaxTime = poObjAction->m_rAngleFunc.rGetMaxLimit();
-		if ((rMaxTime>=_0r) && (rMaxActionTime < rMaxTime)) rMaxActionTime = rMaxTime;
-    }
-
-    return(rMaxActionTime);
 }
 //-----------------------------------------------------------------------------
 CFEString CFEHUDLoader::m_sWorkingDir;
@@ -109,9 +73,37 @@ CFEHUD* CFEHUDLoader::poLoad(const CFEString& _sFilename)
     // Read elements.
     for (uint j=0;j<uiNumElements;j++)
     {
-        CFEString sVar = CFEString("HUD.Element") + CFEString(j);
-        CFEHUDElement* poElem = poLoadElement(sVar,oConfig);
+        uint i;
 
+        CFEString sVar = CFEString("HUD.Element") + CFEString(j);
+        
+        // Element name        
+        CFEString sElemName = oConfig.sGetString(sVar + ".Name","nonamed-element");
+    
+        CFEHUDElement* poElem = new CFEHUDElement(sElemName);
+
+        // Number of layers
+        uint uiNumLayers = oConfig.iGetInteger(sVar + ".NumLayers",0);
+        
+        for (i=0;i<uiNumLayers;i++)
+        {
+            CFEString sPrefix = sVar + ".Layer" + CFEString(i);
+            CFEHUDObject* poObj = poLoadObject(sPrefix,oConfig,poElem);
+
+            poElem->uiAddLayer(poObj);
+        }
+
+        // Number of actions
+        uint uiNumActions = oConfig.iGetInteger(sVar + ".NumElemActions",0);
+        
+        for (i=0;i<uiNumActions;i++)
+        {
+            CFEString sPrefix = sVar + ".Action" + CFEString(i);
+            CFEHUDElementAction* poObj = poLoadAction(sPrefix,oConfig,poElem);
+
+            poElem->uiAddAction(poObj);
+        }
+        
         // Add the new element.
         poHUD->uiAddElement(poElem);
     }
@@ -119,97 +111,30 @@ CFEHUD* CFEHUDLoader::poLoad(const CFEString& _sFilename)
 	return(poHUD);
 }
 //-----------------------------------------------------------------------------
-/// Loads a HUD element from disk
-CFEHUDElement* CFEHUDLoader::poLoadElement(const CFEString& _sFilename)
+void CFEHUDLoader::LoadObject(const CFEString& _sPrefix,const CFEConfigFile& _oConfigFile,CFEHUDObject* _poObj)
 {
-	CFEString sFilename = _sFilename + ".hel";
-	m_sWorkingDir = CFEStringUtils::sGetPath(_sFilename);
-
-	CFEConfigFile oConfig(sFilename);
-	if (! oConfig.bInitialized() ) return(NULL);
-    
-    return( poLoadElement("HUDElement",oConfig) );
-}
-//-----------------------------------------------------------------------------
-/// Loads a HUD object from disk
-CFEHUDObject* CFEHUDLoader::poLoadObject(const CFEString& _sFilename)
-{
-	CFEString sFilename = _sFilename + ".hob";
-	m_sWorkingDir = CFEStringUtils::sGetPath(_sFilename);
-
-	CFEConfigFile oConfig(sFilename);
-	if (! oConfig.bInitialized() ) return(NULL);
-    
-    return( poLoadObject("HUDObject",oConfig) );
-}
-//-----------------------------------------------------------------------------
-void CFEHUDLoader::LoadElementActions(const CFEString& _sFilename,CFEHUDElement* _poElem)
-{
-	CFEString sFilename = _sFilename + ".hea";
-	m_sWorkingDir = CFEStringUtils::sGetPath(_sFilename);
-
-	CFEConfigFile oConfig(sFilename);
-	if (! oConfig.bInitialized() ) return;
-
-	LoadElementActions("HUDElementActions",oConfig,_poElem);
-}
-//-----------------------------------------------------------------------------
-CFEHUDElement* CFEHUDLoader::poLoadElement(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile)
-{
-	// Element name        
-	CFEString sElemName = _oConfigFile.sGetString(_sPrefix + ".Name","nonamed-element");
-	CFEHUDElement* poElem = new CFEHUDElement(sElemName);
-
-	// Number of layers
-	uint uiNumLayers = _oConfigFile.iGetInteger(_sPrefix + ".NumLayers",0);
-
-	uint i;
-	for (i=0;i<uiNumLayers;i++)
-	{
-		CFEString sPrefix = _sPrefix + ".Layer" + CFEString(i);
-		CFEHUDObject* poObj = poLoadObject(sPrefix,_oConfigFile);
-
-		poElem->uiAddLayer(poObj);
-	}
-
-	// Number of actions
-	LoadElementActions(_sPrefix,_oConfigFile,poElem);
-
-	return(poElem);
-}
-//-----------------------------------------------------------------------------
-void CFEHUDLoader::LoadCommonObjectProperties(const CFEString& _sPrefix,const CFEConfigFile& _oConfigFile,CFEHUDObject* _poObj)
-{
-    // action
-    int iAction = _oConfigFile.iGetInteger(_sPrefix + ".Action",-1);
-    _poObj->SetIniAction( iAction );
-
     // position
     FEReal rX = _oConfigFile.rGetReal(_sPrefix + ".Position.x",_0r);
     FEReal rY = _oConfigFile.rGetReal(_sPrefix + ".Position.y",_0r);
-    _poObj->SetIniPos( CFEVect2(rX,rY) );
-
-    // depth
-    FEReal rD = _oConfigFile.rGetReal(_sPrefix + ".Depth",_0r);
-    _poObj->SetDepth( rD );
-
+    _poObj->SetPos( CFEVect2(rX,rY) );
+    
     // scale
     FEReal rSX = _oConfigFile.rGetReal(_sPrefix + ".Scale.x",_1r);
     FEReal rSY = _oConfigFile.rGetReal(_sPrefix + ".Scale.y",_1r);
-    _poObj->SetIniScale( CFEVect2(rSX,rSY) );
-
+    _poObj->SetScale( CFEVect2(rSX,rSY) );
+    
     // angle
     FEReal rA = _oConfigFile.rGetReal(_sPrefix + ".Angle",_0r);
-    _poObj->SetIniAngle( rA );
-
+    _poObj->SetAngle( rA );
+    
     // color
     FEReal rCR = _oConfigFile.rGetReal(_sPrefix + ".Color.r",_1r);
     FEReal rCG = _oConfigFile.rGetReal(_sPrefix + ".Color.g",_1r);
     FEReal rCB = _oConfigFile.rGetReal(_sPrefix + ".Color.b",_1r);
     FEReal rCA = _oConfigFile.rGetReal(_sPrefix + ".Color.a",_1r);
 
-    _poObj->SetIniColor( CFEColor(rCR,rCG,rCB,rCA) );
-
+    _poObj->SetColor( CFEColor(rCR,rCG,rCB,rCA) );
+    
     // visibility
     bool bVisible = _oConfigFile.bGetBool(_sPrefix + ".Visible",true);
     _poObj->Show( bVisible );
@@ -243,7 +168,7 @@ else if (_sAlign |= "bottom")
     return(TVAM_CENTER);
 }
 //-----------------------------------------------------------------------------
-CFEHUDObject* CFEHUDLoader::poLoadObject(const CFEString& _sPrefix,const CFEConfigFile& _oConfigFile)
+CFEHUDObject* CFEHUDLoader::poLoadObject(const CFEString& _sPrefix,const CFEConfigFile& _oConfigFile, CFEHUDElement* _poElem)
 {
     CFEString sElemType = _oConfigFile.sGetString(_sPrefix + ".Type","none");
     CFEString sElemName = _oConfigFile.sGetString(_sPrefix + ".Name","nonamed");
@@ -251,12 +176,12 @@ CFEHUDObject* CFEHUDLoader::poLoadObject(const CFEString& _sPrefix,const CFEConf
     if (sElemType |= "label")
     {
         CFEHUDLabel* poLabel = new CFEHUDLabel(sElemName);
-        LoadCommonObjectProperties(_sPrefix,_oConfigFile,poLabel);
+        LoadObject(_sPrefix,_oConfigFile,poLabel);
         
         CFEString sText = _oConfigFile.sGetString(_sPrefix + ".Text","Label");
         poLabel->SetText( sText );
 
-        CFEString sFont = m_sWorkingDir + CFEString("/") + _oConfigFile.sGetString(_sPrefix + ".Font","");
+        CFEString sFont = m_sWorkingDir + CFEString("/") + _oConfigFile.sGetString(_sPrefix + ".Font","undefined");
         CFEFont* poFont = CFEFontMgr::poLoad( sFont );
         poLabel->SetFont( poFont );
 
@@ -272,17 +197,17 @@ CFEHUDObject* CFEHUDLoader::poLoadObject(const CFEString& _sPrefix,const CFEConf
     else if (sElemType |= "icon")
     {
         CFEHUDIcon* poIcon = new CFEHUDIcon(sElemName);
-        LoadCommonObjectProperties(_sPrefix,_oConfigFile,poIcon);
+        LoadObject(_sPrefix,_oConfigFile,poIcon);
 
-		CFEString sSprite = m_sWorkingDir + CFEString("/") + _oConfigFile.sGetString(_sPrefix + ".Sprite","");
-	
+		CFEString sSprite = m_sWorkingDir + CFEString("/") + _oConfigFile.sGetString(_sPrefix + ".Sprite","undefined");
+
         FEHandler hSpriteInst = CFESpriteInstMgr::hGetInstance(sSprite);
-
         poIcon->SetIcon(hSpriteInst);
-        poIcon->SetCurAction( poIcon->iGetIniAction() );
-        
         CFESpriteInstMgr::Enable(hSpriteInst);
         CFESpriteInstMgr::ManageRender(hSpriteInst,false);
+
+        uint uiAction = _oConfigFile.iGetInteger(_sPrefix + ".Action",0);
+        poIcon->SetAction( uiAction );
 
         return(poIcon);
     }
@@ -290,13 +215,13 @@ CFEHUDObject* CFEHUDLoader::poLoadObject(const CFEString& _sPrefix,const CFEConf
     else if (sElemType |= "rect")
     {
         CFEHUDRect* poRect = new CFEHUDRect(sElemName);
-        LoadCommonObjectProperties(_sPrefix,_oConfigFile,poRect);
+        LoadObject(_sPrefix,_oConfigFile,poRect);
 		
 		// Load width / height / pivot
 		FEReal rWidth  = _oConfigFile.rGetReal(_sPrefix + ".Width", _0r);
 		FEReal rHeight = _oConfigFile.rGetReal(_sPrefix + ".Height",_0r);
-		FEReal rPivotX = _oConfigFile.rGetReal(_sPrefix + ".PivotX",_05r);
-		FEReal rPivotY = _oConfigFile.rGetReal(_sPrefix + ".PivotY",_05r);
+		FEReal rPivotX = _oConfigFile.rGetReal(_sPrefix + ".PivotX",_0r);
+		FEReal rPivotY = _oConfigFile.rGetReal(_sPrefix + ".PivotY",_0r);
 
 		poRect->SetWidth(rWidth);
 		poRect->SetHeight(rHeight);
@@ -323,14 +248,14 @@ CFEHUDObject* CFEHUDLoader::poLoadObject(const CFEString& _sPrefix,const CFEConf
     else if (sElemType |= "group")
     {
         CFEHUDGroup* poGroup = new CFEHUDGroup(sElemName);
-        LoadCommonObjectProperties(_sPrefix,_oConfigFile,poGroup);
+        LoadObject(_sPrefix,_oConfigFile,poGroup);
 
         uint uiNumObjects = _oConfigFile.iGetInteger(_sPrefix + ".NumObjects",0);
 
         for (uint i=0;i<uiNumObjects;i++)
         {
             CFEString sObject = _sPrefix + ".Object" + CFEString(i);
-            CFEHUDObject* poObj = poLoadObject(sObject,_oConfigFile);
+            CFEHUDObject* poObj = poLoadObject(sObject,_oConfigFile,_poElem);
 
             poGroup->uiAddObject(poObj);
         }
@@ -339,19 +264,6 @@ CFEHUDObject* CFEHUDLoader::poLoadObject(const CFEString& _sPrefix,const CFEConf
     }
 
     return(NULL);
-}
-//-----------------------------------------------------------------------------
-void CFEHUDLoader::LoadElementActions(const CFEString& _sPrefix, const CFEConfigFile& _oConfigFile,CFEHUDElement* _poElem)
-{
-	uint uiNumActions = _oConfigFile.iGetInteger(_sPrefix + ".NumElemActions",0);
-
-	for (uint i=0;i<uiNumActions;i++)
-	{
-		CFEString sPrefix = _sPrefix + ".Action" + CFEString(i);
-		CFEHUDElementAction* poObj = poLoadAction(sPrefix,_oConfigFile,_poElem);
-
-		_poElem->uiAddAction(poObj);
-	}
 }
 //-----------------------------------------------------------------------------
 CFEHUDElementAction* CFEHUDLoader::poLoadAction(const CFEString& _sPrefix,const CFEConfigFile& _oConfigFile, CFEHUDElement* _poElem)
@@ -369,22 +281,59 @@ CFEHUDElementAction* CFEHUDLoader::poLoadAction(const CFEString& _sPrefix,const 
     }
 
 	poElemAction->SetActionTime( rGetActionTime(poElemAction) );
-	poElemAction->SetMaxActionTime( rGetMaxActionTime(poElemAction) );
-	
     return(poElemAction);
+}
+//-----------------------------------------------------------------------------
+EFEKFBFuncWrapMode eGetWrapMode(const CFEString& _sWrapMode)
+{
+    if (_sWrapMode |= "Loop")
+        return(KFBFWM_LOOP);
+
+else if (_sWrapMode |= "PingPong")
+        return(KFBFWM_PINGPONG);
+
+else if (_sWrapMode |= "InitialValue")
+        return(KFBFWM_INITIALVALUE);
+
+else if (_sWrapMode |= "FinalValue")
+        return(KFBFWM_FINALVALUE);
+    
+    return(KFBFWM_FINALVALUE);
+}
+//-----------------------------------------------------------------------------
+EFEKFLerpFunc eGetLerpFunc(const CFEString& _sLerpFunc)
+{
+     if (_sLerpFunc |= "constant")
+        return(KFLF_CONSTANT);
+
+else if (_sLerpFunc |= "sin")
+        return(KFLF_SIN);
+else if (_sLerpFunc |= "exp")
+        return(KFLF_EXP);
+
+else if (_sLerpFunc |= "random")
+        return(KFLF_RAND);
+
+else if (_sLerpFunc |= "linear")
+        return(KFLF_LERP);
+
+else if (_sLerpFunc |= "sinsin")
+        return(KFLF_SINSIN);
+
+else if (_sLerpFunc |= "explog")
+        return(KFLF_EXPLOG);
+
+    return(KFLF_CONSTANT);
 }
 //-----------------------------------------------------------------------------
 CFEHUDObjectAction* CFEHUDLoader::poLoadObjAction(const CFEString& _sPrefix,const CFEConfigFile& _oConfigFile, CFEHUDElement* _poElem)
 {
     CFEHUDObjectAction* poObjAction = new CFEHUDObjectAction;
-
-    CFEString sHUDObject = _oConfigFile.sGetString(_sPrefix + ".HUDObject","");
+    
+    CFEString sHUDObject = _oConfigFile.sGetString(_sPrefix + ".HUDObject","");    
     CFEHUDElemLocator oLocator;
     CFEHUDObject* poObj = oLocator.poLocateHUDObject(_poElem,sHUDObject);
     poObjAction->SetHUDObject(poObj);
-
-	int iAction = _oConfigFile.iGetInteger(_sPrefix + ".ObjAction",-1);
-	poObjAction->SetObjectAction(iAction);
 
     uint        i;
     CFEString   sVar;
@@ -395,8 +344,8 @@ CFEHUDObjectAction* CFEHUDLoader::poLoadObjAction(const CFEString& _sPrefix,cons
     sVar = _sPrefix + ".PosFunc";
     sWrapMode = _oConfigFile.sGetString(sVar + ".WrapMode","finalvalue");
 
-	poObjAction->m_oPosFunc.SetWrapMode( CFEKFBFuncUtils::eGetWrapMode(sWrapMode) );
-
+	poObjAction->m_oPosFunc.SetWrapMode( eGetWrapMode(sWrapMode) );
+    
     uiKeyFrames = _oConfigFile.iGetInteger(sVar + ".NumKeyFrames",0);
     for (i=0;i<uiKeyFrames;i++)
     {
@@ -408,14 +357,14 @@ CFEHUDObjectAction* CFEHUDLoader::poLoadObjAction(const CFEString& _sPrefix,cons
         FEReal rTime = _oConfigFile.rGetReal(sIVar + ".Time",_0r);
         CFEString sLerpFunc = _oConfigFile.sGetString(sIVar + ".LerpFunc","linear");
 
-        poObjAction->m_oPosFunc.InsertKeyFrame(oPos,rTime,CFEKFBFuncUtils::eGetLerpFunc(sLerpFunc) );
+        poObjAction->m_oPosFunc.InsertKeyFrame(oPos,rTime,eGetLerpFunc(sLerpFunc) );
     }
 
     // Scale
     sVar = _sPrefix + ".ScaleFunc";
     sWrapMode = _oConfigFile.sGetString(sVar + ".WrapMode","finalvalue");
 
-	poObjAction->m_oScaleFunc.SetWrapMode( CFEKFBFuncUtils::eGetWrapMode(sWrapMode) );
+	poObjAction->m_oScaleFunc.SetWrapMode( eGetWrapMode(sWrapMode) );
     
     uiKeyFrames = _oConfigFile.iGetInteger(sVar + ".NumKeyFrames",0);
     for (i=0;i<uiKeyFrames;i++)
@@ -423,19 +372,19 @@ CFEHUDObjectAction* CFEHUDLoader::poLoadObjAction(const CFEString& _sPrefix,cons
         CFEString sIVar = sVar + CFEString(".KeyFrame") + CFEString(i);
 
         CFEVect2 oScale;
-        oScale.x = _oConfigFile.rGetReal(sIVar + ".x",_1r);
-        oScale.y = _oConfigFile.rGetReal(sIVar + ".y",_1r);
+        oScale.x = _oConfigFile.rGetReal(sIVar + ".x",_0r);
+        oScale.y = _oConfigFile.rGetReal(sIVar + ".y",_0r);
         FEReal rTime = _oConfigFile.rGetReal(sIVar + ".Time",_0r);
         CFEString sLerpFunc = _oConfigFile.sGetString(sIVar + ".LerpFunc","linear");
 
-        poObjAction->m_oScaleFunc.InsertKeyFrame(oScale,rTime,CFEKFBFuncUtils::eGetLerpFunc(sLerpFunc) );
+        poObjAction->m_oScaleFunc.InsertKeyFrame(oScale,rTime,eGetLerpFunc(sLerpFunc) );
     }
 
     // Angle
     sVar = _sPrefix + ".AngleFunc";
     sWrapMode = _oConfigFile.sGetString(sVar + ".WrapMode","finalvalue");
 
-	poObjAction->m_rAngleFunc.SetWrapMode( CFEKFBFuncUtils::eGetWrapMode(sWrapMode) );
+	poObjAction->m_rAngleFunc.SetWrapMode( eGetWrapMode(sWrapMode) );
     
     uiKeyFrames = _oConfigFile.iGetInteger(sVar + ".NumKeyFrames",0);
     for (i=0;i<uiKeyFrames;i++)
@@ -446,14 +395,14 @@ CFEHUDObjectAction* CFEHUDLoader::poLoadObjAction(const CFEString& _sPrefix,cons
         FEReal rTime = _oConfigFile.rGetReal(sIVar + ".Time",_0r);
         CFEString sLerpFunc = _oConfigFile.sGetString(sIVar + ".LerpFunc","linear");
 
-        poObjAction->m_rAngleFunc.InsertKeyFrame(rAngle,rTime,CFEKFBFuncUtils::eGetLerpFunc(sLerpFunc) );
+        poObjAction->m_rAngleFunc.InsertKeyFrame(rAngle,rTime,eGetLerpFunc(sLerpFunc) );
     }
     
     // Color
     sVar = _sPrefix + ".ColorFunc";
     sWrapMode = _oConfigFile.sGetString(sVar + ".WrapMode","finalvalue");
 
-	poObjAction->m_oColorFunc.SetWrapMode( CFEKFBFuncUtils::eGetWrapMode(sWrapMode) );
+	poObjAction->m_oColorFunc.SetWrapMode( eGetWrapMode(sWrapMode) );
     
     uiKeyFrames = _oConfigFile.iGetInteger(sVar + ".NumKeyFrames",0);
     for (i=0;i<uiKeyFrames;i++)
@@ -469,7 +418,7 @@ CFEHUDObjectAction* CFEHUDLoader::poLoadObjAction(const CFEString& _sPrefix,cons
         FEReal rTime = _oConfigFile.rGetReal(sIVar + ".Time",_0r);
         CFEString sLerpFunc = _oConfigFile.sGetString(sIVar + ".LerpFunc","linear");
 
-        poObjAction->m_oColorFunc.InsertKeyFrame(oColor,rTime,CFEKFBFuncUtils::eGetLerpFunc(sLerpFunc) );
+        poObjAction->m_oColorFunc.InsertKeyFrame(oColor,rTime,eGetLerpFunc(sLerpFunc) );
     }
 
     return(poObjAction);

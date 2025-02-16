@@ -52,12 +52,12 @@ class CFESkelAnimNodeVisitor
         {
             Visit((CFESkelAnimNode*)_poObj);
         }
-
+        
         virtual void Visit(CFESkelAnimMeshModel* _poObj)
         {
             Visit((CFESkelAnimNode*)_poObj);
         }        
-
+        
         /// 
         virtual void Visit(CFESkelAnimMesh* _poObj)
         {

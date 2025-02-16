@@ -14,39 +14,11 @@
 #include "FEBasicTypes.h"
 #include "types/CFEVect2.h"
 #include "types/CFEResourceQueue.h"
-#include "types/CFEResourceMgr.h"
 #include "CFEParticleSys.h"
 //-----------------------------------------------------------------------------
 class CFERenderer;
 class CFEParticle;
 //-----------------------------------------------------------------------------
-/*
-DECLARE_RESOURCE_MANAGER(CFEParticleMgr,CFEParticle)
-{
-	friend CFEResourceMgr<CFEParticleMgr,CFEParticle>;
-
-    protected:
-
-        /// OVERRIDED: Implementation of the poLoadResource function.
-        static CFEParticle* poLoadResource(const CFEString& _sFilename);
-
-        /// OVERRIDED: Implementation of the InvalidateResource function.
-        static void InvalidateResource(CFEParticle* _poRes);
-        
-        /// Creates the given number of particles.
-        static void CreateParticles(uint _uiNumParticles, const CFEVect2& _oPos, FEReal _rDepth, CFEParticleSys* _poPS);
-
-        /// Updates the living particles in the system.
-        static void Update(FEReal _rDeltaT);
-
-        /// Renders the living particles in the system.
-        static void Render(CFERenderer* _poRenderer);
-    
-        /// Invalidates all living particles.
-        static void Reset();       
-};
-*/
-
 class CFEParticleMgr
 {
     public:
@@ -58,18 +30,17 @@ class CFEParticleMgr
         static void Finish();
 
         /// Creates the given number of particles.
-        static void CreateParticles(uint _uiNumParticles, const CFEVect2& _oPos, const FEReal& _rDepth, CFEParticleSys* _poPS);
+        static void CreateParticles(uint _uiNumParticles, const CFEVect2& _oPos, FEReal _rDepth, CFEParticleSys* _poPS);
 
         /// Updates the living particles in the system.
-        static void Update(const FEReal& _rDeltaT);
+        static void Update(FEReal _rDeltaT);
 
         /// Renders the living particles in the system.
         static void Render(CFERenderer* _poRenderer);
     
         /// Invalidates all living particles.
-        static void Reset();       
+        static void Reset();
 };
-
 //-----------------------------------------------------------------------------
 #endif
 //-----------------------------------------------------------------------------

@@ -79,32 +79,6 @@ int isExtensionSupported(const char *extension)
 	return 0;
 }
 // ----------------------------------------------------------------------------
-// Function helper that handles localization of data.
-// ----------------------------------------------------------------------------
-CFESImageInfo* poLoadImage(const CFEString& _sFilename)
-{
-	CFESImageInfo* poII = NULL;
-
-	if (CFESystem::Local::bIsAutoLocEnabled())
-	{
-		// try first localized version of the file.
-		CFEString sLocalFilename = CFESystem::Local::sGetLocalID(LID_COMMON) + "/" + _sFilename;
-		poII = ImageLib::poLoadImage((char*)sLocalFilename.szString());
-	
-		if (poII != NULL) return(poII);
-		
-		// try first localized version of the file.
-		sLocalFilename = CFESystem::Local::sGetLocalID() + "/" + _sFilename;
-		poII = ImageLib::poLoadImage((char*)sLocalFilename.szString());
-	}
-	else
-	{
-		poII = ImageLib::poLoadImage((char*)_sFilename.szString());
-	}
-
-	return(poII);
-}
-// ----------------------------------------------------------------------------
 void CFESystem::Graphics::SetScreenVWidth(uint _uiScrVWidth)
 {
     FESglobals.m_uiScrVWidth = _uiScrVWidth;
@@ -113,7 +87,7 @@ void CFESystem::Graphics::SetScreenVWidth(uint _uiScrVWidth)
     glLoadIdentity();
 
     glTranslatef(-1.0f,+ 1.0f,0.0f);
-    glScalef    ( 2.0f/(float)FESglobals.m_uiScrVWidth,-2.0f/(float)FESglobals.m_uiScrVHeight,1.0f);
+    glScalef    ( 2.0f/(FEReal)FESglobals.m_uiScrVWidth,-2.0f/(FEReal)FESglobals.m_uiScrVHeight,1.0f);
     CHECKERROR();
 }
 // ----------------------------------------------------------------------------
@@ -125,7 +99,7 @@ void CFESystem::Graphics::SetScreenVHeight(uint _uiScrVHeight)
     glLoadIdentity();
 
     glTranslatef(-1.0f,+ 1.0f,0.0f);
-    glScalef    ( 2.0f/(float)FESglobals.m_uiScrVWidth,-2.0f/(float)FESglobals.m_uiScrVHeight,1.0f);
+    glScalef    ( 2.0f/(FEReal)FESglobals.m_uiScrVWidth,-2.0f/(FEReal)FESglobals.m_uiScrVHeight,1.0f);
     CHECKERROR();
 }
 // ----------------------------------------------------------------------------
@@ -186,8 +160,8 @@ void CFESystem::Graphics::DeleteMaterial(FEHandler _hMaterial)
 // ----------------------------------------------------------------------------
 FEHandler CFESystem::Graphics::hLoadMaterial(const CFEString& _sFilename)
 {
-    // TMaterialHandler    
-    CFESImageInfo* poII = poLoadImage(_sFilename);
+    // TMaterialHandler
+    CFESImageInfo* poII = ImageLib::poLoadImage((char*)_sFilename.szString());
     if (poII == NULL) return(NULL);
 
     if (! FESglobals.m_bNPO2Support)
@@ -202,7 +176,7 @@ FEHandler CFESystem::Graphics::hLoadMaterial(const CFEString& _sFilename)
 // ----------------------------------------------------------------------------
 void CFESystem::Graphics::ReloadMaterial(FEHandler _hMaterial,const CFEString& _sFilename)
 {
-    CFESImageInfo* poII = poLoadImage(_sFilename);
+    CFESImageInfo* poII = ImageLib::poLoadImage((char*)_sFilename.szString());  
     if (poII == NULL) return;
     
     TMaterialHandler* poTH = (TMaterialHandler*)_hMaterial;
@@ -328,15 +302,10 @@ int iCreateTexture(void* _pData,unsigned int _uiWidth,unsigned int _uiHeight,EFE
 
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);CHECKERROR();
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_CLAMP_TO_EDGE);CHECKERROR();
-    
-    #ifndef DS_PC
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);CHECKERROR();
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);CHECKERROR();
-    #else
-    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);CHECKERROR();
-    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);CHECKERROR();
-    #endif
-
+    // DS EMULATION: glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);CHECKERROR();
+    // DS EMULATION: glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);CHECKERROR();
     CHECKERROR();
 
     return(uiTexID);
@@ -388,22 +357,6 @@ void CFESystem::Graphics::RenderQuads(CFEVect2* _poVX,CFEVect2* _poUV,CFEColor* 
 						// 
 						glColor4f((float)_poVC->r,(float)_poVC->g,(float)_poVC->b,(float)_poVC->a);
 						glTexCoord2f((float)_poUV->x,(float)_poUV->y);
-
-						/*
-						#ifdef DS_PC
-						float fX = (float)_poVX->x;
-						float fY = (float)_poVX->y;
-
-						float fU = (float)_poUV->x;
-						float fV = (float)_poUV->y;
-
-						float fR = (float)_poVC->r;
-						float fG = (float)_poVC->g;
-						float fB = (float)_poVC->b;
-						float fA = (float)_poVC->a;
-						#endif
-						*/
-
 						glVertex2f((float)_poVX->x,(float)_poVX->y);
 
 						// next vertex
@@ -436,10 +389,6 @@ void CFESystem::Graphics::RenderQuads(CFEVect2* _poVX,CFEVect2* _poUV,CFEColor* 
 // ----------------------------------------------------------------------------
 void CFESystem::Graphics::RenderMesh(unsigned short* _pusIdx,CFEVect2* _poVXs,CFEVect2* _poUVs,CFEColor* _poVCs,uint _uiPoints)
 {
-	#ifdef REAL_CLASS
-	return;
-	#endif
-
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix();
 	glTranslatef(0,0,FESglobals.m_rCurDepth);
@@ -519,22 +468,6 @@ else if (_sProperty == "DiffuseMap.Height")
 // ----------------------------------------------------------------------------
 bool CFESystem::Graphics::bSetMaterialProperty(FEHandler _hMaterial,const CFEString& _sProperty,FEPointer _pParam)
 {
-	const uint CLAMP_MODES[] = {GL_CLAMP_TO_EDGE,GL_REPEAT};
-
-	TMaterialHandler* poTH = (TMaterialHandler*)_hMaterial;
-    if (_sProperty == "DiffuseMap.SWrapMode")
-    {
-		SetMaterial(_hMaterial);
-		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,CLAMP_MODES[(uint)_pParam & 0x01]);CHECKERROR();
-        return (true);
-    }
-else if (_sProperty == "DiffuseMap.TWrapMode")
-    {
-		SetMaterial(_hMaterial);
-        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,CLAMP_MODES[(uint)_pParam & 0x01]);CHECKERROR();
-        return (true);
-    }
-
     return(false);
 }
 // ----------------------------------------------------------------------------

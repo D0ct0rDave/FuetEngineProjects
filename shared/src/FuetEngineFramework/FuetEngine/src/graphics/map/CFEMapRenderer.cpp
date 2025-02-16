@@ -67,9 +67,9 @@ void CFEMapRenderer::Render(CFEMap *_poMap,CFERenderer *_poRenderer)
 						for (uint uiElem=0;uiElem < poSector->m_oElements.size();uiElem++)
 						{
 							CFEMapElement* poElem = &poSector->m_oElements[uiElem];
-							if (! poElem->m_bVisible) continue;
+							// if (! poElem->m_bVisible) continue;
 
-							CFESpriteRenderer::Render(_poRenderer,(CFESpriteInst*)poElem->m_hSprInst,poElem->m_oPos,poLayer->m_rDepth + (0.00999f - poElem->m_rDepth),poElem->m_oScale,poElem->m_rAngle,poElem->m_oColor);
+							CFESpriteRenderer::Render(_poRenderer,(CFESpriteInst*)poElem->m_hSprInst,poElem->m_oPos,poLayer->m_rDepth,poElem->m_oScale,poElem->m_rAngle,poElem->m_oColor);
 						}
 					}
 

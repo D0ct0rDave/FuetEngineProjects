@@ -14,20 +14,20 @@
 // ----------------------------------------------------------------------------
 void CFEChrono::Start()
 {
-    m_uiStartTick = CFESystem::uiGetEngineTicks();
-    m_bStarted    = true;
+    m_rTime     = CFESystem::rGetEngineTime();
+    m_bStarted  = true;
 }
 // ----------------------------------------------------------------------------
 void CFEChrono::Stop()
 {
-    m_bStarted = false;
-    m_rTime    = CFESystem::rGetTickTime(CFESystem::uiGetEngineTicks() - m_uiStartTick);
+    m_bStarted   = false;
+    m_rTime = CFESystem::rGetEngineTime() - m_rTime;
 }
 // ----------------------------------------------------------------------------
 FEReal CFEChrono::rGetElapsedTime()
 {
     if (m_bStarted)
-        return(CFESystem::rGetTickTime(CFESystem::uiGetEngineTicks() - m_uiStartTick));
+        return(CFESystem::rGetEngineTime() - m_rTime);
     else
         return(m_rTime);
 }

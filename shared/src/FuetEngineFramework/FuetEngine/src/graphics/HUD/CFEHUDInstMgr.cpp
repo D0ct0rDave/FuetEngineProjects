@@ -18,14 +18,12 @@
 #include "CFEHUDElemLocator.h"
 #include "types/CFESingleton.h"
 //-----------------------------------------------------------------------------
-/*
 DECLARE_SINGLETON(__FILE__DATA)
 {
     public:
         CFEArray<FEHandler> m_oInstances;
 };
 #define INSTANCEDDATA __FILE__DATA::I()
-*/
 //-----------------------------------------------------------------------------
 FEHandler CFEHUDInstMgr::hGetInstance(const CFEString& _sHUDModel)
 {
@@ -34,17 +32,15 @@ FEHandler CFEHUDInstMgr::hGetInstance(const CFEString& _sHUDModel)
     CFEHUDInstancer oHUDInstancer;
     CFEHUD* poHUDInstance = oHUDInstancer.poCreateInstance(poHUD);
 
-    // INSTANCEDDATA->m_oInstances.push_back(poHUDInstance);
+    INSTANCEDDATA->m_oInstances.push_back(poHUDInstance);
     
     return ((FEHandler)poHUDInstance);
 }
 //-----------------------------------------------------------------------------
 void CFEHUDInstMgr::Update(FEReal _rDeltaT)
 {
-    /*
     for (uint i=0;i<INSTANCEDDATA->m_oInstances.size();i++)
         CFEHUDUpdater::Update(INSTANCEDDATA->m_oInstances[i],_rDeltaT);
-	*/
 }
 //-----------------------------------------------------------------------------
 void CFEHUDInstMgr::Render(FEHandler _hHUDInstance,CFERenderer* _poRenderer)
@@ -111,15 +107,8 @@ CFEHUDObject* CFEHUDInstMgr::poGetObject(FEHandler _hHUDInstance,const CFEString
 	*/
 }
 //-----------------------------------------------------------------------------
-CFEHUD* CFEHUDInstMgr::poGetHUD(FEHandler _hHUDInstance)
-{
-	return ((CFEHUD*)_hHUDInstance);
-}
-//-----------------------------------------------------------------------------
 void CFEHUDInstMgr::SetActionTime(CFEHUDElementAction* _poAction,FEReal _rActionTime)
 {
-	if (_rActionTime<_0r) return;
-
 	CFEHUDUpdater::SetTime(_rActionTime);
 	CFEHUDUpdater::Process(_poAction);
 }

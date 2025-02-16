@@ -76,7 +76,7 @@ class CFEString
         }
 
         /// Links the string contents to the given char* string.
-        // void Link(char* _szStr);
+        void Link(char* _szStr);
 
         /// Copy the string contents to the current
         void Assign(const char* _szStr);
@@ -113,6 +113,7 @@ class CFEString
             return ( iRPos(szStr) );
         }
 
+
         /// Returns the c representation of the string
         const char* szString() const
         {
@@ -148,7 +149,7 @@ class CFEString
         }
 
         /// Copies the contents of a given string
-        CFEString& operator = (const CFEString& _oRight)
+        CFEString operator = (const CFEString& _oRight)
         {
             if ( this == &_oRight )   // Same object?
                 return(*this);       // Yes, so skip assignment, and just return *this.

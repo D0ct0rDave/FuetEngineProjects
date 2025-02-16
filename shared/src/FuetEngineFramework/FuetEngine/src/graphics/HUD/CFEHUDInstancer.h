@@ -12,27 +12,13 @@
 #define CFEHUDInstancerH
 //-----------------------------------------------------------------------------
 #include "CFEHUDVisitor.h"
-#include "FEBasicTypes.h"
-#include "types/CFEArray.h"
-#include "types/CFEString.h"
 //-----------------------------------------------------------------------------
 class CFEHUDInstancer : public CFEHUDVisitor
 {
     public:
+        CFEHUD* poCreateInstance(CFEHUD* _poHUDModel);
 
-        static CFEHUD* poCreateInstance(CFEHUD* _poHUDModel,bool _bAutoRename = false);
-
-        static CFEHUDElement* poCreateInstance(CFEHUDElement* _poHUDElement,bool _bAutoRename = false);
-
-        static CFEHUDObject* poCreateInstance(CFEHUDObject* _poHUDObject,bool _bAutoRename = false);
-
-        static std::pair<CFEHUDObject*,CFEHUDObjectAction*> poCreateInstance(CFEHUDObject* _poHUDObject,CFEHUDObjectAction* _poHUDAction,bool _bAutoRename = false);
-        
-        static CFEHUDObjectAction* poCreateInstance(CFEHUDObjectAction* _poHUDAction,bool _bAutoRename = false);
-        
-        static CFEHUDElementAction* poCreateInstance(CFEHUDElementAction* _poHUDAction,bool _bAutoRename = false);
-
-		/// 
+        /// 
         virtual void Visit(CFEHUD* _poObj);
         /// 
         virtual void Visit(CFEHUDElement* _poObj);
@@ -47,44 +33,10 @@ class CFEHUDInstancer : public CFEHUDVisitor
         /// 
         virtual void Visit(CFEHUDRect* _poObj);
         /// 
-        virtual void Visit(CFEHUDShape* _poObj);
-        /// 
         virtual void Visit(CFEHUDElementAction* _poObj);
         /// 
         virtual void Visit(CFEHUDObjectAction* _poObj);
-        ///
-        virtual const CFEString sGetType() { return("CFEHUDInstancer"); };
 
-	protected:
-		
-		void CopyCommonProperties(CFEHUDObject* _poDst,CFEHUDObject* _poSrc);
-
-		bool					m_bAutoRename;
-		CFEHUDElement*			m_poNewElement;
-        CFEHUDObject*			m_poNewObject;
-        CFEHUDObjectAction*		m_poNewObjAction;
-        CFEHUDElementAction*	m_poNewElemAction;
-        
-        class CObjectPair
-        {
-			public:
-
-				CObjectPair() : m_poOrig(NULL), m_poCopy(NULL)
-				{
-				}
-
-				CObjectPair(CFEHUDObject* _poOrig,CFEHUDObject* _poCopy)
-				{
-					m_poOrig = _poOrig;
-					m_poCopy = _poCopy;
-				}
-
-				CFEHUDObject* m_poOrig;
-				CFEHUDObject* m_poCopy;
-			
-        };
-
-        CFEArray<CObjectPair> m_oObjPairs;
 };
 //-----------------------------------------------------------------------------
 #endif

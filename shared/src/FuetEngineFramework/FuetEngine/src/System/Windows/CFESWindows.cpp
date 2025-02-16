@@ -18,14 +18,6 @@
 #include <windows.h>
 
 // ----------------------------------------------------------------------------
-namespace CFESystem { namespace TRC {
-
-	static TOpenMessageBoxFunc 	OpenMessageBoxFunc = NULL;
-	static TMessageBoxStepFunc	iMessageBoxStepFunc= NULL;
-	static TCloseMessageBoxFunc bCloseMessageBoxFunc= NULL;
-}}
-
-// ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 // String functionality
 // ----------------------------------------------------------------------------
@@ -44,22 +36,17 @@ int CFESystem::String::iStrNICmp(const CFEString& _sA,const CFEString& _sB,uint 
 /// Logging Functionality
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-const uint BUFF_SIZE = 2048;
-static char gsszLocalBuff[BUFF_SIZE];
-
 void CFESystem::Log::Print(char *fmt,...)
 {
 	#ifdef _DEBUG
-	if (IsDebuggerPresent())
-	{
-		va_list argptr;
-		va_start(argptr,fmt);
-		vsprintf_s(gsszLocalBuff,BUFF_SIZE,fmt,argptr);
-		va_end  (argptr);
-		
-		OutputDebugString(gsszLocalBuff);
-	}
+    char szLocalBuff[8192];
+
+    va_list argptr;
+    va_start(argptr,fmt);
+    vsprintf_s(szLocalBuff,8192,fmt,argptr);
+    va_end  (argptr);
+
+	OutputDebugString(szLocalBuff);
 	#endif
 }
 // ----------------------------------------------------------------------------
@@ -81,77 +68,29 @@ void CFESystem::Check(bool _bCondition,const CFEString& _sMessage)
 // Timing functionality
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
-uint CFESystem::uiGetEngineTicks()
+FEReal CFESystem::rGetEngineTime()
 {
-	return( (uint)GetTickCount() );
-}
-// ------------------------------------------------------------------------
-/// Retrieves time in seconds of the given system tics.
-FEReal CFESystem::rGetTickTime(uint _uiTicks)
-{
-	return ( ((float)(_uiTicks)/1000.0f) );
-}
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-// TRC management stuff.
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-/// Initializes the TRC Technical Requirements system
-void CFESystem::TRC::Init()
-{
-}
-// ----------------------------------------------------------------------------
-/// Performs a check step in the TRC system.
-void CFESystem::TRC::CheckStep()
-{
-}
-// ----------------------------------------------------------------------------
-/// Registers a the function to open a message box.
-void CFESystem::TRC::RegisterOpenMessageBoxFunc(TOpenMessageBoxFunc _pFunc)
-{
-	OpenMessageBoxFunc = _pFunc;
+    // ------------------------------------------------------------------------
+    // BUG: debería llamarse al constructor de FESglobals. No sé pq no se llama,
+    if (FESglobals.m_uiStartTime == 0)
+    {
+        FESglobals.m_uiStartTime = GetTickCount();
+    }
+    // ------------------------------------------------------------------------
+
+    uint uiTime = GetTickCount();
+
+	// Retrieve DeltaT
+	FEReal rDeltaT = (FEReal)(uiTime - FESglobals.m_uiStartTime) / 1000.0f ;
+
+	// Accumulate DeltaT   
+    FESglobals.m_rSystemTime += rDeltaT;
+
+	// Reset StartTime
+    FESglobals.m_uiStartTime = uiTime;
+
+    return( FESglobals.m_rSystemTime );
 }
 // ----------------------------------------------------------------------------
-/// Registers a the function to write a message in a message box.
-void CFESystem::TRC::RegisterMessageBoxStepFunc(TMessageBoxStepFunc _pFunc)
-{
-	iMessageBoxStepFunc = _pFunc;
-}
+#endif
 // ----------------------------------------------------------------------------
-/// Registers a the function to close a message box.
-void CFESystem::TRC::RegisterCloseMessageBoxFunc(TCloseMessageBoxFunc _pFunc)
-{
-	bCloseMessageBoxFunc = _pFunc;
-}
-// ----------------------------------------------------------------------------
-/// Opens a message box.
-void CFESystem::TRC::OpenMessageBox(const CFEString& _sMessage,const CFEString& _sOptions)
-{
-	if (OpenMessageBoxFunc != NULL)
-		OpenMessageBoxFunc(_sMessage,_sOptions);
-}
-// ----------------------------------------------------------------------------		
-int CFESystem::TRC::iMessageBoxStep()
-{
-	if (iMessageBoxStepFunc != NULL)
-		return( iMessageBoxStepFunc() );
-	else 
-		return(-1);
-}
-// ----------------------------------------------------------------------------
-/// Closes the message box.
-bool CFESystem::TRC::bCloseMessageBox()
-{
-	if (bCloseMessageBoxFunc != NULL)
-		return(bCloseMessageBoxFunc());
-	else
-		return(false);
-}	
-// ----------------------------------------------------------------------------
-/// Finalizes the TRC system.
-void CFESystem::TRC::Finish()
-{
-}
-// ----------------------------------------------------------------------------
-#endif // (TARGETPLATFORM == USE_WINDOWS)
-// ---------------------------------------------------------------------------

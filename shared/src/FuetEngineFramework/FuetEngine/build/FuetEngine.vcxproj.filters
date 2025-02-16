@@ -40,9 +40,6 @@
     <Filter Include="Support\Input">
       <UniqueIdentifier>{41E5E6B0-ADA5-62E7-76E0-AB64E25FA7C3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Support\Local">
-      <UniqueIdentifier>{3C811DB1-A841-99E7-717C-E264DDFBDDC3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Support\Math">
       <UniqueIdentifier>{DBF908B0-C75C-9854-70E2-D00A5C2464D7}</UniqueIdentifier>
     </Filter>
@@ -52,14 +49,8 @@
     <Filter Include="Support\Misc">
       <UniqueIdentifier>{BD1B09B0-A97E-9854-5204-D10A3E4664D7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Support\Profile">
-      <UniqueIdentifier>{A21247AA-0E9E-B46E-17AF-376383B9106F}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Support\Sound">
       <UniqueIdentifier>{FA7A9CB1-663B-18E8-2F76-61659BF55CC4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Support\TRC">
-      <UniqueIdentifier>{BA3246C7-26E8-BEBC-AFDC-B8931B91B5C0}</UniqueIdentifier>
     </Filter>
     <Filter Include="System">
       <UniqueIdentifier>{6AD049D2-5672-74A8-3F2D-88FC2B6EFBF8}</UniqueIdentifier>
@@ -78,9 +69,6 @@
     </Filter>
     <Filter Include="game\cinematic">
       <UniqueIdentifier>{9B6E8D23-873C-8129-70D0-F14F5C3D5D8E}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="game\classes">
-      <UniqueIdentifier>{9C6B2B68-88CE-BA0C-3154-F3C21D96868F}</UniqueIdentifier>
     </Filter>
     <Filter Include="game\script">
       <UniqueIdentifier>{23FF1E20-8FB4-9715-18A9-91EC845D8E19}</UniqueIdentifier>
@@ -148,9 +136,6 @@
       <Filter>Graphics\HUD</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Graphics\HUD\CFEHUDShape.h">
-      <Filter>Graphics\HUD</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Graphics\HUD\CFEHUDTranslator.h">
       <Filter>Graphics\HUD</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Graphics\HUD\CFEHUDUpdater.h">
@@ -243,9 +228,6 @@
     <ClInclude Include="..\src\Graphics\skelanim\CFESkelAnimNodeTableBuilder.h">
       <Filter>Graphics\skelanim</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Graphics\skelanim\CFESkelAnimNodeUpdater.h">
-      <Filter>Graphics\skelanim</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Graphics\skelanim\CFESkelAnimNodeVisitor.h">
       <Filter>Graphics\skelanim</Filter>
     </ClInclude>
@@ -279,12 +261,6 @@
     <ClInclude Include="..\src\Support\Input\CFEInput.h">
       <Filter>Support\Input</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Support\Local\CFEDictionary.h">
-      <Filter>Support\Local</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Support\Local\CFELocal.h">
-      <Filter>Support\Local</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Support\Math\CFEMath.h">
       <Filter>Support\Math</Filter>
     </ClInclude>
@@ -295,9 +271,6 @@
       <Filter>Support\Math</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Support\Mem\CFEMem.h">
-      <Filter>Support\Mem</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Support\Mem\CFEResourceContextMgr.h">
       <Filter>Support\Mem</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Support\Misc\CFEChrono.h">
@@ -312,9 +285,6 @@
     <ClInclude Include="..\src\Support\Misc\crc32.h">
       <Filter>Support\Misc</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Support\Profile\CFEProfile.h">
-      <Filter>Support\Profile</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Support\Sound\CFESound.h">
       <Filter>Support\Sound</Filter>
     </ClInclude>
@@ -326,9 +296,6 @@
     </ClInclude>
     <ClInclude Include="..\src\Support\Sound\CFESoundPlayer.h">
       <Filter>Support\Sound</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Support\TRC\CFETRC.h">
-      <Filter>Support\TRC</Filter>
     </ClInclude>
     <ClInclude Include="..\src\System\CFESystem.h">
       <Filter>System</Filter>
@@ -354,22 +321,13 @@
     <ClInclude Include="..\src\System\Windows\FESConfig.h">
       <Filter>System\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Types\CFEArray.h">
-      <Filter>Types</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Types\CFEColor.h">
       <Filter>Types</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Types\CFEHashTable.h">
       <Filter>Types</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Types\CFEInstanceMgr.h">
-      <Filter>Types</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Types\CFEKFBFunc.h">
-      <Filter>Types</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\Types\CFEKFBFuncUtils.h">
       <Filter>Types</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Types\CFELookupDatabase.h">
@@ -413,9 +371,6 @@
     </ClInclude>
     <ClInclude Include="..\src\game\cinematic\CFECinematicMgr.h">
       <Filter>game\cinematic</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\game\classes\CFEStatedObject.h">
-      <Filter>game\classes</Filter>
     </ClInclude>
     <ClInclude Include="..\src\game\script\CFEScript.h">
       <Filter>game\script</Filter>
@@ -499,9 +454,6 @@
     <ClCompile Include="..\src\Graphics\HUD\CFEHUDShape.cpp">
       <Filter>Graphics\HUD</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Graphics\HUD\CFEHUDTranslator.cpp">
-      <Filter>Graphics\HUD</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Graphics\HUD\CFEHUDUpdater.cpp">
       <Filter>Graphics\HUD</Filter>
     </ClCompile>
@@ -580,9 +532,6 @@
     <ClCompile Include="..\src\Graphics\skelanim\CFESkelAnimNodeTableBuilder.cpp">
       <Filter>Graphics\skelanim</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Graphics\skelanim\CFESkelAnimNodeUpdater.cpp">
-      <Filter>Graphics\skelanim</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Graphics\skelanim\CFESkelAnimNodeVisitor.cpp">
       <Filter>Graphics\skelanim</Filter>
     </ClCompile>
@@ -613,12 +562,6 @@
     <ClCompile Include="..\src\Support\Input\CFEInput.cpp">
       <Filter>Support\Input</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Support\Local\CFEDictionary.cpp">
-      <Filter>Support\Local</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Support\Local\CFELocal.cpp">
-      <Filter>Support\Local</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Support\Math\CFEMath.cpp">
       <Filter>Support\Math</Filter>
     </ClCompile>
@@ -631,9 +574,6 @@
     <ClCompile Include="..\src\Support\Mem\CFEMem.cpp">
       <Filter>Support\Mem</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Support\Mem\CFEResourceContextMgr.cpp">
-      <Filter>Support\Mem</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Support\Misc\CFEChrono.cpp">
       <Filter>Support\Misc</Filter>
     </ClCompile>
@@ -642,9 +582,6 @@
     </ClCompile>
     <ClCompile Include="..\src\Support\Misc\CFEStringUtils.cpp">
       <Filter>Support\Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Support\Profile\CFEProfile.cpp">
-      <Filter>Support\Profile</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Support\Sound\CFESound.cpp">
       <Filter>Support\Sound</Filter>
@@ -657,9 +594,6 @@
     </ClCompile>
     <ClCompile Include="..\src\Support\Sound\CFESoundPlayer.cpp">
       <Filter>Support\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Support\TRC\CFETRC.cpp">
-      <Filter>Support\TRC</Filter>
     </ClCompile>
     <ClCompile Include="..\src\System\Common\CBinConfigFile.cpp">
       <Filter>System\Common</Filter>
@@ -688,16 +622,10 @@
     <ClCompile Include="..\src\System\Common\CFESStdFileSys.cpp">
       <Filter>System\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\System\Common\CFESStdLocal.cpp">
-      <Filter>System\Common</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\System\Common\CFESStdMath.cpp">
       <Filter>System\Common</Filter>
     </ClCompile>
     <ClCompile Include="..\src\System\Common\CFESStdMem.cpp">
-      <Filter>System\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\System\Common\CFESStdProfile.cpp">
       <Filter>System\Common</Filter>
     </ClCompile>
     <ClCompile Include="..\src\System\Common\CFESStdString.cpp">
@@ -721,19 +649,10 @@
     <ClCompile Include="..\src\System\Windows\CFESWindowsOpenGL.cpp">
       <Filter>System\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Types\CFEArray.cpp">
-      <Filter>Types</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Types\CFEColor.cpp">
-      <Filter>Types</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Types\CFEHashTable.cpp">
       <Filter>Types</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Types\CFEKFBFunc.cpp">
-      <Filter>Types</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\Types\CFEKFBFuncUtils.cpp">
       <Filter>Types</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Types\CFEResourceQueue.cpp">
@@ -759,9 +678,6 @@
     </ClCompile>
     <ClCompile Include="..\src\game\cinematic\CFECinematicMgr.cpp">
       <Filter>game\cinematic</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\game\classes\CFEStatedObject.cpp">
-      <Filter>game\classes</Filter>
     </ClCompile>
     <ClCompile Include="..\src\game\script\CFEScript.cpp">
       <Filter>game\script</Filter>

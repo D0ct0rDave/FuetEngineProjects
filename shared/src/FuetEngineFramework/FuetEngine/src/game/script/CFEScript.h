@@ -12,7 +12,6 @@
 #define CFEScriptH
 // -----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "types/CFEArray.h"
 #include "game/script/action/CFEAction.h"
 // -----------------------------------------------------------------------------
 class CFEScript

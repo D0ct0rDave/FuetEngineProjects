@@ -18,15 +18,9 @@ class CFEParticleSys;
 // ----------------------------------------------------------------------------
 DECLARE_RESOURCE_MANAGER(CFEParticleSysMgr,CFEParticleSys)
 {
-	friend CFEResourceMgr<CFEParticleSysMgr,CFEParticleSys>;
+    public:
 
-    protected:
-
-        /// OVERRIDED: Implementation of the poLoadResource function.
         static CFEParticleSys* poLoadResource(const CFEString& _sFilename);
-
-        /// OVERRIDED: Implementation of the InvalidateResource function.
-        static void InvalidateResource(CFEParticleSys* _poRes);
 };
 // ----------------------------------------------------------------------------
 #endif

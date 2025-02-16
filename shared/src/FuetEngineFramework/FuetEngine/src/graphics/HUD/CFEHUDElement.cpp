@@ -12,16 +12,3 @@
 #include "CFEHUDAction.h"
 #include "CFEHUDObject.h"
 //-----------------------------------------------------------------------------
-CFEHUDElement::~CFEHUDElement()
-{
-	for (uint l=0;l<m_oLayers.size();l++)
-		delete m_oLayers[l];
-
-	m_oLayers.clear();
-
-	for (uint a=0;a<m_oActions.size();a++)
-		delete m_oActions[a];
-
-	m_oActions.clear();
-}
-//-----------------------------------------------------------------------------

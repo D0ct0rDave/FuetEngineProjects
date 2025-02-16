@@ -12,7 +12,6 @@
 #define CFEHUDH
 //-----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "types/CFEArray.h"
 #include "CFEHUDVisitor.h"
 //-----------------------------------------------------------------------------
 class CFEHUDElement;
@@ -26,9 +25,6 @@ class CFEHUD
         {
 
         }
-        
-        /// Destructor of the class.
-		~CFEHUD();
 
 		/// Adds a new element into the HUD.
 		uint uiAddElement(CFEHUDElement* _poElement)

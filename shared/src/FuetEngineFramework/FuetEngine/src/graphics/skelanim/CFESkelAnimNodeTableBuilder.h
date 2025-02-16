@@ -12,7 +12,6 @@
 #define CFESkelAnimNodeTableBuilderH
 //-----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "types/CFEArray.h"
 #include "CFESkelAnimNodeVisitor.h"
 //-----------------------------------------------------------------------------
 class CFESkelAnimNode;

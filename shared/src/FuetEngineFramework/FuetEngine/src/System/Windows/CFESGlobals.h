@@ -14,9 +14,7 @@
 #include <windows.h>
 #include <GL/gl.h>
 
-#include "types/CFEString.h"
 #include "FEBasicTypes.h"
-#include "FEEnums.h"
 // ----------------------------------------------------------------------------
 class CRendererHandler;
 // ----------------------------------------------------------------------------
@@ -28,18 +26,14 @@ class CFESystemGlobals
 
         CFESystemGlobals();
 
-        uint				m_uiLastTick;                   // last time tick the engine timer was queried.
+        uint   m_uiStartTime;                               // system time at the start of the engine.
+        FEReal m_rSystemTime;                               // current system time
 
         CRendererHandler*	m_poCurrentRenderer;
         uint				m_uiScrVWidth;					// Screen Virtual Width
         uint				m_uiScrVHeight;					// Screen Virtual Height
         FEReal				m_rCurDepth;					// Current depth to draw primitives.
         bool                m_bNPO2Support;                 // Non Power of 2 texture support availability.
-
-        bool				m_bAutoLocEnabled;				// Is autolocalization enabled or not.
-        EFELocalID			m_eLocalID;						// The local ID used by the system.
-        
-        CFEString			m_sApplicationName;				// The name of the application.
 };
 // ----------------------------------------------------------------------------
 extern CFESystemGlobals FESglobals;

@@ -29,26 +29,6 @@ class CCfgHandler
 		FEPointer	m_pConfig;
 };
 // ----------------------------------------------------------------------------
-/*
-#ifdef WIN32
-void AddVar(const CFEString& _sVar)
-{
-	// CFEString sCmd = CFEString("echo ")+_sVar+CFEString(" >>c:\\bnbvars.txt");
-	// system(sCmd.szString());
-	FILE* fd = fopen("c:\\bnbvars.txt","a+");
-	if (fd != NULL)
-	{
-		fprintf(fd,"%s\n",_sVar.szString());
-		fclose(fd);
-	}
-}
-#else
-void AddVar(const CFEString& _sVar)
-{
-}
-#endif
-*/
-// ----------------------------------------------------------------------------
 FIOHANDLER FEFIOOpen(const char* _szFilename,const char* _szMode)
 {
 	return( (FIOHANDLER)CFESystem::File::hOpen(CFEString(_szFilename),FOM_READ) );
@@ -93,10 +73,9 @@ FEHandler CFESystem::Config::hOpen(const CFEString& _sConfigFile)
 
 		if (config_read_file(poCfg, _sConfigFile.szString() ) == 0)
 		{
-			CFESystem::Log::Print("Config file error: %s at line %d\n",(char*)config_error_text(poCfg),config_error_line(poCfg));
-
 			config_destroy(poCfg);
 			CFESystem::Mem::Free((FEPointer)poCfg);
+
 			return(NULL);
 		}
 
@@ -135,7 +114,6 @@ void CFESystem::Config::Close(FEHandler _hConfig)
 // ----------------------------------------------------------------------------
 CFEString CFESystem::Config::sGetString(FEHandler _hConfig,const CFEString& _sVar,const CFEString& _sDefaultValue)
 {
-    // AddVar(_sVar);
     if (_hConfig == NULL) return(_sDefaultValue);
 
    	CCfgHandler* poHnd = (CCfgHandler*)_hConfig;
@@ -165,7 +143,6 @@ CFEString CFESystem::Config::sGetString(FEHandler _hConfig,const CFEString& _sVa
 // ----------------------------------------------------------------------------
 FEReal CFESystem::Config::rGetReal(FEHandler _hConfig,const CFEString& _sVar,FEReal _rDefaultValue)
 {
-    // AddVar(_sVar);
     if (_hConfig == NULL) return(_rDefaultValue);
     
     CCfgHandler* poHnd = (CCfgHandler*)_hConfig;
@@ -193,7 +170,6 @@ FEReal CFESystem::Config::rGetReal(FEHandler _hConfig,const CFEString& _sVar,FER
 // ----------------------------------------------------------------------------
 int CFESystem::Config::iGetInteger(FEHandler _hConfig,const CFEString& _sVar,int _iDefaultValue)
 {
-    // AddVar(_sVar);
     if (_hConfig == NULL) return(_iDefaultValue);
 
     CCfgHandler* poHnd = (CCfgHandler*)_hConfig;
@@ -221,7 +197,6 @@ int CFESystem::Config::iGetInteger(FEHandler _hConfig,const CFEString& _sVar,int
 // ----------------------------------------------------------------------------
 bool CFESystem::Config::bGetBool(FEHandler _hConfig,const CFEString& _sVar,bool _bDefaultValue)
 {
-	// AddVar(_sVar);
     if (_hConfig == NULL) return(_bDefaultValue);
 
     CCfgHandler* poHnd = (CCfgHandler*)_hConfig;

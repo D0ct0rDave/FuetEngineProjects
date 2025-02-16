@@ -21,30 +21,48 @@
 #include "Types/CFEVect2.h"
 #include "Types/CFEColor.h"
 #include "CFEParticleSysMgr.h"
-#include "types/CFEInstanceMgr.h"
 // ----------------------------------------------------------------------------
 const FEReal PSYS_INFINITE_LIFE = -_1r;
 // ----------------------------------------------------------------------------
 class CFEParticleSysMgrInst;
 class CFERenderer;
 // ----------------------------------------------------------------------------
-DECLARE_INSTANCE_MANAGER(CFEParticleSysInstMgr,CFEParticleSysMgrInst)
+class CFEParticleSysInstMgr
 {
-	friend CFEInstanceMgr<CFEParticleSysInstMgr,CFEParticleSysMgrInst>;
- 
     public:
 
-            /// Spawns a ParticleSys automanaged by the manager.
-            static void Spawn(const CFEString& _sParticleSysModel,const FEReal& _rLifeTime,const CFEVect2& _oPos,const FEReal& _rDepth = _0r);
+            /// Main initialiation procedure.
+            static void Init(uint _uiMaxParticleSysInstances = 256);
+
+            /// Main finalization procedure.
+            static void Finish();
+
+            /// Resets the manager to its initial state.
+            static void Reset();
+
+            /// Forces the loading of a ParticleSys resource.
+            static void Load(const CFEString& _sParticleSysModel);
+
+            /// Retrieves a ParticleSys instance of a given ParticleSys resource.
+            static FEHandler hGetInstance(const CFEString& _sParticleSysModel);
+
+            /// Retrieves a ParticleSys instance of a given ParticleSys object.
+            static FEHandler hGetInstance(CFEParticleSys* _poParticleSys);
 
             /// Spawns a ParticleSys automanaged by the manager.
-            static void Spawn(CFEParticleSys* _poPS,const FEReal& _rLifeTime,const CFEVect2& _oPos,const FEReal& _rDepth = _0r);
+            static void Spawn(const CFEString& _sParticleSysModel,FEReal _rLifeTime,const CFEVect2& _oPos,FEReal _rDepth = _0r);
+
+            /// Spawns a ParticleSys automanaged by the manager.
+            static void Spawn(CFEParticleSys* _poPS,FEReal _rLifeTime,const CFEVect2& _oPos,FEReal _rDepth = _0r);
 
             /// Spawns a one particle of a the given ParticleSys.
-            static void SpawnParticle(const CFEString& _sParticleSysModel,const CFEVect2& _oPos,const FEReal& _rDepth = _0r);
+            static void SpawnParticle(const CFEString& _sParticleSysModel,const CFEVect2& _oPos,FEReal _rDepth = _0r);
 
             /// Spawns a one particle of a the given ParticleSys.
-            static void SpawnParticle(CFEParticleSys* _poPS,const CFEVect2& _oPos,const FEReal& _rDepth = _0r);
+            static void SpawnParticle(CFEParticleSys* _poPS,const CFEVect2& _oPos,FEReal _rDepth = _0r);
+
+            /// Deletes a given ParticleSys instance.
+            static void DeleteInstance(FEHandler _hInstance);
 
             /// Sets the position of a given ParticleSys instance.
             static void SetPos(FEHandler _hInstance,const CFEVect2& _oPos);
@@ -53,7 +71,7 @@ DECLARE_INSTANCE_MANAGER(CFEParticleSysInstMgr,CFEParticleSysMgrInst)
 			static CFEVect2 oGetPos(FEHandler _hInstance);
 
             /// Sets the depth of a given ParticleSys instance.
-            static void SetDepth(FEHandler _hInstance,const FEReal& _rDepth);
+            static void SetDepth(FEHandler _hInstance,FEReal _rDepth);
 
 			/// Gets the depth of a given ParticleSys instance.
 			static FEReal rGetDepth(FEHandler _hInstance);
@@ -77,30 +95,18 @@ DECLARE_INSTANCE_MANAGER(CFEParticleSysInstMgr,CFEParticleSysMgrInst)
             static bool bIsRenderManaged(FEHandler _hInstance);
 
             /// Performs an update step over the given ParticleSys instance, also in case it's disabled.
-            static void Update(FEHandler _hInstance,const FEReal& _rDeltaT);
+            static void Update(FEHandler _hInstance,FEReal _rDeltaT);
 
             /// Performs an update step over the enabled ParticleSys instances in the system.
-            static void Update(const FEReal& _rDeltaT);
+            static void Update(FEReal _rDeltaT);
 
             /// Renders all the enabled ParticleSys instances in the system.
             static void Render(CFERenderer *_poRenderer);
 
     protected:
 
-			/// OVERRIDED: Retrieves the resource associated to a given name and returns it as a handler.
-			static FEHandler hGetResource(const CFEString& _sResource);
-
-			/// OVERRIDED: Sets up a recently aquired instance
-			static void SetupInstance(CFEParticleSysMgrInst* _poInstance,FEHandler _hResource);
-
-			/// OVERRIDED: Creates an instance object of the specific type.
-			static CFEParticleSysMgrInst* poCreateInstance();
-			
-			/// OVERRIDED: Destroys an instance object of the specific type.
-			static void DestroyInstance(CFEParticleSysMgrInst* _poInstance);
-
             /// 
-            static void Spawn(FEHandler _hInstl,const FEReal& _rLifeTime,const CFEVect2& _oPos,const FEReal& _rDepth);
+            static void Spawn(FEHandler _hInstl,FEReal _rLifeTime,const CFEVect2& _oPos,FEReal _rDepth);
 };
 // ----------------------------------------------------------------------------
 #endif

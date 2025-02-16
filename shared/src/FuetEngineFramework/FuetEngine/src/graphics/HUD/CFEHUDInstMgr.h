@@ -18,7 +18,6 @@ class CFERenderer;
 class CFEHUDInstance;
 class CFEHUDElementAction;
 class CFEHUDObject;
-class CFEHUD;
 //-----------------------------------------------------------------------------
 class CFEHUDInstMgr
 {
@@ -41,9 +40,6 @@ class CFEHUDInstMgr
 
         /// Retrieves an object from the given HUD instance.
         static CFEHUDObject* poGetObject(FEHandler _hHUDInstance,const CFEString& _sObjectName);
-
-        /// Retrieves the HUD object associated to the given instance.
-        static CFEHUD* poGetHUD(FEHandler _hHUDInstance);
 
         // Sets up the elements of a HUD element, associated with the given element action.
         static void SetActionTime(CFEHUDElementAction* _poAction,FEReal _rActionTime);

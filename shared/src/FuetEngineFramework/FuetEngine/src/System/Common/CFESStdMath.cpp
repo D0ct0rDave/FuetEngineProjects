@@ -53,7 +53,7 @@ FEReal CFESystem::Math::rCos(FEReal _rAngle)
 FEReal CFESystem::Math::rRand()
 {
 	RND_CUR_STATE = (RND_Mult*RND_CUR_STATE + RND_Add) & MAX_RANGE_MOD;
-	return( (FEReal) ((float)((double)RND_CUR_STATE/(double)MAX_RANGE)) );
+	return( (FEReal)RND_CUR_STATE / (FEReal)MAX_RANGE );
 }
 // ----------------------------------------------------------------------------
 FEReal CFESystem::Math::rSqrt(FEReal _rValue)

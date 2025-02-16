@@ -16,8 +16,7 @@
 #include <stdio.h>
 #include <string.h>
 //-----------------------------------------------------------------------------
-const uint BUFF_SIZE = 2048;
-static char gsszLocalBuff[BUFF_SIZE];
+static char gszLocalBuff[8192];
 //-----------------------------------------------------------------------------
 CFELogger::CFELogger(uint _uiBufferSize) : m_pucBuffer(NULL)
 {
@@ -34,57 +33,63 @@ void CFELogger::Print(char *fmt,...)
 {
     va_list argptr;
     va_start(argptr,fmt);
-    vsprintf_s(gsszLocalBuff,BUFF_SIZE,fmt,argptr);
+    vsprintf_s(gszLocalBuff,8192,fmt,argptr);
     va_end  (argptr);
 
-    AddMessage(gsszLocalBuff);
+    AddMessage(gszLocalBuff);
 }
 //-----------------------------------------------------------------------------
 void CFELogger::Warning(char *fmt,...)
 {
-	sprintf_s(gsszLocalBuff,BUFF_SIZE,"WARNING: ");
+	sprintf_s(gszLocalBuff,8192,"WARNING: ");
 
     va_list argptr;
     va_start(argptr,fmt);
-    vsprintf_s(gsszLocalBuff+9,BUFF_SIZE-9,fmt,argptr);
+    vsprintf_s(gszLocalBuff+9,8192-9,fmt,argptr);
     va_end  (argptr);
 
-    AddMessage(gsszLocalBuff);
+    AddMessage(gszLocalBuff);
     AddMessage("\n");
 }
 //-----------------------------------------------------------------------------
 void CFELogger::Error(char *fmt,...)
 {
-	sprintf_s(gsszLocalBuff,BUFF_SIZE,"ERROR: ");
+	sprintf_s(gszLocalBuff,8192,"ERROR: ");
 
     va_list argptr;
     va_start(argptr,fmt);
-    vsprintf_s(gsszLocalBuff+7,BUFF_SIZE-7,fmt,argptr);
+    vsprintf_s(gszLocalBuff+7,8192-7,fmt,argptr);
     va_end  (argptr);
 
-    AddMessage(gsszLocalBuff);
+    AddMessage(gszLocalBuff);
     AddMessage("\n");
 }
 // ----------------------------------------------------------------------------
 void CFELogger::AddMessage(char* _szMessage)
 {
-	if (m_pucBuffer==NULL) return;
-
-	uint uiLen = strlen(_szMessage);
-	if (strlen(m_pucBuffer) + strlen(_szMessage) > m_uiBufferSize)
-	{
-		// Resets the buffer.
-		m_pucBuffer[0] = 0;
-
-		if (uiLen > m_uiBufferSize)
-		{
-			// Discard message: doesn't fit into the log buffer
-			return;
-		}
+    // Initialize the logger in case it isn't
+    if (m_pucBuffer == NULL)
+    {
+		CFESystem::Log::Print(_szMessage);
 	}
+	else
+	{
+		uint uiLen = strlen(_szMessage);
+		if (strlen(m_pucBuffer) + strlen(_szMessage) > m_uiBufferSize)
+		{
+			// Resets the buffer.
+			m_pucBuffer[0] = 0;
 
-	// Append the string to the end of the buffer (include the trailing zero)
-	strcat_s(m_pucBuffer,m_uiBufferSize,_szMessage);
+			if (uiLen > m_uiBufferSize)
+			{
+				// Discard message: doesn't fit into the log buffer
+				return;
+			}
+		}
+
+		// Append the string to the end of the buffer (include the trailing zero)
+		strcat_s(m_pucBuffer,m_uiBufferSize,_szMessage);
+	}
 }
 //-----------------------------------------------------------------------------
 void CFELogger::Clean()
@@ -96,44 +101,5 @@ void CFELogger::Clean()
 const char* CFELogger::szGetLog()
 {
     return(m_pucBuffer);
-}
-// ----------------------------------------------------------------------------
-/// Prints a message to the log.
-void CFELogger::Sys::Print(char *fmt,...)
-{
-    va_list argptr;
-    va_start(argptr,fmt);
-    vsprintf_s(gsszLocalBuff,BUFF_SIZE,fmt,argptr);
-    va_end  (argptr);
-
-	CFESystem::Log::Print(gsszLocalBuff);
-}
-// ----------------------------------------------------------------------------
-/// Writes an warning to the log.
-void CFELogger::Sys::Warning(char *fmt,...)
-{
-	sprintf_s(gsszLocalBuff,BUFF_SIZE,"WARNING: ");
-
-    va_list argptr;
-    va_start(argptr,fmt);
-    vsprintf_s(gsszLocalBuff+9,BUFF_SIZE-9,fmt,argptr);
-    va_end  (argptr);
-
-	CFESystem::Log::Print(gsszLocalBuff);
-	CFESystem::Log::Print("\n");
-}
-// ----------------------------------------------------------------------------
-/// Writes an error to the log.
-void CFELogger::Sys::Error(char *fmt,...)
-{
-	sprintf_s(gsszLocalBuff,BUFF_SIZE,"ERROR: ");
-
-    va_list argptr;
-    va_start(argptr,fmt);
-    vsprintf_s(gsszLocalBuff+7,BUFF_SIZE-7,fmt,argptr);
-    va_end  (argptr);
-
-	CFESystem::Log::Print(gsszLocalBuff);
-	CFESystem::Log::Print("\n");
 }
 // ----------------------------------------------------------------------------

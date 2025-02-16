@@ -34,7 +34,7 @@ void CSFXHelper::Finish()
 {
     memset(m_oSFXDataTable,0,sizeof(m_oSFXDataTable));
     m_oActiveFX.clear();    
-    CFEParticleSysMgr::Reset();
+    CFEParticleSysMgr::Clear();
 }
 //-----------------------------------------------------------------------------
 void CSFXHelper::Reset()
@@ -103,7 +103,7 @@ void CSFXHelper::Update(FEReal _rDeltaT)
         }
         else
         {
-            CFEParticleSysInstMgr::ReleaseInstance( m_oActiveFX[i].m_hSFX );
+            CFEParticleSysInstMgr::DeleteInstance( m_oActiveFX[i].m_hSFX );
             m_oActiveFX.Delete(i);
         }
     }

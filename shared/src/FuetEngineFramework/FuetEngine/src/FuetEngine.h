@@ -1,16 +1,5 @@
-/*! \mainpage FuetEngine Documentation.
- * \section intro_sec FuetEngine
- * Copyright (c) 2009 David M&aacute;rquez de la Cruz
- *
- * 2009-2011
- *
- * FuetEngine License.
- * \htmlonly
- * <center><img src="fuetengine_logo.png"></center>
- * <a href="todo.html">TODO List for the project.</a>
- * \endhtmlonly
- *
- *! \class FuetEngine
+// ----------------------------------------------------------------------------
+/*! \class FuetEngine
  *  \brief Main include file for FuetEngine
  *  \author David M&aacute;rquez de la Cruz
  *  \version 1.0
@@ -33,22 +22,19 @@
 #include "FEConsts.h"
 
 /// Other types.
-#include "types/CFEArray.h"
 #include "types/CFEMatrix.h"
 #include "types/CFEVect2.h"
 #include "types/CFEColor.h"
 #include "types/CFERect.h"
 #include "types/CFESegment.h"
 #include "types/CFEString.h"
-#include "types/CFELookupDatabase.h"
+#include "types/CFELookUpDatabase.h"
 #include "types/CFEHashTable.h"
 #include "types/CFEResourceMgr.h"
-#include "types/CFEInstanceMgr.h"
+#include "types/CFEKFBFunc.h"
 #include "types/CFENamedObject.h"
 #include "types/CFEResourceQueue.h"
 #include "types/CFESingleton.h"
-#include "types/CFEKFBFunc.h"
-#include "types/CFEKFBFuncUtils.h"
 
 /// Configuration
 #include "support/config/CFEConfigFile.h"
@@ -70,7 +56,6 @@
 
 /// Simple Memory Management support
 #include "support/mem/CFEMem.h"
-#include "support/mem/CFEResourceContextMgr.h"
 
 /// Sound support
 #include "support/sound/CFESound.h"
@@ -83,9 +68,6 @@
 #include "support/misc/CFEStringUtils.h"
 #include "support/misc/CFEChrono.h"
 
-/// Profiles
-#include "support/profile/CFEProfile.h"
-
 // High Level Graphic support
 #include "graphics/font/CFEFont.h"
 #include "graphics/font/CFEFontMgr.h"
@@ -97,9 +79,9 @@
 #include "graphics/sprite/CFESpriteRenderer.h"
 
 // Map functionality.
-#include "graphics/map/CFEMap.h"
-#include "graphics/map/CFEMapLoader.h"
-#include "graphics/map/CFEMapRenderer.h"
+#include "graphics/Map/CFEMap.h"
+#include "graphics/Map/CFEMapLoader.h"
+#include "graphics/Map/CFEMapRenderer.h"
 
 // Screen utils.
 #include "graphics/ScreenUtils/CFEScreenUtils.h"
@@ -113,7 +95,6 @@
 #include "graphics/HUD/CFEHUDIcon.h"
 #include "graphics/HUD/CFEHUDLabel.h"
 #include "graphics/HUD/CFEHUDRect.h"
-#include "graphics/HUD/CFEHUDShape.h"
 
 #include "graphics/HUD/CFEHUDInstancer.h"
 #include "graphics/HUD/CFEHUDInstMgr.h"
@@ -142,7 +123,6 @@
 #include "graphics/skelanim/CFESkelAnimLoader.h"
 #include "graphics/skelanim/CFESkelAnimRenderer.h"
 #include "graphics/skelanim/CFESkelAnimUpdater.h"
-#include "graphics/skelanim/CFESkelAnimNodeUpdater.h"
 
 #include "graphics/skelanim/CFESkelAnimNodeVisitor.h"
 #include "graphics/skelanim/CFESkelAnimNodeLocator.h"
@@ -168,16 +148,6 @@
 #include "game/cinematic/CFECinematicLoader.h"
 #include "game/cinematic/CFECinematicMgr.h"
 
-// Game classes
-#include "game/classes/CFEStatedObject.h"
-
-/// Localization facilities
-#include "support/local/CFELocal.h"
-#include "support/local/CFEDictionary.h"
-#include "graphics/HUD/CFEHUDTranslator.h"
-
-/// TRC functionality
-#include "support/TRC/CFETRC.h"
 // ----------------------------------------------------------------------------
 #endif
 // ----------------------------------------------------------------------------

@@ -36,19 +36,6 @@ class CFELogger
         /// Cleans the contents of the logger.
         void Clean();
 
-        class Sys
-        {
-			public:
-				/// Prints a message to the log.
-				static void Print(char *fmt,...);
-
-				/// Writes an warning to the log.
-				static void Warning(char *fmt,...);
-
-				/// Writes an error to the log.
-				static void Error(char *fmt,...);
-        };
-
     protected:
         
         /// Adds a message to the logger.

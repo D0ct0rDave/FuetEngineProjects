@@ -19,7 +19,7 @@ FEHandler* CFEMaterialMgr::poLoadResource(const CFEString& _sFilename)
 // ----------------------------------------------------------------------------
 void CFEMaterialMgr::InvalidateResource(FEHandler* _poRes)
 {
-	CFESystem::Graphics::DeleteMaterial((FEHandler)_poRes);
+
 }
 // ----------------------------------------------------------------------------
 bool CFEMaterialMgr::bGetMaterialProperty(FEHandler _hMaterial,const CFEString& _sProperty,FEPointer _pParam)
@@ -34,10 +34,10 @@ bool CFEMaterialMgr::bSetMaterialProperty(FEHandler _hMaterial,const CFEString& 
 // ----------------------------------------------------------------------------
 void CFEMaterialMgr::Reload()
 {
-    for (uint i=0;i<CFEResDB::I()->m_oResDB.uiNumElems();i++)
+    for (uint i=0;i<m_oResDB.uiNumElems();i++)
     {
-		FEHandler hHnd = (FEHandler)CFEResDB::I()->m_oResDB.poGet(i)->m_poRes;
-        CFEString sMaterial = CFEResDB::I()->m_oResDB.sGetVariable(i);
+        FEHandler hHnd = (FEHandler)m_oResDB.poGet(i);
+        CFEString sMaterial = m_oResDB.sGetVariable(i);
 
         CFESystem::Graphics::ReloadMaterial(hHnd,sMaterial);
     }

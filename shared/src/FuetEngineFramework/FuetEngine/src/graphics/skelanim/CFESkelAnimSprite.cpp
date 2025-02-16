@@ -11,11 +11,6 @@
 #include "CFESkelAnimSprite.h"
 #include "graphics/sprite/CFESpriteInstMgr.h"
 //-----------------------------------------------------------------------------
-CFESkelAnimSprite::~CFESkelAnimSprite()
-{
-	CFESpriteInstMgr::ReleaseInstance(m_hSpriteInst);
-}
-//-----------------------------------------------------------------------------
 void CFESkelAnimSprite::SetAction(uint _uiAction)
 {
 	CFESpriteInstMgr::SetAction(m_hSpriteInst,_uiAction);

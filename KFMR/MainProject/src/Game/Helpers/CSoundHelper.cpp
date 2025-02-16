@@ -4,14 +4,10 @@
 CSoundHelper::TSoundData CSoundHelper::m_oSoundDataTable[SND_NUM_SOUNDS];
 FEHandler   CSoundHelper::m_hBGM = NULL;
 //-----------------------------------------------------------------------------
-#define NO_SOUND
+//#define NO_SOUND
 //-----------------------------------------------------------------------------
 void CSoundHelper::Init(EGameSounds _eSounds[])
 {
-	#ifdef NO_SOUND
-	return;
-	#endif
-	
     uint i = 0;
     while (_eSounds[i] != SND_NONE)
     {
@@ -40,11 +36,8 @@ void CSoundHelper::Init(EGameSounds _eSounds[])
 //-----------------------------------------------------------------------------
 void CSoundHelper::Finish()
 {
-	#ifdef NO_SOUND
-	return;
-	#endif
-    
     CFESoundPlayer::StopSounds();
+    CFESoundMgr::Clear();
 }
 //-----------------------------------------------------------------------------
 FEHandler CSoundHelper::hPlay(EGameSounds _eSound, FEReal _rVol, FEReal _rPan,bool _bLoop)
@@ -66,11 +59,7 @@ FEHandler CSoundHelper::hPlay(EGameSounds _eSound, FEReal _rVol, FEReal _rPan,bo
 //-----------------------------------------------------------------------------
 void CSoundHelper::Stop(FEHandler _hSound)
 {
-   	#ifdef NO_SOUND
-	return;
-	#endif
-
-	CFESoundPlayer::Stop(_hSound);
+    CFESoundPlayer::Stop(_hSound);
 }
 //-----------------------------------------------------------------------------
 void CSoundHelper::LoadBGM(const CFEString& _sBGM)
@@ -104,10 +93,6 @@ void CSoundHelper::PlayBGM()
 //-----------------------------------------------------------------------------
 void CSoundHelper::StopBGM()
 {
-	#ifdef NO_SOUND
-	return;
-	#endif
-
     if (m_hBGM != NULL)
 	    CFESoundPlayer::Stop(m_hBGM);
 }

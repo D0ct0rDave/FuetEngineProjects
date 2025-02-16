@@ -37,9 +37,6 @@ namespace CFEMath
 
 	/// Returns the absolute of the given value.
     FEReal rAbs(FEReal _rValue);
-    
-    /// Returns the sign of the given value.
-    FEReal rSign(FEReal _rValue);
 
 	/// Returns the linear interpolation of the given values.
     FEReal rLerp(FEReal _rA,FEReal _rB,FEReal _rFact);

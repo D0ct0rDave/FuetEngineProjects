@@ -13,6 +13,7 @@
 #include "../FEConfig.h"
 #if ((GRAPHICS == USE_DIRECT3D) && (TARGETPLATFORM == USE_WINDOWS))
 // ----------------------------------------------------------------------------
+
 #define WIN32_LEAN_AND_MEAN		// Exclude rarely-used stuff from Windows headers
 #include <windows.h>
 #include <D3D9.h>
@@ -79,6 +80,7 @@ class CRendererHandler
 		{
 		};
 
+
         HDC						m_hDC;                      // Display Contex
         HWND					m_hWnd;                     // Window handler
 
@@ -92,64 +94,7 @@ class CRendererHandler
         uint    m_uiScrHeight;              // Actual Screen Height
 };
 
-// just for global usage
 static HRESULT hr;
-// ----------------------------------------------------------------------------
-// Function helper that handles localization of data.
-// ----------------------------------------------------------------------------
-HRESULT hLoadTexture(const CFEString& _sFilename,TMaterialHandler* _poMH)
-{
-	HRESULT hr;
-	CFEString sFilename = _sFilename;
-	if (CFESystem::Local::bIsAutoLocEnabled())
-	{
-		// try first localized version of the file.
-		CFEString sLocalFilename = CFESystem::Local::sGetLocalID() + "/" + _sFilename;
-		sFilename = sLocalFilename;
-
-		// try to load a sample in memory.
-		hr = D3DXCreateTextureFromFile(FESglobals.m_poCurrentRenderer->m_poD3DDevice,sLocalFilename.szString(), &_poMH->m_poTex);
-	
-		if (FAILED(hr))
-		{		
-			// try first localized version of the file.
-			sLocalFilename = CFESystem::Local::sGetLocalID(LID_COMMON) + "/" + _sFilename;
-			sFilename = sLocalFilename;
-
-			// try to load a sample in memory.
-			hr = D3DXCreateTextureFromFile(FESglobals.m_poCurrentRenderer->m_poD3DDevice,sLocalFilename.szString(), &_poMH->m_poTex);
-		}
-	}
-	else
-	{
-		hr = D3DXCreateTextureFromFile(FESglobals.m_poCurrentRenderer->m_poD3DDevice,_sFilename.szString(), &_poMH->m_poTex);
-	}
-	
-	// TMaterialHandler
-    if (! FAILED(hr))
-    {
-		CFESImageInfo* poII = ImageLib::poLoadImage((char*)sFilename.szString());
-		if (poII != NULL)
-		{
-	        _poMH->m_uiTX = poII->m_uiTX;
-		    _poMH->m_uiTY = poII->m_uiTY;
-
-			// free the resources we just want the texture info.
-			ImageLib::FreeImage(poII);
-		}
-		else
-		{
-			// Retrieve texture properties from descriptor.
-			// WARNING: conversion to system convenient format can mess these properties.
-			D3DSURFACE_DESC oDesc;
-			_poMH->m_poTex->GetLevelDesc(0,&oDesc);
-			_poMH->m_uiTX = oDesc.Width;
-			_poMH->m_uiTY = oDesc.Height;
-		}
-	}
-
-	return(hr);
-}
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 // Graphic functionality
@@ -416,6 +361,16 @@ void CFESystem::Graphics::SetScreenVHeight(uint _uiScrVHeight)
 	hr = FESglobals.m_poCurrentRenderer->m_poD3DDevice->SetTransform(D3DTS_PROJECTION,&oWorldMatrix);
 }
 // ----------------------------------------------------------------------------
+uint CFESystem::Graphics::uiGetScreenVWidth(FEHandler _hRenderer)
+{
+    return(FESglobals.m_uiScrVWidth);
+}
+// ----------------------------------------------------------------------------
+uint CFESystem::Graphics::uiGetScreenVHeight(FEHandler _hRenderer)
+{
+    return(FESglobals.m_uiScrVHeight);
+}
+// ----------------------------------------------------------------------------
 void CFESystem::Graphics::SetTransform(const CFEMatrix& _rMat)
 {
     D3DXMATRIX oViewMatrix;
@@ -467,23 +422,46 @@ FEHandler CFESystem::Graphics::hLoadMaterial(const CFEString& _sFilename)
 	CFEString sFilename;
 
 	sFilename = _sFilename + ".png";
-	hr = hLoadTexture(sFilename,&oTH);
+	hr = D3DXCreateTextureFromFile(FESglobals.m_poCurrentRenderer->m_poD3DDevice,sFilename.szString(), &oTH.m_poTex);
 
 	if (FAILED(hr))
 	{
 		sFilename = _sFilename + ".tga";
-		hr = hLoadTexture(sFilename,&oTH);
+		hr = D3DXCreateTextureFromFile(FESglobals.m_poCurrentRenderer->m_poD3DDevice,sFilename.szString(), &oTH.m_poTex);
 
 		if (FAILED(hr))
 		{
 			sFilename = _sFilename + ".bmp";
-			hr = hLoadTexture(sFilename,&oTH);
+			hr = D3DXCreateTextureFromFile(FESglobals.m_poCurrentRenderer->m_poD3DDevice,sFilename.szString(), &oTH.m_poTex);
 			if (FAILED(hr))
 				return(NULL);
 		}
 	}
 
-    return( new TMaterialHandler(oTH) );
+	TMaterialHandler* poTH = new TMaterialHandler;
+    poTH->m_poTex = oTH.m_poTex;
+
+    // TMaterialHandler
+    CFESImageInfo* poII = ImageLib::poLoadImage((char*)_sFilename.szString());
+    if (poII != NULL)
+    {
+        poTH->m_uiTX = poII->m_uiTX;
+        poTH->m_uiTY = poII->m_uiTY;
+
+        // free the resources we just want the texture info.
+        ImageLib::FreeImage(poII);
+    }
+    else
+    {
+        // Retrieve texture properties from descriptor.
+        // WARNING: conversion to system convenient format can mess these properties.
+        D3DSURFACE_DESC oDesc;
+        poTH->m_poTex->GetLevelDesc(0,&oDesc);
+        poTH->m_uiTX = oDesc.Width;
+        poTH->m_uiTY = oDesc.Height;
+    }
+
+    return(poTH);
 }
 // ----------------------------------------------------------------------------
 void CFESystem::Graphics::ReloadMaterial(FEHandler _hMaterial,const CFEString& _sFilename)
@@ -746,16 +724,6 @@ bool CFESystem::Graphics::bSetMaterialProperty(FEHandler _hMaterial,const CFEStr
 void CFESystem::Graphics::SetDepth(FEReal _rDepth)
 {
 
-}
-// ----------------------------------------------------------------------------
-bool CFESystem::Graphics::bGetProperty(const CFEString& _sProperty,FEPointer _pParam)
-{
-	return(false);
-}
-// ----------------------------------------------------------------------------
-bool CFESystem::Graphics::bSetProperty(const CFEString& _sProperty,FEPointer _pParam)
-{
-	return(false);
 }
 // ----------------------------------------------------------------------------
 #endif

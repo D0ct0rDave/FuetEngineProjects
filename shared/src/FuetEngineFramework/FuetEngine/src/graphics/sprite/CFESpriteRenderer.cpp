@@ -118,6 +118,7 @@ void CFESpriteRenderer::Render(CFERenderer *_poRenderer,CFESpriteInst* _poInstan
 	}
 
     // Render the frame
+    uint uiMaxFrames = poAction->m_oSeq.size();
     uint uiCurFrame  = _poInstance->m_uiCurrentActionFrame;
 
     switch (poAction->m_ePlayMode)

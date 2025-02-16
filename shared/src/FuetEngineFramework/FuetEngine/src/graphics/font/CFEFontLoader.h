@@ -31,8 +31,6 @@ class CFEFontLoader
 
             /// Build a basic font around a given material.
             static CFEFont* poBuildBasicFont(FEHandler _hMat);
-            
-            static TCharInfo* poCreateCharTable(uint _uiDefCharWidth,uint _uiDefCharHeight);
 };
 // ----------------------------------------------------------------------------
 #endif

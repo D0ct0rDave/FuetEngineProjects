@@ -16,14 +16,8 @@
 // ----------------------------------------------------------------------------
 DECLARE_RESOURCE_MANAGER(CFEFontMgr,CFEFont)
 {
-	friend class CFEResourceMgr<CFEFontMgr,CFEFont>;
-
-    protected:
-
-        /// OVERRIDED: Implementation of the poLoadResource function.
+    public:
         static CFEFont* poLoadResource(const CFEString& _sFilename);
-
-        /// OVERRIDED: Implementation of the InvalidateResource function.
         static void InvalidateResource(CFEFont* _poRes);
 };
 // ----------------------------------------------------------------------------

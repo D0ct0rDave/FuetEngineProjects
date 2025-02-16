@@ -12,24 +12,32 @@
 #define CFEHUDElementH
 //-----------------------------------------------------------------------------
 #include "types/CFEString.h"
-#include "types/CFEArray.h"
-#include "types/CFENamedObject.h"
 #include "CFEHUDVisitor.h"
 //-----------------------------------------------------------------------------
 class CFEHUDElementAction;
 class CFEHUDObject;
 //-----------------------------------------------------------------------------
-class CFEHUDElement : public CFENamedObject
+class CFEHUDElement
 {
 	public:
 
         /// Default constructor of this element
-        CFEHUDElement(const CFEString& _sName) : CFENamedObject(_sName)
+        CFEHUDElement(const CFEString& _sName)
         {
+            SetName(_sName);
         }
-        
-        /// Destructor of the class.
-        ~CFEHUDElement();
+
+		/// Sets the name for this HUD element.
+		void SetName(const CFEString& _sName)
+		{
+		    m_sName = _sName;
+		}
+
+		/// Retrieves the name of this HUD element.
+		const CFEString sGetName()
+		{
+		    return ( m_sName );
+		}
 
 		/// Inserts an action at the given position
 		void InsertAction(uint _uiIdx,CFEHUDElementAction* _poAction)
@@ -105,6 +113,7 @@ class CFEHUDElement : public CFENamedObject
 		
 		CFEArray<CFEHUDObject*> m_oLayers;
 		CFEArray<CFEHUDElementAction*> m_oActions;
+		CFEString               m_sName;
 };
 //-----------------------------------------------------------------------------
 #endif

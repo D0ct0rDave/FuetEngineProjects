@@ -14,14 +14,11 @@
 #include "CFEHUDVisitor.h"
 #include "types/CFERect.h"
 #include "types/CFEMatrix.h"
-#include "Types/CFEString.h"
 //-----------------------------------------------------------------------------
 class CFEHUDRectGen : public CFEHUDVisitor
 {
     public:
-		CFEHUDRectGen(CFEHUDObject* _poTarget);
-
-        static CFERect oGetRect(CFEHUDGroup* _poParent,CFEHUDObject* _poObj);
+        CFERect oGetRect(CFEHUDGroup* _poParent,CFEHUDObject* _poObj);
 
         virtual void Visit(CFEHUDObject* _poObj);
         /// 
@@ -32,8 +29,6 @@ class CFEHUDRectGen : public CFEHUDVisitor
         virtual void Visit(CFEHUDIcon* _poObj);
         /// 
         virtual void Visit(CFEHUDRect* _poObj);
-        /// 
-        virtual void Visit(CFEHUDShape* _poObj);
 
 
         virtual void Visit(CFEHUD* _poObj);
@@ -44,12 +39,8 @@ class CFEHUDRectGen : public CFEHUDVisitor
         ///        
         virtual void Visit(CFEHUDObjectAction* _poObj);
 
-		void Init();
-
-		virtual const CFEString sGetType() { return("CFEHUDRectGen"); };
-
     protected:
-
+        
         bool m_bTargetFound;
         
         CFEHUDObject* m_poTarget;

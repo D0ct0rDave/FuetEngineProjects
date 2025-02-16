@@ -73,11 +73,8 @@ CFESkelAnimMesh* CAnimHelper::poSubstNodeMesh(FEHandler _hAnimInst,const CFEStri
 	if (poNode != NULL)
 	{
 		FEHandler hMaterial = CFEMaterialMgr::hLoad(_sMaterial);
-		
-		/*
 		if (hMaterial != NULL)
 		    poNode->SetMaterial(hMaterial);
-		*/
 	}
 
 	return(poNode);

@@ -18,6 +18,6 @@ CFEFont* CFEFontMgr::poLoadResource(const CFEString& _sFilename)
 // ----------------------------------------------------------------------------
 void CFEFontMgr::InvalidateResource(CFEFont* _poRes)
 {
-	delete _poRes;    
+    
 }
 // ----------------------------------------------------------------------------

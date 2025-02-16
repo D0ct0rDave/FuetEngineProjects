@@ -19,10 +19,7 @@ class CFESoundMixer
     public:
 
         /// Sets the volume of the given Line to a given level.
-		static void SetLineLevel(EFESoundMixerLine _eSoundLine,FEReal _rVol,FEReal _rTime = _0r);
-		
-		/// Sets the user volume of the given Line to a given level.
-		static void SetUserLevel(EFESoundMixerLine _eSoundLine,FEReal _rVol);
+		static void SetLineLevel(EFESoundMixerLine _eSoundLine,FEReal _rVol);
 
         /// Performs a fade in from zero to the user level.
 		static void FadeIn(FEReal _rTime);

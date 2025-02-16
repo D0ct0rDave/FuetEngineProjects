@@ -44,9 +44,8 @@ typedef enum
     THAM_LEFT,
     THAM_CENTER,
     THAM_RIGHT,
-		
-    THAM_NUM_MODES,
-    THAM_DEFAULT = THAM_LEFT
+
+    TAM_NUM_MODES
 
 }EFETextHAlignmentMode;
 
@@ -59,8 +58,7 @@ typedef enum
     TVAM_CENTER,
     TVAM_BOTTOM,
 
-    TVAM_NUM_MODES,
-    TVAM_DEFAULT = TVAM_TOP
+    TVM_NUM_MODES
 
 }EFETextVAlignmentMode;
 
@@ -75,8 +73,7 @@ typedef enum
     BM_ALPHAADD,
     BM_MULT,
 
-    BM_NUM_MODES,
-    BM_DEFAULT = BM_ALPHA
+    BM_NUM_MODES
 
 }EFEBlendMode;
 
@@ -175,14 +172,13 @@ typedef enum
 typedef enum{
 
     MP_NONE,
-
+    
     MP_SYSTEM_ALLOCATION,
     MP_STATIC_ALLOCATION,
     MP_DYNAMIC_ALLOCATION,
     MP_HARDWARE_ALLOCATION,
     
-    MP_NUM_MEM_ALLOC_POLICIES,
-    MP_DEFAULT = MP_SYSTEM_ALLOCATION
+    MP_NUM_MEM_ALLOC_POLICIES
 
 }EFEMemAllocPolicy;
 
@@ -207,31 +203,9 @@ typedef enum{
     MA_32768 = 32768,
     MA_65536 = 65536,
     
-    MA_NUM_ALIGNMENTS,
-    MA_DEFAULT = MA_NONE
-
+    MA_NUM_ALIGNMENTS
+    
 }EFEMemAlignment;
-
-/// Local IDs
-typedef enum
-{
-	LID_NONE = 0,
-	LID_COMMON = 0,
-
-	LID_ES,
-	LID_EN,
-	LID_FR,
-	LID_IT,
-	LID_DE,
-	LID_DU,
-	LID_US_ES,
-	LID_US_EN,
-	LID_US_FR,
-
-	LID_NUM_IDs,
-	LID_DEFAULT = LID_ES
-
-}EFELocalID;
 // ----------------------------------------------------------------------------
 #endif
 // ----------------------------------------------------------------------------

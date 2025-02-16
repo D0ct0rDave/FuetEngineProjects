@@ -17,17 +17,15 @@
 class CFEHUDIcon : public CFEHUDObject
 {
 	public:		
-				CFEHUDIcon(const CFEString& _sName) : CFEHUDObject(_sName), m_hSpriteInst(NULL)
+				CFEHUDIcon(const CFEString& _sName) : CFEHUDObject(_sName)
 				{
 				}
-
-				/// Destructor of the class
-				virtual ~CFEHUDIcon();
 
         		/// Sets the image for this icon Object.
 				void SetIcon(FEHandler _hSpriteInst)
 				{
 					m_hSpriteInst = _hSpriteInst;					
+
 				}
 
 				/// Sets the image for this icon Object.
@@ -36,8 +34,15 @@ class CFEHUDIcon : public CFEHUDObject
 					return( m_hSpriteInst );
 				}
 
-				virtual void SetCurAction(int _iAction);
+				/// Sets the current action to be played by the sprite icon.
+				void SetAction(uint _uiAction);
 
+				/// Retrieves the current action being played by the sprite icon.
+				uint uiGetAction()
+				{
+					return(m_uiAction);
+				}
+			
                 /// Perform processing over the object
         		virtual void Accept(CFEHUDVisitor* _poVisitor)
         		{
@@ -45,7 +50,8 @@ class CFEHUDIcon : public CFEHUDObject
         		}
 
 	private:	
-				FEHandler	m_hSpriteInst;				
+				FEHandler	m_hSpriteInst;
+				uint		m_uiAction;
 };
 
 //-----------------------------------------------------------------------------

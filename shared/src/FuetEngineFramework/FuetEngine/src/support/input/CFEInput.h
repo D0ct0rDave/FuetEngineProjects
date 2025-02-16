@@ -27,14 +27,8 @@ class CFEInput
         /// Constructor of the input manager
         CFEInput(FEHandler _hParam) { Init(_hParam); };
 
-        /// Destructor of the class
-        ~CFEInput();
-
         /// Initializes the input manager
         void Init(FEHandler _hParam);
-		
-		/// Finalizes the input manager.
-        void Finish();
 
 		/// Updates the input data.
 		void Update(FEReal _rDeltaT);

@@ -17,8 +17,3 @@ CFESkelAnim* CFESkelAnimMgr::poLoadResource(const CFEString& _sFilename)
     return( CFESkelAnimLoader::poLoad(_sFilename) );
 }
 // ----------------------------------------------------------------------------
-void CFESkelAnimMgr::InvalidateResource(CFESkelAnim* _poRes)
-{
-	delete _poRes;
-}
-// ----------------------------------------------------------------------------

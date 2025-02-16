@@ -22,7 +22,6 @@
 #elif (TARGETPLATFORM == USE_MACOS)
     #include "MacOS/CFESGlobals.h"
 
-    
 #endif
 // ----------------------------------------------------------------------------
 #endif

@@ -79,7 +79,6 @@ void CFESkelAnimNodeInstancerINT::Visit(CFESkelAnimGroup* _poObj)
 	poGroup->SetAngle( _poObj->rGetAngle() );
 	poGroup->SetColor( _poObj->oGetColor() );
 	poGroup->Show( _poObj->bIsVisible() );
-	poGroup->SetDepth( _poObj->rGetDepth() );
 
 	for (uint i=0;i<_poObj->uiNumObjs();i++)
 	{
@@ -100,16 +99,14 @@ void CFESkelAnimNodeInstancerINT::Visit(CFESkelAnimSprite* _poObj)
 	poSpriteAnim->SetAngle( _poObj->rGetAngle() );
 	poSpriteAnim->SetColor( _poObj->oGetColor() );
 	poSpriteAnim->Show( _poObj->bIsVisible() );
-	poSpriteAnim->SetDepth( _poObj->rGetDepth() );
+	
+	// Get the sprite model from the original sprite instance	
+	CFESprite* poSprite = CFESpriteInstMgr::poGetSprite( _poObj->hGetSprite() );
 
-	// Get the sprite model from the original sprite instance
-	FEHandler hInst = CFESpriteInstMgr::hGetInstance( CFESpriteInstMgr::poGetSprite(_poObj->hGetSprite()) );
-	if (hInst != NULL)
-    {
-		CFESpriteInstMgr::ManageRender(hInst,false);
-		poSpriteAnim->SetSprite( hInst );
-		poSpriteAnim->SetAction( _poObj->uiGetAction() );
-	}
+	FEHandler hInst = CFESpriteInstMgr::hGetInstance(poSprite);
+	CFESpriteInstMgr::ManageRender(hInst,false);
+	poSpriteAnim->SetSprite( hInst );
+	poSpriteAnim->SetAction( _poObj->uiGetAction() );
 
 	m_poInstance = poSpriteAnim;
 }
@@ -125,7 +122,6 @@ void CFESkelAnimNodeInstancerINT::Visit(CFESkelAnimSpriteModel* _poObj)
 	poSpriteAnim->SetAngle( _poObj->rGetAngle() );
 	poSpriteAnim->SetColor( _poObj->oGetColor() );
 	poSpriteAnim->Show( _poObj->bIsVisible() );
-	poSpriteAnim->SetDepth( _poObj->rGetDepth() );
 
     FEHandler hInst = CFESpriteInstMgr::hGetInstance( _poObj->sGetSprite() );
     if (hInst != NULL)
@@ -152,7 +148,6 @@ void CFESkelAnimNodeInstancerINT::Visit(CFESkelAnimBone* _poObj)
 	poBone->SetAngle( _poObj->rGetAngle() );
 	poBone->SetColor( _poObj->oGetColor() );
 	poBone->Show( _poObj->bIsVisible() );
-	poBone->SetDepth( _poObj->rGetDepth() );
 
     if (_poObj->poGetAttachedNode())
     {
@@ -172,7 +167,6 @@ void CFESkelAnimNodeInstancerINT::Visit(CFESkelAnimMesh* _poObj)
 	poMesh->SetAngle( _poObj->rGetAngle() );
 	poMesh->SetColor( _poObj->oGetColor() );
 	poMesh->Show( _poObj->bIsVisible() );
-	poMesh->SetDepth( _poObj->rGetDepth() );
 
     for (uint i=0;i<_poObj->uiGetNumAttachedBones();i++)
     {
@@ -190,15 +184,6 @@ void CFESkelAnimNodeInstancerINT::Visit(CFESkelAnimMesh* _poObj)
         poMesh->AttachBone(poBone);
     }
 
-	// Get the sprite model from the original sprite instance
-	FEHandler hInst = CFESpriteInstMgr::hGetInstance( CFESpriteInstMgr::poGetSprite( _poObj->hGetSprite() ));
-	if (hInst != NULL)
-    {
-		CFESpriteInstMgr::ManageRender(hInst,false);
-		poMesh->SetSprite( hInst );
-		poMesh->SetAction( _poObj->uiGetAction() );
-	}
-
     // qué pasa con todos los bones attachados a la mesh a instanciar ????
 	m_poInstance = poMesh;
 }
@@ -212,7 +197,6 @@ void CFESkelAnimNodeInstancerINT::Visit(CFESkelAnimMeshModel* _poObj)
 	poMesh->SetAngle( _poObj->rGetAngle() );
 	poMesh->SetColor( _poObj->oGetColor() );
 	poMesh->Show( _poObj->bIsVisible() );
-	poMesh->SetDepth( _poObj->rGetDepth() );
 
     for (uint i=0;i<_poObj->uiGetNumAttachedBones();i++)
     {
@@ -229,19 +213,8 @@ void CFESkelAnimNodeInstancerINT::Visit(CFESkelAnimMeshModel* _poObj)
         poMesh->AttachBone(poBone);
     }
 
-    FEHandler hInst = CFESpriteInstMgr::hGetInstance( _poObj->sGetSprite() );
-    if (hInst != NULL)
-    {
-        CFESpriteInstMgr::ManageRender(hInst,false);
-        poMesh->SetSprite( hInst );
-        poMesh->SetAction( 0 );
-    }
-
-	/*
-	/// Sets the material for this mesh.
+    /// Sets the material for this mesh.
     poMesh->SetMaterial( CFEMaterialMgr::hLoad(_poObj->sGetMaterial()) );
-    */
-		
 
     // qué pasa con todos los bones attachados a la mesh a instanciar ????
 	m_poInstance = poMesh;

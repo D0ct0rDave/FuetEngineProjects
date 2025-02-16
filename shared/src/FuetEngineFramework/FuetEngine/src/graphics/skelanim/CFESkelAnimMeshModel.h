@@ -11,7 +11,6 @@
 #ifndef CFESkelAnimMeshModelH
 #define CFESkelAnimMeshModelH
 //-----------------------------------------------------------------------------
-#include "types/CFEArray.h"
 #include "CFESkelAnimNode.h"
 //-----------------------------------------------------------------------------
 class CFESkelAnimVisitor;
@@ -20,12 +19,9 @@ class CFESkelAnimMeshModel : public CFESkelAnimNode
 {
     public:		
 
-			CFESkelAnimMeshModel(const CFEString& _sName) : CFESkelAnimNode(_sName), m_sSprite("")
+			CFESkelAnimMeshModel(const CFEString& _sName) : CFESkelAnimNode(_sName), m_sMaterial("")
 			{
 			}
-
-		    /// Destructor of the class
-			virtual ~CFESkelAnimMeshModel();
 
 			/// Attach a bone to the mesh model
 			void AttachBone(const CFEString& _sBoneName)
@@ -46,15 +42,15 @@ class CFESkelAnimMeshModel : public CFESkelAnimNode
 			}
 
 			/// Sets the material used by this mesh model.
-			void SetSprite(const CFEString& _sSprite)
+			void SetMaterial(const CFEString& _sMaterial)
 			{
-				m_sSprite = _sSprite;
+				m_sMaterial = _sMaterial;
 			}
 
 			/// Retrieves the material used by this mesh model.
-			const CFEString& sGetSprite()
+			const CFEString& sGetMaterial()
 			{
-				return( m_sSprite );
+				return( m_sMaterial );
 			}
 
             /// Perform processing over the object
@@ -64,7 +60,7 @@ class CFESkelAnimMeshModel : public CFESkelAnimNode
     		}
 
 	private:
-				CFEString           m_sSprite;
+				CFEString           m_sMaterial;
 				CFEArray<CFEString> m_sAttachedBones;
 };
 

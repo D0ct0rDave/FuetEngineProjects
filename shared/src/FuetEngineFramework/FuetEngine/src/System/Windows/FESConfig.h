@@ -45,11 +45,6 @@
 // String functionality
 #define STRING          USE_STDSTRING
 
-// Localization functionality
-#define LOCAL			USE_STDLOCAL
-
-// Profile functionality
-#define PROFILE			USE_STDPROFILE
 // ----------------------------------------------------------------------------
 #endif
 // ----------------------------------------------------------------------------

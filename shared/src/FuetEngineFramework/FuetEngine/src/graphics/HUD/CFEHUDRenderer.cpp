@@ -21,13 +21,11 @@
 #include "CFEHUDLabel.h"
 #include "CFEHUDIcon.h"
 #include "CFEHUDRect.h"
-#include "CFEHUDShape.h"
 //-----------------------------------------------------------------------------
 void CFEHUDRenderer::Render(FEHandler _hHUDInstance,CFERenderer* _poRenderer)
-{	
-	CFEHUDRenderer oHUDRenderer;
-	oHUDRenderer.SetRenderer(_poRenderer);
-	((CFEHUD*)_hHUDInstance)->Accept(&oHUDRenderer);
+{
+    m_poRenderer = _poRenderer;
+    ((CFEHUD*)_hHUDInstance)->Accept(this);
 }
 //-----------------------------------------------------------------------------
 void CFEHUDRenderer::Visit(CFEHUD* _poObj)
@@ -58,37 +56,25 @@ void CFEHUDRenderer::Visit(CFEHUDGroup* _poObj)
 	m_poRenderer->RotateTransform(_poObj->rGetAngle());
 	m_poRenderer->ScaleTransform(_poObj->oGetScale().x,_poObj->oGetScale().y);
 
-	// Push current color & depth
-	CFEColor oOldModColor = m_oModColor;
-	FEReal	rOldDepth = m_rDepth;
+	for (uint i=0;i<_poObj->uiNumObjs();i++)
+	    _poObj->poGetObject(i)->Accept(this);
 
-	m_oModColor = m_oModColor * _poObj->oGetColor();
-	m_rDepth    = _poObj->rGetDepth();					// Group depth are not cumulative.
-
-		for (uint i=0;i<_poObj->uiNumObjs();i++)
-			_poObj->poGetObject(i)->Accept(this);
-
-	// Pop color & depth
-	m_oModColor = oOldModColor;
-	m_rDepth    = rOldDepth;
     m_poRenderer->PopTransform();
 }
 //-----------------------------------------------------------------------------
 void CFEHUDRenderer::Visit(CFEHUDLabel* _poObj)
 {	
     if (! _poObj->bIsVisible()) return;
-	
+
 	m_poRenderer->PushTransform();
 
 	m_poRenderer->TranslateTransform(_poObj->oGetPos().x,_poObj->oGetPos().y);
 	m_poRenderer->RotateTransform(_poObj->rGetAngle());
 	m_poRenderer->ScaleTransform(_poObj->oGetScale().x,_poObj->oGetScale().y);
-	CFEColor oResColor = m_oModColor * _poObj->oGetColor();
 
 		m_poRenderer->SetBlendMode(BM_ALPHA);			
-		m_poRenderer->SetDepth(m_rDepth + _poObj->rGetDepth()*_01r);
 	    m_poRenderer->SetFont(_poObj->poGetFont());
-        m_poRenderer->RenderText(_poObj->sGetText(),0,0,oResColor,_poObj->eGetHAlignment(),_poObj->eGetVAlignment());
+        m_poRenderer->RenderText(_poObj->sGetText(),0,0,_poObj->oGetColor(),_poObj->eGetHAlignment(),_poObj->eGetVAlignment());
 
 	m_poRenderer->PopTransform();
 }
@@ -97,17 +83,12 @@ void CFEHUDRenderer::Visit(CFEHUDIcon* _poObj)
 {	
     if (! _poObj->bIsVisible()) return;
 	
-	// Update values. They are needed in some parts of the system.
-	FEReal rDepth = m_rDepth + _poObj->rGetDepth()*_01r;
 	CFESpriteInstMgr::SetColor(_poObj->hGetIcon(),_poObj->oGetColor());
 	CFESpriteInstMgr::SetAngle(_poObj->hGetIcon(),_poObj->rGetAngle());
 	CFESpriteInstMgr::SetScale(_poObj->hGetIcon(),_poObj->oGetScale());
 	CFESpriteInstMgr::SetPos  (_poObj->hGetIcon(),_poObj->oGetPos());
-	CFESpriteInstMgr::SetDepth(_poObj->hGetIcon(),rDepth);
-	// CFESpriteInstMgr::SetAction(_poObj->hGetIcon(),_poObj->iGetAction());
 
-	CFEColor oResColor = m_oModColor * _poObj->oGetColor();
-    CFESpriteRenderer::Render(m_poRenderer,(CFESpriteInst*)_poObj->hGetIcon(),_poObj->oGetPos(),rDepth,_poObj->oGetScale(),_poObj->rGetAngle(),oResColor);
+    CFESpriteRenderer::Render(m_poRenderer,(CFESpriteInst*)_poObj->hGetIcon(),_poObj->oGetPos(),_0r,_poObj->oGetScale(),_poObj->rGetAngle(),_poObj->oGetColor());
 }
 //-----------------------------------------------------------------------------
 void CFEHUDRenderer::Visit(CFEHUDRect* _poObj)
@@ -140,30 +121,13 @@ void CFEHUDRenderer::Visit(CFEHUDRect* _poObj)
         oVX[3].y = rYOfs + rHeight;
 
         CFEColor oVC[4];
-        
-        CFEColor oResColor = m_oModColor * _poObj->oGetColor();
-
-        oVC[0] = _poObj->oGetCornerColor(0) * oResColor;
-        oVC[1] = _poObj->oGetCornerColor(1) * oResColor;
-        oVC[2] = _poObj->oGetCornerColor(2) * oResColor;
-        oVC[3] = _poObj->oGetCornerColor(3) * oResColor;
-        
-		m_poRenderer->SetDepth(m_rDepth + _poObj->rGetDepth()*_01r);
+        oVC[0] = _poObj->oGetCornerColor(0) * _poObj->oGetColor();
+        oVC[1] = _poObj->oGetCornerColor(1) * _poObj->oGetColor();
+        oVC[2] = _poObj->oGetCornerColor(2) * _poObj->oGetColor();
+        oVC[3] = _poObj->oGetCornerColor(3) * _poObj->oGetColor();
+    
         m_poRenderer->RenderQuad(oVX,NULL,oVC);
 
 	m_poRenderer->PopTransform();    
-}
-//-----------------------------------------------------------------------------
-void CFEHUDRenderer::Visit(CFEHUDShape* _poObj)
-{
-	
-}
-//-----------------------------------------------------------------------------
-void CFEHUDRenderer::Visit(CFEHUDElementAction* _poObj)
-{
-}
-//-----------------------------------------------------------------------------
-void CFEHUDRenderer::Visit(CFEHUDObjectAction* _poObj)
-{
 }
 //-----------------------------------------------------------------------------

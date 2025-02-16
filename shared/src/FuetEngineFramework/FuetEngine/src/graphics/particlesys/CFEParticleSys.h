@@ -41,7 +41,7 @@ class CFEPSFunc
 		CFEPSRandParam  m_oOfs;
 		CFEKFBFunc<T>	m_oFunc;
 
-		T oGetValue(const FEReal& _rT)
+		T oGetValue(FEReal _rT)
 		{
 			return( m_oFunc.oGetValue(_rT) );
 		}

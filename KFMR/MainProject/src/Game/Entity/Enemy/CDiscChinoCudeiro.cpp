@@ -70,7 +70,7 @@ void CDiscChinoCudeiro::Init(uint _uiSkill)
 ///-----------------------------------------------------------------------------
 void CDiscChinoCudeiro::Reset()
 {
-	m_oPos = CFEVect2::ZERO();
+	m_oPos = CFEVect2::oZERO();
     m_rZ = _1r;
 	m_bAttackDown = true;
 	m_rJumpHeight = 0;

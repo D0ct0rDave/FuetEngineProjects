@@ -33,77 +33,29 @@ typedef struct TCharInfo{
     unsigned short   m_usCH;
 
 	/// Baseline offset of the char.
-    short			m_sYOfs;
-
-    /// Left class of the character
-    unsigned char m_cLC;
-
-    /// Right class of the character
-    unsigned char m_cRC;
+    unsigned short   m_usOfs;
 
 }TCharInfo;
 
 // #pragma options align= reset
 // #pragma pack(pop,"")
-//-----------------------------------------------------------------------------
-class CFEKernTable
-{
-	public:
 
-		CFEKernTable(uint _uiNumLeftClasses,uint _uiNumRightClasses)
-		{
-			m_uiNumLeftClasses  = _uiNumLeftClasses;
-			m_uiNumRightClasses = _uiNumRightClasses;
-
-			if (_uiNumLeftClasses*_uiNumRightClasses == 0)
-				m_sKernTable = NULL;
-			else
-				m_sKernTable = new short[m_uiNumLeftClasses*m_uiNumRightClasses];
-		}
-		
-		~CFEKernTable()
-		{
-			delete []m_sKernTable;
-		}
-
-		void SetKern(uint _uiLeftClass,uint _uiRightClass,int _iOfs)
-		{
-			m_sKernTable[_uiRightClass*m_uiNumLeftClasses + _uiLeftClass] = (short)_iOfs;
-		}
-
-		int iGetKern(uint _uiLeftClass,uint _uiRightClass)
-		{
-			return( m_sKernTable[_uiRightClass*m_uiNumLeftClasses + _uiLeftClass]);
-		}
-
-	public:
-
-		short*	m_sKernTable;
-		uint	m_uiNumLeftClasses;
-		uint	m_uiNumRightClasses;
-};
 // ----------------------------------------------------------------------------
 class CFEFont
 {
     public:
-		
-		/// Default constructor.
-		CFEFont();
 
-		/// Destructor of the class.
-		~CFEFont();
-
-        /// Initializes the font object by using a given material, a buffer of char rect coords, and an optional kerning table.
-        void Init(FEHandler _hMaterial,TCharInfo* _pBuff,CFEKernTable* _poKT = NULL) { SetMaterial(_hMaterial); m_oCharTable = _pBuff; m_poKT = _poKT; };
+        /// Initializes the font object by using a given material and a buffer of char rect coords
+        void Init(FEHandler _hMaterial,TCharInfo* _pBuff) { SetMaterial(_hMaterial); m_oCharTable = _pBuff; };
 
         /// Retrieves the length of an specific char in pixels
-        FEReal rCharWidth(unsigned char _ucChar) const { return(FEReal(m_oCharTable[_ucChar].m_usCW)); };
+        FEReal rCharWidth(unsigned char _ucChar) const { return((FEReal)m_oCharTable[_ucChar].m_usCW); };
 
         /// Retrieves the height of an specific char in pixels.
-        FEReal rCharHeight(unsigned char _ucChar) const  { return(FEReal(m_oCharTable[_ucChar].m_usCH)); };
+        FEReal rCharHeight(unsigned char _ucChar) const  { return((FEReal)m_oCharTable[_ucChar].m_usCH); };
 
-        /// Retrieves the Y offset to add to the start of the character.
-        FEReal rCharLeading(unsigned char _ucChar) const  { return(FEReal(m_oCharTable[_ucChar].m_sYOfs)); };
+        /// Retrieves the offset of an specific char in pixels.
+        FEReal rCharOfs(unsigned char _ucChar) const  { return((FEReal)m_oCharTable[_ucChar].m_usOfs); };
 
 		/// Retrieves the texture coordinates of a given character.
 		const CFERect& oCharUVs(unsigned char _ucChar) const { return(m_oCharTable[_ucChar].m_oUV); };
@@ -118,14 +70,7 @@ class CFEFont
         FEReal rDefCharHeight() const { return(rCharHeight(0)); };
 
 		/// Returns the kerning of the font.
-        FEReal rCharKerning() const { return(rCharLeading(0)); };
-
-		/// Returns the kerning of the font between the given chars.
-        FEReal rCharKerning(unsigned char _ucLeft,unsigned char _ucRight) const
-        {
-			if (m_poKT==NULL) return(rCharKerning());
-			return( FEReal(m_poKT->iGetKern( m_oCharTable[_ucLeft].m_cLC, m_oCharTable[_ucRight].m_cRC)) );
-        };
+        FEReal rCharKerning() const { return(rCharOfs(0)); };
 
         /// Returns the material used by the font.
         FEHandler hMaterial() const { return(m_hMaterial); };
@@ -140,14 +85,8 @@ class CFEFont
 
     protected:
 
-		/// The character table.
 		TCharInfo*	m_oCharTable;
-
-		/// The kerning table of the font.
-		CFEKernTable* m_poKT;
-
-		/// The material used by this font.
-        FEHandler	m_hMaterial;        
+        FEHandler	m_hMaterial;
 };
 // ----------------------------------------------------------------------------
 #endif

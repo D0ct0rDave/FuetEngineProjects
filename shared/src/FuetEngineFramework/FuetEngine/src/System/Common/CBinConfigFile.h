@@ -12,7 +12,6 @@
 #define CBinConfigFileH
 // ----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "types/CFEArray.h"
 #include "types/CFEString.h"
 // ----------------------------------------------------------------------------
 class CBinConfigFile

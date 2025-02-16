@@ -66,8 +66,8 @@ void CCameraMgr::Update(FEReal _rDeltaT)
     if (m_rTime > _0r)
     {
         CFEVect2 oOfs;
-        const FEReal PERT_XFREQ = _2PIr * 11.0; // use prime numbers to avoid cycles
-        const FEReal PERT_YFREQ = _2PIr * 17.0;
+        const FEReal PERT_XFREQ = _2PIr_ * 11.0; // use prime numbers to avoid cycles
+        const FEReal PERT_YFREQ = _2PIr_ * 17.0;
 
         oOfs.x = m_rXMag * CFEMath::rSin( m_rTime * PERT_XFREQ );
         oOfs.y = m_rYMag * CFEMath::rSin( m_rTime * PERT_YFREQ );

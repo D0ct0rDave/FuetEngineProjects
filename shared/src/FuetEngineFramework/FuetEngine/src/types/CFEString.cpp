@@ -14,14 +14,9 @@
 
 #include "CFEString.h"
 #include "System/CFESystem.h"
-#include "Support/Mem/CFEMem.h"
 #include <string>
 // ----------------------------------------------------------------------------
 static CFEString gsNULLString = CFEString("");
-
-const uint BUFF_SIZE = 2048;
-static char gsszLocalBuff[BUFF_SIZE];
-
 const CFEString& CFEString::sNULL()
 {
     return(gsNULLString);
@@ -54,14 +49,6 @@ void CFEString::Alloc(uint _uiSize)
         Free();
 
     if ( _uiSize == 0 ) return;
-
-	// EFEMemAllocPolicy eOldPolicy =CFEMem::eGetMemPolicy();
-	// CFEMem::SwitchPolicy(MP_STATIC_ALLOCATION); 
-
-    // m_szData = (char*)CFEMem::pAlloc(_uiSize);
-    
-    // CFEMem::SwitchPolicy(eOldPolicy);
-
     m_szData = (char*)CFESystem::Mem::pAlloc(_uiSize);
 }
 // ----------------------------------------------------------------------------
@@ -69,7 +56,6 @@ void CFEString::Free()
 {
     if ( m_szData != NULL )
     {
-        // CFEMem::Free((FEPointer)m_szData);
         CFESystem::Mem::Free((FEPointer)m_szData);
         m_szData = NULL;
     }
@@ -80,35 +66,20 @@ void CFEString::Format(char* fmt,...)
 {
     if ( fmt == NULL ) return;
 
+    char szLocalBuff[8192];
+
     va_list argptr;
     va_start(argptr,fmt);
-    vsprintf_s(gsszLocalBuff,BUFF_SIZE,fmt,argptr);
+    vsprintf_s(szLocalBuff,8192,fmt,argptr);
     va_end  (argptr);
 
     // -----------------------------
-    Assign( gsszLocalBuff );
+    Assign( szLocalBuff );
 }
 // ----------------------------------------------------------------------------
 /// Copy the string contents to the current
 void CFEString::Assign(const char* _szStr)
-{		
-	if (( _szStr == NULL ) || (_szStr[0] == 0))
-	{
-		if (m_szData != NULL) Free();
-		return; // that's all ...
-	}
-	
-	uint uiStrLen = strlen(_szStr);
-	if ((m_szData == NULL) || (uiStrLen > strlen(m_szData)))
-	{
-		if (m_szData != NULL) Free();
-		Alloc(uiStrLen + 1);
-	}
-
-	memcpy(m_szData,_szStr,uiStrLen + 1);
-
-	
-	/*
+{
     if (m_szData != NULL) Free();
     if ( _szStr == NULL ) return;
 
@@ -117,18 +88,15 @@ void CFEString::Assign(const char* _szStr)
 
     Alloc(uiLen + 1);
     memcpy(m_szData,_szStr,uiLen + 1);
-    */
 }
 // ----------------------------------------------------------------------------
 /// Links the string contents to the given char* string.
 /// Be careful with assignments since internal deallocations can be dangerous.
 /// One can also relink to a NULL pointer, to ensure deallocations will not hurt.
-/*
 void CFEString::Link(char* _szStr)
 {
     m_szData = _szStr;
 }
-*/
 // ----------------------------------------------------------------------------
 /// Returns the length of the string
 const uint CFEString::uiLen() const
@@ -257,7 +225,7 @@ bool CFEString::operator == (const CFEString& _oStr) const
     if ( m_szData == NULL ) return(_oStr.m_szData == NULL);
     if ( _oStr.m_szData == NULL ) return(false);
 
-    return (CFESystem::String::iStrCmp(*this,_oStr) == 0);
+    return (CFESystem::String::iStrCmp( m_szData,_oStr.szString() ) == 0);
 }
 // ----------------------------------------------------------------------------
 bool CFEString::operator |= (const CFEString& _oStr) const
@@ -265,7 +233,7 @@ bool CFEString::operator |= (const CFEString& _oStr) const
     if ( m_szData == NULL ) return(_oStr.m_szData == NULL);
     if ( _oStr.m_szData == NULL ) return(false);
 
-    return (CFESystem::String::iStrICmp(*this,_oStr) == 0);
+    return (CFESystem::String::iStrICmp( m_szData,_oStr.szString() ) == 0);
 }
 // ----------------------------------------------------------------------------
 bool CFEString::operator != (const CFEString& _oStr) const
@@ -273,6 +241,6 @@ bool CFEString::operator != (const CFEString& _oStr) const
     if ( m_szData == NULL ) return(_oStr.m_szData != NULL);
     if ( _oStr.m_szData == NULL ) return(true);
 
-    return (CFESystem::String::iStrCmp(*this,_oStr) != 0);
+    return (CFESystem::String::iStrCmp( m_szData,_oStr.szString() ) != 0);
 }
 // ----------------------------------------------------------------------------

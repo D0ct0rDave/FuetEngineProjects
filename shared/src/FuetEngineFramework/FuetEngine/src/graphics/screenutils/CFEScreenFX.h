@@ -37,9 +37,6 @@ class CFEScreenFX
 
         /// Tells whether a screen fade is being performed or not.
         static bool bPlaying();
-        
-        /// Sets the fade plane depth for rendering
-        static void SetDepth(FEReal _rDepth) { m_rDepth = _rDepth; };
 
     protected:
 
@@ -63,9 +60,6 @@ class CFEScreenFX
 
         // stores the initial fade time
         static FEReal       m_rIniTime;
-
-        // stores the Depth of the fade plane
-        static FEReal       m_rDepth;
 };
 // ----------------------------------------------------------------------------
 #endif

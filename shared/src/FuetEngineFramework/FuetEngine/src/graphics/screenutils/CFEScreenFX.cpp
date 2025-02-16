@@ -18,7 +18,6 @@ FEReal      CFEScreenFX::m_rTime = _0r;
 CFEColor    CFEScreenFX::m_oIColor;
 CFEColor    CFEScreenFX::m_oFColor;
 CFEColor    CFEScreenFX::m_oColor;
-FEReal		CFEScreenFX::m_rDepth = _0r;
 // ----------------------------------------------------------------------------
 void CFEScreenFX::SetBackground(FEHandler _hMat,const CFEColor& _oColor)
 {
@@ -59,9 +58,7 @@ void CFEScreenFX::Update(FEReal _rDeltaT)
 void CFEScreenFX::Render(CFERenderer* _poRenderer)
 {
     if (m_oColor.a > _0r)
-    {
-        CFEScreenUtils::FSRender(_poRenderer,m_hMaterial,m_oColor,m_rDepth);
-	}
+        CFEScreenUtils::FSRender(_poRenderer,m_hMaterial,m_oColor);
 }
 // ----------------------------------------------------------------------------
 bool CFEScreenFX::bPlaying()

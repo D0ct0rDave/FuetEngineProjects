@@ -62,7 +62,7 @@ class CBone
 
         CBone() :   m_iParent(-1), 
                     m_iChild(-1), 
-                    m_oOfs(CFEVect2::ZERO()),
+                    m_oOfs(CFEVect2::oZERO()),
                     m_eBoneType(BT_NONE), 
                     m_sExternalFile(""),
                     m_poNodeAction(NULL),
