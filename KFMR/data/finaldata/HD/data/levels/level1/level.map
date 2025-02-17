@@ -1,0 +1,11984 @@
+Map:
+{
+	BV:
+	{
+		Mins:
+		{
+			x = -7144.5;
+			y = -757.6;
+		};
+		Maxs:
+		{
+			x = 19647.5;
+			y = 1501.6;
+		};
+	};
+	SpriteSet:
+	{
+		NumSprites = 20;
+		Sprite0 = "cielo";
+		Sprite1 = "arbol_fondo1";
+		Sprite2 = "arbol_fondo2";
+		Sprite3 = "arbol2";
+		Sprite4 = "arbol1";
+		Sprite5 = "arbol3";
+		Sprite6 = "suelo";
+		Sprite7 = "ground_detail2";
+		Sprite8 = "ground_detail1";
+		Sprite9 = "hierbecilla";
+		Sprite10 = "hierba1";
+		Sprite11 = "matorral_trans1";
+		Sprite12 = "matorral_trans2";
+		Sprite13 = "matorral1";
+		Sprite14 = "matorral2";
+		Sprite15 = "roca1";
+		Sprite16 = "roca2";
+		Sprite17 = "hierba_fore";
+		Sprite18 = "junco2";
+		Sprite19 = "junco1";
+	};
+	Layers:
+	{
+		NumLayers = 13;
+		Layer0:
+		{
+			Name = "Cielo";
+			Depth = 1.00000;
+			Parallax:
+			{
+				x = 0.50000;
+				y = 1.00000;
+			};
+			Sectors:
+			{
+				NumSectors = 8;
+				Sector0:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -3887.0;
+							y = -15.0;
+						};
+						Maxs:
+						{
+							x = 4657.0;
+							y = 519.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 0;
+							Position:
+							{
+								x = 385.00000;
+								y = 252.00000;
+							};
+							Scale:
+							{
+								x = 32.00000;
+								y = 2.00000;
+							};
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector1:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -2895.0;
+							y = -15.0;
+						};
+						Maxs:
+						{
+							x = 5649.0;
+							y = 519.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 0;
+							Position:
+							{
+								x = 1377.00000;
+								y = 252.00000;
+							};
+							Scale:
+							{
+								x = 32.00000;
+								y = 2.00000;
+							};
+							Depth = 1.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector2:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -1886.0;
+							y = -15.0;
+						};
+						Maxs:
+						{
+							x = 6658.0;
+							y = 519.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 0;
+							Position:
+							{
+								x = 2386.00000;
+								y = 252.00000;
+							};
+							Scale:
+							{
+								x = 32.00000;
+								y = 2.00000;
+							};
+							Depth = 2.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector3:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -894.0;
+							y = -15.0;
+						};
+						Maxs:
+						{
+							x = 7650.0;
+							y = 519.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 0;
+							Position:
+							{
+								x = 3378.00000;
+								y = 252.00000;
+							};
+							Scale:
+							{
+								x = 32.00000;
+								y = 2.00000;
+							};
+							Depth = 3.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector4:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 110.0;
+							y = -15.0;
+						};
+						Maxs:
+						{
+							x = 8654.0;
+							y = 519.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 0;
+							Position:
+							{
+								x = 4382.00000;
+								y = 252.00000;
+							};
+							Scale:
+							{
+								x = 32.00000;
+								y = 2.00000;
+							};
+							Depth = 4.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector5:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1102.0;
+							y = -15.0;
+						};
+						Maxs:
+						{
+							x = 9646.0;
+							y = 519.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 0;
+							Position:
+							{
+								x = 5374.00000;
+								y = 252.00000;
+							};
+							Scale:
+							{
+								x = 32.00000;
+								y = 2.00000;
+							};
+							Depth = 5.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector6:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2111.0;
+							y = -15.0;
+						};
+						Maxs:
+						{
+							x = 10655.0;
+							y = 519.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 0;
+							Position:
+							{
+								x = 6383.00000;
+								y = 252.00000;
+							};
+							Scale:
+							{
+								x = 32.00000;
+								y = 2.00000;
+							};
+							Depth = 6.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector7:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 3103.0;
+							y = -15.0;
+						};
+						Maxs:
+						{
+							x = 11647.0;
+							y = 519.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 0;
+							Position:
+							{
+								x = 7375.00000;
+								y = 252.00000;
+							};
+							Scale:
+							{
+								x = 32.00000;
+								y = 2.00000;
+							};
+							Depth = 7.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+			};
+		};
+		Layer1:
+		{
+			Name = "background";
+			Depth = 0.90000;
+			Parallax:
+			{
+				x = 0.75000;
+				y = 1.00000;
+			};
+			Sectors:
+			{
+				NumSectors = 12;
+				Sector0:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -37.0;
+							y = 1.5;
+						};
+						Maxs:
+						{
+							x = 259.5;
+							y = 293.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 174.00000;
+								y = 124.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 8.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 2;
+							Position:
+							{
+								x = 46.00000;
+								y = 162.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 9.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+					};
+				};
+				Sector1:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 994.1;
+							y = 56.2;
+						};
+						Maxs:
+						{
+							x = 1149.9;
+							y = 259.8;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 1072.00000;
+								y = 158.00000;
+							};
+							Scale:
+							{
+								x = 0.76324;
+								y = 0.76324;
+							};
+							Depth = 10.00000;
+							Angle = -0.14275;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+					};
+				};
+				Sector2:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1446.1;
+							y = 0.3;
+						};
+						Maxs:
+						{
+							x = 1647.9;
+							y = 265.7;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 1547.00000;
+								y = 133.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 11.00000;
+							Angle = -0.13213;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+					};
+				};
+				Sector3:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2018.7;
+							y = -4.0;
+						};
+						Maxs:
+						{
+							x = 2510.0;
+							y = 278.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 2;
+							Position:
+							{
+								x = 2110.00000;
+								y = 141.00000;
+							};
+							Scale:
+							{
+								x = 0.82180;
+								y = 0.82180;
+							};
+							Depth = 12.00000;
+							Angle = 0.23409;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 2268.00000;
+								y = 136.00000;
+							};
+							Scale:
+							{
+								x = 1.14292;
+								y = 1.14292;
+							};
+							Depth = 13.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 2;
+							Position:
+							{
+								x = 2427.00000;
+								y = 147.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 14.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+					};
+				};
+				Sector4:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2479.0;
+							y = 2.2;
+						};
+						Maxs:
+						{
+							x = 2649.0;
+							y = 245.8;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 2564.00000;
+								y = 124.00000;
+							};
+							Scale:
+							{
+								x = 0.99438;
+								y = 0.99438;
+							};
+							Depth = 15.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+					};
+				};
+				Sector5:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 3321.2;
+							y = -38.4;
+						};
+						Maxs:
+						{
+							x = 3716.0;
+							y = 252.4;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 3498.00000;
+								y = 148.00000;
+							};
+							Scale:
+							{
+								x = 0.76324;
+								y = 0.76324;
+							};
+							Depth = 16.00000;
+							Angle = -0.14275;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 2;
+							Position:
+							{
+								x = 3637.00000;
+								y = 131.00000;
+							};
+							Scale:
+							{
+								x = 0.86024;
+								y = 0.86024;
+							};
+							Depth = 17.00000;
+							Angle = -0.06864;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 2;
+							Position:
+							{
+								x = 3419.00000;
+								y = 107.00000;
+							};
+							Scale:
+							{
+								x = 1.06600;
+								y = 1.06600;
+							};
+							Depth = 18.00000;
+							Angle = -0.06864;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+					};
+				};
+				Sector6:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 3696.1;
+							y = -34.5;
+						};
+						Maxs:
+						{
+							x = 4484.0;
+							y = 302.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 3826.00000;
+								y = 134.00000;
+							};
+							Scale:
+							{
+								x = 1.25509;
+								y = 1.25509;
+							};
+							Depth = 19.00000;
+							Angle = -0.15579;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 2;
+							Position:
+							{
+								x = 4078.00000;
+								y = 145.00000;
+							};
+							Scale:
+							{
+								x = 0.82180;
+								y = 0.82180;
+							};
+							Depth = 20.00000;
+							Angle = 0.23409;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 4242.00000;
+								y = 123.00000;
+							};
+							Scale:
+							{
+								x = 1.14292;
+								y = 1.14292;
+							};
+							Depth = 21.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 2;
+							Position:
+							{
+								x = 4401.00000;
+								y = 134.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 22.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+					};
+				};
+				Sector7:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 5099.1;
+							y = -23.6;
+						};
+						Maxs:
+						{
+							x = 5760.3;
+							y = 313.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 5373.00000;
+								y = 145.00000;
+							};
+							Scale:
+							{
+								x = 1.34490;
+								y = 1.34490;
+							};
+							Depth = 23.00000;
+							Angle = -0.03449;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 5200.00000;
+								y = 131.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 24.00000;
+							Angle = -0.13213;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 2;
+							Position:
+							{
+								x = 5547.00000;
+								y = 146.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 25.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 2;
+							Position:
+							{
+								x = 5669.00000;
+								y = 146.00000;
+							};
+							Scale:
+							{
+								x = 0.82180;
+								y = 0.82180;
+							};
+							Depth = 26.00000;
+							Angle = 0.23409;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+					};
+				};
+				Sector8:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 5869.4;
+							y = -32.6;
+						};
+						Maxs:
+						{
+							x = 6361.3;
+							y = 304.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 5990.00000;
+								y = 136.00000;
+							};
+							Scale:
+							{
+								x = 1.34490;
+								y = 1.34490;
+							};
+							Depth = 27.00000;
+							Angle = -0.03449;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 2;
+							Position:
+							{
+								x = 6164.00000;
+								y = 137.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 28.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 2;
+							Position:
+							{
+								x = 6270.00000;
+								y = 146.00000;
+							};
+							Scale:
+							{
+								x = 0.82180;
+								y = 0.82180;
+							};
+							Depth = 29.00000;
+							Angle = 0.23409;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+					};
+				};
+				Sector9:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 6323.1;
+							y = 0.3;
+						};
+						Maxs:
+						{
+							x = 6970.9;
+							y = 265.7;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 6401.00000;
+								y = 158.00000;
+							};
+							Scale:
+							{
+								x = 0.76324;
+								y = 0.76324;
+							};
+							Depth = 30.00000;
+							Angle = -0.14275;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 6870.00000;
+								y = 133.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 31.00000;
+							Angle = -0.13213;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+					};
+				};
+				Sector10:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 6941.1;
+							y = -8.7;
+						};
+						Maxs:
+						{
+							x = 7692.7;
+							y = 294.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 2;
+							Position:
+							{
+								x = 7437.00000;
+								y = 159.00000;
+							};
+							Scale:
+							{
+								x = 0.82180;
+								y = 0.82180;
+							};
+							Depth = 32.00000;
+							Angle = 0.23409;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 7595.00000;
+								y = 154.00000;
+							};
+							Scale:
+							{
+								x = 1.14292;
+								y = 1.14292;
+							};
+							Depth = 33.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 7019.00000;
+								y = 149.00000;
+							};
+							Scale:
+							{
+								x = 0.76324;
+								y = 0.76324;
+							};
+							Depth = 34.00000;
+							Angle = -0.14275;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 7487.00000;
+								y = 124.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 35.00000;
+							Angle = -0.13213;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+					};
+				};
+				Sector11:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 7671.0;
+							y = 2.2;
+						};
+						Maxs:
+						{
+							x = 7976.0;
+							y = 296.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 1;
+							Position:
+							{
+								x = 7891.00000;
+								y = 124.00000;
+							};
+							Scale:
+							{
+								x = 0.99438;
+								y = 0.99438;
+							};
+							Depth = 36.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 2;
+							Position:
+							{
+								x = 7754.00000;
+								y = 165.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 37.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.00000;
+							};
+						};
+					};
+				};
+			};
+		};
+		Layer2:
+		{
+			Name = "Arboles - redondos";
+			Depth = 0.80000;
+			Parallax:
+			{
+				x = 1.00000;
+				y = 1.00000;
+			};
+			Sectors:
+			{
+				NumSectors = 10;
+				Sector0:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1.0;
+							y = -20.5;
+						};
+						Maxs:
+						{
+							x = 213.0;
+							y = 240.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 3;
+							Position:
+							{
+								x = 107.00000;
+								y = 110.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 38.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector1:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 689.5;
+							y = 10.0;
+						};
+						Maxs:
+						{
+							x = 1189.2;
+							y = 268.4;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 3;
+							Position:
+							{
+								x = 784.00000;
+								y = 156.00000;
+							};
+							Scale:
+							{
+								x = 0.80551;
+								y = 0.80551;
+							};
+							Depth = 39.00000;
+							Angle = -0.09036;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 3;
+							Position:
+							{
+								x = 1083.00000;
+								y = 136.00000;
+							};
+							Scale:
+							{
+								x = 0.90000;
+								y = 0.90000;
+							};
+							Depth = 40.00000;
+							Angle = -0.09538;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 4;
+							Position:
+							{
+								x = 872.00000;
+								y = 147.00000;
+							};
+							Scale:
+							{
+								x = 0.88055;
+								y = 0.88055;
+							};
+							Depth = 41.00000;
+							Angle = 0.05097;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector2:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1606.2;
+							y = 5.0;
+						};
+						Maxs:
+						{
+							x = 1854.5;
+							y = 271.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 3;
+							Position:
+							{
+								x = 1691.00000;
+								y = 157.00000;
+							};
+							Scale:
+							{
+								x = 0.80000;
+								y = 0.80000;
+							};
+							Depth = 42.00000;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 4;
+							Position:
+							{
+								x = 1777.00000;
+								y = 138.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 43.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector3:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2384.5;
+							y = 36.6;
+						};
+						Maxs:
+						{
+							x = 2573.5;
+							y = 261.4;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 3;
+							Position:
+							{
+								x = 2479.00000;
+								y = 149.00000;
+							};
+							Scale:
+							{
+								x = 0.80551;
+								y = 0.80551;
+							};
+							Depth = 44.00000;
+							Angle = -0.09036;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector4:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2525.7;
+							y = 17.0;
+						};
+						Maxs:
+						{
+							x = 3075.2;
+							y = 269.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 3;
+							Position:
+							{
+								x = 2969.00000;
+								y = 143.00000;
+							};
+							Scale:
+							{
+								x = 0.90000;
+								y = 0.90000;
+							};
+							Depth = 45.00000;
+							Angle = -0.09538;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 4;
+							Position:
+							{
+								x = 2593.00000;
+								y = 148.00000;
+							};
+							Scale:
+							{
+								x = 0.80000;
+								y = 0.80000;
+							};
+							Depth = 46.00000;
+							Angle = 0.05097;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector5:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 7989.5;
+							y = 39.6;
+						};
+						Maxs:
+						{
+							x = 8224.3;
+							y = 265.4;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 3;
+							Position:
+							{
+								x = 8084.00000;
+								y = 153.00000;
+							};
+							Scale:
+							{
+								x = 0.80551;
+								y = 0.80551;
+							};
+							Depth = 47.00000;
+							Angle = -0.09036;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 4;
+							Position:
+							{
+								x = 8157.00000;
+								y = 149.00000;
+							};
+							Scale:
+							{
+								x = 0.80000;
+								y = 0.80000;
+							};
+							Depth = 48.00000;
+							Angle = 0.05097;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector6:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 8276.8;
+							y = 7.0;
+						};
+						Maxs:
+						{
+							x = 8489.2;
+							y = 259.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 3;
+							Position:
+							{
+								x = 8383.00000;
+								y = 133.00000;
+							};
+							Scale:
+							{
+								x = 0.90000;
+								y = 0.90000;
+							};
+							Depth = 49.00000;
+							Angle = -0.09538;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector7:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 8906.2;
+							y = -22.0;
+						};
+						Maxs:
+						{
+							x = 9148.5;
+							y = 258.4;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 3;
+							Position:
+							{
+								x = 8991.00000;
+								y = 154.00000;
+							};
+							Scale:
+							{
+								x = 0.80000;
+								y = 0.80000;
+							};
+							Depth = 50.00000;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 4;
+							Position:
+							{
+								x = 9071.00000;
+								y = 111.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 51.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector8:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 9684.5;
+							y = 33.6;
+						};
+						Maxs:
+						{
+							x = 9943.3;
+							y = 258.4;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 3;
+							Position:
+							{
+								x = 9779.00000;
+								y = 146.00000;
+							};
+							Scale:
+							{
+								x = 0.80551;
+								y = 0.80551;
+							};
+							Depth = 52.00000;
+							Angle = -0.09036;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 4;
+							Position:
+							{
+								x = 9876.00000;
+								y = 147.00000;
+							};
+							Scale:
+							{
+								x = 0.80000;
+								y = 0.80000;
+							};
+							Depth = 53.00000;
+							Angle = 0.05097;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector9:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 10158.8;
+							y = 20.0;
+						};
+						Maxs:
+						{
+							x = 10371.2;
+							y = 272.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 3;
+							Position:
+							{
+								x = 10265.00000;
+								y = 146.00000;
+							};
+							Scale:
+							{
+								x = 0.90000;
+								y = 0.90000;
+							};
+							Depth = 54.00000;
+							Angle = -0.09538;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+					};
+				};
+			};
+		};
+		Layer3:
+		{
+			Name = "Arboles - otros";
+			Depth = 0.75000;
+			Parallax:
+			{
+				x = 1.00000;
+				y = 1.00000;
+			};
+			Sectors:
+			{
+				NumSectors = 11;
+				Sector0:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 449.2;
+							y = -36.8;
+						};
+						Maxs:
+						{
+							x = 1081.5;
+							y = 273.8;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 529.00000;
+								y = 146.00000;
+							};
+							Scale:
+							{
+								x = 0.80000;
+								y = 0.80000;
+							};
+							Depth = 55.00000;
+							Angle = -0.11513;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 676.00000;
+								y = 115.00000;
+							};
+							Scale:
+							{
+								x = 1.10000;
+								y = 1.10000;
+							};
+							Depth = 56.00000;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 977.00000;
+								y = 120.00000;
+							};
+							Scale:
+							{
+								x = 1.04757;
+								y = 1.04757;
+							};
+							Depth = 57.00000;
+							Angle = -0.11513;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector1:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1286.9;
+							y = -27.6;
+						};
+						Maxs:
+						{
+							x = 1690.2;
+							y = 271.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 1381.00000;
+								y = 120.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 58.00000;
+							Angle = -0.07144;
+							Color:
+							{
+								r = 0.75294;
+								g = 0.75294;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 1585.00000;
+								y = 122.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 59.00000;
+							Angle = -0.15795;
+							Color:
+							{
+								r = 0.75294;
+								b = 0.75294;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 1527.00000;
+								y = 134.00000;
+							};
+							Scale:
+							{
+								x = 0.90000;
+								y = 0.90000;
+							};
+							Depth = 60.00000;
+							Angle = 0.15136;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector2:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1754.3;
+							y = -46.8;
+						};
+						Maxs:
+						{
+							x = 2298.9;
+							y = 278.8;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 1868.00000;
+								y = 127.00000;
+							};
+							Scale:
+							{
+								x = 0.98323;
+								y = 0.98323;
+							};
+							Depth = 61.00000;
+							Angle = 0.24635;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 2079.00000;
+								y = 148.00000;
+							};
+							Scale:
+							{
+								x = 0.80000;
+								y = 0.80000;
+							};
+							Depth = 62.00000;
+							Angle = -0.11513;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 2206.00000;
+								y = 105.00000;
+							};
+							Scale:
+							{
+								x = 1.10000;
+								y = 1.10000;
+							};
+							Depth = 63.00000;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector3:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2622.5;
+							y = -33.8;
+						};
+						Maxs:
+						{
+							x = 2831.5;
+							y = 273.8;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 2727.00000;
+								y = 120.00000;
+							};
+							Scale:
+							{
+								x = 1.04757;
+								y = 1.04757;
+							};
+							Depth = 64.00000;
+							Angle = -0.11513;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector4:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 3046.9;
+							y = -26.0;
+						};
+						Maxs:
+						{
+							x = 3597.9;
+							y = 288.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 3141.00000;
+								y = 126.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 65.00000;
+							Angle = -0.07144;
+							Color:
+							{
+								r = 0.75294;
+								g = 0.75294;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 3476.00000;
+								y = 131.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 66.00000;
+							Angle = -0.30389;
+							Color:
+							{
+								r = 0.75294;
+								b = 0.75294;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 3296.00000;
+								y = 136.00000;
+							};
+							Scale:
+							{
+								x = 0.90000;
+								y = 0.90000;
+							};
+							Depth = 67.00000;
+							Angle = 0.15136;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector5:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 7886.0;
+							y = -39.8;
+						};
+						Maxs:
+						{
+							x = 8072.0;
+							y = 263.8;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 7979.00000;
+								y = 112.00000;
+							};
+							Scale:
+							{
+								x = 1.10000;
+								y = 1.10000;
+							};
+							Depth = 68.00000;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector6:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 8170.5;
+							y = -34.8;
+						};
+						Maxs:
+						{
+							x = 8777.1;
+							y = 272.8;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 8275.00000;
+								y = 119.00000;
+							};
+							Scale:
+							{
+								x = 1.04757;
+								y = 1.04757;
+							};
+							Depth = 69.00000;
+							Angle = -0.11513;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 8683.00000;
+								y = 121.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 70.00000;
+							Angle = -0.07144;
+							Color:
+							{
+								r = 0.75294;
+								g = 0.75294;
+							};
+						};
+					};
+				};
+				Sector7:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 8733.1;
+							y = -24.6;
+						};
+						Maxs:
+						{
+							x = 9458.8;
+							y = 281.8;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 8885.00000;
+								y = 125.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 71.00000;
+							Angle = -0.15795;
+							Color:
+							{
+								r = 0.75294;
+								b = 0.75294;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 8827.00000;
+								y = 131.00000;
+							};
+							Scale:
+							{
+								x = 0.90000;
+								y = 0.90000;
+							};
+							Depth = 72.00000;
+							Angle = 0.15136;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 9155.00000;
+								y = 130.00000;
+							};
+							Scale:
+							{
+								x = 0.98323;
+								y = 0.98323;
+							};
+							Depth = 73.00000;
+							Angle = 0.24635;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 9379.00000;
+								y = 145.00000;
+							};
+							Scale:
+							{
+								x = 0.80000;
+								y = 0.80000;
+							};
+							Depth = 74.00000;
+							Angle = -0.11513;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector8:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 9409.0;
+							y = -41.8;
+						};
+						Maxs:
+						{
+							x = 10131.5;
+							y = 270.8;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 9502.00000;
+								y = 110.00000;
+							};
+							Scale:
+							{
+								x = 1.10000;
+								y = 1.10000;
+							};
+							Depth = 75.00000;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 10027.00000;
+								y = 117.00000;
+							};
+							Scale:
+							{
+								x = 1.04757;
+								y = 1.04757;
+							};
+							Depth = 76.00000;
+							Angle = -0.11513;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector9:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 10344.9;
+							y = -22.7;
+						};
+						Maxs:
+						{
+							x = 10677.9;
+							y = 279.2;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 10439.00000;
+								y = 121.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 77.00000;
+							Angle = -0.07144;
+							Color:
+							{
+								r = 0.75294;
+								g = 0.75294;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 10584.00000;
+								y = 145.00000;
+							};
+							Scale:
+							{
+								x = 0.90000;
+								y = 0.90000;
+							};
+							Depth = 78.00000;
+							Angle = 0.15136;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector10:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 10670.8;
+							y = -21.6;
+						};
+						Maxs:
+						{
+							x = 10881.2;
+							y = 277.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 5;
+							Position:
+							{
+								x = 10776.00000;
+								y = 128.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 79.00000;
+							Angle = -0.15795;
+							Color:
+							{
+								r = 0.75294;
+								b = 0.75294;
+							};
+						};
+					};
+				};
+			};
+		};
+		Layer4:
+		{
+			Name = "Suelo";
+			Depth = 0.70000;
+			Parallax:
+			{
+				x = 1.00000;
+				y = 1.00000;
+			};
+			Sectors:
+			{
+				NumSectors = 14;
+				Sector0:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -7144.5;
+							y = -757.6;
+						};
+						Maxs:
+						{
+							x = 7996.5;
+							y = 1501.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 6;
+							Position:
+							{
+								x = 426.00000;
+								y = 372.00000;
+							};
+							Scale:
+							{
+								x = 2.0;
+								y = 1.0678;
+							};
+							Depth = 80.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector1:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -6246.5;
+							y = -757.6;
+						};
+						Maxs:
+						{
+							x = 8894.5;
+							y = 1501.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 6;
+							Position:
+							{
+								x = 1324.00000;
+								y = 372.00000;
+							};
+							Scale:
+							{
+								x = 2.0;
+								y = 1.0678;
+							};
+							Depth = 81.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector2:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -5343.5;
+							y = -757.6;
+						};
+						Maxs:
+						{
+							x = 9797.5;
+							y = 1501.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 6;
+							Position:
+							{
+								x = 2227.00000;
+								y = 372.00000;
+							};
+							Scale:
+							{
+								x = 2.0;
+								y = 1.0678;
+							};
+							Depth = 82.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector3:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -4445.5;
+							y = -757.6;
+						};
+						Maxs:
+						{
+							x = 10695.5;
+							y = 1501.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 6;
+							Position:
+							{
+								x = 3125.00000;
+								y = 372.00000;
+							};
+							Scale:
+							{
+								x = 2.0;
+								y = 1.0678;
+							};
+							Depth = 83.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector4:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -3551.5;
+							y = -757.6;
+						};
+						Maxs:
+						{
+							x = 11589.5;
+							y = 1501.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 6;
+							Position:
+							{
+								x = 4019.00000;
+								y = 372.00000;
+							};
+							Scale:
+							{
+								x = 2.0;
+								y = 1.0678;
+							};
+							Depth = 84.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector5:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -2653.5;
+							y = -757.6;
+						};
+						Maxs:
+						{
+							x = 12487.5;
+							y = 1501.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 6;
+							Position:
+							{
+								x = 4917.00000;
+								y = 372.00000;
+							};
+							Scale:
+							{
+								x = 2.0;
+								y = 1.0678;
+							};
+							Depth = 85.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector6:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -1750.5;
+							y = -757.6;
+						};
+						Maxs:
+						{
+							x = 13390.5;
+							y = 1501.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 6;
+							Position:
+							{
+								x = 5820.00000;
+								y = 372.00000;
+							};
+							Scale:
+							{
+								x = 2.0;
+								y = 1.0678;
+							};
+							Depth = 86.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector7:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -852.5;
+							y = -757.6;
+						};
+						Maxs:
+						{
+							x = 14288.5;
+							y = 1501.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 6;
+							Position:
+							{
+								x = 6718.00000;
+								y = 372.00000;
+							};
+							Scale:
+							{
+								x = 2.0;
+								y = 1.0678;
+							};
+							Depth = 87.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector8:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 46.5;
+							y = -757.6;
+						};
+						Maxs:
+						{
+							x = 15187.5;
+							y = 1501.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 6;
+							Position:
+							{
+								x = 7617.00000;
+								y = 372.00000;
+							};
+							Scale:
+							{
+								x = 2.0;
+								y = 1.0678;
+							};
+							Depth = 88.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector9:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 940.5;
+							y = -757.6;
+						};
+						Maxs:
+						{
+							x = 16081.5;
+							y = 1501.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 6;
+							Position:
+							{
+								x = 8511.00000;
+								y = 372.00000;
+							};
+							Scale:
+							{
+								x = 2.0;
+								y = 1.0678;
+							};
+							Depth = 89.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector10:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1836.5;
+							y = -757.6;
+						};
+						Maxs:
+						{
+							x = 16977.5;
+							y = 1501.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 6;
+							Position:
+							{
+								x = 9407.00000;
+								y = 372.00000;
+							};
+							Scale:
+							{
+								x = 2.0;
+								y = 1.0678;
+							};
+							Depth = 90.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector11:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2740.5;
+							y = -757.6;
+						};
+						Maxs:
+						{
+							x = 17881.5;
+							y = 1501.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 6;
+							Position:
+							{
+								x = 10311.00000;
+								y = 372.00000;
+							};
+							Scale:
+							{
+								x = 2.0;
+								y = 1.0678;
+							};
+							Depth = 91.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector12:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 3623.5;
+							y = -757.6;
+						};
+						Maxs:
+						{
+							x = 18764.5;
+							y = 1501.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 6;
+							Position:
+							{
+								x = 11194.00000;
+								y = 372.00000;
+							};
+							Scale:
+							{
+								x = 2.0;
+								y = 1.0678;
+							};
+							Depth = 92.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector13:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 4506.5;
+							y = -757.6;
+						};
+						Maxs:
+						{
+							x = 19647.5;
+							y = 1501.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 6;
+							Position:
+							{
+								x = 12077.00000;
+								y = 372.00000;
+							};
+							Scale:
+							{
+								x = 2.0;
+								y = 1.0678;
+							};
+							Depth = 93.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+			};
+		};
+		Layer5:
+		{
+			Name = "Suelo - Detail";
+			Depth = 0.65000;
+			Parallax:
+			{
+				x = 1.00000;
+				y = 1.00000;
+			};
+			Sectors:
+			{
+				NumSectors = 19;
+				Sector0:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 86.0;
+							y = 302.0;
+						};
+						Maxs:
+						{
+							x = 810.0;
+							y = 395.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 230.00000;
+								y = 320.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 94.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 8;
+							Position:
+							{
+								x = 666.00000;
+								y = 359.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 95.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector1:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 798.0;
+							y = 339.0;
+						};
+						Maxs:
+						{
+							x = 1434.0;
+							y = 480.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 8;
+							Position:
+							{
+								x = 1290.00000;
+								y = 375.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 96.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 9;
+							Position:
+							{
+								x = 834.00000;
+								y = 444.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 97.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector2:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1318.0;
+							y = 296.0;
+						};
+						Maxs:
+						{
+							x = 1606.0;
+							y = 332.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 1462.00000;
+								y = 314.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 98.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector3:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1996.0;
+							y = 296.0;
+						};
+						Maxs:
+						{
+							x = 2538.0;
+							y = 472.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 8;
+							Position:
+							{
+								x = 2394.00000;
+								y = 400.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 99.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 2140.00000;
+								y = 314.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 100.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 9;
+							Position:
+							{
+								x = 2288.00000;
+								y = 436.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 101.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector4:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2616.0;
+							y = 304.0;
+						};
+						Maxs:
+						{
+							x = 3340.0;
+							y = 399.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 2760.00000;
+								y = 322.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 102.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 8;
+							Position:
+							{
+								x = 3196.00000;
+								y = 363.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 103.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector5:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 3328.0;
+							y = 343.0;
+						};
+						Maxs:
+						{
+							x = 3964.0;
+							y = 484.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 8;
+							Position:
+							{
+								x = 3820.00000;
+								y = 379.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 104.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 9;
+							Position:
+							{
+								x = 3364.00000;
+								y = 448.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 105.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector6:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 3848.0;
+							y = 300.0;
+						};
+						Maxs:
+						{
+							x = 4136.0;
+							y = 336.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 3992.00000;
+								y = 318.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 106.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector7:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 4526.0;
+							y = 300.0;
+						};
+						Maxs:
+						{
+							x = 5068.0;
+							y = 476.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 8;
+							Position:
+							{
+								x = 4924.00000;
+								y = 404.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 107.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 4670.00000;
+								y = 318.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 108.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 9;
+							Position:
+							{
+								x = 4818.00000;
+								y = 440.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 109.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector8:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 5148.0;
+							y = 308.0;
+						};
+						Maxs:
+						{
+							x = 5872.0;
+							y = 403.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 5292.00000;
+								y = 326.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 110.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 8;
+							Position:
+							{
+								x = 5728.00000;
+								y = 367.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 111.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector9:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 5860.0;
+							y = 347.0;
+						};
+						Maxs:
+						{
+							x = 6496.0;
+							y = 488.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 8;
+							Position:
+							{
+								x = 6352.00000;
+								y = 383.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 112.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 9;
+							Position:
+							{
+								x = 5896.00000;
+								y = 452.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 113.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector10:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 6380.0;
+							y = 304.0;
+						};
+						Maxs:
+						{
+							x = 6668.0;
+							y = 340.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 6524.00000;
+								y = 322.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 114.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector11:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 7058.0;
+							y = 304.0;
+						};
+						Maxs:
+						{
+							x = 7600.0;
+							y = 480.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 8;
+							Position:
+							{
+								x = 7456.00000;
+								y = 408.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 115.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 7202.00000;
+								y = 322.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 116.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 9;
+							Position:
+							{
+								x = 7350.00000;
+								y = 444.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 117.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector12:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 7678.0;
+							y = 312.0;
+						};
+						Maxs:
+						{
+							x = 8402.0;
+							y = 407.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 7822.00000;
+								y = 330.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 118.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 8;
+							Position:
+							{
+								x = 8258.00000;
+								y = 371.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 119.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector13:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 8390.0;
+							y = 351.0;
+						};
+						Maxs:
+						{
+							x = 9026.0;
+							y = 492.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 8;
+							Position:
+							{
+								x = 8882.00000;
+								y = 387.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 120.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 9;
+							Position:
+							{
+								x = 8426.00000;
+								y = 456.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 121.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector14:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 8910.0;
+							y = 308.0;
+						};
+						Maxs:
+						{
+							x = 9198.0;
+							y = 344.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 9054.00000;
+								y = 326.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 122.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector15:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 9588.0;
+							y = 308.0;
+						};
+						Maxs:
+						{
+							x = 10130.0;
+							y = 484.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 8;
+							Position:
+							{
+								x = 9986.00000;
+								y = 412.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 123.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 9732.00000;
+								y = 326.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 124.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 9;
+							Position:
+							{
+								x = 9880.00000;
+								y = 448.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 125.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector16:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 10238.0;
+							y = 304.0;
+						};
+						Maxs:
+						{
+							x = 10698.0;
+							y = 419.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 10554.00000;
+								y = 322.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 126.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 8;
+							Position:
+							{
+								x = 10382.00000;
+								y = 383.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 127.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector17:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 11088.0;
+							y = 304.0;
+						};
+						Maxs:
+						{
+							x = 11630.0;
+							y = 480.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 8;
+							Position:
+							{
+								x = 11486.00000;
+								y = 408.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 128.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 11232.00000;
+								y = 322.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 129.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 9;
+							Position:
+							{
+								x = 11380.00000;
+								y = 444.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 130.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector18:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 11708.0;
+							y = 312.0;
+						};
+						Maxs:
+						{
+							x = 11996.0;
+							y = 348.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 7;
+							Position:
+							{
+								x = 11852.00000;
+								y = 330.00000;
+							};
+							Scale:
+							{
+								x = 1.12530;
+								y = 1.12530;
+							};
+							Depth = 131.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+			};
+		};
+		Layer6:
+		{
+			Name = "PreTransicion";
+			Depth = 0.60000;
+			Parallax:
+			{
+				x = 1.00000;
+				y = 1.00000;
+			};
+			Sectors:
+			{
+				NumSectors = 5;
+				Sector0:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 56.4;
+							y = 170.4;
+						};
+						Maxs:
+						{
+							x = 593.5;
+							y = 242.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 89.00000;
+								y = 203.00000;
+							};
+							Scale:
+							{
+								x = 0.50933;
+								y = 0.50933;
+							};
+							Depth = 132.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 558.00000;
+								y = 207.00000;
+							};
+							Scale:
+							{
+								x = 0.48987;
+								y = 0.48987;
+							};
+							Depth = 133.00000;
+							Angle = -0.14214;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector1:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 940.0;
+							y = 179.2;
+						};
+						Maxs:
+						{
+							x = 1154.1;
+							y = 242.8;
+						};
+					};
+					Elements:
+					{
+						NumElements = 5;
+						Element0:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 1055.00000;
+								y = 211.00000;
+							};
+							Scale:
+							{
+								x = 0.44925;
+								y = 0.44925;
+							};
+							Depth = 134.00000;
+							Angle = 0.11349;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 1128.00000;
+								y = 211.00000;
+							};
+							Scale:
+							{
+								x = 0.39002;
+								y = 0.39002;
+							};
+							Depth = 135.00000;
+							Angle = 0.04552;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 1002.00000;
+								y = 208.00000;
+							};
+							Scale:
+							{
+								x = 0.44963;
+								y = 0.44963;
+							};
+							Depth = 136.00000;
+							Color:
+							{
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 963.00000;
+								y = 207.00000;
+							};
+							Scale:
+							{
+								x = 0.35886;
+								y = 0.35886;
+							};
+							Depth = 137.00000;
+							Color:
+							{
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 1023.00000;
+								y = 214.00000;
+							};
+							Scale:
+							{
+								x = 0.33254;
+								y = 0.33254;
+							};
+							Depth = 138.00000;
+							Angle = -0.14214;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector2:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1718.1;
+							y = 175.1;
+						};
+						Maxs:
+						{
+							x = 1891.6;
+							y = 244.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 1782.00000;
+								y = 212.00000;
+							};
+							Scale:
+							{
+								x = 0.37932;
+								y = 0.37932;
+							};
+							Depth = 139.00000;
+							Angle = -0.14214;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 1818.00000;
+								y = 209.00000;
+							};
+							Scale:
+							{
+								x = 0.38793;
+								y = 0.38793;
+							};
+							Depth = 140.00000;
+							Angle = 0.11349;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 1857.00000;
+								y = 210.00000;
+							};
+							Scale:
+							{
+								x = 0.51790;
+								y = 0.51790;
+							};
+							Depth = 141.00000;
+							Angle = 0.04552;
+							Color:
+							{
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 1746.00000;
+								y = 203.00000;
+							};
+							Scale:
+							{
+								x = 0.43558;
+								y = 0.43558;
+							};
+							Depth = 142.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector3:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2148.6;
+							y = 175.6;
+						};
+						Maxs:
+						{
+							x = 2215.4;
+							y = 242.4;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 2182.00000;
+								y = 209.00000;
+							};
+							Scale:
+							{
+								x = 0.52235;
+								y = 0.52235;
+							};
+							Depth = 143.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector4:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 3028.9;
+							y = 174.6;
+						};
+						Maxs:
+						{
+							x = 3244.9;
+							y = 241.9;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 3060.00000;
+								y = 210.00000;
+							};
+							Scale:
+							{
+								x = 0.48660;
+								y = 0.48660;
+							};
+							Depth = 144.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 3108.00000;
+								y = 208.00000;
+							};
+							Scale:
+							{
+								x = 0.46082;
+								y = 0.46082;
+							};
+							Depth = 145.00000;
+							Angle = -0.14214;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 3168.00000;
+								y = 208.00000;
+							};
+							Scale:
+							{
+								x = 0.37603;
+								y = 0.37603;
+							};
+							Depth = 146.00000;
+							Angle = 0.11349;
+							Color:
+							{
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 10;
+							Position:
+							{
+								x = 3213.00000;
+								y = 210.00000;
+							};
+							Scale:
+							{
+								x = 0.47713;
+								y = 0.47713;
+							};
+							Depth = 147.00000;
+							Angle = 0.04552;
+							Color:
+							{
+							};
+						};
+					};
+				};
+			};
+		};
+		Layer7:
+		{
+			Name = "Transicion";
+			Depth = 0.55000;
+			Parallax:
+			{
+				x = 1.00000;
+				y = 1.00000;
+			};
+			Sectors:
+			{
+				NumSectors = 19;
+				Sector0:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -100.0;
+							y = 202.0;
+						};
+						Maxs:
+						{
+							x = 521.0;
+							y = 266.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 28.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 148.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 210.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 149.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 393.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 150.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector1:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 449.0;
+							y = 200.0;
+						};
+						Maxs:
+						{
+							x = 1253.0;
+							y = 266.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 577.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 151.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 759.00000;
+								y = 232.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 152.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 942.00000;
+								y = 232.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 153.00000;
+							Color:
+							{
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 1125.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 154.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector2:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1179.0;
+							y = 199.0;
+						};
+						Maxs:
+						{
+							x = 1801.0;
+							y = 266.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 1307.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 155.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 1490.00000;
+								y = 231.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 156.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 1673.00000;
+								y = 233.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 157.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector3:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1728.0;
+							y = 198.0;
+						};
+						Maxs:
+						{
+							x = 2578.0;
+							y = 266.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 1856.00000;
+								y = 230.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 158.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 2038.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 159.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 2268.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 160.00000;
+							Color:
+							{
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 2450.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 161.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector4:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2505.0;
+							y = 201.0;
+						};
+						Maxs:
+						{
+							x = 3126.0;
+							y = 268.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 2633.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 162.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 2817.00000;
+								y = 236.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 163.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 2998.00000;
+								y = 233.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 164.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector5:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 3051.0;
+							y = 199.0;
+						};
+						Maxs:
+						{
+							x = 3855.0;
+							y = 267.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 3179.00000;
+								y = 233.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 165.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 3361.00000;
+								y = 235.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 166.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 3544.00000;
+								y = 235.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 167.00000;
+							Color:
+							{
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 3727.00000;
+								y = 231.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 168.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector6:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 3782.0;
+							y = 197.0;
+						};
+						Maxs:
+						{
+							x = 4403.0;
+							y = 265.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 3910.00000;
+								y = 233.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 169.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 4092.00000;
+								y = 230.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 170.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 4275.00000;
+								y = 229.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 171.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector7:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 4330.0;
+							y = 199.0;
+						};
+						Maxs:
+						{
+							x = 5133.0;
+							y = 265.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 4458.00000;
+								y = 232.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 172.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 4639.00000;
+								y = 233.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 173.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 4822.00000;
+								y = 231.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 174.00000;
+							Color:
+							{
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 5005.00000;
+								y = 233.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 175.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector8:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 5058.0;
+							y = 197.0;
+						};
+						Maxs:
+						{
+							x = 5679.0;
+							y = 263.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 5186.00000;
+								y = 230.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 176.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 5368.00000;
+								y = 229.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 177.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 5551.00000;
+								y = 231.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 178.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector9:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 5605.0;
+							y = 195.0;
+						};
+						Maxs:
+						{
+							x = 6407.0;
+							y = 263.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 5733.00000;
+								y = 231.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 179.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 5915.00000;
+								y = 228.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 180.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 6098.00000;
+								y = 231.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 181.00000;
+							Color:
+							{
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 6279.00000;
+								y = 227.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 182.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector10:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 6333.0;
+							y = 195.0;
+						};
+						Maxs:
+						{
+							x = 6952.0;
+							y = 261.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 6461.00000;
+								y = 227.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 183.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 6643.00000;
+								y = 229.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 184.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 6824.00000;
+								y = 229.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 185.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector11:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 6878.0;
+							y = 194.0;
+						};
+						Maxs:
+						{
+							x = 7684.0;
+							y = 261.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 7006.00000;
+								y = 226.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 186.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 7190.00000;
+								y = 229.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 187.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 7373.00000;
+								y = 226.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 188.00000;
+							Color:
+							{
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 7556.00000;
+								y = 226.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 189.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector12:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 7608.0;
+							y = 192.0;
+						};
+						Maxs:
+						{
+							x = 8231.0;
+							y = 260.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 7736.00000;
+								y = 228.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 190.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 7919.00000;
+								y = 228.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 191.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 8103.00000;
+								y = 224.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 192.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector13:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 8175.0;
+							y = 202.0;
+						};
+						Maxs:
+						{
+							x = 8978.0;
+							y = 266.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 8303.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 193.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 8487.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 194.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 8667.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 195.00000;
+							Color:
+							{
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 8850.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 196.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector14:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 8905.0;
+							y = 202.0;
+						};
+						Maxs:
+						{
+							x = 9526.0;
+							y = 266.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 9033.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 197.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 9215.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 198.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 9398.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 199.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector15:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 9454.0;
+							y = 202.0;
+						};
+						Maxs:
+						{
+							x = 10262.0;
+							y = 266.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 9582.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 200.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 9766.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 201.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 9950.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 202.00000;
+							Color:
+							{
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 10134.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 203.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector16:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 10188.0;
+							y = 202.0;
+						};
+						Maxs:
+						{
+							x = 10811.0;
+							y = 266.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 10316.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 204.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 10499.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 205.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 10683.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 206.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector17:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 10739.0;
+							y = 202.0;
+						};
+						Maxs:
+						{
+							x = 11533.0;
+							y = 266.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 10867.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 207.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 11043.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 208.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 11223.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 209.00000;
+							Color:
+							{
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 11405.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 210.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector18:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 11460.0;
+							y = 202.0;
+						};
+						Maxs:
+						{
+							x = 12084.0;
+							y = 266.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 11588.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 211.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 11;
+							Position:
+							{
+								x = 11772.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 212.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 12;
+							Position:
+							{
+								x = 11956.00000;
+								y = 234.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 213.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+			};
+		};
+		Layer8:
+		{
+			Name = "PostTransicion";
+			Depth = 0.54000;
+			Parallax:
+			{
+				x = 1.00000;
+				y = 1.00000;
+			};
+			Sectors:
+			{
+				NumSectors = 13;
+				Sector0:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -58.3;
+							y = 175.8;
+						};
+						Maxs:
+						{
+							x = 202.4;
+							y = 268.2;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 34.00000;
+								y = 222.00000;
+							};
+							Scale:
+							{
+								x = 0.72114;
+								y = 0.72114;
+							};
+							Depth = 214.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 14;
+							Position:
+							{
+								x = 147.00000;
+								y = 228.00000;
+							};
+							Scale:
+							{
+								x = 0.43293;
+								y = 0.43293;
+							};
+							Depth = 215.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector1:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 685.5;
+							y = 159.8;
+						};
+						Maxs:
+						{
+							x = 1168.8;
+							y = 270.2;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 768.00000;
+								y = 215.00000;
+							};
+							Scale:
+							{
+								x = 0.60979;
+								y = 0.60979;
+							};
+							Depth = 216.00000;
+							Angle = -0.13230;
+							Color:
+							{
+								r = 0.87843;
+								g = 0.87843;
+								b = 0.87843;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 14;
+							Position:
+							{
+								x = 834.00000;
+								y = 229.00000;
+							};
+							Scale:
+							{
+								x = 0.42907;
+								y = 0.42907;
+							};
+							Depth = 217.00000;
+							Angle = 0.10938;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 1073.00000;
+								y = 215.00000;
+							};
+							Scale:
+							{
+								x = 0.71442;
+								y = 0.71442;
+							};
+							Depth = 218.00000;
+							Angle = -0.10642;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector2:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1444.1;
+							y = 123.2;
+						};
+						Maxs:
+						{
+							x = 1626.6;
+							y = 263.8;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 15;
+							Position:
+							{
+								x = 1484.00000;
+								y = 169.00000;
+							};
+							Scale:
+							{
+								x = 0.58303;
+								y = 0.58303;
+							};
+							Depth = 219.00000;
+							Angle = -4.74457;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 14;
+							Position:
+							{
+								x = 1537.00000;
+								y = 219.00000;
+							};
+							Scale:
+							{
+								x = 0.70000;
+								y = 0.70000;
+							};
+							Depth = 220.00000;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector3:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1895.7;
+							y = 175.5;
+						};
+						Maxs:
+						{
+							x = 2391.4;
+							y = 271.2;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 2138.00000;
+								y = 225.00000;
+							};
+							Scale:
+							{
+								x = 0.72114;
+								y = 0.72114;
+							};
+							Depth = 221.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 14;
+							Position:
+							{
+								x = 2222.00000;
+								y = 232.00000;
+							};
+							Scale:
+							{
+								x = 0.43293;
+								y = 0.43293;
+							};
+							Depth = 222.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 16;
+							Position:
+							{
+								x = 2360.00000;
+								y = 223.00000;
+							};
+							Scale:
+							{
+								x = 0.68316;
+								y = 0.68316;
+							};
+							Depth = 223.00000;
+							Color:
+							{
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 1989.00000;
+								y = 223.00000;
+							};
+							Scale:
+							{
+								x = 0.72426;
+								y = 0.72426;
+							};
+							Depth = 224.00000;
+							Angle = 0.01275;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector4:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2486.7;
+							y = 176.5;
+						};
+						Maxs:
+						{
+							x = 3078.6;
+							y = 271.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 2788.00000;
+								y = 223.00000;
+							};
+							Scale:
+							{
+								x = 0.60000;
+								y = 0.60000;
+							};
+							Depth = 225.00000;
+							Color:
+							{
+								r = 0.87843;
+								g = 0.87843;
+								b = 0.87843;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 14;
+							Position:
+							{
+								x = 2989.00000;
+								y = 225.00000;
+							};
+							Scale:
+							{
+								x = 0.70000;
+								y = 0.70000;
+							};
+							Depth = 226.00000;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 2580.00000;
+								y = 224.00000;
+							};
+							Scale:
+							{
+								x = 0.72426;
+								y = 0.72426;
+							};
+							Depth = 227.00000;
+							Angle = 0.01275;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector5:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 4495.7;
+							y = 165.5;
+						};
+						Maxs:
+						{
+							x = 4991.4;
+							y = 261.2;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 4738.00000;
+								y = 215.00000;
+							};
+							Scale:
+							{
+								x = 0.72114;
+								y = 0.72114;
+							};
+							Depth = 228.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 14;
+							Position:
+							{
+								x = 4822.00000;
+								y = 222.00000;
+							};
+							Scale:
+							{
+								x = 0.43293;
+								y = 0.43293;
+							};
+							Depth = 229.00000;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 16;
+							Position:
+							{
+								x = 4960.00000;
+								y = 213.00000;
+							};
+							Scale:
+							{
+								x = 0.68316;
+								y = 0.68316;
+							};
+							Depth = 230.00000;
+							Color:
+							{
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 4589.00000;
+								y = 213.00000;
+							};
+							Scale:
+							{
+								x = 0.72426;
+								y = 0.72426;
+							};
+							Depth = 231.00000;
+							Angle = 0.01275;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector6:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 5086.7;
+							y = 166.5;
+						};
+						Maxs:
+						{
+							x = 5678.6;
+							y = 261.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 5388.00000;
+								y = 213.00000;
+							};
+							Scale:
+							{
+								x = 0.60000;
+								y = 0.60000;
+							};
+							Depth = 232.00000;
+							Color:
+							{
+								r = 0.87843;
+								g = 0.87843;
+								b = 0.87843;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 14;
+							Position:
+							{
+								x = 5589.00000;
+								y = 215.00000;
+							};
+							Scale:
+							{
+								x = 0.70000;
+								y = 0.70000;
+							};
+							Depth = 233.00000;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 5180.00000;
+								y = 214.00000;
+							};
+							Scale:
+							{
+								x = 0.72426;
+								y = 0.72426;
+							};
+							Depth = 234.00000;
+							Angle = 0.01275;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector7:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 8095.6;
+							y = 179.8;
+						};
+						Maxs:
+						{
+							x = 8294.3;
+							y = 272.2;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 8202.00000;
+								y = 226.00000;
+							};
+							Scale:
+							{
+								x = 0.72114;
+								y = 0.72114;
+							};
+							Depth = 235.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 14;
+							Position:
+							{
+								x = 8151.00000;
+								y = 241.00000;
+							};
+							Scale:
+							{
+								x = 0.43293;
+								y = 0.43293;
+							};
+							Depth = 236.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector8:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 8715.5;
+							y = 166.0;
+						};
+						Maxs:
+						{
+							x = 8921.6;
+							y = 264.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 8798.00000;
+								y = 215.00000;
+							};
+							Scale:
+							{
+								x = 0.60979;
+								y = 0.60979;
+							};
+							Depth = 237.00000;
+							Angle = -0.13230;
+							Color:
+							{
+								r = 0.87843;
+								g = 0.87843;
+								b = 0.87843;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 14;
+							Position:
+							{
+								x = 8864.00000;
+								y = 229.00000;
+							};
+							Scale:
+							{
+								x = 0.42907;
+								y = 0.42907;
+							};
+							Depth = 238.00000;
+							Angle = 0.10938;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector9:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 9007.2;
+							y = 159.8;
+						};
+						Maxs:
+						{
+							x = 9198.8;
+							y = 270.2;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 9103.00000;
+								y = 215.00000;
+							};
+							Scale:
+							{
+								x = 0.71442;
+								y = 0.71442;
+							};
+							Depth = 239.00000;
+							Angle = -0.10642;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector10:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 9503.4;
+							y = 96.2;
+						};
+						Maxs:
+						{
+							x = 10260.3;
+							y = 271.2;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 10168.00000;
+								y = 225.00000;
+							};
+							Scale:
+							{
+								x = 0.72114;
+								y = 0.72114;
+							};
+							Depth = 240.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 15;
+							Position:
+							{
+								x = 9694.00000;
+								y = 142.00000;
+							};
+							Scale:
+							{
+								x = 0.58303;
+								y = 0.58303;
+							};
+							Depth = 241.00000;
+							Angle = -4.74457;
+							Color:
+							{
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 14;
+							Position:
+							{
+								x = 9593.00000;
+								y = 219.00000;
+							};
+							Scale:
+							{
+								x = 0.70000;
+								y = 0.70000;
+							};
+							Depth = 242.00000;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 10019.00000;
+								y = 223.00000;
+							};
+							Scale:
+							{
+								x = 0.72426;
+								y = 0.72426;
+							};
+							Depth = 243.00000;
+							Angle = 0.01275;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+					};
+				};
+				Sector11:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 10196.6;
+							y = 176.5;
+						};
+						Maxs:
+						{
+							x = 10894.8;
+							y = 271.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 14;
+							Position:
+							{
+								x = 10252.00000;
+								y = 232.00000;
+							};
+							Scale:
+							{
+								x = 0.43293;
+								y = 0.43293;
+							};
+							Depth = 244.00000;
+							Color:
+							{
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 10818.00000;
+								y = 223.00000;
+							};
+							Scale:
+							{
+								x = 0.60000;
+								y = 0.60000;
+							};
+							Depth = 245.00000;
+							Color:
+							{
+								r = 0.87843;
+								g = 0.87843;
+								b = 0.87843;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 13;
+							Position:
+							{
+								x = 10610.00000;
+								y = 224.00000;
+							};
+							Scale:
+							{
+								x = 0.72426;
+								y = 0.72426;
+							};
+							Depth = 246.00000;
+							Angle = 0.01275;
+							Color:
+							{
+								b = 0.75294;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 16;
+							Position:
+							{
+								x = 10390.00000;
+								y = 223.00000;
+							};
+							Scale:
+							{
+								x = 0.68316;
+								y = 0.68316;
+							};
+							Depth = 247.00000;
+							Color:
+							{
+							};
+						};
+					};
+				};
+				Sector12:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 10929.4;
+							y = 180.2;
+						};
+						Maxs:
+						{
+							x = 11108.6;
+							y = 269.8;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 14;
+							Position:
+							{
+								x = 11019.00000;
+								y = 225.00000;
+							};
+							Scale:
+							{
+								x = 0.70000;
+								y = 0.70000;
+							};
+							Depth = 248.00000;
+							Color:
+							{
+								g = 0.87843;
+								b = 0.75294;
+							};
+						};
+					};
+				};
+			};
+		};
+		Layer9:
+		{
+			Name = "Fore - hierba";
+			Depth = 0.20000;
+			Parallax:
+			{
+				x = 1.25000;
+				y = 1.00000;
+			};
+			Sectors:
+			{
+				NumSectors = 20;
+				Sector0:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -37.0;
+							y = 370.3;
+						};
+						Maxs:
+						{
+							x = 636.0;
+							y = 530.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 27.00000;
+								y = 447.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 249.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 111.00000;
+								y = 455.00000;
+							};
+							Scale:
+							{
+								x = 0.98686;
+								y = 0.98686;
+							};
+							Depth = 250.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 285.00000;
+								y = 451.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 251.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 193.00000;
+								y = 448.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 252.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 367.00000;
+								y = 449.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 253.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 447.00000;
+								y = 454.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 254.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 572.00000;
+								y = 454.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 255.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 520.00000;
+								y = 459.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 256.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector1:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 588.6;
+							y = 347.8;
+						};
+						Maxs:
+						{
+							x = 1255.3;
+							y = 548.2;
+						};
+					};
+					Elements:
+					{
+						NumElements = 7;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 660.00000;
+								y = 444.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 257.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 759.00000;
+								y = 449.00000;
+							};
+							Scale:
+							{
+								x = 1.04984;
+								y = 1.04984;
+							};
+							Depth = 258.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 843.00000;
+								y = 457.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 259.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 1017.00000;
+								y = 453.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 260.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 919.00000;
+								y = 448.00000;
+							};
+							Scale:
+							{
+								x = 1.41321;
+								y = 1.41321;
+							};
+							Depth = 261.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 1099.00000;
+								y = 451.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 262.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 1179.00000;
+								y = 456.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 263.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector2:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1188.0;
+							y = 338.7;
+						};
+						Maxs:
+						{
+							x = 1898.4;
+							y = 525.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 1304.00000;
+								y = 456.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 264.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 1252.00000;
+								y = 461.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 265.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 1392.00000;
+								y = 446.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 266.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 1487.00000;
+								y = 447.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 267.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 1571.00000;
+								y = 455.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 268.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 1745.00000;
+								y = 451.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 269.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 1647.00000;
+								y = 432.00000;
+							};
+							Scale:
+							{
+								x = 1.31589;
+								y = 1.31589;
+							};
+							Depth = 270.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 1827.00000;
+								y = 449.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 271.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector3:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1830.7;
+							y = 364.2;
+						};
+						Maxs:
+						{
+							x = 2546.6;
+							y = 530.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 1907.00000;
+								y = 454.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 272.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 2032.00000;
+								y = 454.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 273.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 1980.00000;
+								y = 459.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 274.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 2120.00000;
+								y = 444.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 275.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 2219.00000;
+								y = 443.00000;
+							};
+							Scale:
+							{
+								x = 1.12420;
+								y = 1.12420;
+							};
+							Depth = 276.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 2303.00000;
+								y = 457.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 277.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 2477.00000;
+								y = 453.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 278.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 2371.00000;
+								y = 446.00000;
+							};
+							Scale:
+							{
+								x = 1.15375;
+								y = 1.15375;
+							};
+							Depth = 279.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector4:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2487.6;
+							y = 369.1;
+						};
+						Maxs:
+						{
+							x = 3189.7;
+							y = 532.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 2559.00000;
+								y = 451.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 280.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 2639.00000;
+								y = 456.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 281.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 2764.00000;
+								y = 456.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 282.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 2712.00000;
+								y = 461.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 283.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 2852.00000;
+								y = 446.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 284.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 2950.00000;
+								y = 444.00000;
+							};
+							Scale:
+							{
+								x = 1.17022;
+								y = 1.17022;
+							};
+							Depth = 285.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 3036.00000;
+								y = 460.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 286.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 3112.00000;
+								y = 451.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 287.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector5:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 3140.4;
+							y = 377.0;
+						};
+						Maxs:
+						{
+							x = 3823.6;
+							y = 535.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 3210.00000;
+								y = 456.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 288.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 3292.00000;
+								y = 454.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 289.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 3372.00000;
+								y = 459.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 290.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 3497.00000;
+								y = 459.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 291.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 3445.00000;
+								y = 464.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 292.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 3585.00000;
+								y = 449.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 293.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 3684.00000;
+								y = 452.00000;
+							};
+							Scale:
+							{
+								x = 1.17254;
+								y = 1.17254;
+							};
+							Depth = 294.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 3768.00000;
+								y = 462.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 295.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector6:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 3762.3;
+							y = 375.3;
+						};
+						Maxs:
+						{
+							x = 4480.0;
+							y = 537.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 3942.00000;
+								y = 458.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 296.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 3840.00000;
+								y = 453.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 297.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 4024.00000;
+								y = 456.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 298.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 4104.00000;
+								y = 461.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 299.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 4229.00000;
+								y = 461.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 300.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 4177.00000;
+								y = 466.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 301.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 4317.00000;
+								y = 451.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 302.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 4416.00000;
+								y = 458.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 303.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector7:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 4444.4;
+							y = 371.7;
+						};
+						Maxs:
+						{
+							x = 5120.4;
+							y = 541.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 4500.00000;
+								y = 466.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 304.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 4670.00000;
+								y = 452.00000;
+							};
+							Scale:
+							{
+								x = 1.15412;
+								y = 1.15412;
+							};
+							Depth = 305.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 4566.00000;
+								y = 451.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 306.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 4756.00000;
+								y = 460.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 307.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 4836.00000;
+								y = 465.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 308.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 4961.00000;
+								y = 465.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 309.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 4909.00000;
+								y = 470.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 310.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 5049.00000;
+								y = 455.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 311.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector8:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 5079.5;
+							y = 375.3;
+						};
+						Maxs:
+						{
+							x = 5757.0;
+							y = 543.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 5148.00000;
+								y = 458.00000;
+							};
+							Scale:
+							{
+								x = 1.07016;
+								y = 1.07016;
+							};
+							Depth = 312.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 5232.00000;
+								y = 468.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 313.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 5406.00000;
+								y = 464.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 314.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 5310.00000;
+								y = 453.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 315.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 5488.00000;
+								y = 462.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 316.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 5568.00000;
+								y = 467.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 317.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 5693.00000;
+								y = 467.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 318.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 5641.00000;
+								y = 472.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 319.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector9:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 5709.6;
+							y = 375.3;
+						};
+						Maxs:
+						{
+							x = 6372.3;
+							y = 541.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 7;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 5781.00000;
+								y = 457.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 320.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 5876.00000;
+								y = 458.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 321.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 5960.00000;
+								y = 466.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 322.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 6134.00000;
+								y = 462.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 323.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 6036.00000;
+								y = 453.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 324.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 6216.00000;
+								y = 460.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 325.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 6296.00000;
+								y = 465.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 326.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector10:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 6305.0;
+							y = 377.3;
+						};
+						Maxs:
+						{
+							x = 7019.4;
+							y = 534.0;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 6421.00000;
+								y = 465.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 327.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 6369.00000;
+								y = 470.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 328.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 6509.00000;
+								y = 455.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 329.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 6606.00000;
+								y = 458.00000;
+							};
+							Scale:
+							{
+								x = 1.04647;
+								y = 1.04647;
+							};
+							Depth = 330.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 6692.00000;
+								y = 468.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 331.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 6866.00000;
+								y = 464.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 332.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 6760.00000;
+								y = 455.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 333.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 6948.00000;
+								y = 462.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 334.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector11:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 6951.7;
+							y = 376.3;
+						};
+						Maxs:
+						{
+							x = 7662.6;
+							y = 543.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 7028.00000;
+								y = 467.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 335.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 7153.00000;
+								y = 467.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 336.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 7101.00000;
+								y = 472.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 337.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 7241.00000;
+								y = 457.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 338.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 7341.00000;
+								y = 463.00000;
+							};
+							Scale:
+							{
+								x = 1.10406;
+								y = 1.10406;
+							};
+							Depth = 339.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 7425.00000;
+								y = 471.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 340.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 7593.00000;
+								y = 459.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 341.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 7497.00000;
+								y = 454.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 342.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector12:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 7609.6;
+							y = 380.3;
+						};
+						Maxs:
+						{
+							x = 8300.7;
+							y = 546.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 7681.00000;
+								y = 465.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 343.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 7761.00000;
+								y = 470.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 344.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 7886.00000;
+								y = 470.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 345.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 7834.00000;
+								y = 475.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 346.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 7974.00000;
+								y = 460.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 347.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 8071.00000;
+								y = 465.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 348.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 8157.00000;
+								y = 473.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 349.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 8223.00000;
+								y = 458.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 350.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector13:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 8261.4;
+							y = 306.5;
+						};
+						Maxs:
+						{
+							x = 8970.6;
+							y = 548.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 9;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 8331.00000;
+								y = 463.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 351.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 8413.00000;
+								y = 467.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 352.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 8493.00000;
+								y = 472.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 353.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 8618.00000;
+								y = 472.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 354.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 8566.00000;
+								y = 477.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 355.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 8706.00000;
+								y = 462.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 356.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 8901.00000;
+								y = 464.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 357.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 8798.00000;
+								y = 460.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 358.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element8:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 8782.00000;
+								y = 371.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 359.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector14:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 8911.6;
+							y = 381.3;
+						};
+						Maxs:
+						{
+							x = 9608.7;
+							y = 543.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 8983.00000;
+								y = 462.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 360.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 9063.00000;
+								y = 467.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 361.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 9188.00000;
+								y = 467.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 362.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 9136.00000;
+								y = 472.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 363.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 9276.00000;
+								y = 457.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 364.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 9371.00000;
+								y = 458.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 365.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 9455.00000;
+								y = 466.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 366.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 9531.00000;
+								y = 459.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 367.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector15:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 9559.4;
+							y = 383.6;
+						};
+						Maxs:
+						{
+							x = 10244.2;
+							y = 541.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 9629.00000;
+								y = 462.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 368.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 9711.00000;
+								y = 460.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 369.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 9791.00000;
+								y = 465.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 370.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 9916.00000;
+								y = 465.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 371.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 9864.00000;
+								y = 470.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 372.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 10004.00000;
+								y = 455.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 373.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 10099.00000;
+								y = 462.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 374.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 10181.00000;
+								y = 462.00000;
+							};
+							Scale:
+							{
+								x = 0.98775;
+								y = 0.98775;
+							};
+							Depth = 375.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector16:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 10183.3;
+							y = 379.3;
+						};
+						Maxs:
+						{
+							x = 10896.0;
+							y = 543.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 10361.00000;
+								y = 464.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 376.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 10261.00000;
+								y = 457.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 377.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 10443.00000;
+								y = 462.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 378.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 10523.00000;
+								y = 467.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 379.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 10648.00000;
+								y = 467.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 380.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 10596.00000;
+								y = 472.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 381.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 10736.00000;
+								y = 457.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 382.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 10832.00000;
+								y = 463.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 383.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector17:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 10860.4;
+							y = 382.3;
+						};
+						Maxs:
+						{
+							x = 11510.6;
+							y = 540.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 7;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 10916.00000;
+								y = 471.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 384.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 11094.00000;
+								y = 467.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 385.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 10992.00000;
+								y = 460.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 386.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 11177.00000;
+								y = 465.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 387.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 11261.00000;
+								y = 475.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 388.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 11441.00000;
+								y = 471.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 389.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 11333.00000;
+								y = 462.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 390.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector18:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 11451.6;
+							y = 389.3;
+						};
+						Maxs:
+						{
+							x = 12145.7;
+							y = 550.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 11523.00000;
+								y = 469.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 391.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 11603.00000;
+								y = 474.00000;
+							};
+							Scale:
+							{
+								x = 1.05249;
+								y = 1.05249;
+							};
+							Depth = 392.00000;
+							Angle = 0.14334;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 11728.00000;
+								y = 474.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 393.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 11676.00000;
+								y = 479.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 394.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 11816.00000;
+								y = 464.00000;
+							};
+							Scale:
+							{
+								x = 1.11602;
+								y = 1.11602;
+							};
+							Depth = 395.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 11914.00000;
+								y = 472.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 396.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 11996.00000;
+								y = 482.00000;
+							};
+							Scale:
+							{
+								x = 0.86873;
+								y = 0.86873;
+							};
+							Depth = 397.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 12068.00000;
+								y = 467.00000;
+							};
+							Scale:
+							{
+								x = 1.09574;
+								y = 1.09574;
+							};
+							Depth = 398.00000;
+							Angle = -0.11425;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector19:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 12100.4;
+							y = 402.4;
+						};
+						Maxs:
+						{
+							x = 12239.6;
+							y = 541.6;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 17;
+							Position:
+							{
+								x = 12170.00000;
+								y = 472.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 399.00000;
+							Angle = 0.09175;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+			};
+		};
+		Layer10:
+		{
+			Name = "Fore - juncos";
+			Depth = 0.10000;
+			Parallax:
+			{
+				x = 1.25000;
+				y = 1.00000;
+			};
+			Sectors:
+			{
+				NumSectors = 16;
+				Sector0:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 257.5;
+							y = 349.5;
+						};
+						Maxs:
+						{
+							x = 647.0;
+							y = 508.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 283.00000;
+								y = 429.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 400.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 626.00000;
+								y = 429.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 401.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 315.00000;
+								y = 422.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 402.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector1:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 1206.6;
+							y = 322.1;
+						};
+						Maxs:
+						{
+							x = 1523.9;
+							y = 507.9;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 1296.00000;
+								y = 406.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 403.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 1396.00000;
+								y = 425.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 404.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 1471.00000;
+								y = 420.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 405.00000;
+							Angle = 0.57928;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 1256.00000;
+								y = 415.00000;
+							};
+							Scale:
+							{
+								x = 1.11471;
+								y = 1.11471;
+							};
+							Depth = 406.00000;
+							Angle = -0.24963;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector2:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2119.5;
+							y = 325.5;
+						};
+						Maxs:
+						{
+							x = 2195.0;
+							y = 485.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 2174.00000;
+								y = 421.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 407.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 2145.00000;
+								y = 405.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 408.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector3:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2167.8;
+							y = 330.5;
+						};
+						Maxs:
+						{
+							x = 2590.5;
+							y = 495.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 8;
+						Element0:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 2204.00000;
+								y = 429.00000;
+							};
+							Scale:
+							{
+								x = 0.84578;
+								y = 0.84578;
+							};
+							Depth = 409.00000;
+							Angle = -0.36694;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 2469.00000;
+								y = 414.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 410.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 2526.00000;
+								y = 430.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 411.00000;
+							Angle = 0.57928;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 2475.00000;
+								y = 414.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 412.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 2487.00000;
+								y = 418.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 413.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 2475.00000;
+								y = 415.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 414.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element6:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 2565.00000;
+								y = 410.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 415.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element7:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 2341.00000;
+								y = 428.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 416.00000;
+							Angle = 0.51179;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector4:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 2901.5;
+							y = 324.5;
+						};
+						Maxs:
+						{
+							x = 3291.0;
+							y = 483.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 2927.00000;
+								y = 404.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 417.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 3270.00000;
+								y = 404.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 418.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 2959.00000;
+								y = 397.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 419.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector5:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 3954.8;
+							y = 347.7;
+						};
+						Maxs:
+						{
+							x = 4027.2;
+							y = 462.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 3991.00000;
+								y = 405.00000;
+							};
+							Scale:
+							{
+								x = 0.84578;
+								y = 0.84578;
+							};
+							Depth = 420.00000;
+							Angle = -0.36694;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector6:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 4078.1;
+							y = 337.5;
+						};
+						Maxs:
+						{
+							x = 4538.0;
+							y = 510.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 5;
+						Element0:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 4174.00000;
+								y = 431.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 421.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 4517.00000;
+								y = 431.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 422.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 4206.00000;
+								y = 424.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 423.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 4289.00000;
+								y = 437.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 424.00000;
+							Angle = 0.57928;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 4128.00000;
+								y = 404.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 425.00000;
+							Angle = 0.51179;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector7:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 4881.5;
+							y = 343.5;
+						};
+						Maxs:
+						{
+							x = 5381.0;
+							y = 520.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 5;
+						Element0:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 4907.00000;
+								y = 441.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 426.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 5250.00000;
+								y = 441.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 427.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 4939.00000;
+								y = 434.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 428.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 5316.00000;
+								y = 423.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 429.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 5360.00000;
+								y = 434.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 430.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector8:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 7056.5;
+							y = 334.5;
+						};
+						Maxs:
+						{
+							x = 7307.0;
+							y = 512.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 6;
+						Element0:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 7111.00000;
+								y = 412.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 431.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 7141.00000;
+								y = 420.00000;
+							};
+							Scale:
+							{
+								x = 0.84578;
+								y = 0.84578;
+							};
+							Depth = 432.00000;
+							Angle = -0.36694;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 7082.00000;
+								y = 433.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 433.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 7160.00000;
+								y = 429.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 434.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 7239.00000;
+								y = 414.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 435.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element5:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 7286.00000;
+								y = 429.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 436.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector9:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 7324.5;
+							y = 334.5;
+						};
+						Maxs:
+						{
+							x = 7711.0;
+							y = 493.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 3;
+						Element0:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 7350.00000;
+								y = 414.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 437.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 7690.00000;
+								y = 414.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 438.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 7382.00000;
+								y = 407.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 439.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector10:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 8660.0;
+							y = 375.1;
+						};
+						Maxs:
+						{
+							x = 8788.0;
+							y = 486.9;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 8724.00000;
+								y = 431.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 440.00000;
+							Angle = -0.91625;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector11:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 9518.8;
+							y = 352.5;
+						};
+						Maxs:
+						{
+							x = 9905.9;
+							y = 525.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 5;
+						Element0:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 9738.00000;
+								y = 446.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 441.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 9770.00000;
+								y = 439.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 442.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 9555.00000;
+								y = 420.00000;
+							};
+							Scale:
+							{
+								x = 0.84578;
+								y = 0.84578;
+							};
+							Depth = 443.00000;
+							Angle = -0.36694;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 9853.00000;
+								y = 452.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 444.00000;
+							Angle = 0.57928;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 9692.00000;
+								y = 419.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 445.00000;
+							Angle = 0.51179;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector12:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 10060.0;
+							y = 376.5;
+						};
+						Maxs:
+						{
+							x = 10496.5;
+							y = 535.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 2;
+						Element0:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 10081.00000;
+								y = 446.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 446.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 10471.00000;
+								y = 456.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 447.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector13:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 10482.0;
+							y = 358.5;
+						};
+						Maxs:
+						{
+							x = 10945.0;
+							y = 520.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 4;
+						Element0:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 10814.00000;
+								y = 456.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 448.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 10503.00000;
+								y = 449.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 449.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 10880.00000;
+								y = 438.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 450.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 10924.00000;
+								y = 449.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 451.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector14:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 11641.8;
+							y = 365.7;
+						};
+						Maxs:
+						{
+							x = 11714.2;
+							y = 480.3;
+						};
+					};
+					Elements:
+					{
+						NumElements = 1;
+						Element0:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 11678.00000;
+								y = 423.00000;
+							};
+							Scale:
+							{
+								x = 0.84578;
+								y = 0.84578;
+							};
+							Depth = 452.00000;
+							Angle = -0.36694;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+				Sector15:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = 11765.1;
+							y = 355.5;
+						};
+						Maxs:
+						{
+							x = 12225.0;
+							y = 528.5;
+						};
+					};
+					Elements:
+					{
+						NumElements = 5;
+						Element0:
+						{
+							SpriteIdx = 19;
+							Position:
+							{
+								x = 11861.00000;
+								y = 449.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 453.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element1:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 12204.00000;
+								y = 449.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 454.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element2:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 11893.00000;
+								y = 442.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 455.00000;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element3:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 11976.00000;
+								y = 455.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 456.00000;
+							Angle = 0.57928;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+						Element4:
+						{
+							SpriteIdx = 18;
+							Position:
+							{
+								x = 11815.00000;
+								y = 422.00000;
+							};
+							Scale:
+							{
+							};
+							Depth = 457.00000;
+							Angle = 0.51179;
+							Color:
+							{
+								r = 0.25098;
+								g = 0.25098;
+								b = 0.25098;
+							};
+						};
+					};
+				};
+			};
+		};
+		Layer11:
+		{
+			Name = "ControlPoints";
+			Depth = 1.00000;
+			Parallax:
+			{
+				x = 1.00000;
+				y = 1.00000;
+			};
+			Sectors:
+			{
+				NumSectors = 1;
+				Sector0:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -431602080.0;
+							y = -431602080.0;
+						};
+						Maxs:
+						{
+							x = -431602080.0;
+							y = -431602080.0;
+						};
+					};
+					Elements:
+					{
+					};
+				};
+			};
+		};
+		Layer12:
+		{
+			Name = "Ground";
+			Depth = 1.00000;
+			Parallax:
+			{
+				x = 1.00000;
+				y = 1.00000;
+			};
+			Sectors:
+			{
+				NumSectors = 1;
+				Sector0:
+				{
+					BV:
+					{
+						Mins:
+						{
+							x = -431602080.0;
+							y = -431602080.0;
+						};
+						Maxs:
+						{
+							x = -431602080.0;
+							y = -431602080.0;
+						};
+					};
+					Elements:
+					{
+					};
+				};
+			};
+		};
+	};
+};

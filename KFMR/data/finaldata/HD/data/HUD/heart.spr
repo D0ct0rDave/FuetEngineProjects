@@ -1,0 +1,44 @@
+Sprite:
+{
+	Name = "heart";
+	BlendMode = "ALPHA";
+	NumActions = 1;
+
+	Action0:
+	{
+		Name = "Animation1";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "heart";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 37.0;
+						Height = 30.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0270;
+						IV = 0.0333;
+						FU = 1.0000;
+						FV = 1.0000;
+					};
+				};
+			};
+		};
+	};
+
+};

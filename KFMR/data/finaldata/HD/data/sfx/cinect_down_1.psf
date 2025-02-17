@@ -1,0 +1,150 @@
+ParticleSystem:
+{
+	Name = "cinect_2";
+	Freq = 4.0000;
+	MinTTL = 2.0000;
+	MaxTTL = 2.0000;
+	Sprite = "cinect";
+	XFunc:
+	{
+		RndOfs:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		RndMult:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		KFFunc:
+		{
+			WrapMode = "FinalValue";
+			NumKeyFrames = 1;
+			KeyFrame0:
+			{
+				Value = 0.0000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+	YFunc:
+	{
+		RndOfs:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		RndMult:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		KFFunc:
+		{
+			WrapMode = "FinalValue";
+			NumKeyFrames = 2;
+			KeyFrame0:
+			{
+				Value = 0.0000;
+				Time = 0.0000;
+				LerpFunc = "sin";
+			};
+			KeyFrame1:
+			{
+				Value = 68.0000;
+				Time = 1.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+	ScaleFunc:
+	{
+		RndOfs:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		RndMult:
+		{
+			min = 0.7000;
+			max = 0.8500;
+		};
+		KFFunc:
+		{
+			WrapMode = "FinalValue";
+			NumKeyFrames = 1;
+			KeyFrame0:
+			{
+				Value = 2.0000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+	AngleFunc:
+	{
+		RndOfs:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		RndMult:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		KFFunc:
+		{
+			WrapMode = "FinalValue";
+			NumKeyFrames = 1;
+			KeyFrame0:
+			{
+				Value = 3.1416;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+	ColorFunc:
+	{
+		RndMult:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		KFFunc:
+		{
+			WrapMode = "FinalValue";
+			NumKeyFrames = 3;
+			KeyFrame0:
+			{
+				r = 0.8196;
+				g = 0.6784;
+				b = 0.4627;
+				a = 0.0000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+			KeyFrame1:
+			{
+				r = 0.8196;
+				g = 0.6784;
+				b = 0.4627;
+				a = 0.3725;
+				Time = 0.2000;
+				LerpFunc = "linear";
+			};
+			KeyFrame2:
+			{
+				r = 0.8196;
+				g = 0.6784;
+				b = 0.4627;
+				a = 0.0000;
+				Time = 1.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+};

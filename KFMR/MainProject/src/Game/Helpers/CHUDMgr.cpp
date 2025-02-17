@@ -340,18 +340,25 @@ void CHUDMgr::Play(EHUDAction _eAction)
 {
     if (_eAction != HA_HIDE_PLAYER_HUD)
     {
-        m_oHUDActions[_eAction].m_bEnabled = true;
-		m_oHUDActions[_eAction].m_rTime    = 0;
-        m_oHUDActions[_eAction].m_poObject->Show();
-
-        CFEHUDUpdater::SetTime(_0r);
-        CFEHUDUpdater::Process(m_oHUDActions[_eAction].m_poAction);
+        if ((m_oHUDActions[_eAction].m_poAction != NULL)
+            && (m_oHUDActions[_eAction].m_poObject != NULL))
+        {
+            m_oHUDActions[_eAction].m_bEnabled = true;
+		    m_oHUDActions[_eAction].m_rTime    = 0;
+            m_oHUDActions[_eAction].m_poObject->Show();
+        
+            CFEHUDUpdater::SetTime(_0r);
+            CFEHUDUpdater::Process(m_oHUDActions[_eAction].m_poAction);
+        }
 	}
     else
     {
-        m_oHUDActions[HA_SHOW_PLAYER_HUD].m_bEnabled = true;
-		m_oHUDActions[HA_SHOW_PLAYER_HUD].m_rTime    = 0;
-		m_oHUDActions[HA_SHOW_PLAYER_HUD].m_poObject->Hide();
+        if (m_oHUDActions[_eAction].m_poObject != NULL)
+        {
+            m_oHUDActions[HA_SHOW_PLAYER_HUD].m_bEnabled = true;
+		    m_oHUDActions[HA_SHOW_PLAYER_HUD].m_rTime    = 0;
+		    m_oHUDActions[HA_SHOW_PLAYER_HUD].m_poObject->Hide();
+        }
     }
 }
 // -----------------------------------------------------------------------------

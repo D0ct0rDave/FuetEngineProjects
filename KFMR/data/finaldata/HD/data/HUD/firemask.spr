@@ -1,0 +1,44 @@
+Sprite:
+{
+	Name = "firemask";
+	BlendMode = "ALPHA";
+	NumActions = 1;
+
+	Action0:
+	{
+		Name = "Animation1";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "firemask";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 256.0;
+						Height = 192.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0;
+						IV = 0.0;
+						FU = 1.0;
+						FV = 1.0;
+					};
+				};
+			};
+		};
+	};
+
+};

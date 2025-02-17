@@ -159,5 +159,5 @@ project "Gleed2FE"
 	postbuildcommands
 	{
 		"{COPYFILE} " .. SDKSRoot .. "/Externals/FreeImage/Dist/%{cfg.platform}/%{cfg.buildcfg}/FreeImage.dll " .. FinalDataRoot,
-		"{COPYFILE} %(TargetPath) " .. FinalDataRoot
+		"{COPYFILE} $(TargetPath) " .. FinalDataRoot
 	}

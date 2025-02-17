@@ -1,0 +1,114 @@
+Script:
+{
+	Sequence = "PlayerIdle,SpawnDopefish,CameraMoves,Sleep3,ShowVersusPlayer,Sleep02,ShowVersusBoss,Sleep3,HideVersusPlayer,HideVersusBoss,Sleep1";
+
+	Sleep02:
+	{
+		Type = "Sleep";
+		Time = 0.2;	
+	};
+
+	Sleep1:
+	{
+		Type = "Sleep";
+		Time = 1.0;	
+	};
+
+	Sleep3:
+	{
+		Type = "Sleep";
+		Time = 3.0;
+	};
+
+	ShowVersusPlayer:
+	{
+		Type = "PlayHUDAnim";
+		Anim = "ShowVersusPlayer";
+	};
+	
+	ShowVersusBoss:
+	{
+		Type = "PlayHUDAnim";
+		Anim = "ShowVersusBoss";
+	};
+
+	HideVersusPlayer:
+	{
+		Type = "PlayHUDAnim";
+		Anim = "HideVersusPlayer";
+	};
+	
+	HideVersusBoss:
+	{
+		Type = "PlayHUDAnim";
+		Anim = "HideVersusBoss";
+	};
+
+	PerturbCamera:
+	{
+		Type = "PerturbCamera";
+		XMagnitude = 10.0;
+		YMagnitude = 10.0;
+		Time  = 5.0;
+	};
+
+	PlayerIdle:
+	{
+		Type = "PlayEntityAnim";
+		Entity = "player";
+		Anim = "idle";
+	};	
+
+	SpawnDopefish:
+	{
+		Type = "SpawnEntity";
+		Entity = "Dopefish";
+
+		Pos:
+		{
+			x = 9500.0;
+			y = 370.0;
+		};
+	};	
+
+	ChinoIsSit:
+	{
+		Type = "PlayEntityAnim";
+		Entity = "ChinoCudeiro";
+		Anim = "sentado";
+	};	
+
+	PlaySonidoPalmeo:
+	{
+		Type = "PlaySound";
+		Loop = true;
+		Sound = "data/sound/fx/enemy/chinocudeiro/palmeo";
+	};
+
+	StopSonidoPalmeo:
+	{
+		Type = "StopSound";
+		Sound = "data/sound/fx/enemy/chinocudeiro/palmeo";
+	};
+
+	CameraMoves:
+	{
+		Type = "MoveEntityTo";
+		Entity = "camera";
+	
+		FinalPos:
+		{
+			x = 9050.0;
+			y = 0.0;
+		};
+
+		Time = 2.5;
+	};
+
+	ChinoWakes:
+	{
+		Type = "PlayEntityAnim";
+		Entity = "ChinoCudeiro";
+		Anim = "cc_wake";
+	};	
+};

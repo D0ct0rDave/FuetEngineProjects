@@ -146,6 +146,7 @@ CFEMap* CFEMapLoader::poLoad(const CFEString& _sFilename)
 	}
 
 	// Compute Map Bounding Volume
+	/*
 	poMap->m_oBV.m_oEnd.x = -1e6;
 	poMap->m_oBV.m_oEnd.y = -1e6;
 	poMap->m_oBV.m_oIni.x =  1e6;
@@ -201,7 +202,7 @@ CFEMap* CFEMapLoader::poLoad(const CFEString& _sFilename)
 			if (poSector->m_oBV.m_oEnd.y > poMap->m_oBV.m_oEnd.y) poMap->m_oBV.m_oEnd.y = poSector->m_oBV.m_oEnd.y;
 	    }
 	}
-
+	*/
     return( poMap );
 }
 // ----------------------------------------------------------------------------

@@ -1,0 +1,117 @@
+Script:
+{
+	Sequence = "SuenaIntro,Sleep3_3,PlayBGM,PlayerWalks,PlayerMoves,PlayerIdle,Sleep2,ShowEnergyBar,Sleep2,ShowReady,Sleep3,ShowGo";
+
+	PlayBGM:
+	{
+		Type = "PlayBGM";
+	};
+
+	ShowEnergyBar:
+	{
+		Type = "PlayHUDAnim";
+		Anim = "HUDPresentation1";
+	};
+	
+	ShowReady:
+	{
+		Type = "PlayHUDAnim";
+		Anim = "ReadyMsg_Show";
+	};
+
+	ShowGo:
+	{
+		Type = "PlayHUDAnim";
+		Anim = "GoMsg_Show";
+	};
+
+	SuenaIntro:
+	{
+		Type = "PlaySound";
+		Sound = "data/sound/fx/game/startlevel1";
+		Vol = 0.2;
+		Pan = 0.5;
+	};
+
+	SpawnCamera:
+	{
+		Type = "SpawnEntity";
+		Entity = "camera";
+
+		Pos:
+		{
+			x = 100.0;
+			y = 0.0;
+		};
+	};	
+
+	SpawnPlayer:
+	{
+		Type = "SpawnEntity";
+		Entity = "Player";
+
+		Pos:
+		{
+			x = 0.0;
+			y = 370.0;
+		};
+	};	
+
+	Sleep3_3:
+	{
+		Type = "Sleep";
+		Time = 5.0;
+	};
+	
+	Sleep3:
+	{
+		Type = "Sleep";
+		Time = 3.0;
+	};
+
+	Sleep1:
+	{
+		Type = "Sleep";
+		Time = 1.0;
+	};
+	
+	PlayerWalks:
+	{
+		Type = "PlayEntityAnim";
+		Entity = "Player";
+		Anim = "walk";
+	};	
+
+	PlayerMoves:
+	{
+		Type = "MoveEntity";
+		Entity = "Player";
+		InitialPos:
+		{
+			x = 0.0;
+			// center of the screen
+			y = 370.0;
+		};
+	
+		FinalPos:
+		{
+			x = 420.0;
+			y = 370.0;
+		};
+		
+		Time = 2.5;
+	};
+	
+	PlayerIdle:
+	{
+		Type = "PlayEntityAnim";
+		Entity = "Player";
+		Anim = "idle";
+	};	
+
+	Sleep2:
+	{
+		Type = "Sleep";
+		Time = 2.0;
+	};
+};

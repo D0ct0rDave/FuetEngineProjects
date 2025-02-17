@@ -12,9 +12,10 @@
 // ------------------------------------------------------------------------------------------------------
 int m_iRequiredParams = 1;
 
-CFEArray<CFEString>		m_oSprList;
-bool					m_bBinaryOutput = false;
-CFEString				m_sFilename = "";
+CFEArray<CFEString>  goSprListFiles;
+bool				m_bPowerOf2Texs = false;
+bool				m_bBinaryOutput = false;
+CFEString			m_sFilename = "";
 // ----------------------------------------------------------------------------
 void ShowUsage()
 {
@@ -31,7 +32,11 @@ void ParseCommandLine(int argc, _TCHAR* argv[])
 
 	for (int i=1; i<argc; i++)
 	{
-		if (!stricmp(argv[i], "-binary"))
+		if (!stricmp(argv[i], "-pow2tex"))
+		{
+			m_bPowerOf2Texs = true;
+		}
+	else if (!stricmp(argv[i], "-binary"))
 		{
 			m_bBinaryOutput = true;
 		}
@@ -235,67 +240,7 @@ bool bFileExists(const CFEString& _sFilename)
 	return(fd != NULL);
 }
 // ------------------------------------------------------------------------------------------------------
-CFEVect2 oGetOrigin(FEHandler _hInst,FEReal _rXMult,FEReal _rYMult)
-{
-	CFESprite* poSpr = CFESpriteInstMgr::poGetSprite(_hInst);
-	FEHandler hMaterial = poSpr->poGetAction(0)->m_oSeq[0].m_hMaterial;
-	CFEVect2 oPivot = poSpr->poGetAction(0)->m_oSeq[0].m_oPivot;
-
-    int w,h;
-    CFEMaterialMgr::bGetMaterialProperty(hMaterial,"DiffuseMap.Width",(FEPointer)&w);
-    CFEMaterialMgr::bGetMaterialProperty(hMaterial,"DiffuseMap.Height",(FEPointer)&h);
-
-	CFEVect2 oOrigin;
-	if (_rXMult < 0) oOrigin.x = (w - (oPivot.x * w)); else oOrigin.x = oPivot.x * w;
-	if (_rYMult < 0) oOrigin.y = (h - (oPivot.y * h)); else oOrigin.y = oPivot.y * h;
-
-	return(oOrigin);
-}
-// ------------------------------------------------------------------------------------------------------
-CFESprite* poCreateSprite(const CFEString& _sFilename,const CFEVect2& _oOrigin,FEReal _rXMult,FEReal _rYMult)
-{
-	if (CFESpriteMgr::bExists(_sFilename))
-		return(CFESpriteMgr::poLoad(_sFilename));
-
-
-	if (bFileExists(_sFilename+".spr"))
-	{
-		return(	CFESpriteMgr::poLoad(_sFilename) );		
-	}
-	else
-	{
-		CFESprite* poSpr = new CFESprite;
-		CFESpriteAction oAction;
-		CFESpriteFrame oFrame;
-		oFrame.m_hMaterial = CFEMaterialMgr::hLoad(_sFilename);
-
-		int w,h;
-		CFEMaterialMgr::bGetMaterialProperty(oFrame.m_hMaterial,"DiffuseMap.Width",(FEPointer)&w);
-		CFEMaterialMgr::bGetMaterialProperty(oFrame.m_hMaterial,"DiffuseMap.Height",(FEPointer)&h);
-
-		// Setup frame
-		CFEVect2 oOrigin;
-		if (_rXMult < 0) oOrigin.x = (w - _oOrigin.x)/w; else oOrigin.x = _oOrigin.x/w;
-		if (_rYMult < 0) oOrigin.y = (h - _oOrigin.y)/h; else oOrigin.y = _oOrigin.y/h;
-
-		oFrame.m_oSize		= CFEVect2(w,h);
-		oFrame.m_oPivot		= oOrigin;
-		oFrame.m_oUV.m_oIni = CFEVect2::oZERO();
-		oFrame.m_oUV.m_oEnd = CFEVect2::oONE();
-		oFrame.m_rBlendTime = 1.0;
-		oFrame.m_rFrameTime = 1.0;
-		oFrame.m_rDelay     = 0.0;
-		oFrame.m_rStartTime = 0.0;
-
-		oAction.m_oSeq.push_back(oFrame);
-		poSpr->m_oActions.push_back(oAction);
-
-		CFESpriteMgr::Register(poSpr,_sFilename);
-		return(poSpr);
-	}
-}
-// ------------------------------------------------------------------------------------------------------
-CFEMapElement* poReadElement(TiXmlNode* _poNode,FEReal _rDepth)
+CFEMapElement* poReadElement(TiXmlNode* _poNode)
 {
 	CFEMapElement* poElement = new CFEMapElement;
 	TiXmlNode* poElementNode = _poNode->FirstChild();
@@ -312,25 +257,19 @@ CFEMapElement* poReadElement(TiXmlNode* _poNode,FEReal _rDepth)
 	    fMultY = -1.0;
 
 	// 	
-	CFEVect2 oOrigin;
 	while (poElementNode)
     {
 		CFEString sName(poElementNode->Value());
 
 	    if (sName |= "Position")
 		{
-			poElement->m_oPos.x = readXmlFloat(poElementNode,"X",0.0,true);
-			poElement->m_oPos.y = readXmlFloat(poElementNode,"Y",0.0,true);
-		}
-   else if (sName |= "Origin")
-		{
-			oOrigin.x = readXmlFloat(poElementNode,"X",0.0,true);
-			oOrigin.y = readXmlFloat(poElementNode,"Y",0.0,true);
+			poElement->m_oPos.x = readXmlFloat(poElementNode,"X",0.0,true) * fMultX;
+			poElement->m_oPos.y = readXmlFloat(poElementNode,"Y",0.0,true) * fMultY;
 		}
    else if (sName |= "Scale")
 		{
-			poElement->m_oScale.x = readXmlFloat(poElementNode,"X",1.0,true) * fMultX;
-			poElement->m_oScale.y = readXmlFloat(poElementNode,"Y",1.0,true) * fMultY;
+			poElement->m_oScale.x = readXmlFloat(poElementNode,"X",1.0,true);
+			poElement->m_oScale.y = readXmlFloat(poElementNode,"Y",1.0,true);
 		}
    else if (sName |= "TintColor")
 		{
@@ -342,22 +281,22 @@ CFEMapElement* poReadElement(TiXmlNode* _poNode,FEReal _rDepth)
 
         poElementNode = _poNode->IterateChildren(poElementNode);
     }
-
+	
 	// Read sprite or texture.
 	const char* szSpriteFilename = readXmlString(_poNode,"texture_filename","",true);
 	CFEString sTexture = sProcessBitmapPath( szSpriteFilename );
 
 	bool bExists = false;
 	uint i = 0;
-	for (i=0;i<m_oSprList.size();i++)
+	for (i=0;i<goSprListFiles.size();i++)
 	{
-		if (m_oSprList[i] == sTexture)
+		if (goSprListFiles[i] == sTexture)
 		{
 			bExists = true;
 			break;
 		}
 	}
-
+	
 	// Aaahh... those dirty tricks...
 	if (bExists)
 	{	
@@ -365,26 +304,37 @@ CFEMapElement* poReadElement(TiXmlNode* _poNode,FEReal _rDepth)
 	}
 	else
 	{
-		*((uint*)&poElement->m_rDepth) = m_oSprList.size();
-		m_oSprList.push_back( sTexture );
+		*((uint*)&poElement->m_rDepth) = goSprListFiles.size();
+		goSprListFiles.push_back( sTexture.szString() );
 	}
-
+	
 	// Create a sprite instance.
-	CFESprite* poSpr = poCreateSprite(sTexture,oOrigin,fMultX,fMultY);
-	poElement->m_hSprInst = CFESpriteInstMgr::hGetInstance(poSpr);
-
+	poElement->m_hSprInst = CFESpriteInstMgr::hGetInstance(sTexture);
+	
 	// Assign geometric properties to the sprite instance
 	if (poElement->m_hSprInst!= NULL)
 	{
-		CFEVect2 oRealOrigin = oGetOrigin(poElement->m_hSprInst,fMultX,fMultY);
-		CFEVect2 oCorrection = oOrigin - oRealOrigin;
-		poElement->m_oPos += oCorrection;
+		// If textures will be powerized to 2 then process element scale. Sprites have it's own scale parameters.
+		if ((m_bPowerOf2Texs) && (! bFileExists(sTexture+".spr")))
+		{		
+			FEHandler* hTex = CFEMaterialMgr::poLoad(sTexture);
+			
+			uint uiWidth,uiHeight;
+			CFEMaterialMgr::bGetMaterialProperty(hTex,"DiffuseMap.Width",(FEPointer)&uiWidth);
+			CFEMaterialMgr::bGetMaterialProperty(hTex,"DiffuseMap.Height",(FEPointer)&uiHeight);
 
-		// Set sprite properties to retrieve later the sprite istance geometry.
+			FEReal rXRatio = (FEReal)uiWidth / (FEReal)uiLowerPowerOf2(uiWidth);
+			FEReal rYRatio = (FEReal)uiHeight / (FEReal)uiLowerPowerOf2(uiHeight);
+
+			// Fix element scale
+			poElement->m_oScale.x *= rXRatio;
+			poElement->m_oScale.y *= rYRatio;
+		}
+
+		// Set sprite properties
 		CFESpriteInstMgr::SetPos(poElement->m_hSprInst,poElement->m_oPos);
 		CFESpriteInstMgr::SetAngle(poElement->m_hSprInst,poElement->m_rAngle);
 		CFESpriteInstMgr::SetScale(poElement->m_hSprInst,poElement->m_oScale);
-		CFESpriteInstMgr::SetDepth(poElement->m_hSprInst,_rDepth);
 	}
 	else
 	{
@@ -402,11 +352,7 @@ CFEMapLayer* poReadLayer(TiXmlNode* _poNode)
     
     TiXmlAttribute* poName = ((TiXmlElement*)_poNode)->FirstAttribute();
     CFEString sName = poName->Value(); // readXmlString(_poNode,"Name","",false);
-
     // Retrieve layer depth.
-    poLayer->m_rDepth = readXmlFloat(_poNode,"Depth",0.0,true); // WARNING!!!! no es correcto, debe ser a través de atributos...
-
-	// if we find the %DEPTH%_LayerName trick, this will overwrite the previous value.
     CFEString sDepth = sName.SubString(0,3);
     if (sscanf(sDepth.szString(),"%f",&poLayer->m_rDepth))
     {
@@ -416,9 +362,8 @@ CFEMapLayer* poReadLayer(TiXmlNode* _poNode)
     else
     {
         poLayer->m_sName = sName;
+        poLayer->m_rDepth = _1r;
     }
-
-    // poLayer->m_rDepth = readXmlFloat(_poNode,"Depth",0.0,true);
 
     // 
     TiXmlNode* poSpeed = _poNode->FirstChild("ScrollSpeed");
@@ -427,27 +372,21 @@ CFEMapLayer* poReadLayer(TiXmlNode* _poNode)
 
 	TiXmlNode* poItems = _poNode->FirstChild("Items");
     TiXmlNode* poItemNode = poItems->FirstChild();
-
+    
     ///
-    FEReal rDepth = 0.0;
     while (poItemNode)
     {
         TiXmlAttribute* poAttr = ((TiXmlElement*)poItemNode)->FirstAttribute();
-
+        
         while ((poAttr != NULL) && stricmp("xsi:type",poAttr->Name()))
             poAttr = poAttr->Next();
-
+        
         if (poAttr!=NULL)
         {
             if (! stricmp(poAttr->Value(),"TextureItem"))
             {
-                CFEMapElement* poElem = poReadElement(poItemNode,rDepth);
+                CFEMapElement* poElem = poReadElement(poItemNode);
                 poSector->m_oElements.push_back(*poElem);
-
-                rDepth += 0.00001;	// Depth indicates rendering order inside the layer.
-									// As sectorizing can introduce change of order in the drawing,
-									// we need something to ensure order is maintained although sectorization
-									// has been performed.
             }
         }
 
@@ -519,11 +458,11 @@ void SectorizeLayer(CFEMapLayer* _poLayer)
 		return;
 	}
 
-    const FEReal SECTOR_WIDTH  = 1280;
-    const FEReal SECTOR_HEIGHT = 960;    
+    const FEReal SECTOR_WIDTH  = 640;
+    const FEReal SECTOR_HEIGHT = 480;    
     uint uiNumXSectors = (oExtents.x / SECTOR_WIDTH)+1;
     uint uiNumYSectors = (oExtents.y / SECTOR_HEIGHT)+1;
-
+    
     CFEMapSector* poSectorList = new CFEMapSector[uiNumXSectors*uiNumYSectors];
 
     for (uint uiElem=0;uiElem<poOriginalSector->m_oElements.size();uiElem++)
@@ -578,11 +517,13 @@ void ProcessMap(CFEMap* _poMap)
 		// Process layer
     	SectorizeLayer(poLayer);
 		
+		const bool bIsValidLayer = (poLayer->m_poSectors.size() > 0) && (poLayer->m_poSectors[0]->m_oElements.size() > 0);
+
 		// Compute map bounding volume
 		bool bXIsValid = (poLayer->m_oParallaxFact.x == 1.0);
 		bool bYIsValid = (poLayer->m_oParallaxFact.y == 1.0);
     		
-		if (bXIsValid || bYIsValid)
+		if ((bXIsValid || bYIsValid) && bIsValidLayer)
 		{
 			for (uint uiSector=0;uiSector<poLayer->m_poSectors.size();uiSector++)
 			{
@@ -607,16 +548,16 @@ void SaveSpriteSet(CConfigFileWriter* _poFD)
 	// ---------
 	_poFD->OpenSection("SpriteSet");
 
-        _poFD->AddVar("NumSprites",m_oSprList.size(),(uint)0);
-    	for (uint uiSpr = 0;uiSpr<m_oSprList.size();uiSpr++)
+        _poFD->AddVar("NumSprites",goSprListFiles.size(),(uint)0);
+    	for (uint uiSpr = 0;uiSpr<goSprListFiles.size();uiSpr++)
 	    {
             CFEString sStr = CFEString("Sprite")+CFEString(uiSpr);
-            _poFD->AddVar(sStr.szString(),m_oSprList[uiSpr].szString(),"");
+            _poFD->AddVar(sStr.szString(),goSprListFiles[uiSpr].szString(),"");
         }
 
     _poFD->CloseSection();
 }
-// ------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------6
 void SaveBoundingVolume(CFERect* _poBV,CConfigFileWriter* _poFD)
 {
     _poFD->OpenSection("BV");
@@ -663,6 +604,7 @@ void SaveMap(CFEMap* _poMap,const char* _szFilename)
         poFD->OpenSection("Layers");
             
             poFD->AddVar("NumLayers",_poMap->m_poLayers.size(),(uint)0);
+            FEReal rDepth = 0.0;
 
             for (uint uiLayer=0;uiLayer<_poMap->m_poLayers.size();uiLayer++)
             {
@@ -719,9 +661,9 @@ void SaveMap(CFEMap* _poMap,const char* _szFilename)
 									for (uint uiElem=0;uiElem<poSector->m_oElements.size();uiElem++)
 									{
 										CFEMapElement* poElem = &poSector->m_oElements[uiElem];
-
+							            
 										poFD->OpenSection("Element",uiElem);
-
+							            
 											// write the sprite index
 											poFD->AddVar("SpriteIdx",*((unsigned int*)&poElem->m_rDepth),(uint)0xffffffff);
 
@@ -741,7 +683,7 @@ void SaveMap(CFEMap* _poMap,const char* _szFilename)
 
 											poFD->CloseSection();
 
-											poFD->AddVar("Depth",(float)CFESpriteInstMgr::rGetDepth(poElem->m_hSprInst),_0r,5);
+											poFD->AddVar("Depth",rDepth, _0r, 5); rDepth += 1.0;
 											poFD->AddVar("Angle",poElem->m_rAngle,_0r,5);
 
 											// Color
@@ -760,10 +702,10 @@ void SaveMap(CFEMap* _poMap,const char* _szFilename)
 								poFD->CloseSection(); // Elements
 
 							poFD->CloseSection(); // Sector X
-						} // for each sector
+						} // for each sector 
 
 					poFD->CloseSection(); // Sectors
-
+                
                 poFD->CloseSection(); // Layer X
             } // for each layer
 

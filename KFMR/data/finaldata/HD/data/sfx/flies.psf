@@ -1,0 +1,201 @@
+ParticleSystem:
+{
+	Name = "flies";
+	Freq = 2.1000;
+	MinTTL = 3.0000;
+	MaxTTL = 5.0000;
+	Sprite = "smoke";
+	XFunc:
+	{
+		RndOfs:
+		{
+			min = -1.0000;
+			max = 1.0000;
+		};
+		RndMult:
+		{
+			min = -1.0000;
+			max = 0.2200;
+		};
+		KFFunc:
+		{
+			WrapMode = "Loop";
+			NumKeyFrames = 5;
+			KeyFrame0:
+			{
+				Value = -50.0000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+			KeyFrame1:
+			{
+				Value = 0.0000;
+				Time = 1.0000;
+				LerpFunc = "sin";
+			};
+			KeyFrame2:
+			{
+				Value = 50.0000;
+				Time = 2.0000;
+				LerpFunc = "linear";
+			};
+			KeyFrame3:
+			{
+				Value = 0.0000;
+				Time = 3.0000;
+				LerpFunc = "linear";
+			};
+			KeyFrame4:
+			{
+				Value = -50.0000;
+				Time = 4.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+	YFunc:
+	{
+		RndOfs:
+		{
+			min = -1.0000;
+			max = 1.0000;
+		};
+		RndMult:
+		{
+			min = -1.0000;
+			max = -0.0100;
+		};
+		KFFunc:
+		{
+			WrapMode = "Loop";
+			NumKeyFrames = 5;
+			KeyFrame0:
+			{
+				Value = 39.0000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+			KeyFrame1:
+			{
+				Value = -60.0000;
+				Time = 1.0000;
+				LerpFunc = "exp";
+			};
+			KeyFrame2:
+			{
+				Value = 0.0000;
+				Time = 2.0000;
+				LerpFunc = "sin";
+			};
+			KeyFrame3:
+			{
+				Value = 75.0000;
+				Time = 3.0000;
+				LerpFunc = "linear";
+			};
+			KeyFrame4:
+			{
+				Value = 0.0000;
+				Time = 4.0000;
+				LerpFunc = "sin";
+			};
+		};
+	};
+	ScaleFunc:
+	{
+		RndOfs:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		RndMult:
+		{
+			min = 0.5700;
+			max = 0.8000;
+		};
+		KFFunc:
+		{
+			WrapMode = "Loop";
+			NumKeyFrames = 1;
+			KeyFrame0:
+			{
+				Value = 0.2000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+	AngleFunc:
+	{
+		RndOfs:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		RndMult:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		KFFunc:
+		{
+			WrapMode = "Loop";
+			NumKeyFrames = 1;
+			KeyFrame0:
+			{
+				Value = 1.0000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+	ColorFunc:
+	{
+		RndMult:
+		{
+			min = 0.0000;
+			max = 0.0100;
+		};
+		KFFunc:
+		{
+			WrapMode = "Loop";
+			NumKeyFrames = 4;
+			KeyFrame0:
+			{
+				r = 0.0627;
+				g = 0.0627;
+				b = 0.0627;
+				a = 0.0000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+			KeyFrame1:
+			{
+				r = 0.0627;
+				g = 0.0627;
+				b = 0.0627;
+				a = 1.0000;
+				Time = 1.0000;
+				LerpFunc = "linear";
+			};
+			KeyFrame2:
+			{
+				r = 0.0627;
+				g = 0.0627;
+				b = 0.0627;
+				a = 1.0000;
+				Time = 3.0000;
+				LerpFunc = "linear";
+			};
+			KeyFrame3:
+			{
+				r = 0.0627;
+				g = 0.0627;
+				b = 0.0627;
+				a = 0.0000;
+				Time = 4.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+};

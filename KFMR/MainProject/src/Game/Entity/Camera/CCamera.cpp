@@ -62,10 +62,14 @@ void CCamera::Update(FEReal _rDeltaT)
 
 	m_oPos = goGameGlobals.m_poPlayer->oGetPos();
 	m_oPos.x -= goGameGlobals.m_rScreenMargin;
-
-	if (m_oPos.x < rMinX) m_oPos.x = rMinX;
-	if (m_oPos.y < _0r) m_oPos.y = _0r;
-	if ((m_oPos.y + rCamHeight) > goGameGlobals.m_poMap->m_oBV.m_oEnd.y) m_oPos.y = goGameGlobals.m_poMap->m_oBV.m_oEnd.y - rCamHeight;
+	
+	if (rMinX < rMaxX)
+	{
+		if (m_oPos.x < rMinX) m_oPos.x = rMinX;
+		if (m_oPos.y < _0r) m_oPos.y = _0r;
+		if ((m_oPos.y + rCamHeight) > goGameGlobals.m_poMap->m_oBV.m_oEnd.y) m_oPos.y = goGameGlobals.m_poMap->m_oBV.m_oEnd.y - rCamHeight;
+	}
+	
 	m_oPos.y = _0r;// (goGameGlobals.m_poMap->m_oBV.m_oEnd.y+goGameGlobals.m_poMap->m_oBV.m_oIni.y)*0.5 - 300;
 };
 //-----------------------------------------------------------------------------
