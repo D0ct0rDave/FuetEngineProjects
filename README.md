@@ -16,6 +16,18 @@ All game projects share some functionality and tools. Inside the share directory
 
 Im the following weeks I'll be adding all the tools built using FuetEngine and for FuetEngine and eventually a sample complex project.
 
+## KungFu master remake
+This was the first project using FuetEngine, it started it all. Graphics style was simple vector style. You can find the project in the KungFuMasterRemake branch.
+
+![Screenshot0.png](https://raw.githubusercontent.com/D0ct0rDave/FuetEngineProjects/refs/heads/main/repoimages/Kungfu_Master_Remake.jpg)
+
+![Screenshot1.png](https://raw.githubusercontent.com/D0ct0rDave/FuetEngineProjects/refs/heads/main/repoimages/Kungfu_Master_Remake_2.jpg)
+
+![Screenshot2.png](https://raw.githubusercontent.com/D0ct0rDave/FuetEngineProjects/refs/heads/main/repoimages/Kungfu_Master_Remake_3.jpg)
+
+![Screenshot3.png](https://raw.githubusercontent.com/D0ct0rDave/FuetEngineProjects/refs/heads/main/repoimages/Kungfu_Master_Remake_4.jpg)
+
+
 ### build instructions
 In most cases you will need to use premake (included in $(FuetEngineProjectDev)/shared/toolchain/general) to create the project files so you can build the binaries.
 
