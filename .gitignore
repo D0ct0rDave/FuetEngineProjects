@@ -6,8 +6,6 @@
 # svn
 *.svn
 
-data/*
-
 # User-specific files
 *.rsuser
 *.suo
