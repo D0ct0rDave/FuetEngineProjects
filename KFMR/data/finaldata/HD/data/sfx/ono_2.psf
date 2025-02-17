@@ -1,0 +1,159 @@
+ParticleSystem:
+{
+	Name = "ono_2";
+	Freq = 4.0000;
+	MinTTL = 1.0000;
+	MaxTTL = 1.0000;
+	Sprite = "ono_argh";
+	XFunc:
+	{
+		RndOfs:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		RndMult:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		KFFunc:
+		{
+			WrapMode = "FinalValue";
+			NumKeyFrames = 1;
+			KeyFrame0:
+			{
+				Value = 0.0000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+	YFunc:
+	{
+		RndOfs:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		RndMult:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		KFFunc:
+		{
+			WrapMode = "FinalValue";
+			NumKeyFrames = 1;
+			KeyFrame0:
+			{
+				Value = 0.0000;
+				Time = 0.0000;
+				LerpFunc = "sin";
+			};
+		};
+	};
+	ScaleFunc:
+	{
+		RndOfs:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		RndMult:
+		{
+			min = 0.7000;
+			max = 0.8500;
+		};
+		KFFunc:
+		{
+			WrapMode = "FinalValue";
+			NumKeyFrames = 2;
+			KeyFrame0:
+			{
+				Value = 0.0000;
+				Time = 0.0000;
+				LerpFunc = "exp";
+			};
+			KeyFrame1:
+			{
+				Value = 4.0000;
+				Time = 0.1000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+	AngleFunc:
+	{
+		RndOfs:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		RndMult:
+		{
+			min = 1.0000;
+			max = 1.0000;
+		};
+		KFFunc:
+		{
+			WrapMode = "FinalValue";
+			NumKeyFrames = 1;
+			KeyFrame0:
+			{
+				Value = 0.0000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+	ColorFunc:
+	{
+		RndMult:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		KFFunc:
+		{
+			WrapMode = "FinalValue";
+			NumKeyFrames = 4;
+			KeyFrame0:
+			{
+				r = 1.0000;
+				g = 1.0000;
+				b = 1.0000;
+				a = 0.0000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+			KeyFrame1:
+			{
+				r = 1.0000;
+				g = 1.0000;
+				b = 1.0000;
+				a = 1.0000;
+				Time = 0.1000;
+				LerpFunc = "linear";
+			};
+			KeyFrame2:
+			{
+				r = 1.0000;
+				g = 1.0000;
+				b = 1.0000;
+				a = 1.0000;
+				Time = 0.5000;
+				LerpFunc = "sin";
+			};
+			KeyFrame3:
+			{
+				r = 1.0000;
+				g = 1.0000;
+				b = 1.0000;
+				a = 0.0000;
+				Time = 1.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+};

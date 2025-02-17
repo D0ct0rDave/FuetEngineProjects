@@ -1,0 +1,45 @@
+Script:
+{
+	Sequence = "StopBGM,SuenaOutro,PlayerWalks,PlayerMoves";
+
+	StopBGM:
+	{
+		Type = "StopBGM";
+	};
+
+	PlayerWalks:
+	{
+		Type = "PlayEntityAnim";
+		Entity = "player";
+		Anim = "walk";
+	};	
+
+	PlayerMoves:
+	{
+		Type = "MoveEntityRelTo";
+		Entity = "player";
+	
+		FinalPos:
+		{
+			x = 380.0;
+			y = 0.0;
+		};
+		
+		Time = 2.5;
+	};
+	
+	PlayerIdle:
+	{
+		Type = "PlayEntityAnim";
+		Entity = "player";
+		Anim = "idle";
+	};
+
+	SuenaOutro:
+	{
+		Type = "PlaySound";
+		Sound = "data/sound/fx/game/Bonus_Win";
+		Vol = 0.2;
+		Pan = 0.5;
+	};
+};

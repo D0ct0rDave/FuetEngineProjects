@@ -1,0 +1,53 @@
+KFRMMap:
+{
+	ControlPoints:
+	{
+		NumCPs = 2;
+		CP0:
+		{
+			X = 319.0000;
+			Y = 292.0000;
+			Type = 1;
+		};
+		CP1:
+		{
+			X = 9100.0000;
+			Y = 316.0000;
+			Type = 2;
+		};
+	};
+	Entities:
+	{
+		NumEntities = 1;
+		Ent0:
+		{
+			X = 5032.0000;
+			Y = 222.0000;
+			Depth = 0.800;
+			Type = "EyeFollower";
+		};
+	};
+	ParticleSystems:
+	{
+		NumPSs = 1;
+		PS0:
+		{
+			X = 5082.0000;
+			Y = 220.0000;
+			Depth = 0.800;
+			Type = "Flies";
+		};
+	};
+	Ground:
+	{
+		NumSegments = 1;
+		Segment0:
+		{
+			IniX = -12.0000;
+			IniY = 388.0000;
+			EndX = 12604.0000;
+			EndY = 389.0000;
+			Type = 0;
+		};
+	};
+};

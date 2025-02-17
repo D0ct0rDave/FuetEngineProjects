@@ -1,0 +1,14 @@
+Cinematic:
+{
+	NumPlanes = 2;
+
+	Plane0:
+	{
+		Script = "intro";
+	};
+
+	Plane1:
+	{
+		Script = "boss1";
+	};	
+};

@@ -1,0 +1,207 @@
+Sprite:
+{
+	Name = "eyes";
+	BlendMode = "ALPHA";
+	NumActions = 1;
+
+	Action0:
+	{
+		Name = "Animation1";
+		PlayMode = "LOOP";
+		RandomStartTime = 5.0;
+
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 8;
+				Frame0:
+				{
+					Material = "eyes";
+					DelayTime = 5.000;
+					BlendTime = 1.000;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 78.0;
+						Height = 40.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0138;
+						IV = 0.0682;
+						FU = 0.1935;
+						FV = 0.9773;
+					};
+				};
+				Frame1:
+				{
+					Material = "eyes";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 78.0;
+						Height = 40.0;
+					};
+					TexCoords:
+					{
+						IU = 0.2120;
+						IV = 0.0682;
+						FU = 0.3917;
+						FV = 0.9773;
+					};
+				};
+				Frame2:
+				{
+					Material = "eyes";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 78.0;
+						Height = 40.0;
+					};
+					TexCoords:
+					{
+						IU = 0.4124;
+						IV = 0.0682;
+						FU = 0.5922;
+						FV = 0.9773;
+					};
+				};
+				Frame3:
+				{
+					Material = "eyes";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 78.0;
+						Height = 40.0;
+					};
+					TexCoords:
+					{
+						IU = 0.6106;
+						IV = 0.0909;
+						FU = 0.7903;
+						FV = 1.0000;
+					};
+				};
+				Frame4:
+				{
+					Material = "eyes";
+					DelayTime = 0.000;
+					BlendTime = 0.150;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 78.0;
+						Height = 40.0;
+					};
+					TexCoords:
+					{
+						IU = 0.7949;
+						IV = 0.0682;
+						FU = 0.9747;
+						FV = 0.9773;
+					};
+				};
+				Frame5:
+				{
+					Material = "eyes";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 78.0;
+						Height = 40.0;
+					};
+					TexCoords:
+					{
+						IU = 0.6129;
+						IV = 0.0682;
+						FU = 0.7926;
+						FV = 0.9773;
+					};
+				};
+				Frame6:
+				{
+					Material = "eyes";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 78.0;
+						Height = 40.0;
+					};
+					TexCoords:
+					{
+						IU = 0.4147;
+						IV = 0.0909;
+						FU = 0.5945;
+						FV = 1.0000;
+					};
+				};
+				Frame7:
+				{
+					Material = "eyes";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 78.0;
+						Height = 40.0;
+					};
+					TexCoords:
+					{
+						IU = 0.2120;
+						IV = 0.0682;
+						FU = 0.3917;
+						FV = 0.9773;
+					};
+				};
+			};
+		};
+	};
+
+};

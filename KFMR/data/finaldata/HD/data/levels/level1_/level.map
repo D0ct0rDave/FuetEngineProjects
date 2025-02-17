@@ -1,0 +1,3352 @@
+Map:
+{
+	SpriteSet:
+	{
+		NumSprites = 7;
+		Sprite0 = "background_gradient";
+		Sprite1 = "arbol_t1_depth";
+		Sprite2 = "arbol_t3_depth";
+		Sprite3 = "arbol_t4";
+		Sprite4 = "eyes";
+		Sprite5 = "arbol_t1";
+		Sprite6 = "hierba";
+	};
+
+	Layers:
+	{
+		NumLayers = 4;
+
+		Layer0:
+		{
+			Name = "ddd";
+
+			Speed:
+			{
+				x = 0.7000;
+				y = 1.0000;
+			};
+
+			NumElements = 92;
+
+			Element0:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -625.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 0.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element1:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -585.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 1.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element2:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -546.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 2.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element3:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -508.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 3.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element4:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -468.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 4.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element5:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -429.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 5.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element6:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -390.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 6.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element7:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -352.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 7.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element8:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -312.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 8.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element9:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -272.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 9.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element10:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -234.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 10.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element11:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -194.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 11.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element12:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -155.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 12.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element13:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -116.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 13.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element14:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -78.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 14.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element15:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -38.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 15.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element16:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = 1.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 16.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element17:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = 40.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 17.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element18:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = 78.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 18.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element19:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = 118.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 19.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element20:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = 158.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 20.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element21:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = 196.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 21.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element22:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = 236.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 22.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element23:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1524.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 23.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element24:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1484.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 24.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element25:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1445.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 25.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element26:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1407.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 26.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element27:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1367.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 27.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element28:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1328.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 28.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element29:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1289.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 29.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element30:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1251.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 30.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element31:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1211.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 31.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element32:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1171.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 32.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element33:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1133.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 33.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element34:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1093.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 34.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element35:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1054.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 35.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element36:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1015.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 36.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element37:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -977.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 37.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element38:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -937.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 38.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element39:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -898.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 39.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element40:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -859.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 40.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element41:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -821.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 41.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element42:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -781.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 42.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element43:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -741.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 43.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element44:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -703.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 44.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element45:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -663.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 45.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element46:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2423.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 46.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element47:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2383.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 47.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element48:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2344.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 48.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element49:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2306.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 49.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element50:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2266.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 50.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element51:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2227.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 51.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element52:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2188.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 52.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element53:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2150.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 53.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element54:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2110.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 54.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element55:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2070.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 55.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element56:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2032.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 56.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element57:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1992.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 57.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element58:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1953.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 58.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element59:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1914.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 59.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element60:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1876.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 60.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element61:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1836.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 61.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element62:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1797.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 62.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element63:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1758.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 63.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element64:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1720.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 64.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element65:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1680.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 65.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element66:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1640.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 66.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element67:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1602.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 67.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element68:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -1562.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 68.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element69:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -3316.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 69.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element70:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -3276.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 70.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element71:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -3241.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 71.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element72:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -3201.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 72.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element73:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -3161.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 73.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element74:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -3122.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 74.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element75:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -3086.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 75.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element76:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -3049.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 76.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element77:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -3009.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 77.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element78:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2969.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 78.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element79:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2931.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 79.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element80:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2891.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 80.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element81:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2852.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 81.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element82:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2813.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 82.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element83:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2775.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 83.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element84:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2735.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 84.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element85:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2696.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 85.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element86:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2657.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 86.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element87:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2619.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 87.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element88:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2579.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 88.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element89:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2539.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 89.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element90:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2501.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 90.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element91:
+			{
+				SpriteIdx = 0;
+
+				Position:
+				{
+					x = -2461.0;
+					y = 211.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 91.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+		};
+
+		Layer1:
+		{
+			Name = "back21";
+
+			Speed:
+			{
+				x = 0.8000;
+				y = 1.0000;
+			};
+
+			NumElements = 7;
+
+			Element0:
+			{
+				SpriteIdx = 1;
+
+				Position:
+				{
+					x = -2914.0;
+					y = 317.0;
+				};
+
+				Scale:
+				{
+					x = 0.3311;
+					y = 0.3311;
+				};
+
+				Depth = 92.000;
+				Angle = 0.014;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element1:
+			{
+				SpriteIdx = 2;
+
+				Position:
+				{
+					x = -2657.0;
+					y = 275.0;
+				};
+
+				Scale:
+				{
+					x = 0.3400;
+					y = 0.3400;
+				};
+
+				Depth = 93.000;
+				Angle = 0.144;
+
+				Color:
+				{
+					r = 0.502;
+					g = 0.502;
+					b = 0.502;
+					a = 1.000;
+				};
+			};
+
+			Element2:
+			{
+				SpriteIdx = 1;
+
+				Position:
+				{
+					x = -2231.0;
+					y = 311.0;
+				};
+
+				Scale:
+				{
+					x = 0.4000;
+					y = 0.4000;
+				};
+
+				Depth = 94.000;
+				Angle = -0.109;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element3:
+			{
+				SpriteIdx = 1;
+
+				Position:
+				{
+					x = -1377.0;
+					y = 328.0;
+				};
+
+				Scale:
+				{
+					x = 0.3311;
+					y = 0.3311;
+				};
+
+				Depth = 95.000;
+				Angle = -0.185;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element4:
+			{
+				SpriteIdx = 2;
+
+				Position:
+				{
+					x = -1812.0;
+					y = 285.0;
+				};
+
+				Scale:
+				{
+					x = 0.3400;
+					y = 0.3400;
+				};
+
+				Depth = 96.000;
+				Angle = 0.144;
+
+				Color:
+				{
+					r = 0.502;
+					g = 0.502;
+					b = 0.502;
+					a = 1.000;
+				};
+			};
+
+			Element5:
+			{
+				SpriteIdx = 1;
+
+				Position:
+				{
+					x = -694.0;
+					y = 314.0;
+				};
+
+				Scale:
+				{
+					x = 0.3311;
+					y = 0.3311;
+				};
+
+				Depth = 97.000;
+				Angle = -0.016;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element6:
+			{
+				SpriteIdx = 2;
+
+				Position:
+				{
+					x = 38.0;
+					y = 265.0;
+				};
+
+				Scale:
+				{
+					x = 0.3400;
+					y = 0.3400;
+				};
+
+				Depth = 98.000;
+				Angle = 0.144;
+
+				Color:
+				{
+					r = 0.502;
+					g = 0.502;
+					b = 0.502;
+					a = 1.000;
+				};
+			};
+
+		};
+
+		Layer2:
+		{
+			Name = "background";
+
+			Speed:
+			{
+				x = 0.9000;
+				y = 1.0000;
+			};
+
+			NumElements = 12;
+
+			Element0:
+			{
+				SpriteIdx = 3;
+
+				Position:
+				{
+					x = -87.0;
+					y = 212.0;
+				};
+
+				Scale:
+				{
+					x = 0.4794;
+					y = 0.4794;
+				};
+
+				Depth = 99.000;
+				Angle = 0.179;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element1:
+			{
+				SpriteIdx = 4;
+
+				Position:
+				{
+					x = -71.0;
+					y = 244.0;
+				};
+
+				Scale:
+				{
+					x = 0.5323;
+					y = 0.5323;
+				};
+
+				Depth = 100.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element2:
+			{
+				SpriteIdx = 5;
+
+				Position:
+				{
+					x = -1495.0;
+					y = 299.0;
+				};
+
+				Scale:
+				{
+					x = 0.5141;
+					y = 0.5141;
+				};
+
+				Depth = 101.000;
+				Angle = -0.033;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element3:
+			{
+				SpriteIdx = 3;
+
+				Position:
+				{
+					x = -1115.0;
+					y = 182.0;
+				};
+
+				Scale:
+				{
+					x = 0.5571;
+					y = 0.5571;
+				};
+
+				Depth = 102.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element4:
+			{
+				SpriteIdx = 4;
+
+				Position:
+				{
+					x = -1106.0;
+					y = 118.0;
+				};
+
+				Scale:
+				{
+					x = 0.5323;
+					y = 0.5323;
+				};
+
+				Depth = 103.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element5:
+			{
+				SpriteIdx = 4;
+
+				Position:
+				{
+					x = -1484.0;
+					y = 286.0;
+				};
+
+				Scale:
+				{
+					x = 0.5078;
+					y = 0.5078;
+				};
+
+				Depth = 104.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element6:
+			{
+				SpriteIdx = 5;
+
+				Position:
+				{
+					x = -2732.0;
+					y = 276.0;
+				};
+
+				Scale:
+				{
+					x = 0.5141;
+					y = 0.5141;
+				};
+
+				Depth = 105.000;
+				Angle = -0.033;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element7:
+			{
+				SpriteIdx = 4;
+
+				Position:
+				{
+					x = -2704.0;
+					y = 256.0;
+				};
+
+				Scale:
+				{
+					x = 0.5078;
+					y = 0.5078;
+				};
+
+				Depth = 106.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element8:
+			{
+				SpriteIdx = 5;
+
+				Position:
+				{
+					x = -384.0;
+					y = 270.0;
+				};
+
+				Scale:
+				{
+					x = 0.5141;
+					y = 0.5141;
+				};
+
+				Depth = 107.000;
+				Angle = -0.033;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element9:
+			{
+				SpriteIdx = 3;
+
+				Position:
+				{
+					x = -2280.0;
+					y = 209.0;
+				};
+
+				Scale:
+				{
+					x = 0.5571;
+					y = 0.5571;
+				};
+
+				Depth = 108.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element10:
+			{
+				SpriteIdx = 4;
+
+				Position:
+				{
+					x = -2269.0;
+					y = 171.0;
+				};
+
+				Scale:
+				{
+					x = 0.5078;
+					y = 0.5078;
+				};
+
+				Depth = 109.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element11:
+			{
+				SpriteIdx = 4;
+
+				Position:
+				{
+					x = -348.0;
+					y = 275.0;
+				};
+
+				Scale:
+				{
+					x = 0.5078;
+					y = 0.5078;
+				};
+
+				Depth = 110.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+		};
+
+		Layer3:
+		{
+			Name = "fore";
+
+			Speed:
+			{
+				x = 1.0000;
+				y = 1.0000;
+			};
+
+			NumElements = 6;
+
+			Element0:
+			{
+				SpriteIdx = 6;
+
+				Position:
+				{
+					x = -644.0;
+					y = 399.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 111.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element1:
+			{
+				SpriteIdx = 6;
+
+				Position:
+				{
+					x = -40.0;
+					y = 398.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 112.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element2:
+			{
+				SpriteIdx = 6;
+
+				Position:
+				{
+					x = -1241.0;
+					y = 401.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 113.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element3:
+			{
+				SpriteIdx = 6;
+
+				Position:
+				{
+					x = -1847.0;
+					y = 403.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 114.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element4:
+			{
+				SpriteIdx = 6;
+
+				Position:
+				{
+					x = -2360.0;
+					y = 401.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 115.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+			Element5:
+			{
+				SpriteIdx = 6;
+
+				Position:
+				{
+					x = -2924.0;
+					y = 400.0;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+
+				Depth = 116.000;
+				Angle = 0.000;
+
+				Color:
+				{
+					r = 1.000;
+					g = 1.000;
+					b = 1.000;
+					a = 1.000;
+				};
+			};
+
+		};
+
+	};
+};

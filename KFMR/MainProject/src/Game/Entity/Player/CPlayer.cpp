@@ -233,7 +233,7 @@ void CPlayer::Update(FEReal _rDeltaT)
 
 	// Cheats
 #ifdef _DEBUG
-	if(m_poInput->bPressed(IB_C))
+	if(m_poInput->bPressed(IB_D))
 	{
 		if(m_poInput->bPressed(IB_DOWN))
 		{

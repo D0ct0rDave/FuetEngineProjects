@@ -1,0 +1,81 @@
+Sprite:
+{
+	Name = "hand_right";
+	BlendMode = "ALPHA";
+	NumActions = 2;
+
+	Action0:
+	{
+		Name = "normal";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "hand_right";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 12.0;
+						Height = 12.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0303;
+						IV = 0.8281;
+						FU = 0.3939;
+						FV = 1.0000;
+					};
+				};
+			};
+		};
+	};
+
+	Action1:
+	{
+		Name = "combat";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "hand_right";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.9063;
+					};
+					Size:
+					{
+						Width = 20.0;
+						Height = 64.0;
+					};
+					TexCoords:
+					{
+						IU = 0.4242;
+						IV = 0.0156;
+						FU = 1.0000;
+						FV = 1.0000;
+					};
+				};
+			};
+		};
+	};
+
+};

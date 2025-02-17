@@ -109,8 +109,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>FuetEngine.lib;ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win32;$(ProjectDir)..\..\..\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win32;$(ProjectDir)..\..\..\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\Externals\FreeImage\Dist\Win32\Debug\FreeImage.dll $(ProjectDir)..\..\data\finaldata\HD</Command>

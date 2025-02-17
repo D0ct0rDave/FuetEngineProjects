@@ -1,0 +1,1 @@
+Sprite:{ Name="face"; NumActions=1; Action0:{ Frames:{ Type = "Regular"; Regular:{ Material = "face"; Size:{ Width = 50.00000000000000000000000000; Height = 24.00000000000000000000000000; }; }; }; }; }; 

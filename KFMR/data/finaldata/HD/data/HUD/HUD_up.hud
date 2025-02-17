@@ -1,0 +1,4949 @@
+HUD:
+{
+	NumElements = 9;
+
+	Element0:
+	{
+		Name = "Energy-Group";
+		NumLayers = 1;
+		Layer0:
+		{
+			Type = "Group";
+			Name = "Energy-Group";
+
+			Position:
+			{
+				x = 383.0000;
+				y = 288.0000;
+			};
+
+			Scale:
+			{
+				x = 1.0000;
+				y = 1.0000;
+			};
+			
+			Angle = 0.0000;
+
+			Color:
+			{
+				r = 1.0000;
+				g = 1.0000;
+				b = 1.0000;
+				a = 1.0000;
+			};
+
+			Visible = true;
+			NumObjects = 4;
+			Object0:
+			{
+				Type = "Label";
+				Text = "PLAYER:";
+				Font = "marcadores";
+				HAlignment = "Left";
+				VAlignment = "Center";
+				Name = "Energy-Label";
+
+				Position:
+				{
+					x = -277.0000;
+					y = -183.0000;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+			Object1:
+			{
+				Type = "Rect";
+				Width = 100.0;
+				Height = 480.0;
+				PivotX = 0.0000;
+				PivotY = 0.0000;
+				Corner0:
+				{
+					r = 0.2510;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Corner1:
+				{
+					r = 0.2510;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Corner2:
+				{
+					r = 0.2510;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Corner3:
+				{
+					r = 0.2510;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Name = "Energy-Frame";
+
+				Position:
+				{
+					x = -274.0000;
+					y = -163.0000;
+				};
+
+				Scale:
+				{
+					x = 1.8900;
+					y = 0.0600;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+			Object2:
+			{
+				Type = "Rect";
+				Width = 100.0;
+				Height = 100.0;
+				PivotX = 0.0000;
+				PivotY = 0.5000;
+				Corner0:
+				{
+					r = 1.0000;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Corner1:
+				{
+					r = 1.0000;
+					g = 0.5020;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Corner2:
+				{
+					r = 1.0000;
+					g = 0.5020;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Corner3:
+				{
+					r = 1.0000;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Name = "Energy-Mask";
+
+				Position:
+				{
+					x = -269.0000;
+					y = -148.0000;
+				};
+
+				Scale:
+				{
+					x = 1.8000;
+					y = 0.1850;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+			Object3:
+			{
+				Type = "Rect";
+				Width = 100.0;
+				Height = 100.0;
+				PivotX = 0.0000;
+				PivotY = 0.0000;
+				Corner0:
+				{
+					r = 0.0000;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Corner1:
+				{
+					r = 0.0000;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Corner2:
+				{
+					r = 0.0000;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Corner3:
+				{
+					r = 0.0000;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Name = "Energy";
+
+				Position:
+				{
+					x = -88.0000;
+					y = -159.0000;
+				};
+
+				Scale:
+				{
+					x = -0.7240;
+					y = 0.2000;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+		};
+
+		NumElemActions = 2;
+		Action0:
+		{
+			Name = "EnergyAction";
+			NumObjActions = 5;
+			ObjAction0:
+			{
+				HUDObject= "Energy-Group";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 383.0000;
+						y = 288.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "Energy-Label";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -277.0000;
+						y = -183.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction2:
+			{
+				HUDObject= "Energy-Frame";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -274.0000;
+						y = -163.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.8900;
+						y = 0.0600;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction3:
+			{
+				HUDObject= "Energy-Mask";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -269.0000;
+						y = -148.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.8000;
+						y = 0.1850;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction4:
+			{
+				HUDObject= "Energy";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -88.0000;
+						y = -159.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -1.8100;
+						y = 0.2000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 1.0000;
+						x = 0.0000;
+						y = 0.2000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+		Action1:
+		{
+			Name = "HUDPresentation1";
+			NumObjActions = 5;
+			ObjAction0:
+			{
+				HUDObject= "Energy-Group";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 0.0000;
+						y = 288.0000;
+						LerpFunc = "SIN";
+					};
+					KeyFrame1:
+					{
+						Time = 0.4000;
+						x = 383.0000;
+						y = 288.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "Energy-Label";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -277.0000;
+						y = -183.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction2:
+			{
+				HUDObject= "Energy-Frame";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -274.0000;
+						y = -163.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.8900;
+						y = 0.0600;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction3:
+			{
+				HUDObject= "Energy-Mask";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -269.0000;
+						y = -148.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.8000;
+						y = 0.1850;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction4:
+			{
+				HUDObject= "Energy";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -88.0000;
+						y = -159.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 0.0000;
+						y = 0.2000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+	};
+
+	Element1:
+	{
+		Name = "Enemy-Group";
+		NumLayers = 1;
+		Layer0:
+		{
+			Type = "Group";
+			Name = "Enemy-Group";
+
+			Position:
+			{
+				x = 387.0000;
+				y = 288.0000;
+			};
+
+			Scale:
+			{
+				x = 1.0000;
+				y = 1.0000;
+			};
+			
+			Angle = 0.0000;
+
+			Color:
+			{
+				r = 1.0000;
+				g = 1.0000;
+				b = 1.0000;
+				a = 1.0000;
+			};
+
+			Visible = true;
+			NumObjects = 4;
+			Object0:
+			{
+				Type = "Label";
+				Text = "ENEMY:";
+				Font = "marcadores";
+				HAlignment = "Left";
+				VAlignment = "Center";
+				Name = "Enemy-Label";
+
+				Position:
+				{
+					x = 124.0000;
+					y = -181.0000;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+			Object1:
+			{
+				Type = "Rect";
+				Width = 100.0;
+				Height = 80.0;
+				PivotX = 0.0000;
+				PivotY = 0.0000;
+				Corner0:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner1:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner2:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner3:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Name = "Enemy-Energy-Frame";
+
+				Position:
+				{
+					x = 126.0000;
+					y = -162.0000;
+				};
+
+				Scale:
+				{
+					x = 1.9034;
+					y = 0.3658;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 0.0000;
+					g = 0.0000;
+					b = 0.2510;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+			Object2:
+			{
+				Type = "Rect";
+				Width = 100.0;
+				Height = 100.0;
+				PivotX = 0.0000;
+				PivotY = 0.0000;
+				Corner0:
+				{
+					r = 0.0000;
+					g = 0.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner1:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Corner2:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Corner3:
+				{
+					r = 0.0000;
+					g = 0.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Name = "Enemy-Energy-Mask";
+
+				Position:
+				{
+					x = 131.0000;
+					y = -158.0000;
+				};
+
+				Scale:
+				{
+					x = 1.7985;
+					y = 0.2050;
+				};
+				
+				Angle = 6.2832;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+			Object3:
+			{
+				Type = "Rect";
+				Width = 100.0;
+				Height = 100.0;
+				PivotX = 1.0000;
+				PivotY = 0.0000;
+				Corner0:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner1:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner2:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner3:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Name = "Enemy-Energy";
+
+				Position:
+				{
+					x = 313.0000;
+					y = -158.0000;
+				};
+
+				Scale:
+				{
+					x = 1.8191;
+					y = 0.2147;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 0.0000;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+		};
+
+		NumElemActions = 3;
+		Action0:
+		{
+			Name = "EnemyHUDShows";
+			NumObjActions = 5;
+			ObjAction0:
+			{
+				HUDObject= "Enemy-Group";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 700.0000;
+						y = 288.0000;
+						LerpFunc = "SIN";
+					};
+					KeyFrame1:
+					{
+						Time = 0.4000;
+						x = 387.0000;
+						y = 288.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "Enemy-Label";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 124.0000;
+						y = -181.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction2:
+			{
+				HUDObject= "Enemy-Energy-Frame";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 126.0000;
+						y = -162.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.9034;
+						y = 0.3658;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 0.0000;
+						g = 0.0000;
+						b = 0.2510;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction3:
+			{
+				HUDObject= "Enemy-Energy-Mask";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 131.0000;
+						y = -158.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.7985;
+						y = 0.2050;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 6.2832;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction4:
+			{
+				HUDObject= "Enemy-Energy";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 313.0000;
+						y = -158.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 0.0000;
+						y = 0.2147;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 0.0000;
+						g = 0.0000;
+						b = 0.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+		Action1:
+		{
+			Name = "EnemyEnergyAction";
+			NumObjActions = 5;
+			ObjAction0:
+			{
+				HUDObject= "Enemy-Group";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 387.0000;
+						y = 288.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "Enemy-Label";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 124.0000;
+						y = -181.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction2:
+			{
+				HUDObject= "Enemy-Energy-Frame";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 126.0000;
+						y = -162.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.9034;
+						y = 0.3658;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 0.0000;
+						g = 0.0000;
+						b = 0.2510;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction3:
+			{
+				HUDObject= "Enemy-Energy-Mask";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 131.0000;
+						y = -158.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.7985;
+						y = 0.2050;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 6.2832;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction4:
+			{
+				HUDObject= "Enemy-Energy";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 313.0000;
+						y = -158.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.8191;
+						y = 0.2147;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 1.0000;
+						x = 0.0000;
+						y = 0.2147;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 0.0000;
+						g = 0.0000;
+						b = 0.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+		Action2:
+		{
+			Name = "EnemyHUDHides";
+			NumObjActions = 5;
+			ObjAction0:
+			{
+				HUDObject= "Enemy-Group";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 5;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 387.0000;
+						y = 288.0000;
+						LerpFunc = "EXP";
+					};
+					KeyFrame1:
+					{
+						Time = 1.0000;
+						x = 387.0000;
+						y = 288.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame2:
+					{
+						Time = 2.0000;
+						x = 387.0000;
+						y = 288.0000;
+						LerpFunc = "EXP";
+					};
+					KeyFrame3:
+					{
+						Time = 3.0000;
+						x = 387.0000;
+						y = 800.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame4:
+					{
+						Time = 4.0000;
+						x = 387.0000;
+						y = 799.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "Enemy-Label";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 124.0000;
+						y = -181.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction2:
+			{
+				HUDObject= "Enemy-Energy-Frame";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 126.0000;
+						y = -162.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.9034;
+						y = 0.3658;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 0.0000;
+						g = 0.0000;
+						b = 0.2510;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction3:
+			{
+				HUDObject= "Enemy-Energy-Mask";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 131.0000;
+						y = -158.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.7985;
+						y = 0.2050;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 6.2832;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction4:
+			{
+				HUDObject= "Enemy-Energy";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 313.0000;
+						y = -158.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.8191;
+						y = 0.2147;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 0.0000;
+						g = 0.0000;
+						b = 0.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+	};
+
+	Element2:
+	{
+		Name = "ReadyMsg";
+		NumLayers = 1;
+		Layer0:
+		{
+			Type = "Group";
+			Name = "ReadyMsg";
+
+			Position:
+			{
+				x = 878.0000;
+				y = 298.0000;
+			};
+
+			Scale:
+			{
+				x = 1.0000;
+				y = 1.0000;
+			};
+			
+			Angle = 0.0000;
+
+			Color:
+			{
+				r = 1.0000;
+				g = 1.0000;
+				b = 1.0000;
+				a = 1.0000;
+			};
+
+			Visible = true;
+			NumObjects = 1;
+			Object0:
+			{
+				Type = "Label";
+				Text = "READY?";
+				Font = "BIGFont";
+				HAlignment = "Center";
+				VAlignment = "Center";
+				Name = "Ready";
+
+				Position:
+				{
+					x = 14.0000;
+					y = 2.0000;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 0.5020;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+		};
+
+		NumElemActions = 1;
+		Action0:
+		{
+			Name = "ReadyMsg_Show";
+			NumObjActions = 2;
+			ObjAction0:
+			{
+				HUDObject= "ReadyMsg";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 878.0000;
+						y = 298.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "Ready";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 4;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -465.0000;
+						y = 2.0000;
+						LerpFunc = "EXP";
+					};
+					KeyFrame1:
+					{
+						Time = 1.2000;
+						x = -465.0000;
+						y = 2.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame2:
+					{
+						Time = 2.0000;
+						x = -465.0000;
+						y = 2.0000;
+						LerpFunc = "SIN";
+					};
+					KeyFrame3:
+					{
+						Time = 2.4000;
+						x = 14.0000;
+						y = 2.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 3;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 0.5020;
+						a = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 1.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 0.5020;
+						a = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame2:
+					{
+						Time = 1.2000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 0.5020;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+	};
+
+	Element3:
+	{
+		Name = "GoMsg";
+		NumLayers = 1;
+		Layer0:
+		{
+			Type = "Group";
+			Name = "GoMsg";
+
+			Position:
+			{
+				x = 400.0000;
+				y = 300.0000;
+			};
+
+			Scale:
+			{
+				x = 1.0000;
+				y = 1.0000;
+			};
+			
+			Angle = 0.0000;
+
+			Color:
+			{
+				r = 1.0000;
+				g = 1.0000;
+				b = 1.0000;
+				a = 1.0000;
+			};
+
+			Visible = true;
+			NumObjects = 1;
+			Object0:
+			{
+				Type = "Label";
+				Text = "GO!";
+				Font = "BIGFont";
+				HAlignment = "Center";
+				VAlignment = "Center";
+				Name = "Go";
+
+				Position:
+				{
+					x = 0.0000;
+					y = 0.0000;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 0.5020;
+					a = 0.0000;
+				};
+
+				Visible = true;
+			};
+
+		};
+
+		NumElemActions = 1;
+		Action0:
+		{
+			Name = "GoMsg_Show";
+			NumObjActions = 2;
+			ObjAction0:
+			{
+				HUDObject= "GoMsg";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 400.0000;
+						y = 300.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "Go";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 0.0000;
+						y = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 4;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "SIN";
+					};
+					KeyFrame1:
+					{
+						Time = 0.4000;
+						x = 2.7980;
+						y = 2.7980;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame2:
+					{
+						Time = 1.0000;
+						x = 2.7980;
+						y = 2.7980;
+						LerpFunc = "SIN";
+					};
+					KeyFrame3:
+					{
+						Time = 1.6000;
+						x = 27.0951;
+						y = 27.0951;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 4;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 0.5020;
+						a = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 0.4000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 0.5020;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame2:
+					{
+						Time = 1.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 0.5020;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame3:
+					{
+						Time = 1.6000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 0.5020;
+						a = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+	};
+
+	Element4:
+	{
+		Name = "GameOverMsg";
+		NumLayers = 1;
+		Layer0:
+		{
+			Type = "Group";
+			Name = "GameOverMsg";
+
+			Position:
+			{
+				x = 400.0000;
+				y = 300.0000;
+			};
+
+			Scale:
+			{
+				x = 1.0000;
+				y = 1.0000;
+			};
+			
+			Angle = 0.0000;
+
+			Color:
+			{
+				r = 1.0000;
+				g = 1.0000;
+				b = 1.0000;
+				a = 1.0000;
+			};
+
+			Visible = true;
+			NumObjects = 2;
+			Object0:
+			{
+				Type = "Rect";
+				Width = 46.0;
+				Height = 480.0;
+				PivotX = 1.0000;
+				PivotY = 0.5000;
+				Corner0:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner1:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner2:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner3:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Name = "Rect layer 0";
+
+				Position:
+				{
+					x = 371.0000;
+					y = 0.0000;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 0.0000;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+			Object1:
+			{
+				Type = "Label";
+				Text = "GAME OVER";
+				Font = "BIGFont";
+				HAlignment = "Center";
+				VAlignment = "Center";
+				Name = "GAME OVER";
+
+				Position:
+				{
+					x = 0.0000;
+					y = 0.0000;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 0.0000;
+				};
+
+				Visible = true;
+			};
+
+		};
+
+		NumElemActions = 1;
+		Action0:
+		{
+			Name = "GameOverMsg_Show";
+			NumObjActions = 3;
+			ObjAction0:
+			{
+				HUDObject= "GameOverMsg";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 400.0000;
+						y = 300.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "Rect layer 0";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 371.0000;
+						y = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 4;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 4.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "SIN";
+					};
+					KeyFrame2:
+					{
+						Time = 4.4000;
+						x = 15.1419;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame3:
+					{
+						Time = 4.6000;
+						x = 15.3130;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 0.0000;
+						g = 0.0000;
+						b = 0.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction2:
+			{
+				HUDObject= "GAME OVER";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 3;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 0.0000;
+						y = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 3.0000;
+						x = 0.0000;
+						y = 0.0000;
+						LerpFunc = "SIN";
+					};
+					KeyFrame2:
+					{
+						Time = 4.0000;
+						x = 560.0000;
+						y = 2.0000;
+						LerpFunc = "EXP";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 0.6000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+	};
+
+	Element5:
+	{
+		Name = "nonamed element 0";
+		NumLayers = 1;
+		Layer0:
+		{
+			Type = "Group";
+			Name = "CortinillaFX";
+
+			Position:
+			{
+				x = 408.0000;
+				y = 58.0000;
+			};
+
+			Scale:
+			{
+				x = 1.0000;
+				y = 1.0000;
+			};
+			
+			Angle = 0.0000;
+
+			Color:
+			{
+				r = 0.0000;
+				g = 0.0000;
+				b = 0.0000;
+				a = 1.0000;
+			};
+
+			Visible = true;
+			NumObjects = 1;
+			Object0:
+			{
+				Type = "Rect";
+				Width = 100.0;
+				Height = 100.0;
+				PivotX = 1.0000;
+				PivotY = 0.0000;
+				Corner0:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner1:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner2:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner3:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Name = "Cortinilla";
+
+				Position:
+				{
+					x = 387.0000;
+					y = 0.0000;
+				};
+
+				Scale:
+				{
+					x = 0.0000;
+					y = 4.8950;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 0.0000;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+		};
+
+		NumElemActions = 2;
+		Action0:
+		{
+			Name = "CorinillaIn_Show";
+			NumObjActions = 2;
+			ObjAction0:
+			{
+				HUDObject= "CortinillaFX";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 408.0000;
+						y = 58.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 0.0000;
+						g = 0.0000;
+						b = 0.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "Cortinilla";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 387.0000;
+						y = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 0.0000;
+						y = 4.8950;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 0.6000;
+						x = 7.1991;
+						y = 4.8950;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 0.0000;
+						g = 0.0000;
+						b = 0.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+		Action1:
+		{
+			Name = "CorinillaOut_Show";
+			NumObjActions = 2;
+			ObjAction0:
+			{
+				HUDObject= "CortinillaFX";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 408.0000;
+						y = 58.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 0.0000;
+						g = 0.0000;
+						b = 0.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "Cortinilla";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 387.0000;
+						y = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 3;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 7.1991;
+						y = 4.8950;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 1.0000;
+						x = 7.1991;
+						y = 4.8950;
+						LerpFunc = "SIN";
+					};
+					KeyFrame2:
+					{
+						Time = 1.6000;
+						x = 7.1991;
+						y = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 0.0000;
+						g = 0.0000;
+						b = 0.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+	};
+
+	Element6:
+	{
+		Name = "StageClearMsg";
+		NumLayers = 1;
+		Layer0:
+		{
+			Type = "Group";
+			Name = "StageClearMsg";
+
+			Position:
+			{
+				x = 400.0000;
+				y = 300.0000;
+			};
+
+			Scale:
+			{
+				x = 1.0000;
+				y = 1.0000;
+			};
+			
+			Angle = 0.0000;
+
+			Color:
+			{
+				r = 1.0000;
+				g = 1.0000;
+				b = 1.0000;
+				a = 1.0000;
+			};
+
+			Visible = true;
+			NumObjects = 2;
+			Object0:
+			{
+				Type = "Label";
+				Text = "GOOD JOB!";
+				Font = "BIGFont";
+				HAlignment = "Center";
+				VAlignment = "Center";
+				Name = "GoodJobLabel";
+
+				Position:
+				{
+					x = -900.0000;
+					y = -63.0000;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+			Object1:
+			{
+				Type = "Label";
+				Text = "STAGE CLEAR";
+				Font = "BIGFont";
+				HAlignment = "Center";
+				VAlignment = "Center";
+				Name = "StageClearLabel";
+
+				Position:
+				{
+					x = 900.0000;
+					y = 33.0000;
+				};
+
+				Scale:
+				{
+					x = 1.0000;
+					y = 1.0000;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+		};
+
+		NumElemActions = 2;
+		Action0:
+		{
+			Name = "StageClearShows";
+			NumObjActions = 3;
+			ObjAction0:
+			{
+				HUDObject= "StageClearMsg";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 400.0000;
+						y = 300.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 3.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "GoodJobLabel";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -900.0000;
+						y = -63.0000;
+						LerpFunc = "SIN";
+					};
+					KeyFrame1:
+					{
+						Time = 0.6000;
+						x = 7.0000;
+						y = -63.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 3;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 4.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "EXP";
+					};
+					KeyFrame2:
+					{
+						Time = 5.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction2:
+			{
+				HUDObject= "StageClearLabel";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 3;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 900.0000;
+						y = 33.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 0.6000;
+						x = 900.0000;
+						y = 33.0000;
+						LerpFunc = "SIN";
+					};
+					KeyFrame2:
+					{
+						Time = 1.2000;
+						x = 9.0000;
+						y = 33.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 3;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 4.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "EXP";
+					};
+					KeyFrame2:
+					{
+						Time = 5.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+		Action1:
+		{
+			Name = "StageClearHides";
+			NumObjActions = 3;
+			ObjAction0:
+			{
+				HUDObject= "StageClearMsg";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 400.0000;
+						y = 300.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "GoodJobLabel";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 7.0000;
+						y = -63.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "EXP";
+					};
+					KeyFrame1:
+					{
+						Time = 1.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction2:
+			{
+				HUDObject= "StageClearLabel";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 9.0000;
+						y = 33.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "EXP";
+					};
+					KeyFrame1:
+					{
+						Time = 1.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+	};
+
+	Element7:
+	{
+		Name = "Versus_Boss";
+		NumLayers = 1;
+		Layer0:
+		{
+			Type = "Group";
+			Name = "Versus_Boss";
+
+			Position:
+			{
+				x = 392.0000;
+				y = 804.0000;
+			};
+
+			Scale:
+			{
+				x = 1.0000;
+				y = 1.0000;
+			};
+			
+			Angle = 0.0000;
+
+			Color:
+			{
+				r = 1.0000;
+				g = 1.0000;
+				b = 1.0000;
+				a = 1.0000;
+			};
+
+			Visible = true;
+			NumObjects = 2;
+			Object0:
+			{
+				Type = "Rect";
+				Width = 320.0;
+				Height = 480.0;
+				PivotX = 0.0000;
+				PivotY = 0.5000;
+				Corner0:
+				{
+					r = 0.0000;
+					g = 0.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner1:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Corner2:
+				{
+					r = 0.0000;
+					g = 0.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner3:
+				{
+					r = 0.0000;
+					g = 0.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Name = "BossSide";
+
+				Position:
+				{
+					x = 13.0000;
+					y = -509.0000;
+				};
+
+				Scale:
+				{
+					x = 1.5550;
+					y = 2.1550;
+				};
+				
+				Angle = 0.9250;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+			Object1:
+			{
+				Type = "Rect";
+				Width = 100.0;
+				Height = 100.0;
+				PivotX = 0.5000;
+				PivotY = 0.5000;
+				Corner0:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner1:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner2:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner3:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Name = "BossAvatar";
+
+				Position:
+				{
+					x = 197.0000;
+					y = -387.0000;
+				};
+
+				Scale:
+				{
+					x = 1.5069;
+					y = 1.5069;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+		};
+
+		NumElemActions = 2;
+		Action0:
+		{
+			Name = "ShowVersusBoss";
+			NumObjActions = 3;
+			ObjAction0:
+			{
+				HUDObject= "Versus_Boss";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1200.0000;
+						y = 804.0000;
+						LerpFunc = "SIN";
+					};
+					KeyFrame1:
+					{
+						Time = 0.4000;
+						x = 392.0000;
+						y = 804.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 4.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "BossSide";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 13.0000;
+						y = -509.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.5550;
+						y = 2.1550;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.9250;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction2:
+			{
+				HUDObject= "BossAvatar";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 197.0000;
+						y = -387.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.5069;
+						y = 1.5069;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+		Action1:
+		{
+			Name = "HideVersusBoss";
+			NumObjActions = 3;
+			ObjAction0:
+			{
+				HUDObject= "Versus_Boss";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 392.0000;
+						y = 804.0000;
+						LerpFunc = "SIN";
+					};
+					KeyFrame1:
+					{
+						Time = 0.4000;
+						x = 392.0000;
+						y = 1300.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 4.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "BossSide";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 13.0000;
+						y = -509.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.5550;
+						y = 2.1550;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.9250;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction2:
+			{
+				HUDObject= "BossAvatar";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 197.0000;
+						y = -387.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.5069;
+						y = 1.5069;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+	};
+
+	Element8:
+	{
+		Name = "Versus_Player";
+		NumLayers = 1;
+		Layer0:
+		{
+			Type = "Group";
+			Name = "Versus_Player";
+
+			Position:
+			{
+				x = 421.6185;
+				y = 151.1148;
+			};
+
+			Scale:
+			{
+				x = 1.0000;
+				y = 1.0000;
+			};
+			
+			Angle = 0.0000;
+
+			Color:
+			{
+				r = 1.0000;
+				g = 1.0000;
+				b = 1.0000;
+				a = 1.0000;
+			};
+
+			Visible = true;
+			NumObjects = 2;
+			Object0:
+			{
+				Type = "Rect";
+				Width = 320.0;
+				Height = 480.0;
+				PivotX = 1.0000;
+				PivotY = 0.5000;
+				Corner0:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Corner1:
+				{
+					r = 1.0000;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Corner2:
+				{
+					r = 1.0000;
+					g = 0.0000;
+					b = 0.0000;
+					a = 0.9843;
+				};
+
+				Corner3:
+				{
+					r = 1.0000;
+					g = 0.0000;
+					b = 0.0000;
+					a = 1.0000;
+				};
+
+				Name = "PlayerSide";
+
+				Position:
+				{
+					x = -18.1254;
+					y = 147.9989;
+				};
+
+				Scale:
+				{
+					x = 1.6500;
+					y = 1.9100;
+				};
+				
+				Angle = 0.9250;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+			Object1:
+			{
+				Type = "Rect";
+				Width = 100.0;
+				Height = 100.0;
+				PivotX = 0.5000;
+				PivotY = 0.5000;
+				Corner0:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner1:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner2:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Corner3:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Name = "PlayerAvatar";
+
+				Position:
+				{
+					x = -180.5094;
+					y = 38.9386;
+				};
+
+				Scale:
+				{
+					x = 1.5253;
+					y = 1.5253;
+				};
+				
+				Angle = 0.0000;
+
+				Color:
+				{
+					r = 1.0000;
+					g = 1.0000;
+					b = 1.0000;
+					a = 1.0000;
+				};
+
+				Visible = true;
+			};
+
+		};
+
+		NumElemActions = 2;
+		Action0:
+		{
+			Name = "ShowVersusPlayer";
+			NumObjActions = 3;
+			ObjAction0:
+			{
+				HUDObject= "Versus_Player";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -250.0000;
+						y = 151.1150;
+						LerpFunc = "SIN";
+					};
+					KeyFrame1:
+					{
+						Time = 0.4000;
+						x = 421.6185;
+						y = 151.1148;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 4.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "PlayerSide";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -20.1254;
+						y = 149.9989;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.6500;
+						y = 1.9100;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.9250;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction2:
+			{
+				HUDObject= "PlayerAvatar";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -180.5094;
+						y = 38.9386;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.3652;
+						y = 1.3652;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+		Action1:
+		{
+			Name = "HideVersusPlayer";
+			NumObjActions = 3;
+			ObjAction0:
+			{
+				HUDObject= "Versus_Player";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 421.6185;
+						y = 151.1148;
+						LerpFunc = "SIN";
+					};
+					KeyFrame1:
+					{
+						Time = 0.4000;
+						x = 421.6180;
+						y = -350.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.0000;
+						y = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 2;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+					KeyFrame1:
+					{
+						Time = 4.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction1:
+			{
+				HUDObject= "PlayerSide";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -18.1254;
+						y = 147.9989;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.6500;
+						y = 1.9100;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.9250;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+			ObjAction2:
+			{
+				HUDObject= "PlayerAvatar";
+				PosFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = -180.5094;
+						y = 38.9386;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ScaleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						x = 1.5253;
+						y = 1.5253;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				AngleFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						Value = 0.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+				ColorFunc:
+				{
+					WrapMode = "FinalValue";
+					NumKeyFrames = 1;
+					KeyFrame0:
+					{
+						Time = 0.0000;
+						r = 1.0000;
+						g = 1.0000;
+						b = 1.0000;
+						a = 1.0000;
+						LerpFunc = "LINEAR";
+					};
+				};
+
+			};
+
+		};
+
+	};
+
+};

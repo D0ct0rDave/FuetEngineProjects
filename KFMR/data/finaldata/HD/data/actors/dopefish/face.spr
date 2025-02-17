@@ -1,0 +1,229 @@
+Sprite:
+{
+	Name = "face";
+	BlendMode = "ALPHA";
+	NumActions = 6;
+
+	Action0:
+	{
+		Name = "idle";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 139.0;
+						Height = 79.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0034;
+						IV = 0.0035;
+						FU = 0.4762;
+						FV = 0.2768;
+					};
+				};
+			};
+		};
+	};
+
+	Action1:
+	{
+		Name = "pain1";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 137.0;
+						Height = 82.0;
+					};
+					TexCoords:
+					{
+						IU = 0.5408;
+						IV = 0.0035;
+						FU = 1.0000;
+						FV = 0.2872;
+					};
+				};
+			};
+		};
+	};
+
+	Action2:
+	{
+		Name = "pain2";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 125.0;
+						Height = 85.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0476;
+						IV = 0.2976;
+						FU = 0.4728;
+						FV = 0.5917;
+					};
+				};
+			};
+		};
+	};
+
+	Action3:
+	{
+		Name = "pain3";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 136.0;
+						Height = 79.0;
+					};
+					TexCoords:
+					{
+						IU = 0.5374;
+						IV = 0.2976;
+						FU = 1.0000;
+						FV = 0.5709;
+					};
+				};
+			};
+		};
+	};
+
+	Action4:
+	{
+		Name = "pain4";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 155.0;
+						Height = 109.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0170;
+						IV = 0.6263;
+						FU = 0.5442;
+						FV = 1.0000;
+					};
+				};
+			};
+		};
+	};
+
+	Action5:
+	{
+		Name = "death";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 116.0;
+						Height = 73.0;
+					};
+					TexCoords:
+					{
+						IU = 0.5884;
+						IV = 0.6540;
+						FU = 0.9830;
+						FV = 0.9066;
+					};
+				};
+			};
+		};
+	};
+
+};

@@ -23,7 +23,7 @@ class CProfile
 		/// 
 		void Init()
 		{
-		    m_uiCurLevel = 0;
+		    m_uiCurLevel = 0x1a;
 		    m_uiScore = 0;
 		    m_uiCurSkill = 0;
 		}

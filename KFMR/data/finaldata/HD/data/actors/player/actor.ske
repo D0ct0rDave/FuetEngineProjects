@@ -1,0 +1,278 @@
+SkelNode:
+{
+	Name = "skeleton";
+	Type = "group";
+	NumNodes = 18;
+	Node0:
+	{
+		Type = "mesh";
+		Name = "m_lleg";
+		Material = "leg_right";
+		NumAttachedBones = 3;
+		AttachedBone0:
+		{
+			Name = "B_lhip";
+		};
+		AttachedBone1:
+		{
+			Name = "B_lknee";
+		};
+		AttachedBone2:
+		{
+			Name = "B_lfoot";
+		};
+	};
+	Node1:
+	{
+		Type = "bone";
+		Name = "B_lhip";
+		Scale:
+		{
+			x = 256.0000;
+			y = 120.0000;
+		};
+	};
+	Node2:
+	{
+		Type = "bone";
+		Name = "B_lknee";
+		Scale:
+		{
+			x = 256.0000;
+			y = 120.0000;
+		};
+	};
+	Node3:
+	{
+		Type = "bone";
+		Name = "B_lfoot";
+		Scale:
+		{
+			x = 256.0000;
+			y = 120.0000;
+		};
+		AttachedNode:
+		{
+			Type = "sprite";
+			Name = "lfoot";
+			Sprite = "foot_left";
+			Position:
+			{
+				x = 0.0000;
+				y = -13.0000;
+			};
+		};
+	};
+	Node4:
+	{
+		Type = "mesh";
+		Name = "m_larm";
+		Material = "arm_left";
+		NumAttachedBones = 3;
+		AttachedBone0:
+		{
+			Name = "B_lshoulder";
+		};
+		AttachedBone1:
+		{
+			Name = "B_lelbow";
+		};
+		AttachedBone2:
+		{
+			Name = "B_lhand";
+		};
+	};
+	Node5:
+	{
+		Type = "bone";
+		Name = "B_lshoulder";
+		Scale:
+		{
+			x = 256.0000;
+			y = 120.0000;
+		};
+	};
+	Node6:
+	{
+		Type = "bone";
+		Name = "B_lelbow";
+		Scale:
+		{
+			x = 256.0000;
+			y = 120.0000;
+		};
+	};
+	Node7:
+	{
+		Type = "bone";
+		Name = "B_lhand";
+		Scale:
+		{
+			x = 256.0000;
+			y = 120.0000;
+		};
+		AttachedNode:
+		{
+			Type = "sprite";
+			Name = "lhand";
+			Sprite = "hand_left";
+		};
+	};
+	Node8:
+	{
+		Type = "bone";
+		Name = "B_hip";
+		Scale:
+		{
+			x = 256.0000;
+			y = 120.0000;
+		};
+		AttachedNode:
+		{
+			Type = "sprite";
+			Name = "hip";
+			Sprite = "body";
+			Position:
+			{
+				x = -2.0000;
+				y = -11.0000;
+			};
+		};
+	};
+	Node9:
+	{
+		Type = "bone";
+		Name = "B_neck";
+		Scale:
+		{
+			x = 256.0000;
+			y = 120.0000;
+		};
+		AttachedNode:
+		{
+			Type = "sprite";
+			Name = "neck";
+			Sprite = "head";
+			Position:
+			{
+				x = -4.0000;
+				y = -38.0000;
+			};
+		};
+	};
+	Node10:
+	{
+		Type = "mesh";
+		Name = "m_rleg";
+		Material = "leg_left";
+		NumAttachedBones = 3;
+		AttachedBone0:
+		{
+			Name = "B_rhip";
+		};
+		AttachedBone1:
+		{
+			Name = "B_rknee";
+		};
+		AttachedBone2:
+		{
+			Name = "B_rfoot";
+		};
+	};
+	Node11:
+	{
+		Type = "bone";
+		Name = "B_rhip";
+		Scale:
+		{
+			x = 256.0000;
+			y = 120.0000;
+		};
+	};
+	Node12:
+	{
+		Type = "bone";
+		Name = "B_rknee";
+		Scale:
+		{
+			x = 256.0000;
+			y = 120.0000;
+		};
+	};
+	Node13:
+	{
+		Type = "bone";
+		Name = "B_rfoot";
+		Scale:
+		{
+			x = 256.0000;
+			y = 120.0000;
+		};
+		AttachedNode:
+		{
+			Type = "sprite";
+			Name = "rfoot";
+			Sprite = "foot_right";
+			Position:
+			{
+				x = 0.0000;
+				y = -9.0000;
+			};
+		};
+	};
+	Node14:
+	{
+		Type = "mesh";
+		Name = "m_rarm";
+		Material = "arm_right";
+		NumAttachedBones = 3;
+		AttachedBone0:
+		{
+			Name = "B_rshoulder";
+		};
+		AttachedBone1:
+		{
+			Name = "B_relbow";
+		};
+		AttachedBone2:
+		{
+			Name = "B_rhand";
+		};
+	};
+	Node15:
+	{
+		Type = "bone";
+		Name = "B_rshoulder";
+		Scale:
+		{
+			x = 256.0000;
+			y = 120.0000;
+		};
+	};
+	Node16:
+	{
+		Type = "bone";
+		Name = "B_relbow";
+		Scale:
+		{
+			x = 256.0000;
+			y = 120.0000;
+		};
+	};
+	Node17:
+	{
+		Type = "bone";
+		Name = "B_rhand";
+		Scale:
+		{
+			x = 256.0000;
+			y = 120.0000;
+		};
+		AttachedNode:
+		{
+			Type = "sprite";
+			Name = "rhand";
+			Sprite = "hand_right";
+		};
+	};
+};

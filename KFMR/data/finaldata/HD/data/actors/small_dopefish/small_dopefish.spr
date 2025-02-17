@@ -1,0 +1,233 @@
+Sprite:
+{
+	Name = "small_dopefish";
+	BlendMode = "ALPHA";
+	NumActions = 3;
+
+	Action0:
+	{
+		Name = "death";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "small_dopefish";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5345;
+						y = 0.4677;
+					};
+					Size:
+					{
+						Width = 87.0;
+						Height = 62.0;
+					};
+					TexCoords:
+					{
+						IU = 0.7749;
+						IV = 0.1299;
+						FU = 1.0000;
+						FV = 0.9351;
+					};
+				};
+			};
+		};
+	};
+
+	Action1:
+	{
+		Name = "idle";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 6;
+				Frame0:
+				{
+					Material = "small_dopefish";
+					DelayTime = 0.000;
+					BlendTime = 0.364;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.4839;
+					};
+					Size:
+					{
+						Width = 92.0;
+						Height = 62.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0026;
+						IV = 0.2078;
+						FU = 0.2435;
+						FV = 1.0000;
+					};
+				};
+				Frame1:
+				{
+					Material = "small_dopefish";
+					DelayTime = 0.000;
+					BlendTime = 0.099;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5556;
+					};
+					Size:
+					{
+						Width = 94.0;
+						Height = 72.0;
+					};
+					TexCoords:
+					{
+						IU = 0.2749;
+						IV = 0.0649;
+						FU = 0.5209;
+						FV = 1.0000;
+					};
+				};
+				Frame2:
+				{
+					Material = "small_dopefish";
+					DelayTime = 0.000;
+					BlendTime = 1.000;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 92.0;
+						Height = 62.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0026;
+						IV = 0.2078;
+						FU = 0.2435;
+						FV = 1.0000;
+					};
+				};
+				Frame3:
+				{
+					Material = "small_dopefish";
+					DelayTime = 0.000;
+					BlendTime = 0.105;
+					Pivot:
+					{
+						x = 0.4891;
+						y = 0.5556;
+					};
+					Size:
+					{
+						Width = 92.0;
+						Height = 72.0;
+					};
+					TexCoords:
+					{
+						IU = 0.2801;
+						IV = 0.0649;
+						FU = 0.5209;
+						FV = 1.0000;
+					};
+				};
+				Frame4:
+				{
+					Material = "small_dopefish";
+					DelayTime = 0.000;
+					BlendTime = 0.163;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 92.0;
+						Height = 62.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0026;
+						IV = 0.2078;
+						FU = 0.2435;
+						FV = 1.0000;
+					};
+				};
+				Frame5:
+				{
+					Material = "small_dopefish";
+					DelayTime = 0.000;
+					BlendTime = 0.101;
+					Pivot:
+					{
+						x = 0.5109;
+						y = 0.5556;
+					};
+					Size:
+					{
+						Width = 92.0;
+						Height = 72.0;
+					};
+					TexCoords:
+					{
+						IU = 0.2749;
+						IV = 0.0649;
+						FU = 0.5157;
+						FV = 1.0000;
+					};
+				};
+			};
+		};
+	};
+
+	Action2:
+	{
+		Name = "attack";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "small_dopefish";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5225;
+						y = 0.5541;
+					};
+					Size:
+					{
+						Width = 89.0;
+						Height = 74.0;
+					};
+					TexCoords:
+					{
+						IU = 0.5314;
+						IV = 0.0130;
+						FU = 0.7644;
+						FV = 0.9740;
+					};
+				};
+			};
+		};
+	};
+
+};

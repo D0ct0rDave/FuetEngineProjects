@@ -1,0 +1,228 @@
+Sprite:
+{
+	Name = "cc_cinect";
+	BlendMode = "ALPHA";
+	NumActions = 1;
+
+	Action0:
+	{
+		Name = "Animation1";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 9;
+				Frame0:
+				{
+					Material = "cc_cinect";
+					DelayTime = 0.000;
+					BlendTime = 0.036;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 54.0;
+						Height = 91.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0039;
+						IV = 0.0110;
+						FU = 0.2165;
+						FV = 1.0000;
+					};
+				};
+				Frame1:
+				{
+					Material = "cc_cinect";
+					DelayTime = 0.000;
+					BlendTime = 0.036;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 103.0;
+						Height = 90.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0039;
+						IV = 0.0110;
+						FU = 0.4094;
+						FV = 1.0000;
+					};
+				};
+				Frame2:
+				{
+					Material = "cc_cinect";
+					DelayTime = 0.000;
+					BlendTime = 0.036;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 166.0;
+						Height = 91.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0039;
+						IV = 0.0110;
+						FU = 0.6575;
+						FV = 1.0000;
+					};
+				};
+				Frame3:
+				{
+					Material = "cc_cinect";
+					DelayTime = 0.000;
+					BlendTime = 0.036;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 218.0;
+						Height = 91.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0039;
+						IV = 0.0110;
+						FU = 0.8622;
+						FV = 1.0000;
+					};
+				};
+				Frame4:
+				{
+					Material = "cc_cinect";
+					DelayTime = 0.000;
+					BlendTime = 0.036;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 254.0;
+						Height = 91.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0039;
+						IV = 0.0110;
+						FU = 1.0000;
+						FV = 1.0000;
+					};
+				};
+				Frame5:
+				{
+					Material = "cc_cinect";
+					DelayTime = 0.000;
+					BlendTime = 0.036;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 254.0;
+						Height = 91.0;
+					};
+					TexCoords:
+					{
+						IU = 0.2283;
+						IV = 0.0220;
+						FU = 1.0000;
+						FV = 1.0000;
+					};
+				};
+				Frame6:
+				{
+					Material = "cc_cinect";
+					DelayTime = 0.000;
+					BlendTime = 0.036;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 254.0;
+						Height = 91.0;
+					};
+					TexCoords:
+					{
+						IU = 0.4764;
+						IV = 0.0110;
+						FU = 1.0000;
+						FV = 1.0000;
+					};
+				};
+				Frame7:
+				{
+					Material = "cc_cinect";
+					DelayTime = 0.000;
+					BlendTime = 0.036;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 254.0;
+						Height = 91.0;
+					};
+					TexCoords:
+					{
+						IU = 0.7283;
+						IV = 0.0220;
+						FU = 1.0000;
+						FV = 1.0000;
+					};
+				};
+				Frame8:
+				{
+					Material = "cc_cinect";
+					DelayTime = 0.000;
+					BlendTime = 0.036;
+					Pivot:
+					{
+						x = 4.8462;
+						y = 0.5110;
+					};
+					Size:
+					{
+						Width = 26.0;
+						Height = 91.0;
+					};
+					TexCoords:
+					{
+						IU = 0.9016;
+						IV = 0.0110;
+						FU = 1.0000;
+						FV = 1.0000;
+					};
+				};
+			};
+		};
+	};
+
+};

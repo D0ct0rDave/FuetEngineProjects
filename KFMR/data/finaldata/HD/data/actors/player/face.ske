@@ -1,0 +1,41 @@
+SkelNode:
+{
+	Name = "neck";
+	Type = "group";
+	NumNodes = 3;
+	Node0:
+	{
+		Type = "sprite";
+		Name = "head";
+		Sprite = "head";
+		Position:
+		{
+			x = -3.0;
+			y = -39.0;
+		};		
+	};
+
+	Node1:
+	{
+		Type = "sprite";
+		Name = "face";
+		Sprite = "face";
+		Position:
+		{
+			x = 18.0;
+			y = -29.0;
+		};	
+	};
+
+	Node2:
+	{
+		Type = "sprite";
+		Name = "hair";
+		Sprite = "hair";
+		Position:
+		{
+			x = -3.0;
+			y = -39.0;
+		};		
+	};
+};

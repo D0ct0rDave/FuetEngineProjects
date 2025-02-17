@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{235C7B6E-0F29-D679-3842-C421246E0B08}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Gleed2FE</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\exe\Win32\Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\Win32\Debug\</IntDir>
+    <TargetName>Gleed2FE</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)..\exe\x64\Debug\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\x64\Debug\</IntDir>
+    <TargetName>Gleed2FE</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\exe\Win32\Release\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\Win32\Release\</IntDir>
+    <TargetName>Gleed2FE</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)..\exe\x64\Release\</OutDir>
+    <IntDir>$(ProjectDir)..\obj\x64\Release\</IntDir>
+    <TargetName>Gleed2FE</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\common;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\src;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\extensions;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>FuetEngine.lib;tinyxml.lib;ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\lib\Win32\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\Externals\FreeImage\Dist\Win32\Debug\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\common;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\src;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\extensions;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>FuetEngine.lib;tinyxml.lib;ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\lib\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\lib\x64\Debug;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\Externals\FreeImage\Dist\x64\Debug\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\common;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\src;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\extensions;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>FuetEngine.lib;tinyxml.lib;ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\Win32\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\lib\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\lib\Win32\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\Externals\FreeImage\Dist\Win32\Release\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4091;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_MBCS;NULL=0;ALUT_BUILD_STATIC;WIN32;_WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\src;$(ProjectDir)..\..\common;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\src;$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\extensions;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freeimage\Dist;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libconfigPortable\src;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\include\al;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\include;$(FuetEngineProjectsDev)\shared\src\sdks\externals\physfs;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenGL;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>FuetEngine.lib;tinyxml.lib;ddraw.lib;dxguid.lib;opengl32.lib;glu32.lib;freeimage.lib;libconfigPortable.lib;OpenAL32.lib;alut.lib;comctl32.lib;rpcrt4.lib;odbc32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(FuetEngineProjectsDev)\shared\src\FuetEngineFramework\FuetEngine\lib\x64\DEV_Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\FreeImage\Dist\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\libConfigPortable\lib\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\freealut\lib\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\tinyxml\lib\x64\Release;$(FuetEngineProjectsDev)\shared\src\sdks\externals\OpenAL_1.1_SDK\libs\Win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y $(FuetEngineProjectsDev)\shared\src\sdks\Externals\FreeImage\Dist\x64\Release\FreeImage.dll $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine
+copy /B /Y $(TargetPath) $(FuetEngineProjectsDev)\shared\toolchain\FuetEngine</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\common\CBinConfigFileWriter.h" />
+    <ClInclude Include="..\..\common\CConfigFileWriter.h" />
+    <ClInclude Include="..\..\common\CLibConfigFileWriter.h" />
+    <ClInclude Include="..\src\stdafx.h" />
+    <ClInclude Include="..\src\targetver.h" />
+    <ClInclude Include="..\src\version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\common\CBinConfigFileWriter.cpp" />
+    <ClCompile Include="..\..\common\CLibConfigFileWriter.cpp" />
+    <ClCompile Include="..\src\GLEED2FE.cpp" />
+    <ClCompile Include="..\src\stdafx.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

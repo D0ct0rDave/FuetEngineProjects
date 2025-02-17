@@ -1,0 +1,67 @@
+Sprite:
+{
+	Name = "pointer";
+	BlendMode = "ALPHA";
+	NumActions = 1;
+
+	Action0:
+	{
+		Name = "Animation1";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 2;
+				Frame0:
+				{
+					Material = "pointer";
+					DelayTime = 0.000;
+					BlendTime = 1.000;
+					Pivot:
+					{
+						x = 0.4808;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 52.0;
+						Height = 36.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0000;
+						IV = 0.0000;
+						FU = 0.0000;
+						FV = 0.0000;
+					};
+				};
+				Frame1:
+				{
+					Material = "pointer";
+					DelayTime = 0.000;
+					BlendTime = 0.104;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 53.0;
+						Height = 36.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0000;
+						IV = 0.0000;
+						FU = 0.0000;
+						FV = 0.0000;
+					};
+				};
+			};
+		};
+	};
+
+};

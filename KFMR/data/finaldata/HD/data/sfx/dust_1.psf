@@ -1,0 +1,174 @@
+ParticleSystem:
+{
+	Name = "dust_1";
+	Freq = 3.0000;
+	MinTTL = 2.1000;
+	MaxTTL = 2.1000;
+	Sprite = "dust_1";
+	XFunc:
+	{
+		RndOfs:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		RndMult:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		KFFunc:
+		{
+			WrapMode = "FinalValue";
+			NumKeyFrames = 1;
+			KeyFrame0:
+			{
+				Value = 0.0000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+	YFunc:
+	{
+		RndOfs:
+		{
+			min = -0.2000;
+			max = 0.2000;
+		};
+		RndMult:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		KFFunc:
+		{
+			WrapMode = "Loop";
+			NumKeyFrames = 3;
+			KeyFrame0:
+			{
+				Value = 0.0000;
+				Time = 0.0000;
+				LerpFunc = "sin";
+			};
+			KeyFrame1:
+			{
+				Value = -25.0000;
+				Time = 1.0000;
+				LerpFunc = "linear";
+			};
+			KeyFrame2:
+			{
+				Value = 0.0000;
+				Time = 2.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+	ScaleFunc:
+	{
+		RndOfs:
+		{
+			min = 0.0200;
+			max = 0.0900;
+		};
+		RndMult:
+		{
+			min = 0.7700;
+			max = 0.7900;
+		};
+		KFFunc:
+		{
+			WrapMode = "FinalValue";
+			NumKeyFrames = 3;
+			KeyFrame0:
+			{
+				Value = 0.3000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+			KeyFrame1:
+			{
+				Value = 1.6000;
+				Time = 0.6000;
+				LerpFunc = "linear";
+			};
+			KeyFrame2:
+			{
+				Value = 0.4000;
+				Time = 2.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+	AngleFunc:
+	{
+		RndOfs:
+		{
+			min = -0.2000;
+			max = 0.2000;
+		};
+		RndMult:
+		{
+			min = -0.0100;
+			max = 0.0000;
+		};
+		KFFunc:
+		{
+			WrapMode = "FinalValue";
+			NumKeyFrames = 2;
+			KeyFrame0:
+			{
+				Value = 0.0000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+			KeyFrame1:
+			{
+				Value = 5.2883;
+				Time = 2.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+	ColorFunc:
+	{
+		RndMult:
+		{
+			min = 0.0000;
+			max = 0.0000;
+		};
+		KFFunc:
+		{
+			WrapMode = "FinalValue";
+			NumKeyFrames = 3;
+			KeyFrame0:
+			{
+				r = 0.8196;
+				g = 0.6784;
+				b = 0.4627;
+				a = 0.0000;
+				Time = 0.0000;
+				LerpFunc = "linear";
+			};
+			KeyFrame1:
+			{
+				r = 0.8196;
+				g = 0.6784;
+				b = 0.4627;
+				a = 0.3725;
+				Time = 0.2000;
+				LerpFunc = "linear";
+			};
+			KeyFrame2:
+			{
+				r = 0.8196;
+				g = 0.6784;
+				b = 0.4627;
+				a = 0.0000;
+				Time = 2.0000;
+				LerpFunc = "linear";
+			};
+		};
+	};
+};

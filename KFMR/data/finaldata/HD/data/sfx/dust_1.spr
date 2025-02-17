@@ -1,0 +1,90 @@
+Sprite:
+{
+	Name = "dust_1";
+	BlendMode = "ALPHA";
+	NumActions = 1;
+
+	Action0:
+	{
+		Name = "lalal";
+		PlayMode = "LOOP";
+		RandomStartTime = 2.0;
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 3;
+				Frame0:
+				{
+					Material = "dust_1";
+					DelayTime = 1.000;
+					BlendTime = 0.000;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 143.0;
+						Height = 123.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0026;
+						IV = 0.0081;
+						FU = 0.3810;
+						FV = 1.0000;
+					};
+				};
+				Frame1:
+				{
+					Material = "dust_1";
+					DelayTime = 1.000;
+					BlendTime = 0.000;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 143.0;
+						Height = 118.0;
+					};
+					TexCoords:
+					{
+						IU = 0.4153;
+						IV = 0.0081;
+						FU = 0.7937;
+						FV = 0.9675;
+					};
+				};
+				Frame2:
+				{
+					Material = "dust_1";
+					DelayTime = 1.000;
+					BlendTime = 0.000;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 70.0;
+						Height = 64.0;
+					};
+					TexCoords:
+					{
+						IU = 0.8175;
+						IV = 0.1707;
+						FU = 1.0000;
+						FV = 0.6911;
+					};
+				};
+			};
+		};
+	};
+};

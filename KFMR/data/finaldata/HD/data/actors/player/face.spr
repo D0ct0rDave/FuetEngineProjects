@@ -1,0 +1,511 @@
+Sprite:
+{
+	Name = "face";
+	BlendMode = "ALPHA";
+	NumActions = 8;
+
+	Action0:
+	{
+		Name = "idle";
+		RandomStartTime = 2.0;
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 6;
+				Frame0:
+				{
+					Material = "face";
+					DelayTime = 2.000;
+					BlendTime = 1.000;
+					Pivot:
+					{
+						x = 0.4839;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 62.0;
+						Height = 43.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0134;
+						IV = 0.0064;
+						FU = 0.1514;
+						FV = 0.2821;
+					};
+				};
+				Frame1:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.4839;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 62.0;
+						Height = 43.0;
+					};
+					TexCoords:
+					{
+						IU = 0.1715;
+						IV = 0.0064;
+						FU = 0.3096;
+						FV = 0.2821;
+					};
+				};
+				Frame2:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 63.0;
+						Height = 43.0;
+					};
+					TexCoords:
+					{
+						IU = 0.3408;
+						IV = 0.0064;
+						FU = 0.4811;
+						FV = 0.2821;
+					};
+				};
+				Frame3:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 63.0;
+						Height = 43.0;
+					};
+					TexCoords:
+					{
+						IU = 0.5167;
+						IV = 0.0064;
+						FU = 0.6570;
+						FV = 0.2821;
+					};
+				};
+				Frame4:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.5000;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 63.0;
+						Height = 43.0;
+					};
+					TexCoords:
+					{
+						IU = 0.6815;
+						IV = 0.0064;
+						FU = 0.8218;
+						FV = 0.2821;
+					};
+				};
+				Frame5:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.4839;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 62.0;
+						Height = 43.0;
+					};
+					TexCoords:
+					{
+						IU = 0.8641;
+						IV = 0.0192;
+						FU = 1.0000;
+						FV = 0.2949;
+					};
+				};
+			};
+		};
+	};
+
+	Action1:
+	{
+		Name = "attack1";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.4841;
+						y = 0.5000;
+					};
+					Size:
+					{
+						Width = 63.0;
+						Height = 48.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0111;
+						IV = 0.3333;
+						FU = 0.1514;
+						FV = 0.6410;
+					};
+				};
+			};
+		};
+	};
+
+	Action2:
+	{
+		Name = "attack2";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.4677;
+						y = 0.4778;
+					};
+					Size:
+					{
+						Width = 62.0;
+						Height = 45.0;
+					};
+					TexCoords:
+					{
+						IU = 0.1693;
+						IV = 0.3590;
+						FU = 0.3073;
+						FV = 0.6474;
+					};
+				};
+			};
+		};
+	};
+
+	Action3:
+	{
+		Name = "attack3";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.4538;
+						y = 0.5213;
+					};
+					Size:
+					{
+						Width = 65.0;
+						Height = 47.0;
+					};
+					TexCoords:
+					{
+						IU = 0.3497;
+						IV = 0.3397;
+						FU = 0.4944;
+						FV = 0.6410;
+					};
+				};
+			};
+		};
+	};
+
+	Action4:
+	{
+		Name = "pain1";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.4545;
+						y = 0.5638;
+					};
+					Size:
+					{
+						Width = 66.0;
+						Height = 47.0;
+					};
+					TexCoords:
+					{
+						IU = 0.5145;
+						IV = 0.3269;
+						FU = 0.6615;
+						FV = 0.6282;
+					};
+				};
+			};
+		};
+	};
+
+	Action5:
+	{
+		Name = "pain2";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.4531;
+						y = 0.4722;
+					};
+					Size:
+					{
+						Width = 64.0;
+						Height = 36.0;
+					};
+					TexCoords:
+					{
+						IU = 0.6904;
+						IV = 0.3846;
+						FU = 0.8330;
+						FV = 0.6154;
+					};
+				};
+			};
+		};
+	};
+
+	Action6:
+	{
+		Name = "death";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 5;
+				Frame0:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.4219;
+						y = 0.3409;
+					};
+					Size:
+					{
+						Width = 64.0;
+						Height = 44.0;
+					};
+					TexCoords:
+					{
+						IU = 0.0022;
+						IV = 0.7244;
+						FU = 0.1448;
+						FV = 1.0000;
+					};
+				};
+				Frame1:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.4385;
+						y = 0.3409;
+					};
+					Size:
+					{
+						Width = 65.0;
+						Height = 44.0;
+					};
+					TexCoords:
+					{
+						IU = 0.1715;
+						IV = 0.7244;
+						FU = 0.3163;
+						FV = 1.0000;
+					};
+				};
+				Frame2:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.4385;
+						y = 0.3409;
+					};
+					Size:
+					{
+						Width = 65.0;
+						Height = 44.0;
+					};
+					TexCoords:
+					{
+						IU = 0.3474;
+						IV = 0.7244;
+						FU = 0.4922;
+						FV = 1.0000;
+					};
+				};
+				Frame3:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.4219;
+						y = 0.3372;
+					};
+					Size:
+					{
+						Width = 64.0;
+						Height = 43.0;
+					};
+					TexCoords:
+					{
+						IU = 0.5212;
+						IV = 0.7308;
+						FU = 0.6637;
+						FV = 1.0000;
+					};
+				};
+				Frame4:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.4231;
+						y = 0.3409;
+					};
+					Size:
+					{
+						Width = 65.0;
+						Height = 44.0;
+					};
+					TexCoords:
+					{
+						IU = 0.6904;
+						IV = 0.7244;
+						FU = 0.8352;
+						FV = 1.0000;
+					};
+				};
+			};
+		};
+	};
+
+	Action7:
+	{
+		Name = "happy";
+		PlayMode = "LOOP";
+		Frames:
+		{
+			Type = "Complete";
+			Complete:
+			{
+				NumFrames = 1;
+				Frame0:
+				{
+					Material = "face";
+					DelayTime = 0.000;
+					BlendTime = 0.050;
+					Pivot:
+					{
+						x = 0.4455;
+						y = 0.2949;
+					};
+					Size:
+					{
+						Width = 55.0;
+						Height = 39.0;
+					};
+					TexCoords:
+					{
+						IU = 0.8708;
+						IV = 0.4231;
+						FU = 0.9933;
+						FV = 0.6731;
+					};
+				};
+			};
+		};
+	};
+
+};
