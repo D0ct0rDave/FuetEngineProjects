@@ -344,7 +344,16 @@ void CGame::Update(FEReal _rDeltaT)
                     goGameGlobals.m_poCurProfile->m_uiCurLevel++;
 
                     if ((goGameGlobals.m_poCurProfile->m_uiCurLevel & 0x0f) > 0x0c)
-                        goGameGlobals.m_poCurProfile->m_uiCurLevel = (goGameGlobals.m_poCurProfile->m_uiCurLevel & 0xf0) + 0x10;
+					{
+						// (0x10 = next level) + (first sublevel = 0x0a)
+                        goGameGlobals.m_poCurProfile->m_uiCurLevel = (goGameGlobals.m_poCurProfile->m_uiCurLevel & 0xf0) + 0x10 + 0x0a; 
+						
+						// Change this if more than 1 level available
+						if ((goGameGlobals.m_poCurProfile->m_uiCurLevel & 0xf0) > 0x10)
+						{
+							goGameGlobals.m_poCurProfile->m_uiCurLevel = 0x1a;
+						}
+					}
                 }
 
 	    		// Automatic Save of profile data.
