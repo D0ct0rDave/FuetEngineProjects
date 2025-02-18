@@ -145,64 +145,6 @@ CFEMap* CFEMapLoader::poLoad(const CFEString& _sFilename)
 		poMap->m_poLayers.push_back(poLayer);
 	}
 
-	// Compute Map Bounding Volume
-	/*
-	poMap->m_oBV.m_oEnd.x = -1e6;
-	poMap->m_oBV.m_oEnd.y = -1e6;
-	poMap->m_oBV.m_oIni.x =  1e6;
-	poMap->m_oBV.m_oIni.y =  1e6;
-
-	for (uint uiLayer=0;uiLayer<poMap->m_poLayers.size();uiLayer++)
-    {
-		CFEMapLayer* poLayer = poMap->m_poLayers[uiLayer];
-        if (poLayer == NULL) continue;
-		
-		for (uint uiSector=0;uiSector<poLayer->m_poSectors.size();uiSector++)
-		{
-			CFEMapSector* poSector = poLayer->m_poSectors[uiSector];
-			if (poSector == NULL) continue;
-    
-       		poSector->m_oBV.m_oEnd.x = -1e6;
-			poSector->m_oBV.m_oEnd.y = -1e6;
-			poSector->m_oBV.m_oIni.x =  1e6;
-			poSector->m_oBV.m_oIni.y =  1e6;
-
-		    bool bXIsValid = (poLayer->m_oSpeed.x == _1r);
-		    bool bYIsValid = (poLayer->m_oSpeed.y == _1r);
-    		
-		    if ( bXIsValid || bYIsValid)
-		    {
-			    for (uint uiElem=0;uiElem<poSector->m_oElements.size();uiElem++)
-			    {
-				    CFEMapElement* poElem = &poSector->m_oElements[uiElem];
-
-				    CFEVect2 oVX[4];
-				    CFESpriteInstMgr::GetGeometry(poElem->m_hSprInst,oVX);
-
-				    for (uint i=0;i<4;i++)
-				    {
-					    if (bXIsValid)
-					    {
-						    if (oVX[i].x < poSector->m_oBV.m_oIni.x) poSector->m_oBV.m_oIni.x = oVX[i].x;
-				       else if (oVX[i].x > poSector->m_oBV.m_oEnd.x) poSector->m_oBV.m_oEnd.x = oVX[i].x;
-					    }
-
-					    if (bYIsValid)
-					    {
-						    if (oVX[i].y < poSector->m_oBV.m_oIni.y) poSector->m_oBV.m_oIni.y = oVX[i].y;
-				       else if (oVX[i].y > poSector->m_oBV.m_oEnd.y) poSector->m_oBV.m_oEnd.y = oVX[i].y;
-					    }
-			       }
-			    }
-		    }
-
-			if (poSector->m_oBV.m_oIni.x < poMap->m_oBV.m_oIni.x) poMap->m_oBV.m_oIni.x = poSector->m_oBV.m_oIni.x;
-			if (poSector->m_oBV.m_oEnd.x > poMap->m_oBV.m_oEnd.x) poMap->m_oBV.m_oEnd.x = poSector->m_oBV.m_oEnd.x;
-			if (poSector->m_oBV.m_oIni.y < poMap->m_oBV.m_oIni.y) poMap->m_oBV.m_oIni.y = poSector->m_oBV.m_oIni.y;
-			if (poSector->m_oBV.m_oEnd.y > poMap->m_oBV.m_oEnd.y) poMap->m_oBV.m_oEnd.y = poSector->m_oBV.m_oEnd.y;
-	    }
-	}
-	*/
     return( poMap );
 }
 // ----------------------------------------------------------------------------
