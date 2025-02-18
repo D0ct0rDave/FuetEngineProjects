@@ -53,7 +53,7 @@ void CLevel1BonusThrownObject::Init(bool _bIsGood, int _iIndex)
 	}
 	else
 	{
-		switch(_iIndex%6)
+		switch(_iIndex%4)
 		{
 			case 0:
 				m_hAnimInst	= CFESpriteInstMgr::hGetInstance("data/objects/bad_0");
@@ -67,12 +67,14 @@ void CLevel1BonusThrownObject::Init(bool _bIsGood, int _iIndex)
 			case 3:
 				m_hAnimInst	= CFESpriteInstMgr::hGetInstance("data/objects/bad_3");
 			break;
+			/*
 			case 4:
 				m_hAnimInst	= CFESpriteInstMgr::hGetInstance("data/objects/bad_4");
 			break;
 			case 5:
 				m_hAnimInst	= CFESpriteInstMgr::hGetInstance("data/objects/bad_5");
 			break;
+			*/
 		}
 	}
 
