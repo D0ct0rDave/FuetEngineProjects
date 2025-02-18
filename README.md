@@ -3,18 +3,7 @@ Create a directory here where your game project will be located.
 
 All game projects share some functionality and tools. Inside the share directory you'll find anything that can be shared among all the projects.
 
-# FuetEngine Notes:
-
-- From windows Environment, set environment variable ```FuetEngineProjectsDev``` to the root directory where all the development projects and shared directory is located.
-
-- Some features may require external libraries. Those are expected to be found under 
-```$(FuetEngineProjectsDev)/shared/sdks``` directory. For instance, almost all tools / projects use images, so if we're using a third party library to load images, it most probably will be found here.
-
-- Although the engine allows plugin any other image loading library, I've been using ```FreeImage``` since the begining of the project. It should be found under ```$(FuetEngineProjectsDev)/sdks/FreeImage```, and its related files should be located under ```Dist``` directory inside the FreeImage folder. Before compiling any FuetEngine sample / tool or applicaton we should have a binary version of this library, so we'll have to build it. To ensure compatibility with the latest FuetEngine development state, a copy of the source code at that moment is provided, so you can build it by yourself.
-
-- Quick overview. Go to the samples directory and open the solution found under build directory. Compile and test each sample.
-
-Im the following weeks I'll be adding all the tools built using FuetEngine and for FuetEngine and eventually a sample complex project.
+Im the following weeks I'll be adding all the tools built using FuetEngine and for FuetEngine and eventually a sample complex project. For now there is the SpriteEditor, the ActorEditor (for skeletal 2D animations), Font Editor. Still missing the HUDEditor which along the years it became the most important tool while developing the games.
 
 ## KungFu master remake
 This was the first project using FuetEngine, it started it all. Graphics style was simple vector style. You can find the project in the ```KungFuMasterRemake``` branch.
@@ -26,6 +15,17 @@ This was the first project using FuetEngine, it started it all. Graphics style w
 ![Screenshot2.png](https://raw.githubusercontent.com/D0ct0rDave/FuetEngineProjects/refs/heads/main/repoimages/Kungfu_Master_Remake_3.jpg)
 
 ![Screenshot3.png](https://raw.githubusercontent.com/D0ct0rDave/FuetEngineProjects/refs/heads/main/repoimages/Kungfu_Master_Remake_4.jpg)
+
+## FuetEngine Notes:
+
+- From windows Environment, set environment variable ```FuetEngineProjectsDev``` to the root directory where all the development projects and shared directory is located.
+
+- Some features may require external libraries. Those are expected to be found under 
+```$(FuetEngineProjectsDev)/shared/sdks``` directory. For instance, almost all tools / projects use images, so if we're using a third party library to load images, it most probably will be found here.
+
+- Although the engine allows plugin any other image loading library, I've been using ```FreeImage``` since the begining of the project. It should be found under ```$(FuetEngineProjectsDev)/sdks/FreeImage```, and its related files should be located under ```Dist``` directory inside the FreeImage folder. Before compiling any FuetEngine sample / tool or applicaton we should have a binary version of this library, so we'll have to build it. To ensure compatibility with the latest FuetEngine development state, a copy of the source code at that moment is provided, so you can build it by yourself.
+
+- Quick overview. Go to the samples directory and open the solution found under build directory. Compile and test each sample.
 
 
 ### build instructions
@@ -62,3 +62,4 @@ Now you can build FuetEngine things:
   - Generate the Debug or Release libraries for x64 or Win32
 
 Or you can switch to a specific branch and build one of the projects.
+
