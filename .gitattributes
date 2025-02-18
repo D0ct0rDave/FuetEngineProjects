@@ -1,0 +1,6 @@
+# https://stackoverflow.com/questions/34713765/github-changes-repository-to-the-wrong-language
+* linguist-vendored
+*.cpp linguist-vendored=false
+
+# https://dev.to/katkelly/changing-your-repo-s-language-in-github-5gjo
+# *.ts linguist-detectable=false
