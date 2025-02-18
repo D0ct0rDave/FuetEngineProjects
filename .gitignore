@@ -366,7 +366,6 @@ __pycache__/
 
 # currently until tools are included in the repository
 FuetEngine___
-MariaAkane
 
 # will add sdks paths on demand
 shared/src/sdks/_*

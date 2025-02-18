@@ -24,3 +24,6 @@
 [submodule "shared/src/sdks/externals/freealut"]
 	path = shared/src/sdks/externals/freealut
 	url = https://github.com/D0ct0rDave/freealut.git
+[submodule "MariaAkane"]
+	path = MariaAkane
+	url = https://github.com/D0ct0rDave/MariaAkane.git
