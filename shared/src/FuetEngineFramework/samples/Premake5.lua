@@ -257,6 +257,71 @@ local function addSampleProject(_projectName, _useWxWidgets, _useSound)
 end
 
 ------------------------------------------------------------------------------
+-- Linux version of a sample.
+-- Build the engine first (FuetEngine/Premake5.lua) and the external libraries
+-- (shared/toolchain/linux/build_externals.sh).
+-- _header:   header of the sample that declares InitEngine/FinishEngine/loop function.
+-- _loopFunc: name of the per frame function of the sample (LoopEngine by default).
+------------------------------------------------------------------------------
+local function addSampleProjectLinux(_projectName, _header, _loopFunc)
+
+	local depsRoot = scriptRoot .. "/../../../toolchain/FuetEngine/linux-deps"
+
+	project(_projectName)
+		kind "ConsoleApp" -- the Linux entry point (common/main_linux.cpp) is a plain main()
+		language "C++"
+		cppdialect "gnu++17"
+		targetdir(scriptRoot .. "/exe/" .. _projectName .. "/%{cfg.buildcfg}")
+		objdir(scriptRoot .. "/obj/" .. _projectName .. "/%{cfg.buildcfg}")
+		debugdir(scriptRoot .. "/data/PC")
+
+		local sourceRoot = scriptRoot .. "/" .. _projectName
+
+		files {
+			sourceRoot .. "/src/**.cpp",
+			sourceRoot .. "/src/**.h",
+			scriptRoot .. "/common/main_linux.cpp",
+		}
+
+		-- Windows only: window creation, precompiled header
+		removefiles {
+			sourceRoot .. "/src/main.cpp",
+			sourceRoot .. "/src/stdafx.cpp",
+		}
+
+		forceincludes { frameworkRoot .. "/src/core/Linux/FECLinuxCompat.h" }
+
+		defines { "LINUX", "NOPCH", 'FE_SAMPLE_HEADER="' .. _header .. '"' }
+		if _loopFunc then
+			defines { "FE_SAMPLE_LOOP=" .. _loopFunc }
+		end
+
+		includedirs {
+			sourceRoot .. "/src",
+			frameworkRoot .. "/src",
+			depsRoot .. "/include",
+		}
+
+		libdirs {
+			frameworkRoot .. "/lib/x64/DEV_%{cfg.buildcfg}",
+			depsRoot .. "/lib",
+		}
+
+		-- Static libraries first (order matters), then system libraries
+		links { "FuetEngine", "freeimage", "configPortable", "physfs", "GL", "GLU", "X11", "pthread", "dl", "m" }
+
+		filter "configurations:Debug"
+			defines { "DEBUG" }
+			symbols "On"
+
+		filter "configurations:Release"
+			defines { "NDEBUG" }
+			optimize "On"
+
+		filter {}
+end
+
+------------------------------------------------------------------------------
 -- Premake5.lua
 ------------------------------------------------------------------------------
 workspace "FuetEngine_Samples"
@@ -266,6 +331,17 @@ workspace "FuetEngine_Samples"
 
 ------------------------------------------------------------------------------
 group("Samples")
+if os.target() == "linux" then
+	-- Samples pending: 2DisplaysSample (wxWidgets 2.8) and SoundSample (OpenAL backend).
+	addSampleProjectLinux("fontsample",		"fontsample.h")
+	addSampleProjectLinux("FPS",			"FPS.h", "UpdateFrame")
+	addSampleProjectLinux("helloworld",		"helloworld.h")
+	addSampleProjectLinux("intro",			"intro.h", "Loop")
+	addSampleProjectLinux("MeshSample",		"MeshSample.h")
+	addSampleProjectLinux("padinput",		"padinput.h")
+	addSampleProjectLinux("sprites",		"sprites.h")
+	addSampleProjectLinux("SpriteWithInput","SpritesWithInput.h")
+else
 	addSampleProject("2DisplaysSample", true, false)
 	addSampleProject("fontsample", 		false, false)
 	addSampleProject("FPS", 			false, false)
@@ -276,6 +352,7 @@ group("Samples")
 	addSampleProject("SoundSample", 	false, true)
 	addSampleProject("sprites", 		false, false)
 	addSampleProject("SpriteWithInput", false, false)
+end
 
 --[[
 group("FuetEngine")	

@@ -41,8 +41,15 @@ project "FuetEngine"
 	}
 	
 	filter { "system:windows" }
-		excludes { 
+		excludes {
 			"**/Linux/**",
+			"**/Cocos2D_X/**",
+			"**/Android/**",
+		}
+
+	filter { "system:linux" }
+		excludes {
+			"**/Windows/**",
 			"**/Cocos2D_X/**",
 			"**/Android/**",
 		}
@@ -63,6 +70,17 @@ project "FuetEngine"
 			"_WIN32",
 			"_WINDOWS",
 		}
+	filter { "system:linux" }
+		defines { "LINUX" }
+		buildoptions { "-fPIC" }
+		-- MSVC secure CRT functions (sprintf_s, fopen_s...) missing in glibc
+		forceincludes { os.getcwd() .. "/src/core/Linux/FECLinuxCompat.h" }
+		-- Librerias externas compiladas con shared/toolchain/linux/build_externals.sh
+		includedirs {
+			sourceRoot,
+			os.getcwd() .. "/../../../toolchain/FuetEngine/linux-deps/include",
+			os.getcwd() .. "/../../../toolchain/FuetEngine/linux-deps/include/AL",
+		}
 	filter {} -- Reset filter
 
     -- Add include directories (sourceRoot is included by default)
@@ -81,26 +99,28 @@ project "FuetEngine"
     filter "configurations:*Debug"
         defines { "DEBUG" }
         symbols "On" -- Generate debug symbols
+	filter { "configurations:*Debug", "system:windows" }
 		staticruntime "off"
 		runtime "Debug"
 	filter {}
-	
+
     filter "configurations:*Release"
         defines { "NDEBUG" }
         optimize "On" -- Enable optimizations
+	filter { "configurations:*Release", "system:windows" }
 		staticruntime "off"
 		runtime "Release"
 	filter {}
 	
-	filter "configurations:DEV_Debug or configurations:DEV_Release or configurations:DS_PC_Debug"
+	filter { "configurations:DEV_Debug or configurations:DEV_Release or configurations:DS_PC_Debug", "system:windows" }
         defines { "DEVELOPMENT" }
 	filter {}
 	
-	filter "configurations:DEV_WITH_SOUND_Debug"
+	filter { "configurations:DEV_WITH_SOUND_Debug", "system:windows" }
         defines { "DEVELOPMENT_WITH_SOUND" }
 	filter {}
 	
-	filter "configurations:PLAYTEST_*"
+	filter { "configurations:PLAYTEST_*", "system:windows" }
         defines { "PLAYTEST" }
 	filter {}
 

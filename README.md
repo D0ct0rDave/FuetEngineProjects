@@ -63,3 +63,37 @@ Now you can build FuetEngine things:
 
 Or you can switch to a specific branch and build one of the projects.
 
+
+
+## Building on Linux (FuetEngine + samples)
+
+Tested with gcc 15, premake 5.0.0 and an X11 / XWayland session. Sound is not supported on Linux yet (the dummy audio backend is used), and `2DisplaysSample` (wxWidgets 2.8) and `SoundSample` are not built.
+
+1. Install premake5 (release 5.0.0 for Linux) and the development packages:
+
+        sudo apt install libgl-dev libglu1-mesa-dev libopenal-dev
+        git submodule update --init --recursive -- shared/src/sdks/externals/{libConfigPortable,FreeImage,physfs,freealut,OpenGL,OpenAL_1.1_SDK}
+
+2. Build the external libraries. This produces `shared/toolchain/FuetEngine/linux-deps/{lib,include}`:
+
+        shared/toolchain/linux/build_externals.sh
+
+3. Build the engine:
+
+        cd shared/src/FuetEngineFramework/FuetEngine
+        premake5 --file=Premake5.lua gmake
+        make -C build config=dev_debug_x64 -j$(nproc)
+
+4. Build and run the samples (run them from the data folder):
+
+        cd ../samples
+        premake5 --file=Premake5.lua gmake
+        make -C build config=debug -j$(nproc)
+        cd data/PC && ../../exe/helloworld/Debug/helloworld
+
+Notes:
+
+- `ESC` or `F12` quit a sample. `FE_SAMPLE_FRAMES=N` makes it exit after N frames (useful with `xvfb-run`).
+- The engine creates its own X11/GLX window when `Init` receives `NULL`. A host application (for instance a wxWidgets canvas) can render into its own window by passing a `TFELinuxWindow*` (see `FuetEngine/src/core/Linux/FECLinuxWindow.h`) to `CFERenderer::Init` and to the input initialization.
+- After rebuilding the engine library, relink the samples with `make -B` (they do not depend on `libFuetEngine.a` in the makefile).
+- Linux needs include paths with the exact case of the file names. `shared/toolchain/linux/fix_include_case.py` normalizes `#include "..."` lines (it was already run over the engine and the samples).
