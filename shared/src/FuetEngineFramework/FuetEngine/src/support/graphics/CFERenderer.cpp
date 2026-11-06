@@ -57,7 +57,14 @@ class CFERendererData
             m_oViewPos(CFEVect2::ZERO()),
             m_rViewAngle(_0r),
 
-            m_bDebugSprites(false)
+            m_bDebugSprites(false),
+
+            // These are only computed in SetScreenVWidth/VHeight; keep them valid if the application never calls them.
+            m_bUploadTransform(false),
+            m_uiScreenWidth(640),
+            m_uiScreenHeight(480),
+            m_iXDIV(1),
+            m_iYDIV(1)
         {
 			m_oStartTick = CFECore::oGetEngineTicks();
             m_oCamMat.LoadIdentity();

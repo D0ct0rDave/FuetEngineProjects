@@ -87,7 +87,7 @@ class CRealClass {
 		
 		// cast operators
 		operator int() { return int(g>>BP); }
-		operator unsigned int() { return unsigned int(g>>BP); }
+		operator unsigned int() { return (unsigned int)(g>>BP); }
 		operator long() { return long(g>>BP); }
 
 		// short support
@@ -161,7 +161,7 @@ class CRealClass {
 		// more acurate, using long long
 		CRealClass operator *(const CRealClass& a) const
 		{
-			CRealClass rRes(RCR_RAW,  INTERNAL_TYPE((long long(g) * long long(a.g)) >> BP));
+			CRealClass rRes(RCR_RAW,  INTERNAL_TYPE((((long long)(g)) * ((long long)(a.g))) >> BP));
 			rRes.f = f * a.f;
 			return rRes;
 		}

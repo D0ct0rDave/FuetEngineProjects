@@ -73,6 +73,16 @@ uint CFEFile::uiPos ()
     return( CFECore::File::uiPos(m_hFD) );
 }
 // -----------------------------------------------------------------------------
+// Files are stored little endian. NOTE: glibc (<endian.h>) always defines BIG_ENDIAN as a constant,
+// so its mere existence says nothing about the target: use the real byte order when the compiler provides it.
+#if defined(__BYTE_ORDER__)
+	#if (__BYTE_ORDER__ == __ORDER_BIG_ENDIAN__)
+		#define FE_SWAP_ENDIANNESS
+	#endif
+#elif defined(BIG_ENDIAN)
+	#define FE_SWAP_ENDIANNESS
+#endif
+// -----------------------------------------------------------------------------
 inline void Swap32(FEPointer _pData)
 {
 	char cAux = _pData[0];
@@ -94,7 +104,7 @@ uint CFEFile::uiReadArray32(FEPointer _pData, uint _uiSize)
 {
 	uint uiRes = uiRead(_pData,_uiSize*4);
 
-	#ifdef BIG_ENDIAN
+	#ifdef FE_SWAP_ENDIANNESS
 	for (uint i=0;i<_uiSize;i++)
     	Swap32( _pData + i*4 );
     #endif
@@ -106,7 +116,7 @@ uint CFEFile::uiReadArray16(FEPointer _pData, uint _uiSize)
 {
 	uint uiRes = uiRead(_pData,_uiSize*2);
 
-	#ifdef BIG_ENDIAN
+	#ifdef FE_SWAP_ENDIANNESS
 	for (uint i=0;i<_uiSize;i++)
     	Swap16(_pData + i*2);
     #endif

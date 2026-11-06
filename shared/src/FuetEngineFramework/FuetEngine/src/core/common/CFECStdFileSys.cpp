@@ -42,7 +42,7 @@ FEHandler CFECore::File::hOpen(const CFEString& _sFilename, EFEFileOpenMode _eMo
         break;
 
         default:
-        return(false);
+        return(NULL);
     }
 
 	CFECore::Log::Print("Loading %s: ",_sFilename.szString());
