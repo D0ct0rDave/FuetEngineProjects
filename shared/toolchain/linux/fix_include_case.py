@@ -3,12 +3,15 @@
   - cambia '\\' por '/'
   - ajusta cada componente de la ruta a la mayuscula real del fichero en disco.
 Solo toca includes con comillas que se pueden resolver (relativos al fichero o a una raiz de includes).
-Uso: fix_include_case.py [--write] RAIZ_INCLUDE [DIR_A_PROCESAR ...]
+Uso: fix_include_case.py [--write] RAICES_INCLUDE [DIR_A_PROCESAR ...]
+RAICES_INCLUDE: una o varias carpetas separadas por ':' (como -I). Cada include se resuelve
+primero respecto al fichero que lo contiene y luego respecto a cada raiz, en orden.
 Sin --write solo informa (ensayo)."""
 import os, re, sys
 
 EXTS = {'.h', '.hpp', '.inl', '.c', '.cpp', '.cc'}
-INC = re.compile(r'^(\s*#\s*include\s*)"([^"]+)"(.*)$')
+# "file" and <file> forms; <...> is only rewritten when it resolves under one of the given roots
+INC = re.compile(r'^(\s*#\s*include\s*)(["<])([^">]+)([">])(.*)$')
 
 
 def resolve(base, rel):
@@ -41,8 +44,8 @@ def resolve(base, rel):
 def main():
     args = [a for a in sys.argv[1:] if a != '--write']
     write = '--write' in sys.argv
-    root = os.path.abspath(args[0])
-    targets = [os.path.abspath(a) for a in args[1:]] or [root]
+    roots = [os.path.abspath(r) for r in args[0].split(os.pathsep) if r]
+    targets = [os.path.abspath(a) for a in args[1:]] or [roots[0]]
     changed_files = changed_lines = unresolved = 0
     for t in targets:
         for dp, _, fns in os.walk(t):
@@ -64,12 +67,15 @@ def main():
                     body = line[:-1] if eol else line
                     m = INC.match(body)
                     if m:
-                        rel = m.group(2).replace('\\', '/')
-                        new = resolve(dp, rel) or resolve(root, rel)
+                        rel = m.group(3).replace('\\', '/')
+                        new = resolve(dp, rel) if m.group(2) == '"' else None
+                        for root in roots:
+                            if new is not None: break
+                            new = resolve(root, rel)
                         if new is None:
                             unresolved += 1  # externo (sistema/sdk) o inexistente: no se toca
-                        elif new != m.group(2):
-                            body = '%s"%s"%s' % (m.group(1), new, m.group(3))
+                        elif new != m.group(3):
+                            body = '%s%s%s%s%s' % (m.group(1), m.group(2), new, m.group(4), m.group(5))
                             dirty = True
                             changed_lines += 1
                     out.append(body + eol)
