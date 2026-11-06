@@ -12,9 +12,9 @@
 #ifndef CFEMatrixH
 #define CFEMatrixH
 // ----------------------------------------------------------------------------
-#include "Support/Math/CFEMath.h"
+#include "support/math/CFEMath.h"
 #include "FEBasicTypes.h"
-#include "Types/CFEVect2.h"
+#include "types/CFEVect2.h"
 // ----------------------------------------------------------------------------
 class CFEMatrix
 {

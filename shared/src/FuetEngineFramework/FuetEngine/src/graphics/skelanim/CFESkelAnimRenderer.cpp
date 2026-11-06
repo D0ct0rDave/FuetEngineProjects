@@ -18,11 +18,11 @@
 #include "CFESkelAnimNode.h"
 #include "CFESkelAnimNodeVisitor.h"
 
-#include "graphics\sprite\CFESprite.h"
-#include "graphics\sprite\CFESpriteInstMgr.h"
-#include "graphics\sprite\CFESpriteRenderer.h"
-#include "support\graphics\CFERenderer.h"
-#include "support\graphics\CFEMaterialMgr.h"
+#include "graphics/sprite/CFESprite.h"
+#include "graphics/sprite/CFESpriteInstMgr.h"
+#include "graphics/sprite/CFESpriteRenderer.h"
+#include "support/graphics/CFERenderer.h"
+#include "support/graphics/CFEMaterialMgr.h"
 
 // #define BNB_SKEL_SYSTEM
 const FEReal DEPTH_FACT = _01r;

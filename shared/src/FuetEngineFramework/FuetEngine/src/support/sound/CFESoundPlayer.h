@@ -12,7 +12,7 @@
 #define CFESoundPlayerH
 // ----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "types\CFEString.h"
+#include "types/CFEString.h"
 #include "FEEnums.h"
 // ----------------------------------------------------------------------------
 class CFESoundPlayer

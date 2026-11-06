@@ -16,7 +16,7 @@
 #include "CFESkelAnimBone.h"
 #include "CFESkelAnimGroup.h"
 #include "graphics/sprite/CFESpriteInstMgr.h"
-#include "types\FEKFBFLerpFuncs.h"
+#include "types/FEKFBFLerpFuncs.h"
 
 //-----------------------------------------------------------------------------
 class CFESkelAnimNodeSynchronizer: public CFESkelAnimNodeVisitor

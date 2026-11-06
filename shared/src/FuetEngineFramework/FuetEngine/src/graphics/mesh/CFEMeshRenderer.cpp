@@ -15,8 +15,8 @@
 #include "support/graphics/CFERenderer.h"
 #include "FEConsts.h"
 #include "CFEMeshRenderer.h"
-#include "Graphics/Sprite/CFESprite.h"
-#include "Graphics/Sprite/CFESpriteInstMgr.h"
+#include "graphics/sprite/CFESprite.h"
+#include "graphics/sprite/CFESpriteInstMgr.h"
 // ----------------------------------------------------------------------------
 // _poFrame->m_oUV va en coordenadas entre (0..1,0..1)
 // Generate frame corners.

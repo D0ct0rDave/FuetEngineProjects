@@ -9,11 +9,11 @@
  */
 // ----------------------------------------------------------------------------
 #include "CFEFontLoader.h"
-#include "Support/Graphics/CFEMaterialMgr.h"
-#include "Support/Misc/CFELogger.h"
-#include "Support/File/CFEFile.h"
-#include "Support/Mem/CFEMem.h"
-#include "Support/Config/CFEConfigFile.h"
+#include "support/graphics/CFEMaterialMgr.h"
+#include "support/misc/CFELogger.h"
+#include "support/file/CFEFile.h"
+#include "support/mem/CFEMem.h"
+#include "support/config/CFEConfigFile.h"
 #include "core/CFECore.h"
 
 #include "CFEFont.h"

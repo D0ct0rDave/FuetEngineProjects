@@ -18,7 +18,7 @@
 
 #include "CFEString.h"
 #include "core/CFECore.h"
-#include "Support/Mem/CFEMem.h"
+#include "support/mem/CFEMem.h"
 #include "support/misc/CFEStringUtils.h"
 #include <string> // for rfind (reverse find)
 // ----------------------------------------------------------------------------

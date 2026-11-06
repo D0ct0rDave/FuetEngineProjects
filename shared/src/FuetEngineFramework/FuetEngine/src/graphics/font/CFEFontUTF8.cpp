@@ -9,8 +9,8 @@
  */
 // ----------------------------------------------------------------------------
 #include "CFEFontUTF8.h"
-#include "Support/Mem/CFEMem.h"
-#include "Support/Graphics/CFEMaterialMgr.h"
+#include "support/mem/CFEMem.h"
+#include "support/graphics/CFEMaterialMgr.h"
 // ----------------------------------------------------------------------------
 const uint HASH_WIDTH = 256;
 // ----------------------------------------------------------------------------

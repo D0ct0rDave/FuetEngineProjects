@@ -33,7 +33,7 @@ CFEPSFunc<CFEVect2>	m_oPos;
 */
 // ----------------------------------------------------------------------------
 #include "support/config/CFEConfigFile.h"
-#include "graphics/Sprite/CFESpriteMgr.h"
+#include "graphics/sprite/CFESpriteMgr.h"
 #include "CFEParticleSysLoader.h"
 #include "support/misc/CFEStringUtils.h"
 #include "types/CFEKFBFuncUtils.h"

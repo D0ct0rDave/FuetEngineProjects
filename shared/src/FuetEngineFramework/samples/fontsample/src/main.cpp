@@ -8,7 +8,7 @@
 #include <windows.h>
 #include <stdio.h>
 #include <stdarg.h>
-#include "FontSample.h"
+#include "fontsample.h"
 
 //-----------------------------------------------------------------------------
 // Local definitions

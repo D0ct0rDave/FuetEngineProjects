@@ -23,7 +23,7 @@
 
 #include "../CFECore.h"
 
-#include "../Common/CFECImageLib.h"
+#include "../common/CFECImageLib.h"
 #include "FEBasicTypes.h"
 #include "CFECGlobals.h"
 

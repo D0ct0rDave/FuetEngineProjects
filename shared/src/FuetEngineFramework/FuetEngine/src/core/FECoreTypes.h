@@ -66,7 +66,7 @@ typedef struct TFEInputStruct
     #include "N3DS/FECTypes.h"
 
 #elif (TARGETPLATFORM == USE_COCOS2D_X)
-    #include "COCOS2D_X/FECTypes.h"
+    #include "Cocos2D_X/FECTypes.h"
 
 #elif (TARGETPLATFORM == USE_ANDROID)
     #include "Android/FECTypes.h"

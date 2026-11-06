@@ -8,7 +8,7 @@
 #include <windows.h>
 #include <stdio.h>
 #include <stdarg.h>
-#include "PadInput.h"
+#include "padinput.h"
 
 //-----------------------------------------------------------------------------
 // Local definitions

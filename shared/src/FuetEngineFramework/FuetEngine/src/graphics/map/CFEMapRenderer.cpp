@@ -10,10 +10,10 @@
 // ----------------------------------------------------------------------------
 #include "CFEMap.h"
 #include "CFEMapRenderer.h"
-#include "Support/Math/CFEMathIntersect.h"
-#include "Graphics/Sprite/CFESpriteInstMgr.h"
-#include "Graphics/Sprite/CFESpriteRenderer.h"
-#include "Support/Graphics/CFERenderer.h"
+#include "support/math/CFEMathIntersect.h"
+#include "graphics/sprite/CFESpriteInstMgr.h"
+#include "graphics/sprite/CFESpriteRenderer.h"
+#include "support/graphics/CFERenderer.h"
 // ----------------------------------------------------------------------------
 void CFEMapRenderer::Render(CFEMap *_poMap,CFERenderer *_poRenderer)
 {	

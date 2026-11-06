@@ -16,7 +16,7 @@
 #include "CFESingleton.h"
 #include "CFEResourceQueue.h"
 #include "support/system/CFESystem.h"
-#include "Support/Mem/CFEResourceContextMgr.h"
+#include "support/mem/CFEResourceContextMgr.h"
 //-----------------------------------------------------------------------------
 // http://stackoverflow.com/questions/1055452/c-get-name-of-type-in-template
 #pragma once

@@ -12,16 +12,16 @@
 #include "CFEResourceContextMgr.h"
 
 #include "CFEMem.h"
-#include "Support/Sound/CFESoundMgr.h"
-#include "Support/Graphics/CFEMaterialMgr.h"
-#include "Graphics/Font/CFEFontMgr.h"
-#include "Graphics/Sprite/CFESpriteMgr.h"
-#include "Graphics/Sprite/CFESpriteInstMgr.h"
-#include "Graphics/skelanim/CFESkelAnimMgr.h"
-#include "Graphics/skelanim/CFESkelAnimInstMgr.h"
-#include "Graphics/particlesys/CFEParticleMgr.h"
-#include "Graphics/particlesys/CFEParticleSysInstMgr.h"
-#include "Graphics/particlesys/CFEParticleSysMgr.h"
+#include "support/sound/CFESoundMgr.h"
+#include "support/graphics/CFEMaterialMgr.h"
+#include "graphics/font/CFEFontMgr.h"
+#include "graphics/sprite/CFESpriteMgr.h"
+#include "graphics/sprite/CFESpriteInstMgr.h"
+#include "graphics/skelanim/CFESkelAnimMgr.h"
+#include "graphics/skelanim/CFESkelAnimInstMgr.h"
+#include "graphics/particlesys/CFEParticleMgr.h"
+#include "graphics/particlesys/CFEParticleSysInstMgr.h"
+#include "graphics/particlesys/CFEParticleSysMgr.h"
 // ----------------------------------------------------------------------------
 static uint gsuiContextID = 1;
 // ----------------------------------------------------------------------------

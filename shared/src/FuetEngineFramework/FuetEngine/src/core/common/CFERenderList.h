@@ -11,14 +11,14 @@
 #ifndef CFERenderListH
 #define CFERenderListH
 // ----------------------------------------------------------------------------
-#include "Support/Math/CFEMath.h"
+#include "support/math/CFEMath.h"
 #include "FEBasicTypes.h"
 #include "FEConsts.h"
-#include "Types/CFEVect2.h"
-#include "Types/CFEMatrix.h"
-#include "Types/CFEColor.h"
+#include "types/CFEVect2.h"
+#include "types/CFEMatrix.h"
+#include "types/CFEColor.h"
 #include "FEEnums.h"
-#include "Types/CFEArray.h"
+#include "types/CFEArray.h"
 // ----------------------------------------------------------------------------
 class CFERenderElem
 {

@@ -25,8 +25,8 @@
 #include "types/CFESingleton.h"
 #include "types/CFERect.h"
 
-#include "Support/Math/CFEMathIntersect.h"
-#include "Support/Graphics/CFERenderer.h"
+#include "support/math/CFEMathIntersect.h"
+#include "support/graphics/CFERenderer.h"
 //-----------------------------------------------------------------------------
 static FEReal m_rLastDeltaT = _0r;
 //-----------------------------------------------------------------------------

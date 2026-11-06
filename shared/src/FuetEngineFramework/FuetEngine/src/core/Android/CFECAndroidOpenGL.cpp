@@ -24,7 +24,7 @@
 #include "../CFECore.h"
 
  #include "FEBasicTypes.h"
-#include "Types/CFEKFBFunc.h"
+#include "types/CFEKFBFunc.h"
 #include "CFECGlobals.h"
 #include "FEDefs.h"
 // #include <GL/gl.h>
@@ -38,8 +38,8 @@
 #include "../CFECore.h"
 #include "../CFECoreGlobals.h"
 
-#include "../Common/CFECImageLib.h"
-#include "../Common/CFERenderList.h"
+#include "../common/CFECImageLib.h"
+#include "../common/CFERenderList.h"
 
 #include "FEBasicTypes.h"
 

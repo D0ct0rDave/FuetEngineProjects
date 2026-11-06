@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 // Include files
 //-----------------------------------------------------------------------------
-#include "Padinput.h"		// <- To compile the functions with the external c declaration (no function name mangling)
+#include "padinput.h"		// <- To compile the functions with the external c declaration (no function name mangling)
 #include "FuetEngine.h"
 
 //-----------------------------------------------------------------------------

@@ -13,9 +13,9 @@
 #include "CFEParticleMgr.h"
 
 // #include "System/FMem.h"
-#include "Support/File/CFEFile.h"
-#include "Support/Config/CFEConfigFile.h"
-#include "Support/Graphics/CFERenderer.h"
+#include "support/file/CFEFile.h"
+#include "support/config/CFEConfigFile.h"
+#include "support/graphics/CFERenderer.h"
 #include "types/CFESingleton.h"
 #include "CFEParticleSys.h"
 // ----------------------------------------------------------------------------

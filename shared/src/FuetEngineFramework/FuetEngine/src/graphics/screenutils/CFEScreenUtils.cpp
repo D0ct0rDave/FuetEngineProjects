@@ -9,9 +9,9 @@
  */
 // ----------------------------------------------------------------------------
 #include "CFEScreenUtils.h"
-#include "Types/CFEVect2.h"
+#include "types/CFEVect2.h"
 #include "core/CFECore.h"
-#include "Support/Graphics/CFERenderer.h"
+#include "support/graphics/CFERenderer.h"
 // ----------------------------------------------------------------------------
 void CFEScreenUtils::FSRender(CFERenderer* _poRenderer,FEHandler _hMat,const CFEColor& _oColor,FEReal _rDepth)
 {
