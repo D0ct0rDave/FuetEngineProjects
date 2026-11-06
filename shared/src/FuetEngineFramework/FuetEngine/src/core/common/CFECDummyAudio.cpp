@@ -77,7 +77,7 @@ FEBool CFECore::Sound::bSetSoundProperty(FEHandler _hSound, const CFEString& _sP
 }
 
 /// Plays a given sound in the given sound line.
-FEHandler hPlaySound(FEHandler _hSoundResource, EFESoundMixerLine _eSoundLine, FEReal _rVol, FEReal _rPan)
+FEHandler CFECore::Sound::hPlaySound(FEHandler _hSoundResource, EFESoundMixerLine _eSoundLine, FEReal _rVol, FEReal _rPan)
 {
     return 0; // Return a dummy handle
 }
