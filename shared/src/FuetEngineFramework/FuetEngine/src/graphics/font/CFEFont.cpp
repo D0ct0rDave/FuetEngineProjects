@@ -9,8 +9,8 @@
  */
 // ----------------------------------------------------------------------------
 #include "CFEFont.h"
-#include "Support/Mem/CFEMem.h"
-#include "Support/Graphics/CFEMaterialMgr.h"
+#include "support/mem/CFEMem.h"
+#include "support/graphics/CFEMaterialMgr.h"
 // ----------------------------------------------------------------------------
 CFEFont::CFEFont() : m_poKT(NULL), m_hMaterial(NULL)
 {

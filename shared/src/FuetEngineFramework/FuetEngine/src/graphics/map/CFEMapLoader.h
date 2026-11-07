@@ -13,7 +13,7 @@
 // ----------------------------------------------------------------------------
 #include "types/CFEArray.h"
 #include "types/CFEString.h"
-#include "Support/Config/CFEConfigFile.h"
+#include "support/config/CFEConfigFile.h"
 #include "CFEMap.h"
 // ----------------------------------------------------------------------------
 class CFEMapLoader

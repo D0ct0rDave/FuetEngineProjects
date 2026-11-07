@@ -18,7 +18,7 @@
 
 #include "CFEString.h"
 #include "core/CFECore.h"
-#include "Support/Mem/CFEMem.h"
+#include "support/mem/CFEMem.h"
 #include <string> // for rfind (reverse find)
 // ----------------------------------------------------------------------------
 static CFEString gsNULLString = CFEString("");

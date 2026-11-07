@@ -13,8 +13,8 @@
 //-----------------------------------------------------------------------------
 #include "CFEHUDVisitor.h"
 #include "FEBasicTypes.h"
-#include "Types/CFEColor.h"
-#include "Types/CFEString.h"
+#include "types/CFEColor.h"
+#include "types/CFEString.h"
 //-----------------------------------------------------------------------------
 class CFERenderer;
 //-----------------------------------------------------------------------------

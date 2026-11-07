@@ -15,8 +15,8 @@
 #include "CFEString.h"
 #include "CFELookupDatabase.h"
 #include "CFESingleton.h"
-#include "Support/Mem/CFEResourceContextMgr.h"
-#include "Support/misc/CFEStringUtils.h"
+#include "support/mem/CFEResourceContextMgr.h"
+#include "support/misc/CFEStringUtils.h"
 //-----------------------------------------------------------------------------
 #define DECLARE_RESOURCE_MANAGER(CLASSNAME,RESOURCETYPE)\
 class CLASSNAME : public CFEResourceMgr<CLASSNAME,RESOURCETYPE>

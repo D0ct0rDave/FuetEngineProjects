@@ -14,10 +14,10 @@
 #include <stdarg.h>
 // ----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "Types/CFEString.h"
-#include "Types/CFEVect2.h"
-#include "Types/CFEMatrix.h"
-#include "Types/CFEColor.h"
+#include "types/CFEString.h"
+#include "types/CFEVect2.h"
+#include "types/CFEMatrix.h"
+#include "types/CFEColor.h"
 #include "FEEnums.h"
 // ----------------------------------------------------------------------------
 #include "FECoreTypes.h"

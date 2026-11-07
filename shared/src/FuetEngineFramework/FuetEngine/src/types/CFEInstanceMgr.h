@@ -16,7 +16,7 @@
 #include "CFESingleton.h"
 #include "CFEResourceQueue.h"
 
-#include "Support/Mem/CFEResourceContextMgr.h"
+#include "support/mem/CFEResourceContextMgr.h"
 //-----------------------------------------------------------------------------
 #define DECLARE_INSTANCE_MANAGER(CLASSNAME,INSTANCETYPE)\
 class CLASSNAME : public CFEInstanceMgr<CLASSNAME,INSTANCETYPE>

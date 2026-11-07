@@ -18,8 +18,8 @@
 #define CFEParticleSysInstMgrH
 // ----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "Types/CFEVect2.h"
-#include "Types/CFEColor.h"
+#include "types/CFEVect2.h"
+#include "types/CFEColor.h"
 #include "CFEParticleSysMgr.h"
 #include "types/CFEInstanceMgr.h"
 // ----------------------------------------------------------------------------

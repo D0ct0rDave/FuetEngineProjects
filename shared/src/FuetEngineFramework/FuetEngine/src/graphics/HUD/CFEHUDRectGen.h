@@ -14,7 +14,7 @@
 #include "CFEHUDVisitor.h"
 #include "types/CFERect.h"
 #include "types/CFEMatrix.h"
-#include "Types/CFEString.h"
+#include "types/CFEString.h"
 //-----------------------------------------------------------------------------
 class CFEHUDRectGen : public CFEHUDVisitor
 {

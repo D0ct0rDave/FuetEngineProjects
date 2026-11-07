@@ -11,7 +11,7 @@
 #ifndef CFEColorH
 #define CFEColorH
 // ----------------------------------------------------------------------------
-#include "Support/Math/CFEMath.h"
+#include "support/math/CFEMath.h"
 #include "FEBasicTypes.h"
 #include "FEConsts.h"
 // ----------------------------------------------------------------------------

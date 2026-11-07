@@ -14,7 +14,7 @@
 // ----------------------------------------------------------------------------
 #include <stdio.h>
 #include "FEBasicTypes.h"
-#include "Types/CFEString.h"
+#include "types/CFEString.h"
 #include "FEEnums.h"
 // ----------------------------------------------------------------------------
 class CFEFile

@@ -9,8 +9,8 @@
  */
 // ----------------------------------------------------------------------------
 #include "CFEMapLoader.h"
-#include "graphics/Sprite/CFESpriteInstMgr.h"
-#include "Support/Misc/CFEStringUtils.h"
+#include "graphics/sprite/CFESpriteInstMgr.h"
+#include "support/misc/CFEStringUtils.h"
 // ----------------------------------------------------------------------------
 /// Loads an element
 CFEMapElement CFEMapLoader::oLoadElement(const CFEConfigFile& _oCfg,const CFEString& _sElement,const CFEArray<CFEString>& _oSpriteList)

@@ -11,7 +11,7 @@
 #ifndef CFEVect2H
 #define CFEVect2H
 // ----------------------------------------------------------------------------
-#include "Support/Math/CFEMath.h"
+#include "support/math/CFEMath.h"
 #include "FEBasicTypes.h"
 #include "FEConsts.h"
 // ----------------------------------------------------------------------------

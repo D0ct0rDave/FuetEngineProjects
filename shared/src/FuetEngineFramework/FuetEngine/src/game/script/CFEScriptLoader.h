@@ -12,7 +12,7 @@
 #define CFEScriptLoaderH
 // -----------------------------------------------------------------------------
 #include "CFEScript.h"
-#include "Action/CFEActionLoader.h"
+#include "action/CFEActionLoader.h"
 // -----------------------------------------------------------------------------
 class CFEScriptLoader
 {

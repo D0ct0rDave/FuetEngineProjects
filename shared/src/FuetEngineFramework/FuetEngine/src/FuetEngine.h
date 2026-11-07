@@ -117,8 +117,8 @@
 #include "graphics/map/CFEMapRenderer.h"
 
 // Screen utils.
-#include "graphics/ScreenUtils/CFEScreenUtils.h"
-#include "graphics/ScreenUtils/CFEScreenFX.h"
+#include "graphics/screenutils/CFEScreenUtils.h"
+#include "graphics/screenutils/CFEScreenFX.h"
 
 // HUD functionality
 #include "graphics/HUD/CFEHUD.h"
@@ -181,8 +181,8 @@
 #include "game/script/CFEScript.h"
 #include "game/script/CFEScriptMgr.h"
 #include "game/script/CFEScriptLoader.h"
-#include "game/script/Action/CFEAction.h"
-#include "game/script/Action/CFEActionLoader.h"
+#include "game/script/action/CFEAction.h"
+#include "game/script/action/CFEActionLoader.h"
 
 // Cinematic system.
 #include "game/cinematic/CFECinematic.h"

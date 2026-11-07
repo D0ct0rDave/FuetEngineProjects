@@ -16,7 +16,7 @@
 #include "types/CFEColor.h"
 #include "types/CFEString.h"
 #include "types/CFENamedObject.h"
-#include "Graphics/Sprite/CFESprite.h"
+#include "graphics/sprite/CFESprite.h"
 // ----------------------------------------------------------------------------
 class CFEMapElement
 {

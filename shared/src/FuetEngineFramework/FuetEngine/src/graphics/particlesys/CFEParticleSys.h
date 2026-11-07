@@ -15,7 +15,7 @@
 #include "types/CFEVect2.h"
 #include "types/CFEColor.h"
 
-#include "support/Math/CFEMath.h"
+#include "support/math/CFEMath.h"
 #include "types/CFEKFBFunc.h"
 //-----------------------------------------------------------------------------
 class CFESprite;

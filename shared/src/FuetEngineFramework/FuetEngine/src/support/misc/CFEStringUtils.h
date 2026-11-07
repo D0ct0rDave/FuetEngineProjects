@@ -12,7 +12,7 @@
 #define CFEStringUtilsH
 //-----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "Types/CFEString.h"
+#include "types/CFEString.h"
 //-----------------------------------------------------------------------------
 namespace CFEStringUtils
 {

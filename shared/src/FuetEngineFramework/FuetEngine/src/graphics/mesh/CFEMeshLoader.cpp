@@ -15,7 +15,7 @@
 #include "support/file/CFEFile.h"
 #include "graphics/sprite/CFESpriteInstMgr.h"
 #include "support/misc/CFEStringUtils.h"
-#include "Core/CFECore.h"
+#include "core/CFECore.h"
 
 // ----------------------------------------------------------------------------
 CFEMesh* CFEMeshLoader::poBuildBasicMesh(FEHandler _hMat,const CFEString& _sMeshName)

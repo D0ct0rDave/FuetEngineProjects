@@ -12,7 +12,7 @@
 #define CFEConfigFileH
 // ----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "Types/CFEString.h"
+#include "types/CFEString.h"
 // ----------------------------------------------------------------------------
 class CFEConfigFile
 {

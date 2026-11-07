@@ -12,7 +12,7 @@
 #define CFEFontLoaderH
 // ----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "Types/CFEString.h"
+#include "types/CFEString.h"
 #include "CFEFont.h"
 // ----------------------------------------------------------------------------
 class CFEFontLoader

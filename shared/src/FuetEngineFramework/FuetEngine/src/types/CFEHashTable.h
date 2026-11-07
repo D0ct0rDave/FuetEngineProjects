@@ -12,8 +12,8 @@
 #define CFEHashTableH
 // ----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "Support/Mem/CFEMem.h"
-#include "Support/Misc/CFEStringUtils.h"
+#include "support/mem/CFEMem.h"
+#include "support/misc/CFEStringUtils.h"
 #include "types/CFELookupDatabase.h"
 // ----------------------------------------------------------------------------
 template <class T>

@@ -12,8 +12,8 @@
 #define CFEFontH
 // ----------------------------------------------------------------------------
 #include "FEBasicTypes.h"
-#include "Types/CFERect.h"
-#include "Types/CFEString.h"
+#include "types/CFERect.h"
+#include "types/CFEString.h"
 // ----------------------------------------------------------------------------
 /// Maximum number of chars stored in a font file.
 const uint MAX_CHAR = 256;

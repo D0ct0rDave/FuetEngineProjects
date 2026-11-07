@@ -2,7 +2,7 @@
 #ifndef CFELookUpDatabaseH
 #define CFELookUpDatabaseH
 //-----------------------------------------------------------------------------
-#include "Types/CFEArray.h"
+#include "types/CFEArray.h"
 //-----------------------------------------------------------------------------
 template <typename T>
 class CFELookUpDatabase
