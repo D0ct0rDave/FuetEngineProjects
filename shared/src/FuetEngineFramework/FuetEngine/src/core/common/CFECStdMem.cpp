@@ -22,7 +22,8 @@
 // ----------------------------------------------------------------------------
 void* operator new (size_t sz)
 {
-	if (! sz) return(NULL);
+	// The standard requires a valid unique pointer for 0 bytes (libraries linked with the engine, like OpenAL, use this operator).
+	if (! sz) sz = 1;
 	void *pData = CFECore::Mem::pAlloc(sz);
 	return(pData);	
 }
@@ -35,7 +36,7 @@ void operator delete(void* _pPtr)
 
 void* operator new[] (size_t sz)
 {
-	if(! sz) return(NULL);
+	if (! sz) sz = 1;
 	void *pData = CFECore::Mem::pAlloc(sz);
 	return(pData);
 }

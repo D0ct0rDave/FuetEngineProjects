@@ -8,9 +8,11 @@
 // ----------------------------------------------------------------------------
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
+#include <X11/Xatom.h>
 #include <X11/keysym.h>
 #include <GL/glx.h>
 
@@ -57,6 +59,14 @@ static void ReleaseSharedDisplay()
         XCloseDisplay(gspoSharedDisplay);
         gspoSharedDisplay = NULL;
     }
+}
+// ----------------------------------------------------------------------------
+/// Lets the window manager and tools (xdotool, task managers) relate a window with its process.
+static void SetWindowPID(Display* _poDpy,Window _oWin)
+{
+    unsigned long ulPID = (unsigned long)getpid();
+    Atom oAtom = XInternAtom(_poDpy,"_NET_WM_PID",False);
+    XChangeProperty(_poDpy,_oWin,oAtom,XA_CARDINAL,32,PropModeReplace,(unsigned char*)&ulPID,1);
 }
 // ----------------------------------------------------------------------------
 static XVisualInfo* ChooseOwnVisual(Display* _poDpy)
@@ -153,6 +163,7 @@ TFELinuxGLContext* FELinux_CreateContext(const TFELinuxWindow* _poWindow,unsigne
                                         CWBorderPixel | CWColormap | CWEventMask,&oSWA);
 
         XStoreName(poCtx->m_poDisplay,poCtx->m_oWin,"FuetEngine");
+        SetWindowPID(poCtx->m_poDisplay,poCtx->m_oWin);
 
         // Be notified (instead of killed) when the user closes the window.
         poCtx->m_oWMDelete = gsoSharedWMDelete;
@@ -215,6 +226,7 @@ bool FELinux_bCreateWindow(const char* _szTitle,int _iX,int _iY,unsigned int _ui
     XSetWMNormalHints(poDpy,oWin,&oHints);
 
     XStoreName(poDpy,oWin,(_szTitle != NULL)?_szTitle:"FuetEngine");
+    SetWindowPID(poDpy,oWin);
     XSetWMProtocols(poDpy,oWin,&gsoSharedWMDelete,1);
     XMapWindow(poDpy,oWin);
     XSync(poDpy,False);
