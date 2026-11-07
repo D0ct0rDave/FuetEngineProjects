@@ -50,6 +50,10 @@ bool FELinux_bCloseRequested();
 void FELinux_DestroyContext(TFELinuxGLContext* _poCtx);
 
 void FELinux_MakeCurrent(TFELinuxGLContext* _poCtx);
+
+// true if the calling thread has a GL context current. The engine's worker threads (resource loading) call
+// into the graphics core without one: on Windows that is silently ignored, but libGL with NVIDIA crashes.
+bool FELinux_bHasCurrentContext();
 void FELinux_SwapBuffers(TFELinuxGLContext* _poCtx);
 void* FELinux_GetProcAddress(const char* _szName);
 

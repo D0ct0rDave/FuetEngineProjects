@@ -1223,7 +1223,8 @@ void CFECore::Graphics::DeleteMaterial(FEHandler _hMaterial)
 {
     TMaterialHandler* poTH = (TMaterialHandler*)_hMaterial;
     ImageLib::FreeImage(poTH->m_poII);
-    glDeleteTextures(1,(const GLuint*)&poTH->m_iID);
+    if (FELinux_bHasCurrentContext())	// worker threads have no GL context (see FELinux_bHasCurrentContext)
+        glDeleteTextures(1,(const GLuint*)&poTH->m_iID);
     
     delete poTH;
 }
@@ -1257,7 +1258,8 @@ void CFECore::Graphics::ReloadMaterial(FEHandler _hMaterial,const CFEString& _sF
 
     // Delete previos resources
     ImageLib::FreeImage(poTH->m_poII);
-    glDeleteTextures(1,(const GLuint*)&poTH->m_iID);
+    if (FELinux_bHasCurrentContext())
+        glDeleteTextures(1,(const GLuint*)&poTH->m_iID);
     
     // Create new ones
     poTH->m_poII = poII;
@@ -1317,6 +1319,9 @@ GLenum eGetTextureFormat(EFEPixelFormat _ePixelFormat)
 // ----------------------------------------------------------------------------
 int iCreateTexture(TMaterialHandler* _poMH)
 {
+    // Called from a worker thread (no GL context): the texture is created later, by the rendering thread
+    if (! FELinux_bHasCurrentContext()) return(-1);
+
     GLuint uiTexID = 0xffffffff;
 
     // Generate a new material handler
@@ -1751,6 +1756,9 @@ FEBool CFECore::Graphics::bSetMaterialProperty(FEHandler _hMaterial,const CFEStr
     if (gshFirstHGLRC == 0) return(false);
     if (_hMaterial == NULL) return(false);
 
+	// Without a GL context (worker thread) only the stored modes change; the GL calls below are skipped
+	const bool bGL = FELinux_bHasCurrentContext();
+
 	const uint CLAMP_MODES[] = {GL_CLAMP_TO_EDGE,GL_REPEAT,GL_MIRRORED_REPEAT,GL_CLAMP_TO_EDGE};
 	const uint FILTER_MODES[] = {GL_NEAREST,GL_LINEAR};
 
@@ -1761,7 +1769,7 @@ FEBool CFECore::Graphics::bSetMaterialProperty(FEHandler _hMaterial,const CFEStr
 
 		poTH->m_iSWrapMode = CLAMP_MODES[(uint)(size_t)_pParam & 0x03];
 
-		if ( poTH->m_iID != -1)
+		if ( bGL && poTH->m_iID != -1)
 		{
 			glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,poTH->m_iSWrapMode);CHECKERROR();
 		}
@@ -1773,7 +1781,7 @@ else if (_sProperty == "DiffuseMap.TWrapMode")
 
 		poTH->m_iTWrapMode = CLAMP_MODES[(uint)(size_t)_pParam & 0x03];
 
-		if ( poTH->m_iID != -1)
+		if ( bGL && poTH->m_iID != -1)
 		{
 			glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,poTH->m_iTWrapMode);CHECKERROR();
 		}
@@ -1786,7 +1794,7 @@ else if (_sProperty == "DiffuseMap.Filter")
 		poTH->m_iMinFilter = FILTER_MODES[(uint)(size_t)_pParam & 0x01];
 		poTH->m_iMagFilter = FILTER_MODES[(uint)(size_t)_pParam & 0x01];
 
-		if ( poTH->m_iID != -1)
+		if ( bGL && poTH->m_iID != -1)
 		{
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, poTH->m_iMagFilter);CHECKERROR();
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, poTH->m_iMinFilter);CHECKERROR();
@@ -1987,6 +1995,8 @@ void CFECore::Graphics::INT_SetTransform(const CFEMatrix& _rMat)
 // ----------------------------------------------------------------------------
 void CFECore::Graphics::INT_SetMaterial(FEHandler _hMaterial)
 {
+    if (! FELinux_bHasCurrentContext()) return;	// worker thread, nothing to bind
+
     if (_hMaterial == NULL)
     {
         glDisable(GL_TEXTURE_2D);

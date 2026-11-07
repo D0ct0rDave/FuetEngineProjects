@@ -290,6 +290,11 @@ void FELinux_MakeCurrent(TFELinuxGLContext* _poCtx)
         glXMakeCurrent(_poCtx->m_poDisplay,_poCtx->m_oWin,_poCtx->m_oGLRC);
 }
 // ----------------------------------------------------------------------------
+bool FELinux_bHasCurrentContext()
+{
+    return(glXGetCurrentContext() != NULL);
+}
+// ----------------------------------------------------------------------------
 void FELinux_SwapBuffers(TFELinuxGLContext* _poCtx)
 {
     if (_poCtx != NULL)
