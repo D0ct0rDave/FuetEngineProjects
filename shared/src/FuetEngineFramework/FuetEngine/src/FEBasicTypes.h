@@ -28,7 +28,11 @@ typedef std::basic_string<char> CFString;
 
 typedef unsigned char*      FEPointer;
 typedef void*               FEHandler;
+#if defined(__linux__)
+#include <sys/types.h> // glibc already defines uint
+#else
 typedef size_t				uint;
+#endif
 typedef unsigned long long  FEQword;
 // ----------------------------------------------------------------------------
 #if defined(REAL_CLASS)
