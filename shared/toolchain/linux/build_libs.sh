@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Builds on Linux the libraries of CoderChild/shared/src/libs that Cubit and the engine use
-# (Box2D 2.2.1 (modified for the engine) and libConfigPortable, exactly the 2014 sources) into $PREFIX/{lib,include}.
+# Builds on Linux the libraries (git submodules in shared/src/sdks/externals; run "git submodule update --init" first) that Cubit and the engine use
+# (Box2D 2.2.1 (modified for the engine) and libConfigPortable, the 2014 sources) into $PREFIX/{lib,include}.
 # FreeImage and freealut are not part of that tree: they are copied from PREBUILT (the linux-deps that
 # shared/toolchain/linux/build_externals.sh of FuetEngineProjects produced) when it exists.
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
-LIBS="$ROOT/shared/src/libs"
+LIBS="$ROOT/shared/src/sdks/externals"   # git submodules: Box2D, libConfigPortable (physfs)
 PREFIX="${PREFIX:-$ROOT/shared/toolchain/FuetEngine/linux-deps}"
 PREBUILT="${PREBUILT:-$ROOT/../FuetEngineProjects/shared/toolchain/FuetEngine/linux-deps}"
 BUILD="$PREFIX/_build"

@@ -1,0 +1,10 @@
+[submodule "shared/src/sdks/externals/Box2D"]
+	path = shared/src/sdks/externals/Box2D
+	url = https://github.com/D0ct0rDave/Box2D.git
+[submodule "shared/src/sdks/externals/libConfigPortable"]
+	path = shared/src/sdks/externals/libConfigPortable
+	url = https://github.com/D0ct0rDave/libconfigPortable.git
+[submodule "shared/src/sdks/externals/physfs"]
+	path = shared/src/sdks/externals/physfs
+	url = https://github.com/D0ct0rDave/physfs
+	branch = physixfs-2014
