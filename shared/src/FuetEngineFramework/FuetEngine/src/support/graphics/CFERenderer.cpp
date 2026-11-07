@@ -60,12 +60,8 @@ class CFERendererData
 
             m_bDebugSprites(false),
 
-            // These are only computed in SetScreenVWidth/VHeight; keep them valid if the application never calls them.
-            m_bUploadTransform(false),
-            m_uiScreenWidth(640),
-            m_uiScreenHeight(480),
-            m_iXDIV(1),
-            m_iYDIV(1)
+            // Not set anywhere else: keep it valid.
+            m_bUploadTransform(false)
         {
 			m_oStartTick = CFECore::oGetEngineTicks();
             m_oCamMat.LoadIdentity();

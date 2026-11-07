@@ -1,132 +1,115 @@
 // ----------------------------------------------------------------------------
-/*! \class CFECoundMgr
- *  \brief Sound Manager Class Definition
- *  \author David M&aacute;rquez de la Cruz
- *  \version 1.0
- *  \date 2009
- *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
+/*! \brief Linux input implementation. Keyboard and mouse state are polled through X11.
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
 #include "../FEConfig.h"
-#if (INPUTSYS == USE_OSINPUT)
+#if ((INPUTSYS == USE_NATIVE_SUPPORT) && (TARGETPLATFORM == USE_LINUX))
 // ----------------------------------------------------------------------------
-
 #include "CFECGlobals.h"
-#include "../CFECystem.h"
+#include "../CFECore.h"
+#include "FECLinuxWindow.h"
+
+// Key symbol values (same as X11/keysym.h, defined here to keep X11 macros out of the engine)
+#define FEK_Up      0xff52
+#define FEK_Down    0xff54
+#define FEK_Left    0xff51
+#define FEK_Right   0xff53
+#define FEK_Escape  0xff1b
+#define FEK_Return  0xff0d
+#define FEK_Next    0xff56  // Page Down
+#define FEK_Prior   0xff55  // Page Up
+#define FEK_F11     0xffc8
+#define FEK_space   0x0020
+#define FEK_plus    0x002b
 // ----------------------------------------------------------------------------
 class CInputData
 {
 	public:
-		CInputData(FEHandler _hHandler) :
-			m_hHandler(_hHandler)
+		CInputData(const TFELinuxWindow* _poWindow)
 		{
-
+			m_bHasWindow = (_poWindow != NULL);
+			if (m_bHasWindow) m_oWindow = *_poWindow;
 		}
 
-		FEHandler m_hHandler;
+		/// Window to poll: the one given by the host, or the one created by the first renderer.
+		const TFELinuxWindow* poWindow() const
+		{
+			return( m_bHasWindow?&m_oWindow:FELinux_GetMainWindow() );
+		}
+
+		bool			m_bHasWindow;
+		TFELinuxWindow	m_oWindow;
 };
 // ----------------------------------------------------------------------------
-FEHandler CFECystem::Input::hInit(FEHandler _hParam)
+FEHandler CFECore::Input::hInit(FEHandler _hParam)
 {
-    // Create and initialize the handler.
-    return( (FEHandler)new CInputData(_hParam) );
+    // _hParam is an optional (TFELinuxWindow*). See FECLinuxWindow.h
+    return( (FEHandler)new CInputData((const TFELinuxWindow*)_hParam) );
 }
 // ----------------------------------------------------------------------------
-void CFECystem::Input::Finish(FEHandler _hInputHandler)
+void CFECore::Input::Finish(FEHandler _hInputHandler)
 {
     if (_hInputHandler == NULL) return;
+    delete ((CInputData*)_hInputHandler);
 }
 // ----------------------------------------------------------------------------
-void CFECystem::Input::Update(FEHandler _hInputHandler,TFEInputStruct* _poInputs)
+void CFECore::Input::Update(FEHandler _hInputHandler,TFEInputStruct* _poInputs)
 {
-    if (_hInputHandler == NULL) return;
-    if (FECglobals.m_poCurrentRenderer == NULL) return;
+	if (_hInputHandler == NULL) return;
 
-	Display* pDisplay = FECglobals.m_poCurrentRenderer->m_poDisplay; // (Display*)((CInputData*)_hInputHandler)->m_hHandler;
-	if (pDisplay == NULL) return;
+	const TFELinuxWindow* poWin = ((CInputData*)_hInputHandler)->poWindow();
+	if (poWin == NULL) return;
 
-	XEvent event_return;
+	// Mouse
+	int  iX,iY;
+	bool bLeft,bRight,bMiddle;
+	FELinux_GetMouse(poWin,&iX,&iY,&bLeft,&bRight,&bMiddle);
 
-    // keyboard events
-    if(XCheckTypedEvent( pDisplay, KeyPress, &event_return))
-    {
-        if (event_return.type >= KeyPress)
-        {
-            XKeyEvent ke = event_return.xkey;
-            //printf("EVENT KEYCODE= %d\n",ke.keycode);
+	_poInputs->m_oCursor.m_rPressure[IPB_A] = bLeft  ?1.0f:0.0f;
+	_poInputs->m_oCursor.m_rPressure[IPB_B] = bRight ?1.0f:0.0f;
+	_poInputs->m_oCursor.m_rPressure[IPB_C] = bMiddle?1.0f:0.0f;
 
-            switch(ke.keycode)
-            {
-                //returncode = KBD_KEY_DOWN;
-                case 113:
-                // returncode = KBD_KEY_LEFT;
-                break;
-                case 114:
-                // returncode = KBD_KEY_RIGHT;
-                break;
-                case 111:
-                // returncode = KBD_KEY_UP;
-                break;
-                case 36:
-                // returncode = KBD_KEY_ENTER;
-                break;
-                default:
-                // printf("KEYCODE = %d\n",ke.keycode);
-                // returncode = 0;
-                break;
-            }
-        }
-    }
-    else
-    {
-        // returncode = 0;//printf("NO EVENT\n");
-    }
+	// coordinates in the viewport ref sys (normalized)
+    FEReal rX = (FEReal)iX;
+    FEReal rY = (FEReal)iY;
 
-    //  mouse events
-    if(XCheckTypedEvent(pDisplay, MotionNotify, &event_return))
-    {
-        if (event_return.type >= MotionNotify)
-        {
-            XMotionEvent me = event_return.xmotion;
-            XWindowAttributes wa;
-            XGetWindowAttributes(pDisplay, me.window, &wa);
+	if ((FECglobals.m_uiViewportWidth != 0) && (FECglobals.m_uiViewportHeight != 0))
+	{
+		rX -= (FECglobals.m_uiViewportWMargin);
+		rY -= (FECglobals.m_uiViewportHMargin);
+		rX /= FECglobals.m_uiViewportWidth;
+		rY /= FECglobals.m_uiViewportHeight;
+	}
 
-            _poInputs->m_oCursor.m_oCoords.x = (float)me.x / (float)wa.width;
-            _poInputs->m_oCursor.m_oCoords.y = (float)me.y / (float)wa.height;
-        }
-    }
+    _poInputs->m_oCursor.m_oCoords.x = rX;
+    _poInputs->m_oCursor.m_oCoords.y = rY;
 
-    //  mouse events
-    if(XCheckTypedEvent(pDisplay, ButtonPress, &event_return))
-    {
-        if (event_return.type >= ButtonPress)
-        {
-            XButtonEvent be = event_return.xbutton;
+	// keyboard keys
+	#define KEY(k) FELinux_bIsKeyDown(poWin,(k))
 
-            switch (be.button)
-            {
-                case Button1: _poInputs->m_oCursor.m_rPressure[IPB_A] = 1.0f; break;
-                case Button2: _poInputs->m_oCursor.m_rPressure[IPB_B] = 1.0f; break;
-                case Button3: _poInputs->m_oCursor.m_rPressure[IPB_C] = 1.0f; break;
-            }
-        }
-    }
+	_poInputs->m_bButtons[IB_UP]    = KEY(FEK_Up)    || KEY('w');
+	_poInputs->m_bButtons[IB_DOWN]	= KEY(FEK_Down)  || KEY('s');
+	_poInputs->m_bButtons[IB_LEFT]	= KEY(FEK_Left)  || KEY('a');
+	_poInputs->m_bButtons[IB_RIGHT] = KEY(FEK_Right) || KEY('d');
 
-    if(XCheckTypedEvent(pDisplay, ButtonRelease, &event_return))
-    {
-        if (event_return.type >= ButtonRelease)
-        {
-            XButtonEvent be = event_return.xbutton;
+	_poInputs->m_bButtons[IB_MIG] = KEY(FEK_Escape);
 
-            switch (be.button)
-            {
-                case Button1: _poInputs->m_oCursor.m_rPressure[IPB_A] = 0.0f; break;
-                case Button2: _poInputs->m_oCursor.m_rPressure[IPB_B] = 0.0f; break;
-                case Button3: _poInputs->m_oCursor.m_rPressure[IPB_C] = 0.0f; break;
-            }
-        }
-    }
+	_poInputs->m_bButtons[IB_A] = KEY(FEK_space);
+	_poInputs->m_bButtons[IB_B] = KEY('m');
+	_poInputs->m_bButtons[IB_C] = KEY('n');
+	_poInputs->m_bButtons[IB_D] = KEY('b');
+	_poInputs->m_bButtons[IB_E] = KEY('q');
+	_poInputs->m_bButtons[IB_F] = KEY('e');
+
+	_poInputs->m_bButtons[IB_G] = KEY(FEK_Return);
+
+	_poInputs->m_bButtons[IB_H] = KEY(FEK_plus);
+	_poInputs->m_bButtons[IB_I] = KEY(FEK_F11);
+	_poInputs->m_bButtons[IB_J] = KEY(FEK_Next);
+	_poInputs->m_bButtons[IB_K] = KEY(FEK_Prior);
+
+	#undef KEY
 }
 // ----------------------------------------------------------------------------
 #endif

@@ -1,57 +1,45 @@
 // ----------------------------------------------------------------------------
-/*! \class Fuet Engine Configuration File
- *  \brief
- *  \author David M&aacute;rquez de la Cruz
- *  \version 1.0
- *  \date 2009
- *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
+/*! \class CFECoreGlobals
+ *  \brief Global variables for the Linux system module.
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
 #ifndef CFECGlobalsH
 #define CFECGlobalsH
 // ----------------------------------------------------------------------------
-#include <GL/glx.h>
-#include <GL/gl.h>
-
-#include <X11/X.h>
-#include <X11/keysym.h>
+#include "types/CFEString.h"
+#include "FEBasicTypes.h"
+#include "FEEnums.h"
 // ----------------------------------------------------------------------------
-class CRendererHandler
+class CRendererHandler;
+// ----------------------------------------------------------------------------
+class CFECoreGlobals
 {
     public:
-        CRendererHandler() :
-            m_poVI(NULL),
-            m_uiScrWidth(0),
-            m_uiScrHeight(0)
-        {
-        }
 
-        XVisualInfo*        m_poVI;
-        Window              m_oWin;
-        GLXContext          m_hGLRC;
-        Display*            m_poDisplay;
+        CFECoreGlobals();
 
-		uint                m_uiScrWidth;               // Actual Screen Width
-        uint                m_uiScrHeight;              // Actual Screen Height
+        uint				m_uiLastTick;                   // system time (ms) at the start of the engine.
+
+        CRendererHandler*	m_poCurrentRenderer;
+        FEReal				m_rCurDepth;					// Current depth to draw primitives.
+        FEBool              m_bNPO2Support;					// Non Power of 2 texture support availability.
+
+        FEBool				m_bAutoLocEnabled;				// Is autolocalization enabled or not.
+        EFELocalID			m_eLocalID;						// The local ID used by the system.
+        EFELocalRegionID	m_eLocalRegionID;				// The local ID used by the system.
+
+        CFEString			m_sApplicationName;				// The name of the application.
+		uint				m_uiApplicationVersion;			// The version of the application
+
+		FEBool				m_bKeepDesignAspect;			// Keep design aspect ratio o stretch to fit.
+        uint                m_uiViewportWidth;
+        uint                m_uiViewportHeight;
+        uint                m_uiViewportWMargin;
+        uint                m_uiViewportHMargin;
 };
 // ----------------------------------------------------------------------------
-// Global variables for the system module
-// ----------------------------------------------------------------------------
-class CFECystemGlobals
-{
-    public:
-        CFECystemGlobals();
-
-        unsigned long long  m_ullStartTime;             // system time at the start of the engine.
-
-        CRendererHandler*   m_poCurrentRenderer;
-        uint                m_uiScrVWidth;              // Current Screen Virtual Width
-        uint                m_uiScrVHeight;             // Current Screen Virtual Height
-		FEReal				m_rCurDepth;				// Current depth to draw primitives.
-};
-// ----------------------------------------------------------------------------
-extern CFECystemGlobals FECglobals;
+extern CFECoreGlobals FECglobals;
 // ----------------------------------------------------------------------------
 #endif
 // ----------------------------------------------------------------------------

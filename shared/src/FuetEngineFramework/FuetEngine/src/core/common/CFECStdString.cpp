@@ -56,7 +56,11 @@ static char* szCheckAndFixFmtString(const char* fmt,va_list argptr)
 //-----------------------------------------------------------------------------
 char* CFECore::String::szFormatString(const char * format, va_list arg)
 {
-	char* szFixedFormat = szCheckAndFixFmtString(format,arg);
+	// The format check walks the arguments: do it on a copy, the caller's list is used again below.
+	va_list argCheck;
+	va_copy(argCheck,arg);
+	char* szFixedFormat = szCheckAndFixFmtString(format,argCheck);
+	va_end(argCheck);
 	vsprintf_s(gsszLocalBuff,BUFF_SIZE,szFixedFormat,arg);
 	return(gsszLocalBuff);
 }

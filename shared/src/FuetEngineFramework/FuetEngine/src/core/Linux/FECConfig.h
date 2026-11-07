@@ -1,10 +1,5 @@
 // ----------------------------------------------------------------------------
-/*! \class Fuet Engine Configuration File
- *  \brief
- *  \author David M&aacute;rquez de la Cruz
- *  \version 1.0
- *  \date 2009
- *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
+/*! \class Fuet Engine Configuration File (Linux)
  *  \par FuetEngine License
  */
 // ----------------------------------------------------------------------------
@@ -21,7 +16,7 @@
 #define SOUND           USE_OPENAL
 
 // Config files
-#define CONFIG          USE_LIBCONFIG
+#define CONFIG          USE_BIN_AND_LIBCONFIG
 
 // Image loading support
 #define IMAGELIB        USE_FREEIMAGE
@@ -32,11 +27,20 @@
 // File System Management
 #define FILESYS         USE_STDFILESYS
 
-// Input
-#define INPUTSYS        USE_OSINPUT
+// Input (polled through X11, see CFECLinuxInput.cpp)
+#define INPUTSYS        USE_NATIVE_SUPPORT
 
 // Math
 #define MATH            USE_STDMATH
+
+// Strings
+#define STRING          USE_STDSTRING
+
+// Localization
+#define LOCAL           USE_STDLOCAL
+
+// Profile
+#define PROFILE         USE_STDPROFILE
 
 // ----------------------------------------------------------------------------
 #endif
