@@ -26,10 +26,38 @@ struct TFELinuxGLContext
 };
 // ----------------------------------------------------------------------------
 static TFELinuxWindow       gsoMainWindow = { NULL, 0 };
+// One X connection shared by all the windows the engine (or FELinux_CreateWindow) creates: GLX contexts
+// that share objects must live in the same connection, and a single event queue is easier to pump.
+static Display*             gspoSharedDisplay = NULL;
+static unsigned int         gsuiSharedDisplayRefs = 0;
+static bool                 gsbCloseRequested = false;
+static bool                 gsbCloseQueried   = false; // the application polls FELinux_bCloseRequested itself
+static Atom                 gsoSharedWMDelete = 0;
 static TFELinuxGLContext*   gspoFirstCtx  = NULL;
 // ----------------------------------------------------------------------------
 static const unsigned int DEFAULT_WIN_WIDTH  = 1024;
 static const unsigned int DEFAULT_WIN_HEIGHT = 768;
+// ----------------------------------------------------------------------------
+static Display* AcquireSharedDisplay()
+{
+    if (gspoSharedDisplay == NULL)
+    {
+        gspoSharedDisplay = XOpenDisplay(NULL);
+        if (gspoSharedDisplay == NULL) return(NULL);
+        gsoSharedWMDelete = XInternAtom(gspoSharedDisplay,"WM_DELETE_WINDOW",False);
+    }
+    gsuiSharedDisplayRefs++;
+    return(gspoSharedDisplay);
+}
+// ----------------------------------------------------------------------------
+static void ReleaseSharedDisplay()
+{
+    if ((gsuiSharedDisplayRefs > 0) && (--gsuiSharedDisplayRefs == 0) && (gspoSharedDisplay != NULL))
+    {
+        XCloseDisplay(gspoSharedDisplay);
+        gspoSharedDisplay = NULL;
+    }
+}
 // ----------------------------------------------------------------------------
 static XVisualInfo* ChooseOwnVisual(Display* _poDpy)
 {
@@ -81,7 +109,7 @@ TFELinuxGLContext* FELinux_CreateContext(const TFELinuxWindow* _poWindow,unsigne
     }
     else
     {
-        poCtx->m_poDisplay = XOpenDisplay(NULL);
+        poCtx->m_poDisplay = AcquireSharedDisplay();
         if (poCtx->m_poDisplay == NULL)
         {
             fprintf(stderr,"FuetEngine: could not open X display (is DISPLAY set?)\n");
@@ -94,7 +122,7 @@ TFELinuxGLContext* FELinux_CreateContext(const TFELinuxWindow* _poWindow,unsigne
     if (poVI == NULL)
     {
         fprintf(stderr,"FuetEngine: no suitable OpenGL visual found\n");
-        if (poCtx->m_bOwnsWindow) XCloseDisplay(poCtx->m_poDisplay);
+        if (poCtx->m_bOwnsWindow) ReleaseSharedDisplay();
         delete poCtx;
         return(NULL);
     }
@@ -105,7 +133,7 @@ TFELinuxGLContext* FELinux_CreateContext(const TFELinuxWindow* _poWindow,unsigne
     {
         fprintf(stderr,"FuetEngine: could not create GLX rendering context\n");
         XFree(poVI);
-        if (poCtx->m_bOwnsWindow) XCloseDisplay(poCtx->m_poDisplay);
+        if (poCtx->m_bOwnsWindow) ReleaseSharedDisplay();
         delete poCtx;
         return(NULL);
     }
@@ -127,7 +155,7 @@ TFELinuxGLContext* FELinux_CreateContext(const TFELinuxWindow* _poWindow,unsigne
         XStoreName(poCtx->m_poDisplay,poCtx->m_oWin,"FuetEngine");
 
         // Be notified (instead of killed) when the user closes the window.
-        poCtx->m_oWMDelete = XInternAtom(poCtx->m_poDisplay,"WM_DELETE_WINDOW",False);
+        poCtx->m_oWMDelete = gsoSharedWMDelete;
         XSetWMProtocols(poCtx->m_poDisplay,poCtx->m_oWin,&poCtx->m_oWMDelete,1);
 
         XMapWindow(poCtx->m_poDisplay,poCtx->m_oWin);
@@ -152,6 +180,74 @@ TFELinuxGLContext* FELinux_CreateContext(const TFELinuxWindow* _poWindow,unsigne
     return(poCtx);
 }
 // ----------------------------------------------------------------------------
+bool FELinux_bCreateWindow(const char* _szTitle,int _iX,int _iY,unsigned int _uiWidth,unsigned int _uiHeight,TFELinuxWindow* _poWindow)
+{
+    Display* poDpy = AcquireSharedDisplay();
+    if (poDpy == NULL)
+    {
+        fprintf(stderr,"FuetEngine: could not open X display (is DISPLAY set?)\n");
+        return(false);
+    }
+
+    XVisualInfo* poVI = ChooseOwnVisual(poDpy);
+    if (poVI == NULL)
+    {
+        fprintf(stderr,"FuetEngine: no suitable OpenGL visual found\n");
+        ReleaseSharedDisplay();
+        return(false);
+    }
+
+    Window oRoot = RootWindow(poDpy,poVI->screen);
+
+    XSetWindowAttributes oSWA;
+    oSWA.colormap     = XCreateColormap(poDpy,oRoot,poVI->visual,AllocNone);
+    oSWA.border_pixel = 0;
+    oSWA.event_mask   = ExposureMask | StructureNotifyMask;
+
+    Window oWin = XCreateWindow(poDpy,oRoot,_iX,_iY,_uiWidth,_uiHeight,0,poVI->depth,InputOutput,poVI->visual,
+                                CWBorderPixel | CWColormap | CWEventMask,&oSWA);
+    XFree(poVI);
+
+    // Position hints so the window manager respects where the application wants the window.
+    XSizeHints oHints;
+    oHints.flags  = USPosition | USSize;
+    oHints.x = _iX; oHints.y = _iY; oHints.width = (int)_uiWidth; oHints.height = (int)_uiHeight;
+    XSetWMNormalHints(poDpy,oWin,&oHints);
+
+    XStoreName(poDpy,oWin,(_szTitle != NULL)?_szTitle:"FuetEngine");
+    XSetWMProtocols(poDpy,oWin,&gsoSharedWMDelete,1);
+    XMapWindow(poDpy,oWin);
+    XSync(poDpy,False);
+
+    _poWindow->m_pDisplay = poDpy;
+    _poWindow->m_ulWindow = (unsigned long)oWin;
+    return(true);
+}
+// ----------------------------------------------------------------------------
+void FELinux_DestroyWindow(const TFELinuxWindow* _poWindow)
+{
+    if ((_poWindow == NULL) || (_poWindow->m_pDisplay == NULL)) return;
+    XDestroyWindow((Display*)_poWindow->m_pDisplay,(Window)_poWindow->m_ulWindow);
+    XSync((Display*)_poWindow->m_pDisplay,False);
+    ReleaseSharedDisplay();
+}
+// ----------------------------------------------------------------------------
+bool FELinux_bCloseRequested()
+{
+    gsbCloseQueried = true;
+    if (gspoSharedDisplay != NULL)
+    {
+        while (XPending(gspoSharedDisplay) > 0)
+        {
+            XEvent oEvent;
+            XNextEvent(gspoSharedDisplay,&oEvent);
+            if ((oEvent.type == ClientMessage) && ((Atom)oEvent.xclient.data.l[0] == gsoSharedWMDelete))
+                gsbCloseRequested = true;
+        }
+    }
+    return(gsbCloseRequested);
+}
+// ----------------------------------------------------------------------------
 void FELinux_DestroyContext(TFELinuxGLContext* _poCtx)
 {
     if (_poCtx == NULL) return;
@@ -164,7 +260,7 @@ void FELinux_DestroyContext(TFELinuxGLContext* _poCtx)
     if (_poCtx->m_bOwnsWindow)
     {
         if (_poCtx->m_oWin != 0) XDestroyWindow(_poCtx->m_poDisplay,_poCtx->m_oWin);
-        XCloseDisplay(_poCtx->m_poDisplay);
+        ReleaseSharedDisplay();
     }
 
     if (gspoFirstCtx == _poCtx)
@@ -220,9 +316,14 @@ void FELinux_PumpEvents(TFELinuxGLContext* _poCtx)
 
         if ((oEvent.type == ClientMessage) && ((Atom)oEvent.xclient.data.l[0] == _poCtx->m_oWMDelete))
         {
-            // The user closed the window.
-            FELinux_DestroyContext(_poCtx);
-            exit(0);
+            // The user closed the window. An application that polls FELinux_bCloseRequested() ends cleanly,
+            // for the rest (samples) the window is gone: finish here.
+            gsbCloseRequested = true;
+            if (! gsbCloseQueried)
+            {
+                FELinux_DestroyContext(_poCtx);
+                exit(0);
+            }
         }
     }
 }

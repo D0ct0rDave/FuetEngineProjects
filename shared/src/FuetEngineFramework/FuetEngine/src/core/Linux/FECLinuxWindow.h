@@ -34,6 +34,18 @@ struct TFELinuxGLContext;
 /// Contexts share display lists / textures with the first context created. Makes the context current. On success returns the context and fills the window size.
 TFELinuxGLContext* FELinux_CreateContext(const TFELinuxWindow* _poWindow,unsigned int* _puiWidth,unsigned int* _puiHeight);
 
+/// Creates a top-level window ready for OpenGL (same visual the engine would pick) on the connection shared
+/// by every window of the engine. The result can be passed as host window to Graphics::hInit / Input::hInit.
+/// The application owns it: close it with FELinux_DestroyWindow and poll FELinux_bCloseRequested().
+bool FELinux_bCreateWindow(const char* _szTitle,int _iX,int _iY,unsigned int _uiWidth,unsigned int _uiHeight,TFELinuxWindow* _poWindow);
+
+/// Destroys a window created with FELinux_bCreateWindow.
+void FELinux_DestroyWindow(const TFELinuxWindow* _poWindow);
+
+/// Processes the pending X events of the shared connection. Returns true once the user asked to close any of
+/// the windows created with FELinux_bCreateWindow (or by the engine).
+bool FELinux_bCloseRequested();
+
 /// Destroys the context (and the window if the engine created it).
 void FELinux_DestroyContext(TFELinuxGLContext* _poCtx);
 
