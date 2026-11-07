@@ -2,3 +2,6 @@
 *.a
 *.obj
 build_linux/
+shared/toolchain/FuetEngine/
+obj/
+lib/x64/
