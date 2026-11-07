@@ -1,0 +1,13 @@
+// ----------------------------------------------------------------------------
+/*! \class CFESkelAnimVisitor
+ *  \brief A generic class to perform a process over all the elemnts of a HUD hierarchy.
+ *  \author David M&aacute;rquez de la Cruz
+ *  \version 1.0
+ *  \date 2009
+ *  \par Copyright (c) 2009 David M&aacute;rquez de la Cruz
+ *  \par FuetEngine License
+ */
+//-----------------------------------------------------------------------------
+#include "CFESkelAnimNodeVisitor.h"
+#include "CFESkelAnimNode.h"
+//-----------------------------------------------------------------------------

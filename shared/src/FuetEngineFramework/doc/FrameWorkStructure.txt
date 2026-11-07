@@ -1,0 +1,135 @@
+﻿----------------------------------------------------------------------------------------
+Fuet Engine
+David Márquez de la Cruz
+12-Feb-2010
+----------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------
+Architecture of the application: (valid for all platforms)
+----------------------------------------------------------------------------------------
+
+Application Platform Dependent code     - Creates the application in a given system / platform.
+Application Platform Independet code    - The portion of the application which uses the FuetEngine to implement a 2D graphics application.
+FuetEngine Platform independent code    - Provides classes and functionality to implement a 2D graphics application.
+FuetEngine Platform dependent code      - Provides functionality to the engine platform independent code to implement whatever the user application may require.
+
+----------------------------------------------------------------------------------------
+Directory Structure:
+----------------------------------------------------------------------------------------
+
+This is the directory structure followed along the project:
+
+$(FuetEngineFrameworkRoot) -+- doc:    General Documentation Regarding the whole Framework  (for instance this file).
+                            |
+                            +- FuetEngine  -+- doc: General Documentation Regarding the Engine itself.
+                            |               |
+                            |               +- build: Building Systems Files.
+                            |               |           |
+                            |               |           +- System1: Files to build the engine in building System1.
+                            |               |           |
+                            |               |           +- System2: Files to build the engine in building System2.
+                            |               |           |
+                            |               |           ...
+                            |               |    
+                            |               +- bin: Compilation files
+                            |               |           |
+                            |               |           +- System1: Binary files after compilation of the engine in building System1.
+                            |               |           |           |
+                            |               |           |           +- Configuration 1: Binary files for Configuration 1, for instance debug / release / profile
+                            |               |           |           |
+                            |               |           |           +- Configuration 2: Binary files for Configuration 2,
+                            |               |           |           |
+                            |               |           |           ...
+                            |               |           |
+                            |               |           +- System2: Binary files after compilation of the engine in building System2.
+                            |               |           |
+                            |               |           ...
+                            |               |
+                            |               +- lib: Library files
+                            |               |           |
+                            |               |           +- System1: Library files after build of the engine in building System1.
+                            |               |           |           |
+                            |               |           |           +- Configuration 1: Library files for Configuration 1, for instance debug / release / profile
+                            |               |           |           |
+                            |               |           |           +- Configuration 2: Library files for Configuration 2,
+                            |               |           |           |
+                            |               |           |           ...
+                            |               |           |
+                            |               |           +- System2: Library files after build of the engine in building System2.
+                            |               |           |
+                            |               |           ...
+                            |               |
+                            |               +- src: Engine Source Files.
+                            |                           |
+                            |                           +- Collision: Collision functionality.
+                            |                           |
+                            |                           +- Graphics: High level graphic functionality.
+                            |                           |            |
+                            |                           |            +- Sprites
+                            |                           |            |
+                            |                           |            +- Fonts
+                            |                           |            |
+                            |                           |            ...
+                            |                           |
+                            |                           +- Support: Low level functionality.
+                            |                           |           |
+                            |                           |           + Config:
+                            |                           |           |
+                            |                           |           + File:
+                            |                           |           |
+                            |                           |           + Graphics:
+                            |                           |           |
+                            |                           |           ...
+                            |                           ...
+                            |                           |
+                            |                           +- System: Platform specific files.
+                            |                                      |
+                            |                                      +- CFESystem.h: Common interface to be offerred to the rest of the engine.
+                            |                                      |
+                            |                                      +- Plaform1: Files for Platform1: Windows / OpenGL / libconfig / FreeImage / OpenAL.
+                            |                                      |            |
+                            |                                      |            ...
+                            |                                      |
+                            |                                      +- Plaform2: Files for Platform2: Windows / Direct3D / libconfig / FreeImage / OpenAL.
+                            |                                      |            |
+                            |                                      |            ...
+                            |                                      |
+                            |                                      +- Plaform3: Files for Platform3: Linux / OpenGL / libconfig / Devil / OpenAL.
+                            |                                      |            |
+                            |                                      |            ...
+                            |                                      |
+                            |                                      ···
+                            |
+                            +- Samples: FuetEngine example files. Each example is an application in itself.
+                            |               |
+                            |               +- HelloWorld: A sample that draws HelloWorld in the screen.
+                            |               |               |
+                            |               |               +- build: Building Systems Files.
+                            |               |               |         |
+                            |               |               |         +- System1: Files to build the sample in building System1.
+                            |               |               |         |
+                            |               |               |         +- System2: Files to build the sample in building System2.
+                            |               |               |         |
+                            |               |               |         ...
+                            |               |               |
+                            |               |               +- bin: Compilation files
+                            |               |               |       |
+                            |               |               |       +- System1: Binary files after compilation of the sample in building System1.
+                            |               |               |       |           |
+                            |               |               |       |           +- Configuration 1: Binary files for Configuration 1, (for instance debug)
+                            |               |               |       |           |
+                            |               |               |       |           +- Configuration 2: Binary files for Configuration 2, (for instance release)
+                            |               |               |       |           |
+                            |               |               |       |           ...
+                            |               |               |       |
+                            |               |               |       +- System2: Binary files after compilation of the sample in building System2.
+                            |               |               |       |
+                            |               |               |       ...
+                            |               |               |
+                            |               |               +- src: Source files for Helloword sample
+                            |               |               |
+                            |               |               +- data: Data files for application sample HelloWorld.
+                            |               |
+                            |               +- Sample2
+                            |               |
+                            |               ...

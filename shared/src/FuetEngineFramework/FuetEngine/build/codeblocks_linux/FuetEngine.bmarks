@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<BrowseTracker_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="version.h" open="0" top="0" tabpos="33">
+		<Cursor position="723" topLine="1" />
+	</File>
+	<File name="../../src/FEBasicTypes.h" open="0" top="0" tabpos="33">
+		<Cursor position="1860" topLine="8" />
+	</File>
+	<File name="../../src/FEConsts.h" open="0" top="0" tabpos="18">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="../../src/FEEnums.h" open="0" top="0" tabpos="16">
+		<Cursor position="2136" topLine="120" />
+	</File>
+	<File name="../../src/FuetEngine.h" open="0" top="0" tabpos="15">
+		<Cursor position="957" topLine="6" />
+	</File>
+	<File name="../../src/Graphics/Font/CFEFont.cpp" open="0" top="0" tabpos="31">
+		<Cursor position="666" topLine="6" />
+	</File>
+	<File name="../../src/Graphics/Font/CFEFont.h" open="0" top="0" tabpos="24">
+		<Cursor position="1827" topLine="25" />
+	</File>
+	<File name="../../src/Graphics/Font/CFEFontLoader.cpp" open="0" top="0" tabpos="20">
+		<Cursor position="1831" topLine="35" />
+	</File>
+	<File name="../../src/Graphics/Font/CFEFontMgr.cpp" open="0" top="0" tabpos="29">
+		<Cursor position="667" topLine="0" />
+	</File>
+	<File name="../../src/Graphics/Map/CFEMap.cpp" open="0" top="0" tabpos="21">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="../../src/Graphics/Map/CFEMap.h" open="0" top="0" tabpos="13">
+		<Cursor position="1368" topLine="28" />
+	</File>
+	<File name="../../src/Graphics/ScreenUtils/CFEScreenFX.cpp" open="1" top="1" tabpos="34">
+		<Cursor position="2035" topLine="40" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="../../src/Graphics/ScreenUtils/CFEScreenFX.h" open="0" top="0" tabpos="15">
+		<Cursor position="1966" topLine="27" />
+	</File>
+	<File name="../../src/Graphics/ScreenUtils/CFEScreenUtils.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="1294" topLine="22" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="../../src/Graphics/ScreenUtils/CFEScreenUtils.h" open="0" top="0" tabpos="14">
+		<Cursor position="1154" topLine="0" />
+	</File>
+	<File name="../../src/Graphics/Sprite/CFESprite.cpp" open="0" top="0" tabpos="12">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="../../src/Graphics/Sprite/CFESprite.h" open="0" top="0" tabpos="23">
+		<Cursor position="2614" topLine="76" />
+	</File>
+	<File name="../../src/Graphics/Sprite/CFESpriteInstMgr.cpp" open="0" top="0" tabpos="36">
+		<Cursor position="9463" topLine="230" />
+	</File>
+	<File name="../../src/Graphics/Sprite/CFESpriteInstMgr.h" open="0" top="0" tabpos="9">
+		<Cursor position="1990" topLine="35" />
+	</File>
+	<File name="../../src/Graphics/Sprite/CFESpriteLoader.cpp" open="0" top="0" tabpos="37">
+		<Cursor position="3489" topLine="99" />
+		<BrowseMarks positions="1235,1332" />
+	</File>
+	<File name="../../src/Graphics/Sprite/CFESpriteLoader.h" open="0" top="0" tabpos="19">
+		<Cursor position="955" topLine="0" />
+	</File>
+	<File name="../../src/Graphics/Sprite/CFESpriteMgr.cpp" open="0" top="0" tabpos="28">
+		<Cursor position="657" topLine="0" />
+	</File>
+	<File name="../../src/Graphics/Sprite/CFESpriteRenderer.cpp" open="0" top="0" tabpos="35">
+		<Cursor position="3329" topLine="71" />
+	</File>
+	<File name="../../src/Graphics/Sprite/CFESpriteRenderer.h" open="0" top="0" tabpos="5">
+		<Cursor position="675" topLine="0" />
+	</File>
+	<File name="../../src/Support/Config/CFEConfigFile.h" open="0" top="0" tabpos="34">
+		<Cursor position="1207" topLine="9" />
+	</File>
+	<File name="../../src/Support/Graphics/CFEMaterialMgr.cpp" open="0" top="0" tabpos="6">
+		<Cursor position="963" topLine="0" />
+	</File>
+	<File name="../../src/Support/Graphics/CFEMaterialMgr.h" open="0" top="0" tabpos="5">
+		<Cursor position="1762" topLine="1" />
+	</File>
+	<File name="../../src/Support/Graphics/CFERenderer.cpp" open="0" top="0" tabpos="24">
+		<Cursor position="4092" topLine="94" />
+	</File>
+	<File name="../../src/Support/Graphics/CFERenderer.h" open="0" top="0" tabpos="13">
+		<Cursor position="878" topLine="12" />
+	</File>
+	<File name="../../src/Support/Input/CFEInput.cpp" open="0" top="0" tabpos="21">
+		<Cursor position="3551" topLine="82" />
+		<Book_Marks positions="882,882" />
+	</File>
+	<File name="../../src/Support/Input/CFEInput.h" open="0" top="0" tabpos="2">
+		<Cursor position="1360" topLine="42" />
+	</File>
+	<File name="../../src/Support/Math/CFEMath.cpp" open="0" top="0" tabpos="8">
+		<Cursor position="1672" topLine="22" />
+	</File>
+	<File name="../../src/Support/Math/CFEMath.h" open="0" top="0" tabpos="7">
+		<Cursor position="1473" topLine="14" />
+	</File>
+	<File name="../../src/Support/Math/CFEVect2.h" open="0" top="0" tabpos="11">
+		<Cursor position="523" topLine="9" />
+	</File>
+	<File name="../../src/Support/Misc/CFELogger.cpp" open="0" top="0" tabpos="18">
+		<Cursor position="146" topLine="0" />
+	</File>
+	<File name="../../src/Support/Misc/CFELogger.h" open="0" top="0" tabpos="19">
+		<Cursor position="114" topLine="0" />
+	</File>
+	<File name="../../src/Support/Misc/CFEResourceMgr.h" open="0" top="0" tabpos="12">
+		<Cursor position="5679" topLine="128" />
+	</File>
+	<File name="../../src/Support/Sound/CFESoundMgr.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="1117" topLine="0" />
+	</File>
+	<File name="../../src/Support/Sound/CFESoundMgr.h" open="0" top="0" tabpos="3">
+		<Cursor position="966" topLine="2" />
+	</File>
+	<File name="../../src/Support/Sound/CFESoundMixer.cpp" open="0" top="0" tabpos="11">
+		<Cursor position="1816" topLine="49" />
+		<BrowseMarks positions="785,1349,1527,1572,1740,2641" />
+		<Book_Marks positions="1422" />
+	</File>
+	<File name="../../src/Support/Sound/CFESoundMixer.h" open="0" top="0" tabpos="10">
+		<Cursor position="1123" topLine="0" />
+	</File>
+	<File name="../../src/Support/Sound/CFESoundPlayer.cpp" open="0" top="0" tabpos="9">
+		<Cursor position="831" topLine="0" />
+	</File>
+	<File name="../../src/Support/Sound/CFESoundPlayer.h" open="0" top="0" tabpos="8">
+		<Cursor position="685" topLine="5" />
+	</File>
+	<File name="../../src/System/CFESystem.h" open="0" top="0" tabpos="7">
+		<Cursor position="7065" topLine="185" />
+	</File>
+	<File name="../../src/System/CFESystemGlobals.h" open="0" top="0" tabpos="26">
+		<Cursor position="815" topLine="0" />
+	</File>
+	<File name="../../src/System/Common/CFESFreeImage.cpp" open="0" top="0" tabpos="30">
+		<Cursor position="4967" topLine="141" />
+	</File>
+	<File name="../../src/System/Common/CFESImageLib.h" open="0" top="0" tabpos="5">
+		<Cursor position="741" topLine="3" />
+	</File>
+	<File name="../../src/System/Common/CFESLibConfig.cpp" open="0" top="0" tabpos="23">
+		<Cursor position="396" topLine="0" />
+	</File>
+	<File name="../../src/System/Common/CFESOpenAL.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="7600" topLine="12" />
+	</File>
+	<File name="../../src/System/Common/CFESOpenGL.cpp" open="0" top="0" tabpos="25">
+		<Cursor position="3028" topLine="77" />
+		<BrowseMarks positions="" />
+		<Book_Marks positions="" />
+	</File>
+	<File name="../../src/System/Common/CFESStdFileSys.cpp" open="0" top="0" tabpos="19">
+		<Cursor position="2641" topLine="54" />
+	</File>
+	<File name="../../src/System/Common/CFESStdMath.cpp" open="0" top="0" tabpos="13">
+		<Cursor position="396" topLine="0" />
+	</File>
+	<File name="../../src/System/Common/CFESStdMem.cpp" open="0" top="0" tabpos="12">
+		<Cursor position="396" topLine="0" />
+	</File>
+	<File name="../../src/System/FEConfig.h" open="0" top="0" tabpos="15">
+		<Cursor position="825" topLine="10" />
+	</File>
+	<File name="../../src/System/FEConfigOptions.h" open="0" top="0" tabpos="14">
+		<Cursor position="966" topLine="27" />
+	</File>
+	<File name="../../src/System/Linux/CFESGlobals.cpp" open="0" top="0" tabpos="28">
+		<Cursor position="1117" topLine="5" />
+	</File>
+	<File name="../../src/System/Linux/CFESGlobals.h" open="0" top="0" tabpos="27">
+		<Cursor position="1863" topLine="17" />
+	</File>
+	<File name="../../src/System/Linux/CFESLinux.cpp" open="0" top="0" tabpos="29">
+		<Cursor position="1852" topLine="19" />
+	</File>
+	<File name="../../src/System/Linux/CFESLinuxInput.cpp" open="0" top="0" tabpos="22">
+		<Cursor position="1417" topLine="0" />
+	</File>
+	<File name="../../src/System/Linux/CFESLinuxOpenGL.cpp" open="0" top="0" tabpos="17">
+		<Cursor position="5852" topLine="156" />
+	</File>
+	<File name="../../src/System/Linux/FESConfig.h" open="0" top="0" tabpos="16">
+		<Cursor position="693" topLine="8" />
+	</File>
+	<File name="../../src/System/Linux/FESGlobals.h" open="0" top="0" tabpos="17">
+		<Cursor position="0" topLine="9" />
+	</File>
+	<File name="../../src/Types/CFEColor.h" open="0" top="0" tabpos="19">
+		<Cursor position="1332" topLine="22" />
+	</File>
+	<File name="../../src/Types/CFERect.h" open="0" top="0" tabpos="20">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="../../src/Types/CFEVect2.h" open="0" top="0" tabpos="21">
+		<Cursor position="727" topLine="12" />
+		<BrowseMarks positions="727" />
+		<Book_Marks positions="727" />
+	</File>
+</BrowseTracker_layout_file>
